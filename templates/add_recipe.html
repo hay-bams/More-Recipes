@@ -29,11 +29,11 @@
                 <a class="nav-link" href="add_recipe.html">Add Recipes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">View Recipes</a>
+                <a class="nav-link" href="view_recipe.html">View Recipes</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#">Favourites</a>
+                <a class="nav-link" href="favourite.html">Favourites</a>
               </li>
 
               <li class="nav-item">
@@ -61,11 +61,11 @@
                 <a class="nav-link" href="add_recipe.html">Add Recipes</a>
               </li>
               <li class="nav-item d-block d-md-none">
-                <a class="nav-link" href="#">View Recipes</a>
+                <a class="nav-link" href="view_recipe.html">View Recipes</a>
               </li>
 
               <li class="nav-item d-block d-md-none">
-                <a class="nav-link" href="#">Favourites</a>
+                <a class="nav-link" href="favourite.html">Favourites</a>
               </li>
 
               <li class="nav-item d-block d-md-none">
@@ -93,99 +93,40 @@
 
     <body class = "userboard-body">
       <div class = "container">
-        <div class = "row">
-          <div class = "col-sm-12">
-             <form>
-              <div class = "form-group">
-                <label for = "email">Email</label>
-                <input type="email" name="email" class = "form-control">
-              </div>
-
-              <div class = "form-group">
-                <label for = "first_name">First Name</label>
-                <input type="text" name="first_name" class = "form-control">
-              </div>
-
-              <div class = "form-group">
-                <label for = "last_name">Last Name</label>
-                <input type="text" name="last_name" class = "form-control">
-              </div>
-
-              <div class = "form-group">
-                <label for = "review">Review</label>
-                <textarea class = "form-control"></textarea>
-              </div>
-
-              <div class = "form-group">
-                <input type="submit" class = "btn btn-success">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#">Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active">Add Recipe</li>
+        </ol>
+      </div><!--end container-->
       <div class = "container">
         <div class = "row">
-          <div class = "col-sm-12">
+          <div class = "col-sm-6">
              <form>
               <div class = "form-group">
-                <label for = "email">Email</label>
-                <input type="email" name="email" class = "form-control">
+                <label for = "food">Food Name</label>
+                <input type="text" name="food" class = "form-control">
               </div>
 
               <div class = "form-group">
-                <label for = "first_name">First Name</label>
-                <input type="text" name="first_name" class = "form-control">
+                <input type="file">
               </div>
 
               <div class = "form-group">
-                <label for = "last_name">Last Name</label>
-                <input type="text" name="last_name" class = "form-control">
+                <label for = "preparation">Preparations</label>
+                <textarea class = "form-control" name = "preparation"></textarea>
               </div>
 
               <div class = "form-group">
-                <label for = "review">Review</label>
-                <textarea class = "form-control"></textarea>
-              </div>
-
-              <div class = "form-group">
-                <input type="submit" class = "btn btn-success">
+                <input type="submit" class = "btn btn-success" value = "Add Recipe">
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class = "container">
-        <div class = "row">
-          <div class = "col-sm-12">
-             <form>
-              <div class = "form-group">
-                <label for = "email">Email</label>
-                <input type="email" name="email" class = "form-control">
-              </div>
 
-              <div class = "form-group">
-                <label for = "first_name">First Name</label>
-                <input type="text" name="first_name" class = "form-control">
-              </div>
 
-              <div class = "form-group">
-                <label for = "last_name">Last Name</label>
-                <input type="text" name="last_name" class = "form-control">
-              </div>
-
-              <div class = "form-group">
-                <label for = "review">Review</label>
-                <textarea class = "form-control"></textarea>
-              </div>
-
-              <div class = "form-group">
-                <input type="submit" class = "btn btn-success">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
 
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
