@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Open+Sans+Condensed:300|Roboto" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -12,7 +13,7 @@
   </head>
   <body>
     <header>
-       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+       <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top user-nav">
         <div class = "container-fluid">
           <a class="navbar-brand" href="#">Navbar</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +21,7 @@
           </button>
         
         <!--display some of the links here only from md upward-->
-          <div class="collapse navbar-collapse" id = "navbarSupportedContent">
+          <div class="user-nav-collapse collapse navbar-collapse" id = "navbarSupportedContent">
             <ul class="navbar-nav mr-auto bg-dark flex-column d-none d-md-block" id="navigation">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
@@ -91,8 +92,8 @@
       </nav>
     </header>
 
-    <body class = "userboard-body">
-      <div class = "container">
+    <div class = "main-userboard-body">
+      <div class = "container-fluid">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="#">Dashboard</a>
@@ -102,104 +103,124 @@
       </div><!--end container-->
 
       <div class = "container">
-         <div class = "row">
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe1.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+        <div class = "row">
+          <div class = "col-lg-9">
+            <div class = "row">
+             <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe1.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+             </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe2.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+             <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe2.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe3.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+             <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe3.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe4.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div><!--end class-body-->
-            </div><!--end card recipe-card-->
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe4.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div><!--end class-body-->
+              </div><!--end card recipe-card-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe5.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+            <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe5.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe6.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+            <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe6.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe2.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+            <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe7.jpg" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
 
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe3.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
+            <div class = "col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4">
+              <div class="card recipe-card" style = "border: none">
+                <img class="card-img-top img-fluid recipes" src="images/recipe8.gif" alt="Card image cap" style = "height: 200px;">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class = "card-text">some text</p>
+                  <span class = "btn btn-primary">Edit</span>
+                  <span class = "btn btn-danger">Delete</span>
+                </div>
               </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+            </div><!--end col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 latest-recipes-->
+           </div><!--end row-->
+          </div><!--end col-lg-10-->
+          <div class = "col-lg-3">
+            <div class="card highest_rated">
+              <div class="card-body">
+                <h4 class="card-title">Most rated Recipes</h4>
+                <img src="images/recipe1.jpg" style = "width: 100%">
+                <p>
+                  <span>
+                    <i class="fa fa-thumbs-up col-6 mr-6" aria-hidden="true">10</i>
+                  </span>
+                </p>
+              </div><!--end card-body-->
+            </div><!--endcard-->
+          </div><!--end col-lg-4-->
         </div><!--end row-->
       </div><!--end container-->
+    </div><!--end main-suserboard-body-->
+
+
    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

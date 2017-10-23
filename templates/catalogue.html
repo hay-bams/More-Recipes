@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Open+Sans+Condensed:300|Roboto" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -13,59 +14,41 @@
   <body>
   </body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-light fixed-top">
+      <nav class="navbar navbar-expand-md navbar-light fixed-top navigationBar2">
         <div class = "container">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">My Recipes</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Sign in <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link" href="#">Sign up</a>
               </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-          </div>
-         </div>
+          </div><!--end  collapse-->
+         </div><!--end container-->
       </nav>
 
       <div id="featured" class="carousel fade" data-ride="carousel">
         <div class="carousel-inner fullheight2">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="images/recipe4.jpg" alt="First slide">
-             <div class="carousel-caption">
-              <h3>All recipes beautifully structured in us </h3>
-              <div><span class = "btn btn-danger btn btn-lg">Get Started</span></div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/recipe5.jpg" alt="Second slide">
-             <div class="carousel-caption">
-              <h3>All recipes beautifully structured in us </h3>
-              <div><span class = "btn btn-danger btn btn-lg">Get Started</span></div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="images/recipe6.jpg" alt="Third slide">
-            <div class="carousel-caption">
-              <h3>All recipes beautifully structured in us </h3>
-              <div><span class = "btn btn-danger btn btn-lg">Get Started</span></div>
-            </div>
-          </div>
-        </div>
-       
-      </div>
+            <img class="d-block w-100" src="images/recipe2.jpg" alt="First slide">
+              <div class="carousel-caption carousel-caption-search">
+                <h3 class = "catalogue-page">Catalogues</h3>
+               <h3 class = "search-header">Find More Recipes</h3>
+               <form class="form-inline my-2 my-lg-0">
+                <input class="form-control form-control-lg mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-success btn btn-lg my-2 my-sm-0" type="submit">Search</button>
+               </form>
+             </div><!--end carousel-caption-->
+          </div><!--end carousel-item-->
+        </div><!--end carousel-inner-->
+      </div><!--endfeatured-->
     </header>
 
     <div class = "main">
@@ -210,21 +193,35 @@
           </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
         </div><!--end row-->
       </div><!--end container-->
-
-     
       
-      <div class = "jumbotron">
-    
-      </div>
+      <div class = "jumbotron jumbo-search">
+         <div class = "container">
+           <div class = "row">
+             <div class = "col-sm-12">
+              <h3 style = "color: #fff" class = "text-center">You can get Started Here today</h3>
+            <!--   <h3 class="text-center"><span class = "btn btn-info">Our Catalogue</span></h3> -->
+               <div class = "row">
+                <div class = "col-sm-6 mx-auto">
+                  <!--  <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <span class="btn btn-success my-2 my-sm-0" type="submit">Search</span>
+                   </form> -->
+                     <button class = "btn btn-light btn-block">Get  Started</button>
+                </div>
+               </div><!--end inner row--> 
+             </div><!--end col-sm-6-->
+           </div><!--end row-->
+         </div><!--end container-->
+      </div><!--end jumbotron-->
 
        <div class = "container">
         <div class = "row">
           <div class = "col-sm">
-            <h2 class = "text-center latest">Popular</h2>
+            <h2 class = "text-center popular">Popular</h2>
           </div>
         </div>
 
-        <div class = "row">
+        <div class = "row popular-content">
           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
             <div class="card recipe-card" style = "border: none">
               <img class="card-img-top img-fluid recipes" src="images/recipe1.jpg" alt="Card image cap" style = "height: 200px;">
@@ -272,11 +269,16 @@
       </div><!--end container-->
 
 
-
      <footer>
-       <nav class="navbar navbar-dark bg-dark">
-          <div class = "container">
-              <ul class="navbar-nav mr-auto">
+      <div class = "container">
+        <div class = "row">
+         <div class = " col- col-sm-6">
+            <p>Call us at <span class = "phone">+2348093747838</span></p>
+            <p>All contents &copy; Ayobami</p>
+         </div><!--end col-sm-6-->
+          <div class = "col- col-sm-6">
+           <nav class="navbar navbar-expand navbar-dark ">
+              <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -287,12 +289,10 @@
                   <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-              </form>
-           </div>
-        </nav>   
+            </nav> 
+          </div><!--end row-->
+        </div><!--end row-->
+      </div> <!--end container--> 
      </footer>
     </div><!--end main-->
 

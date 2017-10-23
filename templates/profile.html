@@ -21,7 +21,7 @@
           </button>
         
         <!--display some of the links here only from md upward-->
-          <div class="user-nav-collapse collapse navbar-collapse" id = "navbarSupportedContent">
+          <div class="collapse navbar-collapse" id = "navbarSupportedContent">
             <ul class="navbar-nav mr-auto bg-dark flex-column d-none d-md-block" id="navigation">
               <li class="nav-item active">
                 <a class="nav-link" href="#">Dashboard<span class="sr-only">(current)</span></a>
@@ -104,30 +104,51 @@
 
       <div class = "container">
         <div class = "row">
-          <div class = "col-sm-12 col-md-8 col-lg-6">
-             <form>
-              <div class = "form-group">
-                <label for = "food">Food Name</label>
-                <input type="text" name="food" class = "form-control">
-              </div>
+          <div class = "col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Profile Picture</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+               <p> <img src="images/24475008.jpg" class = "img-fluid rounded-circle"></p>
+                
+              <form>
+                <input type="file" name="">
+              </form>
+              </div><!--end card body-->
+            </div><!--end card-->
+          </div><!--end col-sm-6-->
 
-              <div class = "form-group">
-                <input type="file">
-              </div>
+          <div class = "col-sm-6 col-md-6 col-lg-4 col-xl-4">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Basic Pofile</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">
+                  <strong>First Name:</strong> <span>Ayobami</span>
+                </p>
 
-              <div class = "form-group">
-                <label for = "preparation">Preparations</label>
-                <textarea class = "form-control" name = "preparation"></textarea>
-              </div>
+                <p class="card-text">
+                 <strong>Last Name:</strong> <span>Adelakun</span>
+                </p>
 
-              <div class = "form-group">
-                <input type="submit" class = "btn btn-success" value = "Add Recipe">
-              </div>
-            </form>
+                <p class="card-text">
+                  <strong>Username:</strong> <span>Purpose50</span>
+                </p>
+
+                <p class="card-text">
+                 <strong>Email:</strong> <span>purpose4nigeria@gmail.com</span>
+                </p>
+
+                <p class="card-text">
+                 <strong>password:</strong> <span>topwealth</span>
+                </p>
+                <a href="#" class="card-link">Edit</a>
+              </div><!--end card body-->
+            </div><!--end card-->
           </div><!--end col-sm-6-->
         </div><!--end row-->
       </div><!--end container-->
-    </div><!--end main-user-board-->
+    </div><!--end main-->
 
 
 
