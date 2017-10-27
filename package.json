@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./bin/www --exec babel-node",
-    "babel": "babel app.js --watch  --out-file app-compiled.js",
+    "start:dev": "nodemon ./server/bin/www --exec babel-node",
+    "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
-    "lint": "./node_modules/.bin/eslint app.js",
-    "test": "mocha --compilers js:babel-core/register --exit"
+    "lint": "./node_modules/.bin/eslint server/app.js",
+    "test": "mocha --compilers js:babel-core/register server/test/**.js --exit"
   },
   "repository": {
     "type": "git",
