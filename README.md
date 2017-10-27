@@ -1,10 +1,10 @@
-*MORE-RECIPES*
+**MORE-RECIPES**
 
 Andela Cycle 28 Boot-camp Project
 
-*THE TEMPLATE*
+**THE TEMPLATE**
 
-How to run project template locally
+**How to run project template locally**
 
 These instructions will get you a copy of the template up and running on your local machine.
 
@@ -16,11 +16,9 @@ Get into the directory with the template
 cd more-recipes/template
 open `index.html` to view the templates
 
-*API route *
 
-
-*SERVER SIDE*
-*how to run the API endpoints test locally*
+**SERVER SIDE**
+**how to run the API endpoints test locally**
 
 clone this repository
 https://github.com/purpose50/More-Recipes.git
