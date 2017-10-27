@@ -14,14 +14,14 @@ $(function() {
 		$(this).remove();
 	});
 
-	$(window).resize(function() {
-		let wheight = $(window).height(); //get the heoght of the window
-		let wheight2 = Math.floor($(window).height() *  0.87); //get the heoght of the window
+	// $(window).resize(function() {
+	// 	let wheight = $(window).height(); //get the heoght of the window
+	// 	let wheight2 = Math.floor($(window).height() *  0.87); //get the heoght of the window
 
-		$('.fullheight').css('height', wheight);
-		$('.fullheight2').css('height', wheight2);
+	// 	$('.fullheight').css('height', wheight);
+	// 	$('.fullheight2').css('height', wheight2);
 
-	});
+	// });
 
   $(window).scroll(function() { // check if scroll event happened
     if ($(document).scrollTop() > (wheight - 35)) { // check if user scrolled more than 50 from top of the browser window

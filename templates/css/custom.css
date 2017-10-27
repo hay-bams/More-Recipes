@@ -265,7 +265,14 @@ header .navbar-toggler {
   height: auto;
  }
 
-  .navbar-collapse.show {
+ @media only screen and (max-width: 576px) {
+  .col-12.col-sm-6.col-md-4.col-lg-3 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+ }
+  
+   .navbar-collapse.show {
     background: rgba(0, 0, 0, 0.5);
   }
 
@@ -274,5 +281,6 @@ header .navbar-toggler {
     background: none;
   }
 }
+
 
 
