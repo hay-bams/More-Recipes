@@ -10,13 +10,16 @@ class Controller {
    */
   static addRecipe(req, res) {
     const newRecipe = {
+      id: recipeData.recipe.length + 1,
       user: req.body.user,
       title: req.body.title,
       image: req.body.image,
       preparation: req.body.preparation,
+      upvote: 0,
+      downvote: 0
     };
     recipeData.recipe.unshift(newRecipe);
-    res.status(201).json(recipeData.recipe);
+    res.status(201).json(recipeData.recipe[0]);
   }
 
   /**
@@ -40,13 +43,11 @@ class Controller {
    */
   static updateRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
-    recipeData.recipe.forEach((recipe) => {
-      if (recipeData.recipe.id === id) {
-        recipeData.recipe.image = 'recipe5';
-        recipeData.recipe.preparation = 'update preparations';
-      }
-      res.status(201).json(recipeData.recipe);
-    });
+    const recipe = recipeData.recipe.find(oneRecipe => oneRecipe.id === id);
+
+    recipe.image = req.body.image;
+    recipe.preparation = req.body.preparation;
+    res.status(201).json(recipe);
   }
 
   /**
@@ -57,7 +58,7 @@ class Controller {
   static deleteRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
     recipeData.recipe.splice(id, 1);
-    res.status(200).json(recipeData.recipe);
+    res.status(200).json('recipe deleted');
   }
 
   /**
@@ -75,7 +76,7 @@ class Controller {
       review: 'this is awesome'
     };
     recipeData.reviews.unshift(newReview);
-    res.status(201).json(recipeData.reviews);
+    res.status(201).json(recipeData.reviews[0]);
   }
 }
 export default Controller;

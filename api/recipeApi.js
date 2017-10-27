@@ -15,7 +15,8 @@ const recipe = [
     title: 'Rice',
     image: 'recipe2.jpg',
     preparation: 'steps to prepare the food',
-    upvote: 2
+    upvote: 2,
+    downvote: 0
   },
   {
     id: 2,
@@ -23,7 +24,8 @@ const recipe = [
     title: 'Salad',
     image: 'recipe4.jpg',
     preparation: 'steps to prepare the food',
-    upvote: 3
+    upvote: 3,
+    downvote: 0
   }
 ];
 
