@@ -110,7 +110,7 @@ body {
 }
 
 .popular {
-  padding-top: 40px;
+  padding-top: 50px;
   margin-bottom: 35px;
 }
 
@@ -122,8 +122,16 @@ body {
   height: 50px !important;
 }
 
+.catalogue-nav{
+  background: rgba(187, 171, 57, 0.9);
+}
+
+.details-nav{
+  background: rgba(187, 171, 57, 0.9);
+}
+
 footer {
-  background: #F63A59 !important;
+  background: rgba(187, 171, 57, 1) !important;
   color:#fff;
 }
 
@@ -141,7 +149,7 @@ footer .row {
 }
 
 .catalogue {
-  padding-top: 90px;
+  padding-top: 100px;
   margin-bottom: 35px;
 }
 
@@ -176,13 +184,13 @@ footer .row {
   flex-direction: column;*/
   margin-top: 56px; 
   width: 200px;
-   background:  #582a2a !important;
+   background: rgb(74, 68, 29) !important;
   /*height: 600px;*/
 
 }
 
 .user-nav {
-  background: #401919 !important;
+  background: rgba(187, 171, 57, 1) !important;
 }
 
 #navigation > .nav-item {
@@ -210,40 +218,38 @@ header .navbar-toggler {
 }
 
 .main-login-container {
- 
+ padding-top: 30px;
+}
+
+.login-nav {
+   background: rgba(187, 171, 57, 1) !important;
 }
 
 
 .main-login {
-  /*background: url("../images/recipe4.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100%;
-  width: 100%;
-  margin-left: -15px;
-  margin-right: 0 !important; 
-  padding: 0;*/
+  
 }
 
 .main-login .card-body {
  /* background: rgba(0, 0, 0, 0.1);*/
 }
 
-@media only screen and (max-width: 768px) {
- /* header .navbar-collapse.show {
-    background-color: rgba(0, 0, 0, .5);
-  }*/
-
- .navbar-collapse.show {
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .user-nav-collapse.navbar-collapse.show {
-    background: none;
-  }
+.c-offcanvas--left {
+  width: 250px;
 }
 
+.sidebar {
+  color: #fff;
+}
+
+@media only screen and (max-width: 576px) {
+  .recipes {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+
+  
+}
 
 @media only screen and (max-width: 767px) {
   .main-userboard-body {
@@ -258,7 +264,6 @@ header .navbar-toggler {
   width: 250px;
   height: auto;
  }
-}
 
  @media only screen and (max-width: 576px) {
   .col-12.col-sm-6.col-md-4.col-lg-3 {
@@ -266,104 +271,16 @@ header .navbar-toggler {
     padding-right: 10%;
   }
  }
+  
+   .navbar-collapse.show {
+    background: rgba(0, 0, 0, 0.5);
+  }
 
 
-/*<div class = "row d-block">
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe1.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
+  .user-nav-collapse.navbar-collapse.show {
+    background: none;
+  }
+}
 
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe2.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
 
-           <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe3.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe4.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div><!--end class-body-->
-            </div><!--end card recipe-card-->
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe5.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe6.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe2.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-
-          <div class = "col-6 col-sm-6 col-md-4 col-lg-3">
-            <div class="card recipe-card" style = "border: none">
-              <img class="card-img-top img-fluid recipes" src="images/recipe3.jpg" alt="Card image cap" style = "height: 200px;">
-              <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class = "card-text">some text</p>
-                <span class = "btn btn-primary">Edit</span>
-                <span class = "btn btn-danger">Delete</span>
-              </div>
-            </div>
-          </div><!--end col-6 col-sm-6 col-md-4 col-lg-3 latest-recipes-->
-        </div><!--end row-->
-}*/
 
