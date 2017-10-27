@@ -1,4 +1,4 @@
-**H1 MORE-RECIPES**
+**MORE-RECIPES**
 
 Andela Cycle 28 Boot-camp Project
 
