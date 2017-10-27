@@ -16,7 +16,7 @@ class Controller {
       preparation: req.body.preparation,
     };
     recipeData.recipe.unshift(newRecipe);
-    res.json(recipeData.recipe);
+    res.status(201).json(recipeData.recipe);
   }
 
   /**
@@ -28,10 +28,9 @@ class Controller {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
         recipeData.recipe.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
-        console.log(recipeData.recipe);
       }
     }
-    res.json(recipeData.recipe);
+    res.status(200).json(recipeData.recipe);
   }
 
   /**
@@ -46,7 +45,7 @@ class Controller {
         recipeData.recipe.image = 'recipe5';
         recipeData.recipe.preparation = 'update preparations';
       }
-      res.json(recipeData.recipe);
+      res.status(201).json(recipeData.recipe);
     });
   }
 
@@ -58,7 +57,7 @@ class Controller {
   static deleteRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
     recipeData.recipe.splice(id, 1);
-    res.json(recipeData.recipe);
+    res.status(200).json(recipeData.recipe);
   }
 
   /**
@@ -76,7 +75,7 @@ class Controller {
       review: 'this is awesome'
     };
     recipeData.reviews.unshift(newReview);
-    res.json(recipeData.reviews);
+    res.status(201).json(recipeData.reviews);
   }
 }
 export default Controller;

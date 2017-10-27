@@ -3,12 +3,7 @@ import express from 'express';
 // import recipes from '../api/recipe';
 import controller from '../controller/recipeController';
 
-
 const router = express.Router();
-
-router.get('/', (req, res) => {
-  res.json({ 'Hello world': 'Hello' });
-});
 
 router.get('/api/recipes', (req, res) => {
   controller.getAllRecipe(req, res);

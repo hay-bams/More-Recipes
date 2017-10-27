@@ -227,15 +227,7 @@ header .navbar-toggler {
 
 
 .main-login {
-  /*background: url("../images/recipe4.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100%;
-  width: 100%;
-  margin-left: -15px;
-  margin-right: 0 !important; 
-  padding: 0;*/
+  
 }
 
 .main-login .card-body {
@@ -248,6 +240,15 @@ header .navbar-toggler {
 
 .sidebar {
   color: #fff;
+}
+
+@media only screen and (max-width: 576px) {
+  .recipes {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+
+  
 }
 
 @media only screen and (max-width: 767px) {
