@@ -23,8 +23,13 @@ open tempplate locally`
 ```index.html``` to view the templates
 
 
+
+
 **SERVER SIDE**
 *comming soon*
+
+
+
 
 **CLIENT SIDE**
 *coming soon*
