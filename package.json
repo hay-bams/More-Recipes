@@ -8,7 +8,9 @@
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
-    "test": "mocha --compilers js:babel-core/register server/test/**.js --exit"
+    "test": "mocha --compilers js:babel-core/register server/test/**.js --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -38,11 +40,13 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "mocha": "^4.0.1"
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1"
   }
 }
