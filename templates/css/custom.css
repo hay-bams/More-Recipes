@@ -14,6 +14,8 @@ body {
   font-weight: 900;
 }
 
+
+
 .navbar-light .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 1) !important;
   font-size: 20px;
@@ -126,9 +128,6 @@ body {
   background: rgba(187, 171, 57, 0.9);
 }
 
-.details-nav{
-  background: rgba(187, 171, 57, 0.9);
-}
 
 footer {
   background: rgba(187, 171, 57, 1) !important;
@@ -171,6 +170,10 @@ footer .row {
 
 .recipe-card {
   margin-bottom: 20px;
+}
+
+.navigationBar {
+  background-color: rgba(187, 171, 57, 0.9);
 }
 
 #navigation {
@@ -242,14 +245,6 @@ header .navbar-toggler {
   color: #fff;
 }
 
-@media only screen and (max-width: 576px) {
-  .recipes {
-    padding-right: 10%;
-    padding-left: 10%;
-  }
-
-  
-}
 
 @media only screen and (max-width: 767px) {
   .main-userboard-body {
@@ -264,23 +259,21 @@ header .navbar-toggler {
   width: 250px;
   height: auto;
  }
+}
 
- @media only screen and (max-width: 576px) {
+@media only screen and (max-width: 576px) {
   .col-12.col-sm-6.col-md-4.col-lg-3 {
     padding-left: 10%;
     padding-right: 10%;
   }
- }
-  
-   .navbar-collapse.show {
-    background: rgba(0, 0, 0, 0.5);
+
+  .recipes {
+    padding-right: 10%;
+    padding-left: 10%;
   }
 
-
-  .user-nav-collapse.navbar-collapse.show {
-    background: none;
-  }
 }
+
 
 
 
