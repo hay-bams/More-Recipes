@@ -10,7 +10,7 @@ class Controller {
    */
   static addRecipe(req, res) {
     const newRecipe = {
-      id: recipeData.recipe.length + 1,
+      id: recipeData.recipes.length + 1,
       user: req.body.user,
       title: req.body.title,
       image: req.body.image,
@@ -18,8 +18,8 @@ class Controller {
       upvote: 0,
       downvote: 0
     };
-    recipeData.recipe.unshift(newRecipe);
-    res.status(201).json(recipeData.recipe[0]);
+    recipeData.recipes.unshift(newRecipe);
+    res.status(201).json(recipeData.recipes[0]);
   }
 
   /**
@@ -30,10 +30,10 @@ class Controller {
   static getAllRecipe(req, res) {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-        recipeData.recipe.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
+        recipeData.recipes.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
       }
     }
-    res.status(200).json(recipeData.recipe);
+    res.status(200).json(recipeData.recipes);
   }
 
   /**
@@ -43,7 +43,7 @@ class Controller {
    */
   static updateRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
-    const recipe = recipeData.recipe.find(oneRecipe => oneRecipe.id === id);
+    const recipe = recipeData.recipes.find(oneRecipe => oneRecipe.id === id);
 
     recipe.image = req.body.image;
     recipe.preparation = req.body.preparation;
@@ -57,7 +57,8 @@ class Controller {
    */
   static deleteRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
-    recipeData.recipe.splice(id, 1);
+    const recipeId = recipeData.recipes.findIndex(oneRecipe => oneRecipe.id === id);
+    recipeData.recipes.splice(recipeId, 1);
     res.status(200).json('recipe deleted');
   }
 
@@ -75,8 +76,8 @@ class Controller {
       fullName: 'Tola Oladapo',
       review: 'this is awesome'
     };
-    recipeData.reviews.unshift(newReview);
-    res.status(201).json(recipeData.reviews[0]);
+    recipeData.reviewss.unshift(newReview);
+    res.status(201).json(recipeData.reviewss[0]);
   }
 }
 export default Controller;
