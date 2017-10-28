@@ -9,7 +9,7 @@ Andela Cycle 28 Boot-camp Project
 
 These instructions will get you a copy of the template up and running on your local machine.
 
-checkout the [Live Version Here] (https://kati-frantz.github.io/more-recipes/template)
+checkout the [Live Version Here] (purpose50.github.io/More-Recipes/templates/)
 
 -Clone this repository
 ```bash
