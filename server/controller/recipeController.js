@@ -58,8 +58,12 @@ class Controller {
   static deleteRecipe(req, res) {
     const id = parseInt(req.params.id, 10);
     const recipeId = recipeData.recipes.findIndex(oneRecipe => oneRecipe.id === id);
-    recipeData.recipes.splice(recipeId, 1);
-    res.status(200).json('recipe deleted');
+    if (recipeId + 1) {
+      recipeData.recipes.splice(recipeId, 1);
+      res.status(200).json('recipe deleted');
+    } else {
+      res.send('recipe could not be found');
+    }
   }
 
   /**
