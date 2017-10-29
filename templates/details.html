@@ -14,7 +14,7 @@
   <body>
     <header>
      <nav class="navbar navbar-expand-md navbar-light fixed-top navigationBar">
-        <div class = "container">
+        <div class = "container-fluid">
           <a class="navbar-brand" href="index.html">My Recipes</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,21 +44,23 @@
 
           <div class = "col-sm-6 recipe-img">
              <img class="recipe-details img-fluid" src="images/recipe2.jpg" alt="Details image">
-             <span class = "ratings">Ratings:
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-               <i class="fa fa-star-o" aria-hidden="true"></i>
-             </span>
+              <div class = "row">           
+                <a href="#" class = "text-success"><i class="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
+                <a href="#" class = "text-info"><i class="fa fa-comment col-4" aria-hidden="true"></i>25</a>
+                <a href="#" class = "text-danger"><i class="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
+                <a href="#" class = "btn btn-success">upvote<i class="fa fa-thumbs-up" aria-hidden="true"></i></a></span>
+                <a href="#" class = "btn btn-danger">downvote<i class="fa fa-thumbs-down" aria-hidden="true"></i>+1</a></span>
+             </div><!--wnd row-->
 
-           <span>
-            <i class="fa fa-thumbs-up col-6 mr-6" aria-hidden="true">10</i>
-          </span>
-             <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+            <div class = "row">
+             
+            </div>
+            
           </div><!-- col-sm-6 0ffset-sm-3 -->
 
           <div class = "col-sm-6">
+            <h3 class = "text-center">Ingredients</h3>
+            <p>salt, sugar, lorem,ipsum,dolor, exercitations, maggi, red oil, tomatoe</p>
              <h3 class = "text-center preparation">Preparations</h3>
              <p>(1). Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
              (2). Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -97,7 +99,6 @@
             <h4>Add Review</h4>
             <form>
               <div class = "form-group">
-                <label for = "review">Review</label>
                 <textarea class = "form-control"></textarea>
               </div>
 
@@ -131,7 +132,7 @@
                 </li>
               </ul>
             </nav> 
-          </div><!--end row-->
+          </div><!--end col-sm-6-->
         </div><!--end row-->
       </div> <!--end container--> 
      </footer>
