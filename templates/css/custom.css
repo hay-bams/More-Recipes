@@ -224,6 +224,10 @@ header .navbar-toggler {
  padding-top: 30px;
 }
 
+.main-register-container {
+ padding-top: 30px;
+}
+
 .login-nav {
    background: rgba(187, 171, 57, 1) !important;
 }
@@ -246,6 +250,20 @@ header .navbar-toggler {
 }
 
 
+@media only screen and (max-width: 576px) {
+  .col-12.col-sm-6.col-md-4.col-lg-3 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .recipes {
+    padding-right: 10%;
+    padding-left: 10%;
+  }
+
+}
+
+
 @media only screen and (max-width: 767px) {
   .main-userboard-body {
     margin-left: 0;
@@ -260,42 +278,5 @@ header .navbar-toggler {
   height: auto;
  }
 }
-
-@media only screen and (max-width: 576px) {
-  .col-12.col-sm-6.col-md-4.col-lg-3 {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-
-  .recipes {
-    padding-right: 10%;
-    padding-left: 10%;
-  }
-
-}
-
-/*.calendar-stack {
-  position: relative;
-  display: inline-block;
-  width: 0.92857em;
-  height: 1em;
-}
-.calendar-stack .icon-calendar-empty, calendar-stack .calendar-day {
-  position: absolute;
-}
-.calendar-stack .calendar-day {
-  top: 0.875em;
-  left: 0.125em;
-  width: 1.375em;
-  height: 0.75em;
-  font-family: sans-serif;
-  font-size: 0.57143em;
-  font-weight: 700;
-  line-height: 0.57143em;
-  text-align: center;
-}*/
-
-
-
 
 
