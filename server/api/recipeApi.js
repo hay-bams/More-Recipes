@@ -8,7 +8,7 @@ const reviews =  [
   }
 ];
 
-const recipe = [
+const recipes = [
   {
     id: 1,
     user: 'Ayobami',
@@ -31,5 +31,5 @@ const recipe = [
 
 export default {
   reviews,
-  recipe
+  recipes
 };
