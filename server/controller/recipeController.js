@@ -69,7 +69,7 @@ class Controller {
       this.recipeDetails.recipes.splice(recipeId, 1);
       res.status(200).json('recipe deleted');
     } else {
-      res.send('recipe could not be found');
+      res.status(404).send('Page not found');
     }
   }
 

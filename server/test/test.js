@@ -85,6 +85,15 @@ describe('Api Routes', () => {
       });
   });
 
+  it('should return 404 error', (done) => {
+    chai.request(app)
+      .delete('/api/v1/recipes/100')
+      .end((err, res) => {
+        res.should.have.status(404);
+        done();
+      });
+  });
+
   it('should add a review to a recipe', (done) => {
     const review = {
       id: 0,
