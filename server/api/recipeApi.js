@@ -15,6 +15,7 @@ const recipes = [
     title: 'Rice',
     image: 'recipe2.jpg',
     preparation: 'steps to prepare the food',
+    ingredients: 'maggi',
     upvote: 2,
     downvote: 0
   },
@@ -24,6 +25,7 @@ const recipes = [
     title: 'Salad',
     image: 'recipe4.jpg',
     preparation: 'steps to prepare the food',
+    ingredients: 'maggi',
     upvote: 3,
     downvote: 0
   }
