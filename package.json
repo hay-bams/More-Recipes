@@ -32,6 +32,10 @@
     "mocha": "^4.0.1",
     "morgan": "^1.9.0",
     "nodemon": "^1.12.1",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.20.1",
+    "sequelize-cli": "^3.0.0",
     "supertest": "^3.0.0"
   },
   "babel": {

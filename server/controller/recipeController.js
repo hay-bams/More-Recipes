@@ -22,6 +22,7 @@ class Controller {
       title: req.body.title,
       image: req.body.image,
       preparation: req.body.preparation,
+      ingredients: req.body.ingredients,
       upvote: 0,
       downvote: 0
     };

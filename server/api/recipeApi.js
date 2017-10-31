@@ -11,19 +11,21 @@ const reviews =  [
 const recipes = [
   {
     id: 1,
-    user: 'Ayobami',
+    userId: 5,
     title: 'Rice',
     image: 'recipe2.jpg',
     preparation: 'steps to prepare the food',
+    ingredients: 'maggi',
     upvote: 2,
     downvote: 0
   },
   {
     id: 2,
-    user: 'Earnest',
+    userId: 3,
     title: 'Salad',
     image: 'recipe4.jpg',
     preparation: 'steps to prepare the food',
+    ingredients: 'maggi',
     upvote: 3,
     downvote: 0
   }
