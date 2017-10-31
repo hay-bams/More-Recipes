@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Votes', {
+  up: (queryInterface, Sequelize) => 
+    queryInterface.createTable('Votes', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -23,19 +23,20 @@ module.exports = {
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references: {
-          model: 'Recipe',
+          model: 'Recipes',
           key: 'id',
+        }
       },
       userId: {
         type: Sequelize.UUID,
         onDelete: 'CASCADE',
         references: {
-          model: 'User',
+          model: 'Users',
           key: 'id',
-      }
-    });
-  },
-  down: (queryInterface, Sequelize) => {
+        }
+      },
+    }),
+  down: (queryInterface) => {
     return queryInterface.dropTable('Votes');
   }
 };
