@@ -1,12 +1,11 @@
-'use strict';
 module.exports = {
-  up: (queryInterface, Sequelize) => 
+  up: (queryInterface, Sequelize) =>
     queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
       },
       firstName: {
         type: Sequelize.STRING,
@@ -16,16 +15,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       email: {
-        type: Sequelize.STRING, 
+        type: Sequelize.STRING,
         unique: true,
         allowNull: false
       },
       password: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      confirmPassword: {
         type: Sequelize.STRING,
         allowNull: false
       },
