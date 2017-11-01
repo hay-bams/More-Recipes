@@ -25,4 +25,9 @@ router.post('/api/v1/recipes/:id/reviews', (req, res) => {
   controller.addReview(req, res);
 });
 
+// DATABASE
+router.post('/api/v1/users/signup', (req, res) => {
+  controller.signup(req, res);
+});
+
 export default router;

@@ -3,9 +3,9 @@ module.exports = {
     queryInterface.createTable('Reviews', {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        autoIncrement: true
       },
       createdAt: {
         allowNull: false,
@@ -16,21 +16,22 @@ module.exports = {
         type: Sequelize.DATE
       },
       userId: {
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
-          key: 'id',
-        }
+          key: 'id'
+        },
       },
+
       recipeId: {
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         references: {
           model: 'Recipes',
           key: 'id'
-        }
-      }
+        },
+      },
     }),
   down: queryInterface => queryInterface.dropTable('Reviews')
 };
