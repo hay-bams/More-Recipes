@@ -1,4 +1,4 @@
-import recipesAndReviewsData from '../api/recipeApi';
+import jwt from 'jsonwebtoken';
 import models from '../models';
 /**
  * @class Controller
@@ -10,29 +10,10 @@ class Controller {
    * @param {obj} models
    */
   constructor() {
-    this.recipeDetails = recipesAndReviewsData;
     this.models = models;
+    this.jwt = jwt;
+    this.secret = 'This is your guy';
   }
-  /**
-   *@returns {obj} addRecipe
-   * @param {obj} req
-   * @param {obj} res
-   */
-  addRecipe(req, res) {
-    const newRecipe = {
-      id: this.recipeDetails.recipes.length + 1,
-      user: req.body.user,
-      title: req.body.title,
-      image: req.body.image,
-      preparation: req.body.preparation,
-      ingredients: req.body.ingredients,
-      upvote: 0,
-      downvote: 0
-    };
-    this.recipeDetails.recipes.unshift(newRecipe);
-    res.status(201).json(this.recipeDetails.recipes[0]);
-  }
-
   /**
    * @returns {obj} getAllRecipe
    * @param {obj} req

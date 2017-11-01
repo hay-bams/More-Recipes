@@ -1,6 +1,4 @@
-
 import express from 'express';
-// import recipes from '../api/recipe';
 import RecipeController from '../controller/recipeController';
 import UserController from '../controller/userController';
 
@@ -26,9 +24,12 @@ router.post('/api/v1/recipes/:id/reviews', (req, res) => {
   RecipeController.addReview(req, res);
 });
 
-// DATABASE
 router.post('/api/v1/users/signup', (req, res) => {
   UserController.signup(req, res);
+});
+
+router.post('/api/v1/users/signin', (req, res) => {
+  UserController.signin(req, res);
 });
 
 export default router;
