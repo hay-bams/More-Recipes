@@ -20,7 +20,8 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'Users',
-          key: 'id'
+          key: 'id',
+          as: 'userId'
         },
       },
 
@@ -29,7 +30,8 @@ module.exports = {
         onDelete: 'CASCADE',
         references: {
           model: 'Recipes',
-          key: 'id'
+          key: 'id',
+          as: 'recipeId'
         },
       },
     }),
