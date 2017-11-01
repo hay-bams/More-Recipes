@@ -24,7 +24,6 @@ module.exports = {
           as: 'userId'
         },
       },
-
       recipeId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',

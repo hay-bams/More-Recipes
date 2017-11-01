@@ -15,6 +15,33 @@ class Controller {
     this.secret = 'This is your guy';
   }
   /**
+   *@returns {obj} addRecipe
+   * @param {obj} req
+   * @param {obj} res
+   */
+  addRecipe(req, res) {
+    const { token } = req.headers;
+    if (!token) return res.status(401).send('No token provided');
+
+    this.jwt.verify(token, this.secret, (err, decoded) => {
+      if (err) return res.status(500).send('Failed to authenticate token.');
+
+      const recipe = {
+        title: req.body.title,
+        image: req.body.image,
+        instructions: req.body.instructions,
+        ingredients: req.body.ingredients,
+        upvote: 0,
+        downvote: 0,
+        userId: decoded.id
+      };
+      this.models.Recipe.create(recipe)
+        .then(newRecipe => res.status(201).send(newRecipe))
+        .catch(err => res.status(201).send(err));
+    });
+  }
+
+  /**
    * @returns {obj} getAllRecipe
    * @param {obj} req
    * @param {obj} res
@@ -34,12 +61,34 @@ class Controller {
    * @param {obj} res
    */
   updateRecipe(req, res) {
-    const id = parseInt(req.params.id, 10);
-    const recipe = this.recipeDetails.recipes.find(oneRecipe => oneRecipe.id === id);
+    const { token } = req.headers;
+    if (!token) return res.status(401).send('No token provided');
 
-    recipe.image = req.body.image;
-    recipe.preparation = req.body.preparation;
-    res.status(201).json(recipe);
+    this.jwt.verify(token, this.secret, (err, decoded) => {
+      if (err) return res.status(500).send('Failed to authenticate token.');
+
+      const id = parseInt(req.params.id, 10);
+      this.models.Recipe.findById(id)
+        .then((recipeFound) => {
+          const recipe = {
+            title: req.body.title || recipeFound.title,
+            image: req.body.image || recipeFound.image,
+            instructions: req.body.instructions || recipeFound.instructions,
+            ingredients: req.body.ingredients || recipeFound.ingredients,
+            upvote: recipeFound.upvote,
+            downvote: recipeFound.upvote,
+            userId: decoded.id
+          };
+          this.models.Recipe.update(recipe, { where: {
+            id: {
+              $eq: id
+            }
+          }
+          })
+            .then(updatedRecipe => res.status(201).send('Recipe Updated Successfully'))
+            .catch(err => res.status(400).send(err));
+        });
+    });
   }
 
   /**

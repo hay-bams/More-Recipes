@@ -63,7 +63,7 @@ class Controller {
         if (!validPassword) {
           return res.status(401).send('Wrong password');
         }
-        const token = jwt.sign({ id: userFound.id }, this.secret, { expiresIn: 60 * 1 });
+        const token = jwt.sign({ id: userFound.id }, this.secret, { expiresIn: 87640 });
         res.send(token);
       });
   }

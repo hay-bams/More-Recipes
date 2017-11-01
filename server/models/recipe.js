@@ -15,16 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     instructions: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    upvote: {
-      type: DataTypes.STRING,
-      defaultValue: 0,
-      allowNull: false
-    },
-    downvote: {
-      type: DataTypes.STRING,
-      defaultValue: 0,
-      allowNull: false
     }
   });
   Recipe.associate = (models) => {

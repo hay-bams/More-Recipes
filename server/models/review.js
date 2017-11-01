@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
   const Review = sequelize.define('Review', {
-    recipeId: {
-      type: DataTypes.UUID,
-      allowNull: false
-    },
     review: {
       type: DataTypes.STRING,
       allowNull: false
