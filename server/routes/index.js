@@ -32,7 +32,4 @@ router.post('/api/v1/users/signin', (req, res) => {
   UserController.signin(req, res);
 });
 
-
-
-
 export default router;
