@@ -10,6 +10,9 @@ module.exports = {
       upvotes: {
         type: Sequelize.BOOLEAN
       },
+      downvotes: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

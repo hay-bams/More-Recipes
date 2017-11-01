@@ -3,6 +3,10 @@ module.exports = (sequelize, DataTypes) => {
     upvotes: {
       type: DataTypes.BOOLEAN,
       allowNull: false
+    },
+    downvotes: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   });
   Vote.associate = (models) => {
