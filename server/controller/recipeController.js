@@ -1,25 +1,17 @@
 import jwt from 'jsonwebtoken';
 import models from '../models';
+
+const secret = 'This is your guy';
 /**
  * @class Controller
  */
-class Controller {
-  /**
-   * @returns {obj} constructor
-   * @param {obj} recipesAndReviews
-   * @param {obj} models
-   */
-  constructor() {
-    this.models = models;
-    this.jwt = jwt;
-    this.secret = 'This is your guy';
-  }
+class RecipeController {
   /**
    *@returns {obj} addRecipe
    * @param {obj} req
    * @param {obj} res
    */
-  addRecipe(req, res) {
+  static addRecipe(req, res) {
     if (!req.body.title) {
       return res.status(400).send('title is required');
     } else if (!req.body.instructions) {
@@ -30,7 +22,7 @@ class Controller {
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const recipe = {
@@ -40,7 +32,7 @@ class Controller {
         ingredients: req.body.ingredients,
         userId: decoded.id
       };
-      this.models.Recipe.create(recipe)
+      models.Recipe.create(recipe)
         .then(newRecipe => res.status(201).send(newRecipe))
         .catch(err => res.status(201).send(err));
     });
@@ -51,10 +43,10 @@ class Controller {
    * @param {obj} req
    * @param {obj} res
    */
-  getAllRecipe(req, res) {
+  static getAllRecipe(req, res) {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-        this.models.Vote.findAll()
+        models.Vote.findAll()
           .then((allVotes) => {
             allVotes.sort((vote1, vote2) => vote2.upvote - vote1.upvote);
             res.status(200).send(allVotes);
@@ -62,7 +54,7 @@ class Controller {
           .catch(err => res.status(500).send(err));
       }
     }
-    this.models.Recipe.findAll()
+    models.Recipe.findAll()
       .then((allRecipes) => {
         if (!allRecipes) {
           res.status(401).send('Page not found');
@@ -77,15 +69,15 @@ class Controller {
    * @param {obj} req
    * @param {obj} res
    */
-  updateRecipe(req, res) {
+  static updateRecipe(req, res) {
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const id = parseInt(req.params.recipeId, 10);
-      this.models.Recipe.findById(id)
+      models.Recipe.findById(id)
         .then((recipeFound) => {
           const recipe = {
             title: req.body.title || recipeFound.title,
@@ -111,15 +103,15 @@ class Controller {
    * @param {obj} req
    * @param {obj} res
    */
-  deleteRecipe(req, res) {
+  static deleteRecipe(req, res) {
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const id = parseInt(req.params.recipeId, 10);
-      this.models.Recipe.findById(id)
+      models.Recipe.findById(id)
 
         .then((recipeFound) => {
           if (recipeFound.userId === decoded.id) {
@@ -138,14 +130,14 @@ class Controller {
    * @param {obj} req
    * @param {obj} res
    */
-  addReview(req, res) {
+  static addReview(req, res) {
     if (!req.body) {
       return res.status(500).send('the review field is required');
     }
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const id = parseInt(req.params.recipeId, 10);
@@ -154,7 +146,7 @@ class Controller {
         userId: decoded.id,
         recipeId: id
       };
-      this.models.Review.create(review)
+      models.Review.create(review)
         .then(newReview => res.status(201).send(newReview))
         .catch(err => res.status(201).send(err));
     });
@@ -165,16 +157,16 @@ class Controller {
    * @param {*} req
    * @param {*} res
    */
-  getUserFavourites(req, res) {
+  static getUserFavourites(req, res) {
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const userId = parseInt(req.params.userId, 10);
       if (userId === decoded.id) {
-        this.models.Favourite.findAll({
+        models.Favourite.findAll({
           where: { userId: decoded.id }
         })
           .then((favourite) => {
@@ -191,11 +183,11 @@ class Controller {
    * @param {*} req
    * @param {*} res
    */
-  addUserFavourite(req, res) {
+  static addUserFavourite(req, res) {
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
-    this.jwt.verify(token, this.secret, (err, decoded) => {
+    jwt.verify(token, secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
       const recipeId = parseInt(req.params.recipeId, 10);
@@ -203,12 +195,11 @@ class Controller {
         recipeId: recipeId,
         userId: decoded.id
       };
-      this.models.Favourite.create(favourite)
+      models.Favourite.create(favourite)
         .then(newFav => res.status(200).send(newFav))
         .catch(err => res.status(500).send(err));
     });
   }
 }
 
-const RecipeController = new Controller();
 export default RecipeController;
