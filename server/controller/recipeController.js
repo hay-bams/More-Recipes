@@ -47,7 +47,11 @@ class Controller {
   getAllRecipe(req, res) {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-        this.recipeDetails.recipes.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
+        this.models.Recipe.findAll()
+          .then((allRecipes) => {
+            allRecipes.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
+          })
+          .catch(err => res.status(500).send(err));
       }
     }
     this.models.Recipe.findAll()
@@ -108,7 +112,7 @@ class Controller {
 
       const id = parseInt(req.params.recipeId, 10);
       this.models.Recipe.findById(id)
-        
+
         .then((recipeFound) => {
           if (recipeFound.userId === decoded.id) {
             recipeFound.destroy()
@@ -142,6 +146,32 @@ class Controller {
       this.models.Review.create(review)
         .then(newReview => res.status(201).send(newReview))
         .catch(err => res.status(201).send(err));
+    });
+  }
+
+  /**
+   * @returns {obj} getUserFavourites
+   * @param {*} req
+   * @param {*} res
+   */
+  getUserFavourites(req, res) {
+    const { token } = req.headers;
+    if (!token) return res.status(401).send('No token provided');
+
+    this.jwt.verify(token, this.secret, (err, decoded) => {
+      if (err) return res.status(500).send('Failed to authenticate token.');
+
+      const userId = parseInt(req.params.userId, 10);
+      if (userId === decoded.id) {
+        this.models.Favourite.findAll({
+          where: { userId: decoded.id }
+        })
+          .then((favourite) => {
+            if (!favourite) return res.status(404).send('Page Not found');
+
+            res.status(200).send(favourite);
+          });
+      }
     });
   }
 }
