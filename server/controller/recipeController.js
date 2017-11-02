@@ -20,6 +20,13 @@ class Controller {
    * @param {obj} res
    */
   addRecipe(req, res) {
+    if (!req.body.title) {
+      return res.status(400).send('title is required');
+    } else if (!req.body.instructions) {
+      return res.status(400).send('insttruction is required');
+    } else if (!req.body.ingredients) {
+      return res.status(400).send('ingredinets are required');
+    }
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 

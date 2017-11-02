@@ -50,7 +50,13 @@ class Controller {
    * @param {*} res
    */
   signin(req, res) {
-
+    // validate that email and passwords are set
+    if (!req.body.email) {
+      return res.status(404).send('email is required');
+    } else if (!req.body.password) {
+      return res.status(404).send('Password is required');
+    }
+    // find user with their emails
     this.models.User.findOne({
       where: {
         email: req.body.email
@@ -63,7 +69,7 @@ class Controller {
         const validPassword = bcrypt.compareSync(req.body.password, userFound.password);
         if (!validPassword) {
           return res.status(401).send('Wrong password');
-        }
+        } 
         const token = jwt.sign({ id: userFound.id }, this.secret, { expiresIn: 87640 });
         res.send(token);
       });
