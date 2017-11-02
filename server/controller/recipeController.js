@@ -31,8 +31,6 @@ class Controller {
         image: req.body.image,
         instructions: req.body.instructions,
         ingredients: req.body.ingredients,
-        upvote: 0,
-        downvote: 0,
         userId: decoded.id
       };
       this.models.Recipe.create(recipe)
@@ -52,7 +50,14 @@ class Controller {
         this.recipeDetails.recipes.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
       }
     }
-    res.status(200).json(this.recipeDetails.recipes);
+    this.models.Recipe.findAll()
+      .then((allRecipes) => {
+        if (!allRecipes) {
+          res.status(401).send('Page not found')
+        } else {
+          res.status(200).send(allRecipes);
+        }
+      });
   }
 
   /**
@@ -67,7 +72,7 @@ class Controller {
     this.jwt.verify(token, this.secret, (err, decoded) => {
       if (err) return res.status(500).send('Failed to authenticate token.');
 
-      const id = parseInt(req.params.id, 10);
+      const id = parseInt(req.params.recipeId, 10);
       this.models.Recipe.findById(id)
         .then((recipeFound) => {
           const recipe = {
@@ -75,18 +80,16 @@ class Controller {
             image: req.body.image || recipeFound.image,
             instructions: req.body.instructions || recipeFound.instructions,
             ingredients: req.body.ingredients || recipeFound.ingredients,
-            upvote: recipeFound.upvote,
-            downvote: recipeFound.upvote,
             userId: decoded.id
           };
-          this.models.Recipe.update(recipe, { where: {
-            id: {
-              $eq: id
-            }
-          }
-          })
-            .then(updatedRecipe => res.status(201).send('Recipe Updated Successfully'))
-            .catch(err => res.status(400).send(err));
+          
+          if (recipeFound.userId === decoded.id) {
+            recipeFound.update(recipe)
+              .then(() => res.status(201).send('Recipe Updated Successfully'))
+              .catch(err => res.status(400).send(err));
+          } else {
+            res.status(404).send('You are not authorize to update a recipe that is not yours')
+          } 
         });
     });
   }
@@ -97,14 +100,25 @@ class Controller {
    * @param {obj} res
    */
   deleteRecipe(req, res) {
-    const id = parseInt(req.params.id, 10);
-    const recipeId = this.recipeDetails.recipes.findIndex(oneRecipe => oneRecipe.id === id);
-    if (recipeId + 1) {
-      this.recipeDetails.recipes.splice(recipeId, 1);
-      res.status(200).json('recipe deleted');
-    } else {
-      res.status(404).send('Page not found');
-    }
+    const { token } = req.headers;
+    if (!token) return res.status(401).send('No token provided')
+
+    this.jwt.verify(token, this.secret, (err, decoded) => {
+      if (err) return res.status(500).send('Failed to authenticate token.');
+
+      const id = parseInt(req.params.recipeId, 10);
+      this.models.Recipe.findById(id)
+        
+        .then((recipeFound) => {
+          if (recipeFound.userId === decoded.id) {
+            recipeFound.destroy()
+              .then(() => res.status(200).send('Recipie deleted'))
+              .catch(err => res.status(401).send(err));
+          } else {
+            res.status(404).send('You are not authorize to delete a recipe that is not yours');
+          }
+        })
+    });
   }
 
   /**

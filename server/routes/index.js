@@ -12,11 +12,11 @@ router.post('/api/v1/recipes', (req, res) => {
   RecipeController.addRecipe(req, res);
 });
 
-router.put('/api/v1/recipes/:id', (req, res) => {
+router.put('/api/v1/recipes/:recipeId', (req, res) => {
   RecipeController.updateRecipe(req, res);
 });
 
-router.delete('/api/v1/recipes/:id', (req, res) => {
+router.delete('/api/v1/recipes/:recipeId', (req, res) => {
   RecipeController.deleteRecipe(req, res);
 });
 
