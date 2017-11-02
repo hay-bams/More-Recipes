@@ -40,4 +40,8 @@ router.get('/api/recipes?sort=upvotes&order=desc', (req, res) => {
   UserController.signin(req, res);
 });
 
+router.get('/api/v1/recipes/:recipeId', (req, res) => {
+  RecipeController.addUserFavourite(req, res)
+});
+
 export default router;
