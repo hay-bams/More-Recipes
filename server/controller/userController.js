@@ -50,6 +50,7 @@ class Controller {
    * @param {*} res
    */
   signin(req, res) {
+
     this.models.User.findOne({
       where: {
         email: req.body.email

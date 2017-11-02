@@ -47,9 +47,10 @@ class Controller {
   getAllRecipe(req, res) {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-        this.models.Recipe.findAll()
-          .then((allRecipes) => {
-            allRecipes.sort((recipe1, recipe2) => recipe2.upvote - recipe1.upvote);
+        this.models.Vote.findAll()
+          .then((allVotes) => {
+            allVotes.sort((vote1, vote2) => vote2.upvote - vote1.upvote);
+            res.status(200).send(allVotes);
           })
           .catch(err => res.status(500).send(err));
       }
