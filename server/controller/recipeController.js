@@ -139,6 +139,9 @@ class Controller {
    * @param {obj} res
    */
   addReview(req, res) {
+    if (!req.body) {
+      return res.status(500).send('the review field is required');
+    }
     const { token } = req.headers;
     if (!token) return res.status(401).send('No token provided');
 
@@ -180,6 +183,29 @@ class Controller {
             res.status(200).send(favourite);
           });
       }
+    });
+  }
+
+  /**
+   * @return {obj} addUserFavourites
+   * @param {*} req
+   * @param {*} res
+   */
+  addUserFavourite(req, res) {
+    const { token } = req.headers;
+    if (!token) return res.status(401).send('No token provided');
+
+    this.jwt.verify(token, this.secret, (err, decoded) => {
+      if (err) return res.status(500).send('Failed to authenticate token.');
+
+      const recipeId = parseInt(req.params.recipeId, 10);
+      const favourite = {
+        recipeId: recipeId,
+        userId: decoded.id
+      };
+      this.models.Favourite.create(favourite)
+        .then(newFav => res.status(200).send(newFav))
+        .catch(err => res.status(500).send(err));
     });
   }
 }
