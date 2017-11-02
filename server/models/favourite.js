@@ -1,15 +1,15 @@
 module.exports = (sequelize, DataTypes) => {
-  const favourite = sequelize.define('Favourite', {
+  const Favourite = sequelize.define('Favourite', {
     recipeId: {
       type: DataTypes.INTEGER,
       allowNull: false
     }
   });
-  favourite.associate = (models) => {
-    favourite.belongsToMany(models.User, {
+  Favourite.associate = (models) => {
+    Favourite.belongsTo(models.User, {
       foreignKey: 'userId'
     });
   };
-  return favourite;
+  return Favourite;
 };
 

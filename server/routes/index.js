@@ -32,4 +32,12 @@ router.post('/api/v1/users/signin', (req, res) => {
   UserController.signin(req, res);
 });
 
+router.get('/api/users/:userId/recipes', (req, res) => {
+  RecipeController.getUserFavourites(req, res);
+});
+
+router.get('/api/recipes?sort=upvotes&order=desc', (req, res) => {
+  UserController.signin(req, res);
+});
+
 export default router;
