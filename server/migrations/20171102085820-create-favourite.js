@@ -7,8 +7,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         autoIncrement: true
       },
-      review: {
-        type: Sequelize.STRING,
+      recipeId: {
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       createdAt: {
@@ -27,16 +27,7 @@ module.exports = {
           key: 'id',
           as: 'userId'
         },
-      },
-      recipeId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Recipes',
-          key: 'id',
-          as: 'recipeId'
-        },
-      },
+      }
     }),
   down: queryInterface => queryInterface.dropTable('Reviews')
 };

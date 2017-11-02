@@ -20,7 +20,7 @@ router.delete('/api/v1/recipes/:recipeId', (req, res) => {
   RecipeController.deleteRecipe(req, res);
 });
 
-router.post('/api/v1/recipes/:id/reviews', (req, res) => {
+router.post('/api/v1/recipes/:recipeId/reviews', (req, res) => {
   RecipeController.addReview(req, res);
 });
 
