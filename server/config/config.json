@@ -18,7 +18,7 @@
   "production": {
     "username": "postgres",
     "password": "123solution",
-    "database": "database_production",
+    "database": "more-recipes",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
