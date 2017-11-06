@@ -23,7 +23,11 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: 'CASCADE'
     });
 
-    Recipe.hasMany(models.Vote, {
+    Recipe.hasMany(models.Upvote, {
+      foreignKey: 'recipeId'
+    });
+
+    Recipe.hasMany(models.Downvote, {
       foreignKey: 'recipeId'
     });
 

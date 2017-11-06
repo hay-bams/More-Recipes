@@ -14,18 +14,6 @@ class UserController {
    * @param {*} res
    */
   static signup(req, res) {
-    if (!req.body.firstName) {
-      return res.status(401).send({ success: 'false', message: 'please enter your first name' });
-    } else if (!req.body.lastName) {
-      return res.status(401).send({ success: 'false', message: 'please enter your last name' });
-    } else if (!req.body.email) {
-      return res.status(401).send({ success: 'false', message: 'please enter your email' });
-    } else if (!req.body.password) {
-      return res.status(401).send({ success: 'false', message: 'please enter your password' });
-    } else if (req.body.password !== req.body.confirmPassword) {
-      return res.status(401).send({ success: 'false', message: 'passowrd should match' });
-    }
-
     const hashedPassword = bcrypt.hashSync(req.body.password, 8);
     const user = {
       firstName: req.body.firstName,
@@ -44,13 +32,6 @@ class UserController {
    * @param {*} res
    */
   static signin(req, res) {
-    // validate that email and passwords are set
-    if (!req.body.email) {
-      return res.status(404).send({ success: 'false', message: 'please enter your email' });
-    } else if (!req.body.password) {
-      return res.status(404).send({ success: 'false', message: 'please enter your password' });
-    }
-    // find user with their emails
     models.User.findOne({
       where: {
         email: req.body.email
@@ -65,7 +46,7 @@ class UserController {
           return res.status(401).send({ success: 'false', message: 'wrong password' });
         } 
         const token = jwt.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
-        res.send({ success: 'true', message: 'successfully signed in', token: token });
+        res.send({ success: 'true', message: 'successfully signed in', token });
       });
   }
 }
