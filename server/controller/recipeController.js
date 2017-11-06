@@ -1,4 +1,3 @@
-import jwt from 'jsonwebtoken';
 import models from '../models';
 
 /**
@@ -34,18 +33,13 @@ class RecipeController {
   static getAllRecipe(req, res) {
     if (req.query) {
       if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-        models.Vote.findAll()
-          .then((allVotes) => {
-            allVotes.sort((vote1, vote2) => vote2.upvote - vote1.upvote);
-            res.status(200).send({ success: 'true', message: 'Recipes found', data: allVotes });
-          })
-          .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
+
       }
     }
     models.Recipe.findAll()
       .then((allRecipes) => {
         if (!allRecipes) {
-          res.status(401).send({ success: 'false', message: 'Page not found' });
+          res.status(404).send({ success: 'false', message: 'Page not found' });
         } else {
           res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
         }
@@ -91,7 +85,7 @@ class RecipeController {
         if (recipeFound.userId === req.decoded.id) {
           recipeFound.destroy()
             .then(() => res.status(200).send({ success: 'true', message: 'Recipe deleted' }))
-            .catch(err => res.status(401).send(err));
+            .catch(err => res.status(500).send({ sucess: 'false', message: 'Internal server error', error: err }));
         } else {
           res.status(401).send({ success: 'false', message: 'You are not authorized to delete this recipe' });
         }
@@ -152,8 +146,8 @@ class RecipeController {
       userId: req.decoded.id
     };
     models.Favourite.create(favourite)
-      .then(newFav => res.status(200).send(newFav))
-      .catch(err => res.status(500).send(err));
+      .then(newFav => res.status(200).send({ success: 'true', message: 'Retrival successful', data: newFav }))
+      .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
   }
 
   /**
@@ -215,7 +209,7 @@ class RecipeController {
           return res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' });
         }
         models.Downvote.create(userDownvote)
-          .then(newDownvote => res.status(201).send({ success: 'true', message: 'Recipe downoted', data: newDownvote }))
+          .then(newDownvote => res.status(201).send({ success: 'true', message: 'Recipe downvoted', data: newDownvote }))
           .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
 
         models.Upvote.destroy({
