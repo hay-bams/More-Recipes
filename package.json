@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./server/bin/www --exec babel-node",
+    "start": "nodemon ./server/bin/www --exec babel-node",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
     "test": "mocha --compilers js:babel-core/register server/test/**.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
+    "migrate": "./node_modules/.bin/sequelize db:migrate"
   },
   "repository": {
     "type": "git",

@@ -1,7 +1,6 @@
 import jwt from 'jsonwebtoken';
 import models from '../models';
 
-const secret = 'This is your guy';
 /**
  * @class RecipeController
  */
@@ -12,32 +11,19 @@ class RecipeController {
    * @param {obj} res
    */
   static addRecipe(req, res) {
-    if (!req.body.title) {
-      return res.status(400).send({ success: 'false', message: ' title is required' });
-    } else if (!req.body.instructions) {
-      return res.status(400).send({ success: 'false', message: 'insttruction is required' });
-    } else if (!req.body.ingredients) {
-      return res.status(400).send({ success: 'false', message: 'ingredients are required' });
-    }
-    const { token } = req.headers;
-    if (!token) return res.status(401).send({ success: 'false', message: 'user not signed in' });
+    const recipe = {
+      title: req.body.title,
+      image: req.body.image,
+      instructions: req.body.instructions,
+      ingredients: req.body.ingredients,
+      userId: req.decoded.id
+    };
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(500).send({ success: 'false', message: 'Failed to authenticate token.', error: err });
-
-      const recipe = {
-        title: req.body.title,
-        image: req.body.image,
-        instructions: req.body.instructions,
-        ingredients: req.body.ingredients,
-        userId: decoded.id
-      };
-      models.Recipe.create(recipe)
-        .then(newRecipe => res.status(201).send({
-          success: 'true', message: 'Recipe Created', data: newRecipe
-        }))
-        .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
-    });
+    models.Recipe.create(recipe)
+      .then(newRecipe => res.status(201).send({
+        success: 'true', message: 'Recipe Created', data: newRecipe
+      }))
+      .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
   }
 
   /**
@@ -72,32 +58,25 @@ class RecipeController {
    * @param {obj} res
    */
   static updateRecipe(req, res) {
-    const { token } = req.headers;
-    if (!token) return res.status(403).send({ success: 'false', message: 'Please sign in before updating recipe' });
+    const id = parseInt(req.params.recipeId, 10);
+    models.Recipe.findById(id)
+      .then((recipeFound) => {
+        const recipe = {
+          title: req.body.title || recipeFound.title,
+          image: req.body.image || recipeFound.image,
+          instructions: req.body.instructions || recipeFound.instructions,
+          ingredients: req.body.ingredients || recipeFound.ingredients,
+          userId: req.decoded.id
+        };
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(400).send({ success: 'false', message: 'Token could not be verified', error: err });
-
-      const id = parseInt(req.params.recipeId, 10);
-      models.Recipe.findById(id)
-        .then((recipeFound) => {
-          const recipe = {
-            title: req.body.title || recipeFound.title,
-            image: req.body.image || recipeFound.image,
-            instructions: req.body.instructions || recipeFound.instructions,
-            ingredients: req.body.ingredients || recipeFound.ingredients,
-            userId: decoded.id
-          };
-
-          if (recipeFound.userId === decoded.id) {
-            recipeFound.update(recipe)
-              .then(updatedRecipe => res.status(201).send({ success: 'true', message: 'Recipe updated successfully', data: updatedRecipe }))
-              .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
-          } else {
-            res.status(401).send({ success: 'false', message: 'you are not authorized to update this recipe' });
-          }
-        });
-    });
+        if (recipeFound.userId === req.decoded.id) {
+          recipeFound.update(recipe)
+            .then(updatedRecipe => res.status(201).send({ success: 'true', message: 'Recipe updated successfully', data: updatedRecipe }))
+            .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
+        } else {
+          res.status(401).send({ success: 'false', message: 'you are not authorized to update this recipe' });
+        }
+      });
   }
 
   /**
@@ -106,24 +85,17 @@ class RecipeController {
    * @param {obj} res
    */
   static deleteRecipe(req, res) {
-    const { token } = req.headers;
-    if (!token) return res.status(403).send({ success: 'false', message: 'Please sign in before deleting recipe' });
-
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(400).send({ success: 'false', message: 'Token could not be verified', error: err });
-
-      const id = parseInt(req.params.recipeId, 10);
-      models.Recipe.findById(id)
-        .then((recipeFound) => {
-          if (recipeFound.userId === decoded.id) {
-            recipeFound.destroy()
-              .then(() => res.status(200).send({ success: 'true', message: 'Recipe deleted' }))
-              .catch(err => res.status(401).send(err));
-          } else {
-            res.status(401).send({ success: 'false', message: 'You are not authorized to delete this recipe' });
-          }
-        });
-    });
+    const id = parseInt(req.params.recipeId, 10);
+    models.Recipe.findById(id)
+      .then((recipeFound) => {
+        if (recipeFound.userId === req.decoded.id) {
+          recipeFound.destroy()
+            .then(() => res.status(200).send({ success: 'true', message: 'Recipe deleted' }))
+            .catch(err => res.status(401).send(err));
+        } else {
+          res.status(401).send({ success: 'false', message: 'You are not authorized to delete this recipe' });
+        }
+      });
   }
 
   /**
@@ -135,22 +107,16 @@ class RecipeController {
     if (!req.body) {
       return res.status(400).send({ success: 'false', message: 'The review field is required' });
     }
-    const { token } = req.headers;
-    if (!token) return res.status(401).send({ success: 'false', message: 'Please sign in before adding review' });
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(400).send({ success: 'false', message: 'Token could not be verified', error: err });
-
-      const id = parseInt(req.params.recipeId, 10);
-      const review = {
-        review: req.body.review,
-        userId: decoded.id,
-        recipeId: id
-      };
-      models.Review.create(review)
-        .then(newReview => res.status(201).send({ success: 'true', message: 'New review added', data: newReview }))
-        .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
-    });
+    const id = parseInt(req.params.recipeId, 10);
+    const review = {
+      review: req.body.review,
+      userId: req.decoded.id,
+      recipeId: id
+    };
+    models.Review.create(review)
+      .then(newReview => res.status(201).send({ success: 'true', message: 'New review added', data: newReview }))
+      .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
   }
 
   /**
@@ -159,26 +125,19 @@ class RecipeController {
    * @param {*} res
    */
   static getUserFavourites(req, res) {
-    const { token } = req.headers;
-    if (!token) return res.status(401).send({ success: 'false', message: 'Please sign in before adding review' });
+    const userId = parseInt(req.params.userId, 10);
+    if (userId === req.decoded.id) {
+      models.Favourite.findAll({
+        where: { userId: req.decoded.id }
+      })
+        .then((favourite) => {
+          if (!favourite) return res.status(404).send({ success: 'false', message: 'Pagecould not be found' });
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(400).send({ success: 'false', message: 'Token could not be verified', error: err });
-
-      const userId = parseInt(req.params.userId, 10);
-      if (userId === decoded.id) {
-        models.Favourite.findAll({
-          where: { userId: decoded.id }
-        })
-          .then((favourite) => {
-            if (!favourite) return res.status(404).send({ success: 'false', message: 'Pagecould not be found' });
-
-            res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
-          });
-      } else {
-        return res.status(400).send({success: 'false', message: 'Please sign in' });
-      }
-    });
+          res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
+        });
+    } else {
+      return res.status(400).send({ success: 'false', message: 'Please sign in' });
+    }
   }
 
   /**
@@ -187,21 +146,85 @@ class RecipeController {
    * @param {*} res
    */
   static addUserFavourite(req, res) {
-    const { token } = req.headers;
-    if (!token) return res.status(401).send('No token provided');
+    const recipeId = parseInt(req.params.recipeId, 10);
+    const favourite = {
+      recipeId,
+      userId: req.decoded.id
+    };
+    models.Favourite.create(favourite)
+      .then(newFav => res.status(200).send(newFav))
+      .catch(err => res.status(500).send(err));
+  }
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) return res.status(500).send('Failed to authenticate token.');
+  /**
+   * @return {obj} upvote
+   * @param {*} req
+   * @param {*} res
+   */
+  static upvote(req, res) {
+    const recipeId = parseInt(req.params.recipeId, 10);
+    const userUpvote = {
+      recipeId,
+      userId: req.decoded.id
+    };
 
-      const recipeId = parseInt(req.params.recipeId, 10);
-      const favourite = {
-        recipeId,
-        userId: decoded.id
-      };
-      models.Favourite.create(favourite)
-        .then(newFav => res.status(200).send(newFav))
-        .catch(err => res.status(500).send(err));
-    });
+    models.Upvote.findAll({
+      where: {
+        userId: req.decoded.id,
+        recipeId
+      }
+    })
+      .then((upvoteFound) => {
+        if (upvoteFound.length > 0) {
+          return res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' });
+        }
+        models.Upvote.create(userUpvote)
+          .then(newUpvote => res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote }))
+          .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
+
+        models.Downvote.destroy({
+          where: {
+            userId: req.decoded.id,
+            recipeId
+          }
+        });
+      })
+      .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
+  }
+
+  /**
+   * @return {obj} downvote
+   * @param {*} req
+   * @param {*} res
+   */
+  static downvote(req, res) {
+    const recipeId = parseInt(req.params.recipeId, 10);
+    const userDownvote = {
+      recipeId,
+      userId: req.decoded.id
+    };
+
+    models.Downvote.findAll({
+      where: {
+        userId: req.decoded.id,
+        recipeId
+      }
+    })
+      .then((downvoteFound) => {
+        if (downvoteFound.length > 0) {
+          return res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' });
+        }
+        models.Downvote.create(userDownvote)
+          .then(newDownvote => res.status(201).send({ success: 'true', message: 'Recipe downoted', data: newDownvote }))
+          .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
+
+        models.Upvote.destroy({
+          where: {
+            userId: req.decoded.id,
+            recipeId
+          }
+        });
+      });
   }
 }
 
