@@ -16,8 +16,6 @@
     "dialect": "postgres"
   },
   "production": {
-   
-    "DATABASE_URL": "postgres://zycqnnatyglqlf:db501f5650f68b46528b6cdaf1b7f4c2f5fb7fd20bdcdb72a203a93ada749ede@ec2-54-221-208-0.compute-1.amazonaws.com:5432/d80atclqk4lh07",    
-    "dialect": "postgres"
+    "DATABASE_URL": "postgres://zycqnnatyglqlf:db501f5650f68b46528b6cdaf1b7f4c2f5fb7fd20bdcdb72a203a93ada749ede@ec2-54-221-208-0.compute-1.amazonaws.com:5432/d80atclqk4lh07"
   }
 }
