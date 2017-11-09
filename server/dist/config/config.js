@@ -1,9 +1,6 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = {
+module.exports = {
   development: {
     username: 'postgres',
     password: '123solution',
@@ -21,6 +18,6 @@ exports.default = {
     dialect: 'postgres'
   },
   production: {
-    use_env_variable: 'production'
+    environment: 'production'
   }
 };
