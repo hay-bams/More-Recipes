@@ -17,7 +17,7 @@ class Middleware {
     if (!req.body.title) {
       return res.status(400).send({ success: 'false', message: ' title is required' });
     } else if (!req.body.instructions) {
-      return res.status(400).send({ success: 'false', message: 'insttruction is required' });
+      return res.status(400).send({ success: 'false', message: 'instruction is required' });
     } else if (!req.body.ingredients) {
       return res.status(400).send({ success: 'false', message: 'ingredients are required' });
     } else if (!req.body.image) {
