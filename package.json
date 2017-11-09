@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/bin/www --exec babel-node",
+    "production": "npm run migrate & npm start",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
