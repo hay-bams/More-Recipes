@@ -23,6 +23,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      upvotes: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
+      downvotes: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

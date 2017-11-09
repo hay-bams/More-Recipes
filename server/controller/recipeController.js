@@ -32,18 +32,27 @@ class RecipeController {
    */
   static getAllRecipe(req, res) {
     if (req.query) {
-      if (req.query.sort === 'upvotes' && req.query.order === 'des') {
-
+      if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
+        models.Recipe.findAll()
+          .then((allRecipes) => {
+            if (!allRecipes) {
+              return res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+            }
+            allRecipes.sort((a, b) => b.upvotes - a.upvotes);
+            return res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
+          })
+          .catch(err => res.status(500).send({ success: 'false', message: 'internal server error', error: err }));
       }
+    } else {
+      models.Recipe.findAll()
+        .then((allRecipes) => {
+          if (!allRecipes) {
+            res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+          } else {
+            res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
+          }
+        });
     }
-    models.Recipe.findAll()
-      .then((allRecipes) => {
-        if (!allRecipes) {
-          res.status(404).send({ success: 'false', message: 'Page not found' });
-        } else {
-          res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
-        }
-      });
   }
 
   /**
@@ -176,12 +185,32 @@ class RecipeController {
           .then(newUpvote => res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote }))
           .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
 
-        models.Downvote.destroy({
-          where: {
-            userId: req.decoded.id,
-            recipeId
-          }
-        });
+        models.Recipe.findById(recipeId)
+          .then((voteFound) => {
+            if (voteFound) {
+              voteFound.increment('upvotes', { where: { id: recipeId } });
+            } else {
+              res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
+            }
+
+            models.Downvote.findAll({
+              where: {
+                userId: req.decoded.id,
+                recipeId
+              }
+            })
+              .then((DownvoteFound) => {
+                if (DownvoteFound.length > 0) {
+                  models.Downvote.destroy({
+                    where: {
+                      userId: req.decoded.id,
+                      recipeId
+                    }
+                  });
+                  voteFound.decrement('downvotes', { where: { id: recipeId } });
+                }
+              });
+          });
       })
       .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
   }
@@ -212,12 +241,32 @@ class RecipeController {
           .then(newDownvote => res.status(201).send({ success: 'true', message: 'Recipe downvoted', data: newDownvote }))
           .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
 
-        models.Upvote.destroy({
-          where: {
-            userId: req.decoded.id,
-            recipeId
-          }
-        });
+        models.Recipe.findById(recipeId)
+          .then((voteFound) => {
+            if (voteFound) {
+              voteFound.increment('downvotes', { where: { id: recipeId } });
+            } else {
+              res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
+            }
+
+            models.Upvote.findAll({
+              where: {
+                userId: req.decoded.id,
+                recipeId
+              }
+            })
+              .then((UpvoteFound) => {
+                if (UpvoteFound.length > 0) {
+                  models.Upvote.destroy({
+                    where: {
+                      userId: req.decoded.id,
+                      recipeId
+                    }
+                  });
+                  voteFound.decrement('upvotes', { where: { id: recipeId } });
+                }
+              });
+          });
       });
   }
 }
