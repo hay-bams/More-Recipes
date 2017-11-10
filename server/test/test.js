@@ -181,16 +181,16 @@ describe('Api endpoints testing', () => {
       };
     });
 
-    it('should add a recipes and return a status of 201', (done) => {
-      chai.request(app)
-        .post('/api/v1/recipes')
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          done();
-        });
-    });
+    // it('should add a recipes and return a status of 201', (done) => {
+    //   chai.request(app)
+    //     .post('/api/v1/recipes')
+    //     .send(recipe)
+    //     .end((err, res) => {
+    //       res.should.have.status(201);
+    //       res.body.should.be.a('object');
+    //       done();
+    //     });
+    // });
 
     it('should return 401 if no token is provided', (done) => {
       chai.request(app)
