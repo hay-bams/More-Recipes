@@ -181,11 +181,12 @@ describe('Api endpoints testing', () => {
       };
     });
 
-    it('should get all the recipes and return a status of 200', (done) => {
+    it('should add a recipes and return a status of 201', (done) => {
       chai.request(app)
-        .get('/api/v1/recipes')
+        .post('/api/v1/recipes')
+        .send(recipe)
         .end((err, res) => {
-          res.should.have.status(200);
+          res.should.have.status(201);
           res.body.should.be.a('object');
           done();
         });

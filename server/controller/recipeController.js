@@ -64,6 +64,9 @@ class RecipeController {
     const id = parseInt(req.params.recipeId, 10);
     models.Recipe.findById(id)
       .then((recipeFound) => {
+        if (!recipeFound) {
+          return res.status(404).send({ success: 'false', message: 'Recipe does not exist' });
+        }
         const recipe = {
           title: req.body.title || recipeFound.title,
           image: req.body.image || recipeFound.image,
@@ -91,6 +94,10 @@ class RecipeController {
     const id = parseInt(req.params.recipeId, 10);
     models.Recipe.findById(id)
       .then((recipeFound) => {
+        if (!recipeFound) {
+          return res.status(404).send({ success: 'false', message: 'Recipe does not exist' });
+        }
+        
         if (recipeFound.userId === req.decoded.id) {
           recipeFound.destroy()
             .then(() => res.status(200).send({ success: 'true', message: 'Recipe deleted' }))
