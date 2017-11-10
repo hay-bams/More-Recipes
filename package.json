@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon ./server/bin/www --exec babel-node",
+    "start:dev": "nodemon ./server/app.js --exec babel-node",
     "build": "babel ./server/ -d dist",
-    "start": "npm run build && node ./dist/bin/www",
-    "heroku-postbuild": "npm run migrate",
+    "start": "node ./dist/app.js",
+    "heroku-postbuild": "npm run build",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",

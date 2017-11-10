@@ -1,12 +1,16 @@
 'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
+
+var _http = require('http');
+
+var _http2 = _interopRequireDefault(_http);
+
+var _dotenv = require('dotenv');
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
 
 var _morgan = require('morgan');
 
@@ -20,7 +24,13 @@ var _routes = require('./routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
+var _index = require('./models/index');
+
+var _index2 = _interopRequireDefault(_index);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv2.default.config();
 
 // set upthe express app
 var app = (0, _express2.default)();
@@ -33,4 +43,13 @@ app.use(_bodyParser2.default.urlencoded({ extended: false }));
 
 app.use(_routes2.default);
 
-exports.default = app;
+var port = parseInt(process.env.PORT, 10) || 8000;
+app.set('port', port);
+
+var server = _http2.default.createServer(app);
+
+_index2.default.sequelize.sync().then(function () {
+  server.listen(port);
+});
+
+//export default app;
