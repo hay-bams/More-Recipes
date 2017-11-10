@@ -3,12 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "npm": "3.10.10",
+    "node": "6.11.0"
+  },
   "scripts": {
-    "start": "nodemon ./server/bin/www --exec babel-node",
-    "babel": "babel server/app.js --watch  --out-file app-compiled.js",
-    "babel-node": "babel-node --",
-    "lint": "./node_modules/.bin/eslint server/app.js",
-    "test": "mocha --compilers js:babel-core/register server/test/**.js --exit",
+    "start:dev": "nodemon ./server/src/app.js --exec babel-node",
+    "production": "npm run migrate & npm start",
+    "build":"babel server/src -d server/dist",
+    "heroku-postbuild": "npm run build",
+    "start": "node ./server/dist/app.js",
+    "babel": "babel ./server/src/app.js --watch  --out-file app-compiled.js",
+    "babel-node": "babel-node ./server/src/app.js --presets=es2015",
+    "lint": "./node_modules/.bin/eslint server/src/app.js",
+    "test": "set NODE_ENV=test&& mocha --compilers js:babel-core/register server/src/test/**.js --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate"
