@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'test';
-
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../app';
@@ -8,6 +6,7 @@ import models from '../models';
 const should = chai.should();
 let user = {};
 let recipe = {};
+let getToken;
 
 chai.use(chaiHttp);
 
@@ -39,13 +38,13 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 for an already existing user', (done) => {
+    it('should return 403 for an already existing user', (done) => {
       const sameUserData = Object.assign({}, user);
       chai.request(app)
         .post('/api/v1/users/signup')
         .send(sameUserData)
         .end((err, res) => {
-          res.should.have.status(400);
+          res.should.have.status(403);
           done();
         });
     });
@@ -117,6 +116,7 @@ describe('Api endpoints testing', () => {
           res.body.should.have.property('success').eql('true');
           res.body.should.have.property('message').eql('successfully signed in');
           res.body.should.have.property('token');
+          getToken = res.body.token;
           done();
         });
     });
@@ -157,14 +157,14 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 404 if email is wrong and user is not found', (done) => {
+    it('should return 403 if email is wrong and user is not found', (done) => {
       const wrongEmail = Object.assign({}, user);
       wrongEmail.email = 'wrongemail@gmail.com';
       chai.request(app)
         .post('/api/v1/users/signin')
         .send(wrongEmail)
         .end((err, res) => {
-          res.should.have.status(404);
+          res.should.have.status(403);
           done();
         });
     });
@@ -181,18 +181,52 @@ describe('Api endpoints testing', () => {
       };
     });
 
-    // it('should add a recipes and return a status of 201', (done) => {
+    it('should add a recipes and return a status of 201 if token is provided', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes')
+        .set('token', getToken)
+        .send(recipe)
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          done();
+        });
+    });
+
+    it('should return 404 for deleting a recipe that does not exist', (done) => {
+      chai.request(app)
+        .delete('/api/v1/recipes/10')
+        .set('token', getToken)
+        .send(recipe)
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+
+    // it('should delete a recipes and return a status of 200 if token is provided', (done) => {
     //   chai.request(app)
-    //     .post('/api/v1/recipes')
+    //     .delete('/api/v1/recipes/1')
+    //     .set('token', getToken)
     //     .send(recipe)
     //     .end((err, res) => {
-    //       res.should.have.status(201);
-    //       res.body.should.be.a('object');
+    //       res.should.have.status(200);
     //       done();
     //     });
     // });
 
-    it('should return 401 if no token is provided', (done) => {
+    it('should return 404 for updating a recipe that does not exist', (done) => {
+      chai.request(app)
+        .put('/api/v1/recipes/10')
+        .set('token', getToken)
+        .send(recipe)
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+
+    it('should return 401 if no token is provided before adding a recipe', (done) => {
       chai.request(app)
         .post('/api/v1/recipes')
         .send(recipe)
@@ -253,16 +287,28 @@ describe('Api endpoints testing', () => {
           done();
         });
     });
+  });
 
+  describe('Token test', () => {
+    it('should return 401 if a wrong token is provided', (done) => {
+      chai.request(app)
+        .delete('/api/v1/recipes/1')
+        .set('token', 'wrongtoken')
+        .send(recipe)
+        .end((err, res) => {
+          res.should.have.status(401);
+          done();
+        });
+    });
+  });
 
-    after(() => {
-      models.User.destroy({
-        where: {}
-      });
+  after(() => {
+    models.User.destroy({
+      where: {}
+    });
 
-      models.Recipe.destroy({
-        where: {}
-      });
+    models.Recipe.destroy({
+      where: {}
     });
   });
 });

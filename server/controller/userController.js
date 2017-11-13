@@ -21,9 +21,20 @@ class UserController {
       email: req.body.email,
       password: hashedPassword,
     };
-    models.User.create(user)
-      .then(newUser => res.status(201).send({ success: 'true', message: 'User created', data: newUser }))
-      .catch(err => res.status(400).send({ success: 'false', message: 'user already exist', error: err }));
+
+    models.User.findOne({
+      where: {
+        email: user.email
+      }
+    })
+      .then((userFound) => {
+        if (userFound) {
+          return res.status(403).send({ success: 'false', message: 'Emailalready registered' });
+        }
+        models.User.create(user)
+          .then(newUser => res.status(201).send({ success: 'true', message: 'User created', data: newUser }))
+          .catch(err => res.status(500).send({ success: 'false', message: 'Internal server error', error: err }));
+      });
   }
 
   /**
@@ -39,12 +50,12 @@ class UserController {
     })
       .then((userFound) => {
         if (!userFound) {
-          return res.status(404).send({ success: 'false', message: 'Incorrect email, user not found' });
+          return res.status(403).send({ success: 'false', message: 'Incorrect email or password, user not found' });
         }
         const validPassword = bcrypt.compareSync(req.body.password, userFound.password);
         if (!validPassword) {
           return res.status(403).send({ success: 'false', message: 'wrong password' });
-        } 
+        }
         const token = jwt.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
         res.status(201).send({ success: 'true', message: 'successfully signed in', token });
       });

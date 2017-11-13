@@ -8,15 +8,6 @@ module.exports = {
     password: 'password',
     createdAt: '2017-09-28 01:00:00',
     updatedAt: '2017-09-28 01:00:00'
-  }, {
-    id: '2',
-    firstName: 'Oladimeji',
-    lastName: 'Adelakun',
-    image: 'test-image',
-    email: 'purpose4nigeria@gmail.com',
-    password: 'password',
-    createdAt: '2015-09-28 01:00:00',
-    updatedAt: '2015-09-28 01:00:00'
   }], {}),
 
   down: queryInterface => queryInterface.bulkDelete('Users', null, {})
