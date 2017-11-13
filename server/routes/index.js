@@ -13,7 +13,7 @@ router.post('/api/v1/recipes/:recipeId/reviews', Middleware.verifyToken, RecipeC
 router.post('/api/v1/users/signup', Middleware.validateUserSignup, UserController.signup);
 router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserController.signin);
 router.get('/api/users/:userId/recipes', Middleware.verifyToken, RecipeController.getUserFavourites);
-router.get('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
+router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
 router.post('/api/v1/recipes/upvote/:recipeId', Middleware.verifyToken, RecipeController.upvote);
 router.post('/api/v1/recipes/downvote/:recipeId', Middleware.verifyToken, RecipeController.downvote);
 

@@ -141,7 +141,7 @@ class RecipeController {
         where: { userId: req.decoded.id }
       })
         .then((favourite) => {
-          if (!favourite) return res.status(404).send({ success: 'false', message: 'Pagecould not be found' });
+          if (!favourite) return res.status(404).send({ success: 'false', message: 'Page could not be found' });
 
           res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
         });
