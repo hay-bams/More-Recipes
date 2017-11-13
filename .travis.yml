@@ -6,6 +6,13 @@ node_js:
 install:
   - npm install
 
+env: 
+  - NODE_ENV=test
+  
+before_script:
+  - createdb more-recipes-test --username=postgres
+  - sequelize db:migrate 
+
 script:
   - npm test
 
