@@ -258,6 +258,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(16);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
@@ -294,21 +309,6 @@ emptyFunction.thatReturnsArgument = function (arg) {
 };
 
 module.exports = emptyFunction;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
-  module.exports = __webpack_require__(16);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 3 */
@@ -506,7 +506,7 @@ module.exports = invariant;
 
 
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -682,7 +682,7 @@ module.exports = ExecutionEnvironment;
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -942,7 +942,7 @@ module.exports = focusNode;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -997,7 +997,7 @@ var Root = function (_React$Component) {
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var m=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(1);
+var m=__webpack_require__(3),n=__webpack_require__(4),p=__webpack_require__(2);
 function q(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var r={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function t(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}t.prototype.isReactComponent={};t.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?q("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};t.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function u(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}function v(){}v.prototype=t.prototype;var w=u.prototype=new v;w.constructor=u;m(w,t.prototype);w.isPureReactComponent=!0;function x(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||r}var y=x.prototype=new v;y.constructor=x;m(y,t.prototype);y.unstable_isAsyncReactComponent=!0;y.render=function(){return this.props.children};
@@ -1037,7 +1037,7 @@ var _assign = __webpack_require__(3);
 var invariant = __webpack_require__(5);
 var emptyObject = __webpack_require__(4);
 var warning = __webpack_require__(6);
-var emptyFunction = __webpack_require__(1);
+var emptyFunction = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(7);
 
 // TODO: this is special because it gets imported during build.
@@ -2445,7 +2445,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),m=__webpack_require__(8),A=__webpack_require__(3),B=__webpack_require__(1),ca=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),ha=__webpack_require__(12),ia=__webpack_require__(13),C=__webpack_require__(4);
+var aa=__webpack_require__(1),m=__webpack_require__(8),A=__webpack_require__(3),B=__webpack_require__(2),ca=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),ha=__webpack_require__(12),ia=__webpack_require__(13),C=__webpack_require__(4);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:D("227");
 var la={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function qa(a,b){return(a&b)===b}
 var ra={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ra,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){sa.hasOwnProperty(f)?D("48",f):void 0;var g=f.toLowerCase(),k=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:qa(k,b.MUST_USE_PROPERTY),
@@ -2739,12 +2739,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(2);
+var React = __webpack_require__(1);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
 var _assign = __webpack_require__(3);
-var emptyFunction$1 = __webpack_require__(1);
+var emptyFunction$1 = __webpack_require__(2);
 var EventListener = __webpack_require__(9);
 var getActiveElement = __webpack_require__(10);
 var shallowEqual = __webpack_require__(11);
@@ -18296,7 +18296,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18348,12 +18348,71 @@ exports.default = App;
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Navigation = __webpack_require__(29);
+
+var _Navigation2 = _interopRequireDefault(_Navigation);
+
+var _Carousel = __webpack_require__(30);
+
+var _Carousel2 = _interopRequireDefault(_Carousel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HomePageHeader = function (_React$Component) {
+    _inherits(HomePageHeader, _React$Component);
+
+    function HomePageHeader() {
+        _classCallCheck(this, HomePageHeader);
+
+        return _possibleConstructorReturn(this, (HomePageHeader.__proto__ || Object.getPrototypeOf(HomePageHeader)).apply(this, arguments));
+    }
+
+    _createClass(HomePageHeader, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'header',
+                null,
+                _react2.default.createElement(_Navigation2.default, null),
+                _react2.default.createElement(_Carousel2.default, null)
+            );
+        }
+    }]);
+
+    return HomePageHeader;
+}(_react2.default.Component);
+
+exports.default = HomePageHeader;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18365,195 +18424,82 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var HomePageHeader = function (_React$Component) {
-  _inherits(HomePageHeader, _React$Component);
+/**
+ * @class Navigation
+ */
+var Navigation = function (_React$Component) {
+  _inherits(Navigation, _React$Component);
 
-  function HomePageHeader() {
-    _classCallCheck(this, HomePageHeader);
+  function Navigation() {
+    _classCallCheck(this, Navigation);
 
-    return _possibleConstructorReturn(this, (HomePageHeader.__proto__ || Object.getPrototypeOf(HomePageHeader)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
   }
 
-  _createClass(HomePageHeader, [{
+  _createClass(Navigation, [{
     key: "render",
     value: function render() {
       return _react2.default.createElement(
-        "header",
-        null,
-        _react2.default.createElement(
-          "nav",
-          { className: "navbar navbar-expand-md navbar-light fixed-top navigationBar" },
-          _react2.default.createElement(
-            "div",
-            { className: "container-fluid" },
-            _react2.default.createElement(
-              "a",
-              { className: "navbar-brand", href: "#" },
-              "My Recipe Logo"
-            ),
-            _react2.default.createElement(
-              "button",
-              { className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" },
-              _react2.default.createElement("span", { className: "navbar-toggler-icon" })
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "collapse navbar-collapse", id: "navbarSupportedContent" },
-              _react2.default.createElement(
-                "ul",
-                { className: "navbar-nav ml-auto" },
-                _react2.default.createElement(
-                  "li",
-                  { className: "nav-item" },
-                  _react2.default.createElement(
-                    "a",
-                    { className: "nav-link", href: "add_recipe.html" },
-                    "Dashboard"
-                  )
-                ),
-                _react2.default.createElement(
-                  "li",
-                  { className: "nav-item" },
-                  _react2.default.createElement(
-                    "a",
-                    { className: "nav-link", href: "catalogue.html" },
-                    "Catalogue"
-                  )
-                ),
-                _react2.default.createElement(
-                  "li",
-                  { className: "nav-item active" },
-                  _react2.default.createElement(
-                    "a",
-                    { className: "nav-link", href: "login.html" },
-                    "Sign in ",
-                    _react2.default.createElement(
-                      "span",
-                      { className: "sr-only" },
-                      "(current)"
-                    )
-                  )
-                ),
-                _react2.default.createElement(
-                  "li",
-                  { className: "nav-item" },
-                  _react2.default.createElement(
-                    "a",
-                    { className: "nav-link", href: "register.html" },
-                    "Sign up"
-                  )
-                )
-              )
-            )
-          )
-        ),
+        "nav",
+        { className: "navbar navbar-expand-md navbar-light fixed-top navigationBar" },
         _react2.default.createElement(
           "div",
-          { id: "featured", className: "carousel fade", "data-ride": "carousel" },
+          { className: "container-fluid" },
           _react2.default.createElement(
-            "ol",
-            { className: "carousel-indicators" },
-            _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "0", className: "active" }),
-            _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "1" }),
-            _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "2" }),
-            _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "3" })
+            "a",
+            { className: "navbar-brand", href: "#" },
+            "My Recipe Logo"
+          ),
+          _react2.default.createElement(
+            "button",
+            { className: "navbar-toggler", type: "button", "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": "false", "aria-label": "Toggle navigation" },
+            _react2.default.createElement("span", { className: "navbar-toggler-icon" })
           ),
           _react2.default.createElement(
             "div",
-            { className: "carousel-inner fullheight" },
+            { className: "collapse navbar-collapse", id: "navbarSupportedContent" },
             _react2.default.createElement(
-              "div",
-              { className: "carousel-item active" },
-              _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe26.jpg", alt: "First slide" }),
+              "ul",
+              { className: "navbar-nav ml-auto" },
               _react2.default.createElement(
-                "div",
-                { className: "carousel-caption carousel-caption-search" },
+                "li",
+                { className: "nav-item" },
                 _react2.default.createElement(
-                  "h3",
-                  { className: "search-header" },
-                  "Find More Recipes"
-                ),
+                  "a",
+                  { className: "nav-link", href: "add_recipe.html" },
+                  "Dashboard"
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item" },
                 _react2.default.createElement(
-                  "form",
-                  { className: "form-inline my-2 my-lg-0" },
-                  _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+                  "a",
+                  { className: "nav-link", href: "catalogue.html" },
+                  "Catalogue"
+                )
+              ),
+              _react2.default.createElement(
+                "li",
+                { className: "nav-item active" },
+                _react2.default.createElement(
+                  "a",
+                  { className: "nav-link", href: "login.html" },
+                  "Sign in ",
                   _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
-                    "Search"
+                    "span",
+                    { className: "sr-only" },
+                    "(current)"
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "carousel-item" },
-              _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe7.jpg", alt: "Second slide" }),
+              ),
               _react2.default.createElement(
-                "div",
-                { className: "carousel-caption carousel-caption-search" },
+                "li",
+                { className: "nav-item" },
                 _react2.default.createElement(
-                  "h3",
-                  { className: "search-header" },
-                  "Find More Recipes"
-                ),
-                _react2.default.createElement(
-                  "form",
-                  { className: "form-inline my-2 my-lg-0" },
-                  _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
-                  _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
-                    "Search"
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "carousel-item" },
-              _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe27.jpg", alt: "Third slide" }),
-              _react2.default.createElement(
-                "div",
-                { className: "carousel-caption carousel-caption-search" },
-                _react2.default.createElement(
-                  "h3",
-                  { className: "search-header" },
-                  "Find More Recipes"
-                ),
-                _react2.default.createElement(
-                  "form",
-                  { className: "form-inline my-2 my-lg-0" },
-                  _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
-                  _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
-                    "Search"
-                  )
-                )
-              )
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "carousel-item" },
-              _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe15.jpg", alt: "Third slide" }),
-              _react2.default.createElement(
-                "div",
-                { className: "carousel-caption carousel-caption-search" },
-                _react2.default.createElement(
-                  "h3",
-                  { className: "search-header" },
-                  "Find More Recipes"
-                ),
-                _react2.default.createElement(
-                  "form",
-                  { className: "form-inline my-2 my-lg-0" },
-                  _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
-                  _react2.default.createElement(
-                    "button",
-                    { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
-                    "Search"
-                  )
+                  "a",
+                  { className: "nav-link", href: "register.html" },
+                  "Sign up"
                 )
               )
             )
@@ -18563,10 +18509,167 @@ var HomePageHeader = function (_React$Component) {
     }
   }]);
 
-  return HomePageHeader;
+  return Navigation;
 }(_react2.default.Component);
 
-exports.default = HomePageHeader;
+exports.default = Navigation;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Carousel = function (_React$Component) {
+  _inherits(Carousel, _React$Component);
+
+  function Carousel() {
+    _classCallCheck(this, Carousel);
+
+    return _possibleConstructorReturn(this, (Carousel.__proto__ || Object.getPrototypeOf(Carousel)).apply(this, arguments));
+  }
+
+  _createClass(Carousel, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { id: "featured", className: "carousel fade", "data-ride": "carousel" },
+        _react2.default.createElement(
+          "ol",
+          { className: "carousel-indicators" },
+          _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "0", className: "active" }),
+          _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "1" }),
+          _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "2" }),
+          _react2.default.createElement("li", { "data-target": "#featured", "data-slide-to": "3" })
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "carousel-inner fullheight" },
+          _react2.default.createElement(
+            "div",
+            { className: "carousel-item active" },
+            _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe26.jpg", alt: "First slide" }),
+            _react2.default.createElement(
+              "div",
+              { className: "carousel-caption carousel-caption-search" },
+              _react2.default.createElement(
+                "h3",
+                { className: "search-header" },
+                "Find More Recipes"
+              ),
+              _react2.default.createElement(
+                "form",
+                { className: "form-inline my-2 my-lg-0" },
+                _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
+                  "Search"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "carousel-item" },
+            _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe7.jpg", alt: "Second slide" }),
+            _react2.default.createElement(
+              "div",
+              { className: "carousel-caption carousel-caption-search" },
+              _react2.default.createElement(
+                "h3",
+                { className: "search-header" },
+                "Find More Recipes"
+              ),
+              _react2.default.createElement(
+                "form",
+                { className: "form-inline my-2 my-lg-0" },
+                _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
+                  "Search"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "carousel-item" },
+            _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe27.jpg", alt: "Third slide" }),
+            _react2.default.createElement(
+              "div",
+              { className: "carousel-caption carousel-caption-search" },
+              _react2.default.createElement(
+                "h3",
+                { className: "search-header" },
+                "Find More Recipes"
+              ),
+              _react2.default.createElement(
+                "form",
+                { className: "form-inline my-2 my-lg-0" },
+                _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
+                  "Search"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "carousel-item" },
+            _react2.default.createElement("img", { className: "d-block w-100", src: "images/recipe15.jpg", alt: "Third slide" }),
+            _react2.default.createElement(
+              "div",
+              { className: "carousel-caption carousel-caption-search" },
+              _react2.default.createElement(
+                "h3",
+                { className: "search-header" },
+                "Find More Recipes"
+              ),
+              _react2.default.createElement(
+                "form",
+                { className: "form-inline my-2 my-lg-0" },
+                _react2.default.createElement("input", { className: "form-control form-control-lg mr-sm-2", type: "text", placeholder: "Search", "aria-label": "Search" }),
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn btn-success btn btn-lg my-2 my-sm-0", type: "submit" },
+                  "Search"
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Carousel;
+}(_react2.default.Component);
+
+exports.default = Carousel;
 
 /***/ })
 /******/ ]);
