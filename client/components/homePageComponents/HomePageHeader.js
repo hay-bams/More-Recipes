@@ -1,5 +1,6 @@
 import React from 'react';
 import Navigation from '../Navigation';
+import Carousel from '../Carousel'; 
 
 class HomePageHeader extends React.Component {
     render() {
@@ -7,7 +8,7 @@ class HomePageHeader extends React.Component {
             <header>
               {/*Navigation*/}
               <Navigation />
-             
+              <Carousel />
             </header>
         )
     }
