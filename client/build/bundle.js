@@ -65,6 +65,21 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(16);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -254,21 +269,6 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
-} else {
-  module.exports = __webpack_require__(16);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -429,7 +429,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = emptyObject;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 5 */
@@ -489,7 +489,7 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 module.exports = invariant;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 6 */
@@ -558,7 +558,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 7 */
@@ -625,7 +625,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 8 */
@@ -745,7 +745,7 @@ var EventListener = {
 };
 
 module.exports = EventListener;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 10 */
@@ -942,7 +942,7 @@ module.exports = focusNode;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -2362,7 +2362,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 17 */
@@ -2427,7 +2427,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports = __webpack_require__(22);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 19 */
@@ -2445,7 +2445,7 @@ if (process.env.NODE_ENV === 'production') {
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),m=__webpack_require__(8),A=__webpack_require__(3),B=__webpack_require__(2),ca=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),ha=__webpack_require__(12),ia=__webpack_require__(13),C=__webpack_require__(4);
+var aa=__webpack_require__(0),m=__webpack_require__(8),A=__webpack_require__(3),B=__webpack_require__(2),ca=__webpack_require__(9),da=__webpack_require__(10),ea=__webpack_require__(11),ha=__webpack_require__(12),ia=__webpack_require__(13),C=__webpack_require__(4);
 function D(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:D("227");
 var la={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function qa(a,b){return(a&b)===b}
 var ra={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ra,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){sa.hasOwnProperty(f)?D("48",f):void 0;var g=f.toLowerCase(),k=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:qa(k,b.MUST_USE_PROPERTY),
@@ -2739,7 +2739,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(1);
+var React = __webpack_require__(0);
 var invariant = __webpack_require__(5);
 var warning = __webpack_require__(6);
 var ExecutionEnvironment = __webpack_require__(8);
@@ -18125,7 +18125,7 @@ module.exports = reactDom;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 23 */
@@ -18296,13 +18296,25 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _HomePageHeader = __webpack_require__(28);
 
 var _HomePageHeader2 = _interopRequireDefault(_HomePageHeader);
+
+var _LatestRecipes = __webpack_require__(31);
+
+var _LatestRecipes2 = _interopRequireDefault(_LatestRecipes);
+
+var _PopularRecipes = __webpack_require__(32);
+
+var _PopularRecipes2 = _interopRequireDefault(_PopularRecipes);
+
+var _Footer = __webpack_require__(33);
+
+var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18330,7 +18342,10 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_HomePageHeader2.default, null)
+        _react2.default.createElement(_HomePageHeader2.default, null),
+        _react2.default.createElement(_LatestRecipes2.default, null),
+        _react2.default.createElement(_PopularRecipes2.default, null),
+        _react2.default.createElement(_Footer2.default, null)
       );
     }
   }]);
@@ -18353,7 +18368,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18412,7 +18427,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18527,7 +18542,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(1);
+var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -18670,6 +18685,659 @@ var Carousel = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Carousel;
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @class LatestRecipes
+ */
+var LatestRecipes = function (_React$Component) {
+  _inherits(LatestRecipes, _React$Component);
+
+  function LatestRecipes() {
+    _classCallCheck(this, LatestRecipes);
+
+    return _possibleConstructorReturn(this, (LatestRecipes.__proto__ || Object.getPrototypeOf(LatestRecipes)).apply(this, arguments));
+  }
+
+  _createClass(LatestRecipes, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "container" },
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-sm" },
+            _react2.default.createElement(
+              "h2",
+              { className: "text-center latest" },
+              "Latest Recipes"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe5.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-4", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-4", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-4", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe2.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe3.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes d-md-none d-lg-block" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe4.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "span",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return LatestRecipes;
+}(_react2.default.Component);
+
+exports.default = LatestRecipes;
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @class PopularRecipes
+ */
+var PopularRecipes = function (_React$Component) {
+  _inherits(PopularRecipes, _React$Component);
+
+  function PopularRecipes() {
+    _classCallCheck(this, PopularRecipes);
+
+    return _possibleConstructorReturn(this, (PopularRecipes.__proto__ || Object.getPrototypeOf(PopularRecipes)).apply(this, arguments));
+  }
+
+  _createClass(PopularRecipes, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "container" },
+        _react2.default.createElement(
+          "div",
+          { className: "row" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-sm" },
+            _react2.default.createElement(
+              "h2",
+              { className: "text-center popular" },
+              "Popular"
+            )
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "row popular-content" },
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe5.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe2.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe3.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "div",
+            { className: "col-12 col-sm-6 col-md-4 col-lg-3 recipes d-md-none d-lg-block" },
+            _react2.default.createElement(
+              "div",
+              { className: "card recipe-card", style: { border: 'none' } },
+              _react2.default.createElement("img", { className: "card-img-top img-fluid", src: "images/recipe3.jpg", alt: "Card image cap", style: { height: 200 + 'px' } }),
+              _react2.default.createElement(
+                "div",
+                { className: "card-body" },
+                _react2.default.createElement(
+                  "h4",
+                  { className: "card-title" },
+                  "Recipe name"
+                ),
+                _react2.default.createElement(
+                  "p",
+                  { className: "card-text" },
+                  _react2.default.createElement(
+                    "div",
+                    { className: "row" },
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-success" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-up col-6", "aria-hidden": "true" }),
+                      "10"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-info" },
+                      _react2.default.createElement("i", { className: "fa fa-comment col-6", "aria-hidden": "true" }),
+                      "25"
+                    ),
+                    _react2.default.createElement(
+                      "a",
+                      { href: "#", className: "text-danger" },
+                      _react2.default.createElement("i", { className: "fa fa-thumbs-down col-6", "aria-hidden": "true" }),
+                      "3"
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  "a",
+                  { href: "details.html", className: "btn btn-info" },
+                  "view details"
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return PopularRecipes;
+}(_react2.default.Component);
+
+exports.default = PopularRecipes;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * @class Footer
+ */
+var Footer = function (_React$Component) {
+  _inherits(Footer, _React$Component);
+
+  function Footer() {
+    _classCallCheck(this, Footer);
+
+    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+  }
+
+  _createClass(Footer, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "footer",
+        null,
+        _react2.default.createElement(
+          "div",
+          { className: "container" },
+          _react2.default.createElement(
+            "div",
+            { className: "row" },
+            _react2.default.createElement(
+              "div",
+              { className: " col- col-sm-6" },
+              _react2.default.createElement(
+                "p",
+                null,
+                "Call us at ",
+                _react2.default.createElement(
+                  "span",
+                  { className: "phone" },
+                  "+2348093747838"
+                )
+              ),
+              _react2.default.createElement(
+                "p",
+                null,
+                "All contents \xA9 Ayobami"
+              )
+            ),
+            _react2.default.createElement(
+              "div",
+              { className: "col- col-sm-6" },
+              _react2.default.createElement(
+                "nav",
+                { className: "navbar navbar-expand navbar-dark " },
+                _react2.default.createElement(
+                  "ul",
+                  { className: "navbar-nav ml-sm-auto" },
+                  _react2.default.createElement(
+                    "li",
+                    { className: "nav-item active" },
+                    _react2.default.createElement(
+                      "a",
+                      { className: "nav-link", href: "add_recipe.html" },
+                      "Dashboard ",
+                      _react2.default.createElement(
+                        "span",
+                        { className: "sr-only" },
+                        "(current)"
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "li",
+                    { className: "nav-item" },
+                    _react2.default.createElement(
+                      "a",
+                      { className: "nav-link", href: "catalogue.html" },
+                      "Catalogue"
+                    )
+                  ),
+                  _react2.default.createElement(
+                    "li",
+                    { className: "nav-item" },
+                    _react2.default.createElement(
+                      "a",
+                      { className: "nav-link", href: "register.html" },
+                      "Signup"
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Footer;
+}(_react2.default.Component);
+
+exports.default = Footer;
 
 /***/ })
 /******/ ]);

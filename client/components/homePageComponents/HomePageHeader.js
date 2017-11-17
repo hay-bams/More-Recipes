@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from '../Navigation';
+import Navigation from './Navigation';
 import Carousel from '../Carousel'; 
 
 class HomePageHeader extends React.Component {
