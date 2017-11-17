@@ -8,9 +8,7 @@ import App from '../components/App';
 class Root extends React.Component {  
   render() {
     return (
-      <div>
-       <App />
-      </div>
+      <App />
     )
   }
 }
