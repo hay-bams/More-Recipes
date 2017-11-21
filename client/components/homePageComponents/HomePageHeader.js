@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './Navigation';
+import HomePageNavigation from './HomePageNavigation';
 import Carousel from '../Carousel'; 
 
 class HomePageHeader extends React.Component {
@@ -7,7 +7,7 @@ class HomePageHeader extends React.Component {
         return (
             <header>
               {/*Navigation*/}
-              <Navigation />
+              <HomePageNavigation />
               <Carousel />
             </header>
         )
