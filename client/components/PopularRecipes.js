@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * @class PopularRecipes
@@ -26,7 +27,7 @@ class PopularRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -43,7 +44,7 @@ class PopularRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -59,7 +60,7 @@ class PopularRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -76,7 +77,7 @@ class PopularRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>

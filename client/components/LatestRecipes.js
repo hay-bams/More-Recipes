@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * @class LatestRecipes
@@ -21,12 +22,12 @@ class LatestRecipes extends React.Component {
                 <h4 className="card-title">Recipe name</h4>
                 <p className="card-text">
                   <span className = "row">
-                    <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
-                    <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
-                    <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
+                    <a href="#" class = "text-success"><i class="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
+                    <a href="#" class = "text-info"><i class="fa fa-comment col-4" aria-hidden="true"></i>25</a>
+                    <a href="#" class = "text-danger"><i class="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
                   </span>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -42,7 +43,7 @@ class LatestRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </span>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -59,7 +60,7 @@ class LatestRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </span>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
@@ -76,7 +77,7 @@ class LatestRecipes extends React.Component {
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </span>
                 </p>
-                <a href="details.html" className="btn btn-info">view details</a>
+                <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
           </div>
