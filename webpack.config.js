@@ -6,6 +6,11 @@ module.exports = {
     path: path.resolve(__dirname, './client/build'),
     filename: 'bundle.js',
   },
+  devServer: {
+    contentBase: path.join(__dirname, 'client/build'),
+    historyApiFallback: true,
+  },
+  devtool: 'cheap-module-source-map',
   module: {
     loaders: [
       {
@@ -15,7 +20,14 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
+      },
+      {
+        test: /\.s?css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ]
       }
     ]
-  }
+  },
 };
