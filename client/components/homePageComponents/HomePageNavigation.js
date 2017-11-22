@@ -17,7 +17,7 @@ class HomePageNavigation extends React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-                <a className="nav-link" href="add_recipe.html">Dashboard</a>
+                <Link to='/dashboard' className="nav-link">Dashboard</Link>
             </li>
 
             <li className="nav-item">
