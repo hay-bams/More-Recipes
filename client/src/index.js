@@ -10,20 +10,12 @@ import DashboardPage from '../components/dashboard/DashboardPage';
 import AddRecipePage from '../components/dashboard/AddRecipePage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
+import UserProfilePage from '../components/dashboard/UserProfilePage';
 import '../font-awesome/scss/font-awesome.scss';
 //import 'font-awesome';
 import '../build/css/custom.css';
 import '../build/js/script.js';
 
-// class Root extends React.Component {
-//   render() {
-//     return (
-//       <Router>
-//          <Route path='/' component={HomePage} />
-//       </Router>
-//     )
-//   }
-// }
 
 const Root = () => {
 	return (
@@ -40,6 +32,7 @@ const Root = () => {
 				<Route exact path='/dashboard/add_recipe' component={AddRecipePage} />
 				<Route exact path='/dashboard/view_recipes' component={ViewRecipePage} />
 				<Route exact path='/dashboard/favourites' component={FavouritePage} />
+				<Route exact path='/dashboard/user_profile' component={UserProfilePage} />
 
 				<Route render={() => <p>404, not found. build a whole component for this</p>} />
             </Switch>
