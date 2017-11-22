@@ -9,6 +9,7 @@ import SignupPage from '../components/signup/SignupPage';
 import DashboardPage from '../components/dashboard/DashboardPage';
 import AddRecipePage from '../components/dashboard/AddRecipePage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
+import FavouritePage from '../components/dashboard/FavouritePage';
 import '../font-awesome/scss/font-awesome.scss';
 //import 'font-awesome';
 import '../build/css/custom.css';
@@ -38,6 +39,7 @@ const Root = () => {
 				<Route exact path='/dashboard' component={DashboardPage} />
 				<Route exact path='/dashboard/add_recipe' component={AddRecipePage} />
 				<Route exact path='/dashboard/view_recipes' component={ViewRecipePage} />
+				<Route exact path='/dashboard/favourites' component={FavouritePage} />
 
 				<Route render={() => <p>404, not found. build a whole component for this</p>} />
             </Switch>
