@@ -31,7 +31,8 @@ class RecipeController {
    * @param {obj} res
    */
   static getAllRecipe(req, res) {
-    if (req.query) {
+    if (Object.keys(req.query).length > 0) {
+      console.log(req.query)
       if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
         models.Recipe.findAll()
           .then((allRecipes) => {

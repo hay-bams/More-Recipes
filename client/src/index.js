@@ -1,6 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import {BrowserRouter as Router, Route, Switch, IndexRoute} from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxPromise from 'redux-promise';
+import allReducers from '../store/reducers';
+import initialState from '../initial.json';
+import { signUp, getAllRecipes, addRecipe } from '../actions/actions.js';
 import HomePage from '../components/homePageComponents/HomePage';
 import CataloguePage from '../components/catalogue/CataloguePage';
 import DetailsPage from '../components/details/DetailsPage';
@@ -12,10 +18,11 @@ import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
 import '../font-awesome/scss/font-awesome.scss';
-//import 'font-awesome';
 import '../build/css/custom.css';
 import '../build/js/script.js';
 
+ const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)(allReducers);
+//const createStoreWithMiddleware = createStore(allReducers);
 
 const Root = () => {
 	return (
@@ -41,6 +48,4 @@ const Root = () => {
 	)
 }
 
-
-
-render(<Root/>, document.querySelector('#mainContainer'));
+render(<Provider store={createStoreWithMiddleware}><Root/></Provider>, document.querySelector('#mainContainer'));

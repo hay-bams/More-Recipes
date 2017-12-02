@@ -14,6 +14,8 @@ class Navigation extends React.Component {
   
             <div className="collapse navbar-collapse resetNav" id="navbarSupportedContent">
               <ul className="navbar-nav ml-auto">
+                <li className = "nav-item active">
+                </li>
                 <li className="nav-item active">
                   <Link to='/signin' className="nav-link">Sign in <span className="sr-only">(current)</span></Link>
                 </li>

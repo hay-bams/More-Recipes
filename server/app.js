@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import router from './routes';
 
 // set upthe express app
 const app = express();
+
+app.use(cors());
 
 // log request to the console clear
 app.use(logger('dev'));
