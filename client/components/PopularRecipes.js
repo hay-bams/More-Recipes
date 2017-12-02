@@ -20,13 +20,13 @@ class PopularRecipes extends React.Component {
               <img className="card-img-top img-fluid" src="images/recipe5.jpg" alt="Card image cap" style = {{height: 200 + 'px'}} />
               <div className="card-body">
                 <h4 className="card-title">Recipe name</h4>
-                <p className="card-text">
+                <span className="card-text">
                   <div className = "row">
                     <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-6" aria-hidden="true"></i>10</a>
                     <a href="#" className = "text-info"><i className="fa fa-comment col-6" aria-hidden="true"></i>25</a>
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
-                </p>
+                </span>
                 <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
@@ -37,13 +37,13 @@ class PopularRecipes extends React.Component {
               <img className="card-img-top img-fluid" src="images/recipe2.jpg" alt="Card image cap" style = {{height: 200 + 'px'}} /> 
               <div className="card-body">
                 <h4 className="card-title">Recipe name</h4>
-                <p className="card-text">
+                <span className="card-text">
                   <div className = "row">
                     <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-6" aria-hidden="true"></i>10</a>
                     <a href="#" className = "text-info"><i className="fa fa-comment col-6" aria-hidden="true"></i>25</a>
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
-                </p>
+                </span>
                 <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
@@ -53,13 +53,13 @@ class PopularRecipes extends React.Component {
               <img className="card-img-top img-fluid" src="images/recipe3.jpg" alt="Card image cap" style = {{height: 200 + 'px'}} />
               <div className="card-body">
                 <h4 className="card-title">Recipe name</h4>
-                <p className="card-text">
+                <span className="card-text">
                   <div className = "row">
                     <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-6" aria-hidden="true"></i>10</a>
                     <a href="#" className = "text-info"><i className="fa fa-comment col-6" aria-hidden="true"></i>25</a>
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
-                </p>
+                </span>
                 <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>
@@ -70,13 +70,13 @@ class PopularRecipes extends React.Component {
               <img className="card-img-top img-fluid" src="images/recipe3.jpg" alt="Card image cap" style = {{height: 200 + 'px'}} />
               <div className="card-body">
                 <h4 className="card-title">Recipe name</h4>
-                <p className="card-text">
+                <span className="card-text">
                   <div className = "row">
                     <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-6" aria-hidden="true"></i>10</a>
                     <a href="#" className = "text-info"><i className="fa fa-comment col-6" aria-hidden="true"></i>25</a>
                     <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-6" aria-hidden="true"></i>3</a>
                   </div>
-                </p>
+                </span>
                 <Link to='/details' className="btn btn-info">view details</Link>
               </div>
             </div>

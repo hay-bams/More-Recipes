@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from '../Navigation';
-import RecipesCatalogue from './RecipesCatalogue';
+import RecipesCatalogue from '../../containers/RecipesCatalogue';
 import PopularRecipes from '../PopularRecipes';
 import Footer from '../Footer';
 

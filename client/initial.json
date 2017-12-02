@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": 12,
+      "firstName": "Earnest",
+      "lastName": "Suru",
+      "image": "suru.jpg",
+      "email": "suruE@gmail.com",
+      "password": "suru password",
+      "createdAt": "some date",
+      "updatedAt": "some date"
+   }
+  ],
+  "recipes": [
+      {
+      "id": 8,
+      "title": "Rice",
+      "image": "rice image",
+      "ingredients": ["maggi", "salt"],
+      "instructions": "gow to prepare rice", 
+      "upvotes": 90,
+      "downvotes": 12,
+      "createdAt": "some date",
+      "updatedAt": "some date",
+      "userId": 12
+      }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "review": "some reviews",
+      "createdAt": "some date",
+      "updatedAt": "some date",
+      "userId": 12,
+      "recipeId": 8
+    }
+  ],
+  "favourites": [
+    {
+      "id": 1,
+      "recipeId": 8 ,
+      "createdAt": "some date",
+      "updatedAt": "some date",
+      "userId": 12
+    }
+  ],
+  "upvotes": [
+    {
+      "id": 2,
+      "createdAt": "some date",
+      "updatedAt": "some date",
+      "userId": 12,
+      "recipeId": 8
+    }
+  ],
+  "downvote": [
+    {
+      "id": 5,
+      "createdAt": "some date",
+      "updatedAt": "some date",
+      "userId": 12,
+      "recipeId": 8
+    }
+  ]
+}
