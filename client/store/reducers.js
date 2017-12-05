@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import APPCONSTANT from '../constant';
 
 export const signUp = (state = null, action) => {
@@ -37,5 +38,6 @@ export const users = (state = [], action) => {
 
 export default combineReducers({
   users,
-  recipes
+  recipes,
+  form: formReducer
 });

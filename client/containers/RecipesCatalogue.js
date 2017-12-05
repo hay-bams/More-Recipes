@@ -10,7 +10,7 @@ import { getAllRecipes }  from '../actions/actions.js';
  */
 class RecipeCatalogue extends React.Component {
   componentDidMount() {
-    this.props.getAllRecipes()
+    this.props.getAllRecipes();
   }
 
   renderCatalogue() {
@@ -19,7 +19,7 @@ class RecipeCatalogue extends React.Component {
       return (
         <div className = "col-12 col-sm-6 col-md-4 col-lg-3 recipes" key={recipe.id}>
           <div className="card recipe-card" style={{border: 'none'}}>
-            <img className="card-img-top img-fluid" src="images/recipe5.jpg" alt="Card image cap" style = {{height: 200 + 'px'}} />
+            <img className="card-img-top img-fluid" src={`images/${recipe.image}`} alt="Card image cap" style = {{height: 200 + 'px'}} />
             <div className="card-body">
               <h4 className="card-title">{recipe.title}</h4>
               <span className="card-text">

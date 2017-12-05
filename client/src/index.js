@@ -29,17 +29,17 @@ const Root = () => {
 		<Router>  
 		  <div>
 		    <Switch>
-				<Route exact path='/' component={HomePage} />
+				<Route path='/dashboard/add_recipe' component={AddRecipePage} />
+				<Route path='/dashboard/view_recipes' component={ViewRecipePage} />
+				<Route path='/dashboard/favourites' component={FavouritePage} />
+				<Route path='/dashboard/user_profile' component={UserProfilePage} />
 				<Route path='/catalogue' component={CataloguePage} />
 				<Route path='/details' component={DetailsPage} />
 				<Route path='/details' component={DetailsPage} />
 				<Route path='/signin' component={SigninPage} />
 				<Route path='/signup' component={SignupPage} />
 				<Route exact path='/dashboard' component={DashboardPage} />
-				<Route exact path='/dashboard/add_recipe' component={AddRecipePage} />
-				<Route exact path='/dashboard/view_recipes' component={ViewRecipePage} />
-				<Route exact path='/dashboard/favourites' component={FavouritePage} />
-				<Route exact path='/dashboard/user_profile' component={UserProfilePage} />
+				<Route exact path='/' component={HomePage} />
 
 				<Route render={() => <p>404, not found. build a whole component for this</p>} />
             </Switch>
