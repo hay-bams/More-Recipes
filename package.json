@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./server/bin/www --exec babel-node",
-    "start": "npm run build && ./dist/bin/www",
+    "start": "npm run build && node ./dist/bin/www",
     "build": "babel ./server -d ./dist --copy-files",
     "heroku-postbuild": "npm run migrate",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
