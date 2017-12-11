@@ -17,6 +17,12 @@
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate"
   },
+
+  "engines": {
+    "node": "8.9.1",
+    "npm": "4.6.1"
+  },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/purpose50/More-Recipes.git"
