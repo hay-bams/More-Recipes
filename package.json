@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon ./server/bin/www --exec babel-node",
     "start": "npm run build && ./dist/bin/www",
-    "build": "babel ./server -d dist/",
+    "build": "babel ./server -d ./dist --copy-files",
     "heroku-postbuild": "npm run migrate",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
