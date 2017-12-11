@@ -1,12 +1,24 @@
-// This will be our application entry. We'll setup our server here.
-import http from 'http';
-import app from '../app';
-import config from 'dotenv';
+'use strict';
 
-config.config(); 
+var _http = require('http');
 
-const port = parseInt(process.env.PORT, 10) || 8000;
-app.set('port', port);
+var _http2 = _interopRequireDefault(_http);
 
-const server = http.createServer(app);
+var _app = require('../app');
+
+var _app2 = _interopRequireDefault(_app);
+
+var _dotenv = require('dotenv');
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_dotenv2.default.config(); // This will be our application entry. We'll setup our server here.
+
+
+var port = parseInt(process.env.PORT, 10) || 8000;
+_app2.default.set('port', port);
+
+var server = _http2.default.createServer(_app2.default);
 server.listen(port);
