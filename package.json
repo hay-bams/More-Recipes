@@ -11,18 +11,16 @@
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
-    "test": "export NODE_ENV=test|| SET NODE_ENV=test&& mocha --compilers js:babel-core/register server/test/**.js --exit",
+    "test": "export NODE_ENV=test|| SET NODE_ENV=test&& mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",
     "webpack": "webpack&& webpack-dev-server",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate"
   },
-
   "engines": {
     "node": "8.9.1",
     "npm": "4.6.1"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/purpose50/More-Recipes.git"
@@ -36,8 +34,10 @@
   "dependencies": {
     "axios": "^0.17.1",
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "bcryptjs": "^2.4.3",

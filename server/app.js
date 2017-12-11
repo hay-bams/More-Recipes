@@ -3,6 +3,8 @@ import cors from 'cors';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import router from './routes';
+require('babel-polyfill');
+
 
 // set upthe express app
 const app = express();
