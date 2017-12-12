@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./server/bin/www --exec babel-node",
-    "start": "npm run build && node ./dist/bin/www.js --require babel-polyfill",
+    "start": "npm run build && node ./dist/bin/www.js",
     "build": "babel ./server -d ./dist",
     "heroku-postbuild": "npm run migrate",
-    "babel": "babel server/app.js --watch  --out-file app-compiled.js",
+    "babel": "babel server/app.js --watch  --out-file app-compiled.js --require babel-polyfill",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
     "test": "export NODE_ENV=test|| SET NODE_ENV=test&& mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",
