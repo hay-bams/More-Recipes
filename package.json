@@ -8,7 +8,7 @@
     "start": "npm run build && node ./dist/bin/www.js",
     "build": "babel ./server -d ./dist",
     "heroku-postbuild": "npm run migrate",
-    "babel": "babel server/app.js --watch  --out-file app-compiled.js --require babel-polyfill",
+    "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
     "test": "export NODE_ENV=test|| SET NODE_ENV=test&& mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",

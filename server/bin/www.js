@@ -1,10 +1,10 @@
 // This will be our application entry. We'll setup our server here.
+require('babel-core/register');
+require('babel-polyfill');
+
 import http from 'http';
 import config from 'dotenv';
 import app from '../app';
-
-require('babel-core/register');
-require('babel-polyfill');
 
 config.config();
 
