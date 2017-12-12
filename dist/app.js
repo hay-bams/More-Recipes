@@ -26,6 +26,8 @@ var _routes2 = _interopRequireDefault(_routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+require('babel-polyfill');
+
 // set upthe express app
 var app = (0, _express2.default)();
 
