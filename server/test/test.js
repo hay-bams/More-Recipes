@@ -302,6 +302,37 @@ describe('Api endpoints testing', () => {
     });
   });
 
+  describe('Get Recipe', () => {
+    afterEach(() => {
+      models.User.destroy({
+        where: {}
+      });
+    });
+
+    it('should get all recipes if they exist', (done) => {
+      chai.request(app)
+        .get('/api/v1/recipes')
+        .end((err, res) => {
+          console.log(res.body)
+          res.should.have.status(200);
+          res.body.should.have.a('object')
+          res.body.should.have.property('data').a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
+    it('should return no recipe found', (done) => {
+      chai.request(app)
+        .get('/api/v1/recipes')
+        .end((err, res) => {
+          res.body.should.have.property('message').eql('No recipes at the moment');
+          done();
+        });
+    });
+  });
+
+
   after(() => {
     models.User.destroy({
       where: {}
