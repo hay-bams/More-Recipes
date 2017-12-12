@@ -34,7 +34,6 @@ class RecipeController {
   static async getAllRecipe(req, res) {
     try {
       if (Object.keys(req.query).length > 0) {
-        console.log(req.query);
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
           const allRecipes = await models.Recipe.findAll();
           if (!allRecipes) {

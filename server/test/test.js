@@ -171,7 +171,7 @@ describe('Api endpoints testing', () => {
   });
 
   describe('Add Recipe', () => {
-    beforeEach(() => {
+    before(() => {
       recipe = {
         title: 'test title',
         image: 'test image',
@@ -189,6 +189,18 @@ describe('Api endpoints testing', () => {
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a('object');
+          done();
+        });
+    });
+
+    it('should return user not signed in and 401 if an unauthenticated user attempts to add a recipe', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes')
+        .send(recipe)
+        .end((err, res) => {
+          res.should.have.status(401);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('user not signed in');
           done();
         });
     });
@@ -313,9 +325,8 @@ describe('Api endpoints testing', () => {
       chai.request(app)
         .get('/api/v1/recipes')
         .end((err, res) => {
-          console.log(res.body)
           res.should.have.status(200);
-          res.body.should.have.a('object')
+          res.body.should.have.a('object');
           res.body.should.have.property('data').a('array');
           res.body.should.have.property('data');
           done();
