@@ -70,6 +70,19 @@ npm run migrate
 npm run start:dev
 ```
 
+## Testing
+* Create a test database and name it more-recipes-test
+* run 
+``` 
+npm run test 
+```
+
+## Application Limitations
+* Users can only create account once with their username and email
+* Users can login and obtain a token which is verified on every request
+* Users will have to obtain a fresh token after 24 hours when their session has expired
+* Users will only be able to access the full application functionalities only if they are logged in
+
 
 ## THE TEMPLATE
 
