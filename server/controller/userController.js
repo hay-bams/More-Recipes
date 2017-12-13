@@ -2,8 +2,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import models from '../models';
 
-const secret = 'This is your guy';
-
 /**
  * @class controller
  */
@@ -28,7 +26,7 @@ class UserController {
         return res.status(403).send({ success: 'false', message: 'Email already registered' });
       }
       const newUser = await models.User.create(user);
-      const token = jwt.sign({ id: newUser.id, }, secret, { expiresIn: 87640 });
+      const token = jwt.sign({ id: newUser.id, }, process.env.SECRET, { expiresIn: 87640 });
       return res.status(201).send({
         success: 'true', message: 'User created', data: newUser, token
       });
@@ -52,7 +50,7 @@ class UserController {
       if (!validPassword) {
         return res.status(403).send({ success: 'false', message: 'wrong password' });
       }
-      const token = jwt.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
+      const token = jwt.sign({ id: userFound.id }, process.env.SECRET, { expiresIn: 87640 });
       res.status(201).send({ success: 'true', message: 'successfully signed in', token });
     } catch (err) {
       res.status(500).send({ success: 'false', message: 'Internal server error', error: err });

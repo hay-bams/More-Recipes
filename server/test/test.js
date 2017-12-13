@@ -5,7 +5,8 @@ import app from '../app';
 import models from '../models';
 import recipes from '../seeders/recipesPost';
 
-const secret = 'This is your guy';
+const secret = process.env.SECRET;
+console.log(secret);
 
 const should = chai.should();
 let user = {};
