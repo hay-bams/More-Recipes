@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import models from '../models';
 
-const secret = 'This is you guy';
+const secret = 'This is your guy';
 
 /**
  * @class Middleware
