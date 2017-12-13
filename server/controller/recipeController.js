@@ -34,7 +34,6 @@ class RecipeController {
   static async getAllRecipe(req, res) {
     try {
       if (Object.keys(req.query).length > 0) {
-        console.log(req.query);
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
           const allRecipes = await models.Recipe.findAll();
           if (!allRecipes) {
@@ -194,6 +193,10 @@ class RecipeController {
   static async upvote(req, res) {
     try {
       const recipeId = parseInt(req.params.recipeId, 10);
+      const recipeFound = await models.Recipe.findById(recipeId);
+
+      if (!recipeFound) return res.status(404).send({ success: false, message: 'recipe does not exist' });
+      
       const userUpvote = {
         recipeId,
         userId: req.decoded.id
@@ -209,10 +212,8 @@ class RecipeController {
       const newUpvote = await models.Upvote.create(userUpvote);
       res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote });
 
-      const voteFound = await models.Recipe.findById(recipeId);
-
-      if (voteFound) {
-        voteFound.increment('upvotes', { where: { id: recipeId } });
+      if (recipeFound) {
+        recipeFound.increment('upvotes', { where: { id: recipeId } });
       } else {
         res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
       }
@@ -225,7 +226,7 @@ class RecipeController {
         models.Downvote.destroy({
           where: { userId: req.decoded.id, recipeId }
         });
-        voteFound.decrement('downvotes', { where: { id: recipeId } });
+        recipeFound.decrement('downvotes', { where: { id: recipeId } });
       }
     } catch (err) {
       res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
@@ -240,6 +241,10 @@ class RecipeController {
   static async downvote(req, res) {
     try {
       const recipeId = parseInt(req.params.recipeId, 10);
+      const recipeFound = await models.Recipe.findById(recipeId);
+
+      if (!recipeFound) return res.status(404).send({ success: false, message: 'recipe does not exist' });
+
       const userDownvote = {
         recipeId,
         userId: req.decoded.id
@@ -255,12 +260,8 @@ class RecipeController {
       const newDownvote = models.Downvote.create(userDownvote);
       res.status(201).send({ success: 'true', message: 'Recipe downvoted', data: newDownvote });
 
-      const voteFound = await models.Recipe.findById(recipeId);
-
-      if (voteFound) {
-        voteFound.increment('downvotes', { where: { id: recipeId } });
-      } else {
-        res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
+      if (recipeFound) {
+        recipeFound.increment('downvotes', { where: { id: recipeId } });
       }
 
       const UpvoteFound = await models.Upvote.findAll({
@@ -271,7 +272,7 @@ class RecipeController {
         models.Upvote.destroy({
           where: { userId: req.decoded.id, recipeId }
         });
-        voteFound.decrement('upvotes', { where: { id: recipeId } });
+        recipeFound.decrement('upvotes', { where: { id: recipeId } });
       }
     } catch (err) {
       res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
