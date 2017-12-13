@@ -10,26 +10,42 @@ More-Recipes​ and get feedback in form of reviews and votes from other users w
 recipe. Users can also keep a list of their favorite recipes on the application.
 
 ## Application Features
-**.** Users can create account by signing up
-**.** Users can login to access their own accounts
-**.** Users can get all recipes
-**.** Users can add recipes
-**.** Users can update their own recipes
-**.** Users can delete their own recipes
-**.** Users can add review to recipes
-**.** Users can favourite a recipe
-**.** Users can get all their fsvourite recipes
-**.** Users can upvote a recipe
-**.** Users can downvote a recipe
+* Users can create account by signing up
+* Users can login to access their own accounts
+* Users can get all recipes
+* Users can add recipes
+* Users can update their own recipes
+* Users can delete their own recipes
+* Users can add review to recipes
+* Users can favourite a recipe
+* Users can get all their fsvourite recipes
+* Users can upvote a recipe
+* Users can downvote a recipe
 
 ## Technology Stack
-**.** NodeJs
-**.** ExpressJs
-**.** Postgresql
-**.** Sequelize ORM
-**.** Bootstrap 4
+* NodeJs
+* ExpressJs
+* Postgresql
+* Sequelize ORM
+* Bootstrap 4
 
 ## Getting Started
+* Install Nodejs and postgresql
+* clone the repository with this command on your command line interface or bash
+
+```
+> git clone https://github.com/purpose50/More-Recipes.git
+```
+* change into the project directory with the following command
+
+```
+> cd more-recipes
+```
+* install all required dependencies by running the following command
+
+```
+> npm install
+```
 
 ## THE TEMPLATE
 
