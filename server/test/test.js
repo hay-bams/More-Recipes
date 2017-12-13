@@ -1,11 +1,16 @@
 import chai from 'chai';
+import jwt from 'jsonwebtoken';
 import chaiHttp from 'chai-http';
 import app from '../app';
 import models from '../models';
+import recipes from '../seeders/recipesPost';
+
+const secret = 'This is your guy';
 
 const should = chai.should();
 let user = {};
-let recipe = {};
+let createdUserId;
+let createdRecipeId;
 let getToken;
 
 chai.use(chaiHttp);
@@ -21,6 +26,20 @@ describe('Api endpoints testing', () => {
         confirmPassword: 'password'
       };
     });
+
+    it('should return 400 and password should match if password does not match confirm password', (done) => {
+      const userWithUnmatchedPassword = Object.assign({}, user);
+      delete userWithUnmatchedPassword.confirmPassword;
+      chai.request(app)
+        .post('/api/v1/users/signup')
+        .send(userWithUnmatchedPassword)
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.have.property('message').eql('passowrd should match');
+          done();
+        });
+    });
+
     it('should sign up a user and return 201 for a successful signup', (done) => {
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -45,6 +64,7 @@ describe('Api endpoints testing', () => {
         .send(sameUserData)
         .end((err, res) => {
           res.should.have.status(403);
+          res.body.should.have.property('message').eql('Email already registered');
           done();
         });
     });
@@ -111,6 +131,11 @@ describe('Api endpoints testing', () => {
         .post('/api/v1/users/signin')
         .send(user)
         .end((err, res) => {
+          console.log(res.body);
+          const { token } = res.body;
+          jwt.verify(token, secret, (err, decoded) => {
+            createdUserId = decoded.id;
+          });
           res.should.have.status(201);
           res.body.should.be.a('object');
           res.body.should.have.property('success').eql('true');
@@ -171,85 +196,10 @@ describe('Api endpoints testing', () => {
   });
 
   describe('Add Recipe', () => {
-    before(() => {
-      recipe = {
-        title: 'test title',
-        image: 'test image',
-        instructions: 'test instructions',
-        ingredients: 'test ingredients',
-        userId: 1
-      };
-    });
+    recipes.recipesPost[0].userId = createdUserId;
 
-    it('should add a recipes and return a status of 201 if token is provided', (done) => {
-      chai.request(app)
-        .post('/api/v1/recipes')
-        .set('token', getToken)
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          done();
-        });
-    });
-
-    it('should return user not signed in and 401 if an unauthenticated user attempts to add a recipe', (done) => {
-      chai.request(app)
-        .post('/api/v1/recipes')
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(401);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('user not signed in');
-          done();
-        });
-    });
-
-    it('should return 404 for deleting a recipe that does not exist', (done) => {
-      chai.request(app)
-        .delete('/api/v1/recipes/10')
-        .set('token', getToken)
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
-
-    // it('should delete a recipes and return a status of 200 if token is provided', (done) => {
-    //   chai.request(app)
-    //     .delete('/api/v1/recipes/1')
-    //     .set('token', getToken)
-    //     .send(recipe)
-    //     .end((err, res) => {
-    //       res.should.have.status(200);
-    //       done();
-    //     });
-    // });
-
-    it('should return 404 for updating a recipe that does not exist', (done) => {
-      chai.request(app)
-        .put('/api/v1/recipes/10')
-        .set('token', getToken)
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
-
-    it('should return 401 if no token is provided before adding a recipe', (done) => {
-      chai.request(app)
-        .post('/api/v1/recipes')
-        .send(recipe)
-        .end((err, res) => {
-          res.should.have.status(401);
-          done();
-        });
-    });
-
-    it('should return 400 if no title is provided', (done) => {
-      const noTitle = Object.assign({}, recipe);
+    it('should return 400 if no title is provided before adding a recipe', (done) => {
+      const noTitle = Object.assign({}, recipes.recipesPost[0]);
       delete noTitle.title;
 
       chai.request(app)
@@ -261,8 +211,8 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 if no instructions is provided', (done) => {
-      const noInstructions = Object.assign({}, recipe);
+    it('should return 400 if no instructions is provided before adding a recipe', (done) => {
+      const noInstructions = Object.assign({}, recipes.recipesPost[0]);
       delete noInstructions.instructions;
 
       chai.request(app)
@@ -274,8 +224,8 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 if no ingredients is provided', (done) => {
-      const noIngredients = Object.assign({}, recipe);
+    it('should return 400 if no ingredients is provided before adding a recipe', (done) => {
+      const noIngredients = Object.assign({}, recipes.recipesPost[0]);
       delete noIngredients.ingredients;
 
       chai.request(app)
@@ -287,8 +237,8 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 if no image is provided', (done) => {
-      const noImage = Object.assign({}, recipe);
+    it('should return 400 if no image is provided before adding a recipe', (done) => {
+      const noImage = Object.assign({}, recipes.recipesPost[0]);
       delete noImage.image;
 
       chai.request(app)
@@ -299,9 +249,51 @@ describe('Api endpoints testing', () => {
           done();
         });
     });
+
+    it('should return 401 if no token is provided before adding a recipe', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes')
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(401);
+          done();
+        });
+    });
+
+    it('should add a recipes and return a status of 201 if token is provided', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes')
+        .set('token', getToken)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          createdRecipeId = res.body.data.id;
+          res.should.have.status(201);
+          res.body.should.be.a('object');
+          done();
+        });
+    });
+
+    it('should return user not signed in and 401 if an unauthenticated user attempts to add a recipe', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes')
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(401);
+          res.body.should.be.a('object');
+          res.body.should.have.property('message').eql('user not signed in');
+          done();
+        });
+    });
   });
 
   describe('Token test', () => {
+    const recipe = {
+      title: 'test title',
+      image: 'test image',
+      instructions: 'test instructions',
+      ingredients: 'test ingredients',
+      userId: 1
+    };
     it('should return 401 if a wrong token is provided', (done) => {
       chai.request(app)
         .delete('/api/v1/recipes/1')
@@ -314,35 +306,200 @@ describe('Api endpoints testing', () => {
     });
   });
 
-  describe('Get Recipe', () => {
-    afterEach(() => {
-      models.User.destroy({
-        where: {}
-      });
-    });
+  describe('Vote a recipe', () => {
+    // after(() => {
+    //   models.User.destroy({
+    //     where: {}
+    //   });
+    // });
 
-    it('should get all recipes if they exist', (done) => {
+    // before((done) => {
+    //   chai.request(app)
+    //     .post('/api/v1/recipes')
+    //     .set('token', getToken)
+    //     .send(recipes.recipesPost[0])
+    //     .end((err, res) => {
+    //       createdRecipeId = res.body.data.id;
+    //       done();
+    //     });
+    // });
+
+    it('should return 401 and user not signed if token is not provided before upvoting a recipe', (done) => {
       chai.request(app)
-        .get('/api/v1/recipes')
+        .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
+        .send()
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.have.a('object');
-          res.body.should.have.property('data').a('array');
-          res.body.should.have.property('data');
+          res.should.have.status(401);
+          res.body.should.have.property('message').eql('user not signed in');
           done();
         });
     });
 
-    it('should return no recipe found', (done) => {
+    it('should return 401 and user not signed if token is not provided before downvoting a recipe', (done) => {
       chai.request(app)
-        .get('/api/v1/recipes')
+        .post(`/api/v1/recipes/downvote/${createdRecipeId}`)
+        .send()
         .end((err, res) => {
-          res.body.should.have.property('message').eql('No recipes at the moment');
+          res.should.have.status(401);
+          res.body.should.have.property('message').eql('user not signed in');
+          done();
+        });
+    });
+
+    it('should update a recipe and return a status of 201', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('message').eql('Recipe upvoted');
+          done();
+        });
+    });
+
+    it('should return 400 and can\'t upvote more than once if a user attempts to upvote more than once', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.have.property('message').eql('can\'t upvote more than once');
+          done();
+        });
+    });
+
+    it('should downvote a recipe and return a status 201', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/downvote/${createdRecipeId}`)
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(201);
+          res.body.should.have.property('message').eql('Recipe downvoted');
+          done();
+        });
+    });
+
+    it('should return 400 and can\'t downvote more than once if a user attempts to upvote more than once', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/downvote/${createdRecipeId}`)
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(400);
+          res.body.should.have.property('message').eql('can\'t downvote more than once');
+          done();
+        });
+    });
+
+    it('should return 404 and recipe does not exist if a user attempts to upvote a recipe that does not exist', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes/upvote/1000')
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('message').eql('recipe does not exist');
+          done();
+        });
+    });
+
+    it('should return 404 and recipe does not exist if a user attempts to downvote a recipe that does not exist', (done) => {
+      chai.request(app)
+        .post('/api/v1/recipes/downvote/1000')
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(404);
+          res.body.should.have.property('message').eql('recipe does not exist');
           done();
         });
     });
   });
 
+  describe('Get Recipe', () => {
+    it('should get all recipes if they exist and return a status of 200', (done) => {
+      chai.request(app)
+        .get('/api/v1/recipes')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+  });
+
+  describe('Update Recipe', () => {
+    it('should return 404 for updating a recipe that does not exist', (done) => {
+      chai.request(app)
+        .put('/api/v1/recipes/10000')
+        .set('token', getToken)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+
+    it('should update a recipe and return 201 if token is provided', (done) => {
+      chai.request(app)
+        .put(`/api/v1/recipes/${createdRecipeId}`)
+        .set('token', getToken)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    });
+
+    it('should return user not signed in and a status 401 if token is not provided before updating a recipe', (done) => {
+      chai.request(app)
+        .put(`/api/v1/recipes/${createdRecipeId}`)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(401);
+          done();
+        });
+    });
+  });
+
+  describe('Delete Recipe', () => {
+    it('should return 404 for deleting a recipe that does not exist', (done) => {
+      chai.request(app)
+        .delete('/api/v1/recipes/10')
+        .set('token', getToken)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(404);
+          done();
+        });
+    });
+
+    it('should delete a recipes and return a status of 200 if token is provided', (done) => {
+      chai.request(app)
+        .delete(`/api/v1/recipes/${createdRecipeId}`)
+        .set('token', getToken)
+        .send()
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+
+    it('should return user not signed in and a status 401 if token is not provided before deleting a recipe', (done) => {
+      chai.request(app)
+        .delete(`/api/v1/recipes/${createdRecipeId}`)
+        .send(recipes.recipesPost[0])
+        .end((err, res) => {
+          res.should.have.status(401);
+          done();
+        });
+    });
+  });
 
   after(() => {
     models.User.destroy({
