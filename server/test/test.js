@@ -433,40 +433,6 @@ describe('Api endpoints testing', () => {
     });
   });
 
-  describe('Update Recipe', () => {
-    it('should return 404 for updating a recipe that does not exist', (done) => {
-      chai.request(app)
-        .put('/api/v1/recipes/10000')
-        .set('token', getToken)
-        .send(recipes.recipesPost[0])
-        .end((err, res) => {
-          res.should.have.status(404);
-          done();
-        });
-    });
-
-    it('should update a recipe and return 201 if token is provided', (done) => {
-      chai.request(app)
-        .put(`/api/v1/recipes/${createdRecipeId}`)
-        .set('token', getToken)
-        .send(recipes.recipesPost[0])
-        .end((err, res) => {
-          res.should.have.status(201);
-          done();
-        });
-    });
-
-    it('should return user not signed in and a status 401 if token is not provided before updating a recipe', (done) => {
-      chai.request(app)
-        .put(`/api/v1/recipes/${createdRecipeId}`)
-        .send(recipes.recipesPost[0])
-        .end((err, res) => {
-          res.should.have.status(401);
-          done();
-        });
-    });
-  });
-
   describe('Delete Recipe', () => {
     it('should return 404 for deleting a recipe that does not exist', (done) => {
       chai.request(app)
