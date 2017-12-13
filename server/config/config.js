@@ -3,16 +3,16 @@ module.exports = {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: 'more-recipes',
-    host: process.env.DB_HOST,
+    host: process.env.DB_HOST ,
     port: process.DB_PORT,
     dialect: 'postgres'
   },
   test: {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
+    username: 'postgres',
+    password: '123solution',
     database: 'more-recipes-test',
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+    host: '127.0.0.1',
+    port: 5432,
     dialect: 'postgres'
   },
   production: {
