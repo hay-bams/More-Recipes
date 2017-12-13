@@ -3,6 +3,7 @@ import bcrypt from 'bcryptjs';
 import models from '../models';
 
 const secret = 'This is your guy';
+
 /**
  * @class controller
  */
