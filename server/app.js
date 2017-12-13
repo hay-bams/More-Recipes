@@ -3,6 +3,9 @@ import cors from 'cors';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import router from './routes';
+import config from 'dotenv';
+
+config.config();
 
 // set upthe express app
 const app = express();

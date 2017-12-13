@@ -1,8 +1,6 @@
 import jwt from 'jsonwebtoken';
 import models from '../models';
 
-const secret = 'This is your guy';
-
 /**
  * @class Middleware
  */
@@ -36,7 +34,7 @@ class Middleware {
     const { token } = req.headers;
     if (!token) return res.status(401).send({ success: 'false', message: 'user not signed in' });
 
-    jwt.verify(token, secret, (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
       if (err) return res.status(401).send({ success: 'false', message: 'Invalid username or password.', error: err });
 
       req.decoded = decoded;
