@@ -307,23 +307,6 @@ describe('Api endpoints testing', () => {
   });
 
   describe('Vote a recipe', () => {
-    // after(() => {
-    //   models.User.destroy({
-    //     where: {}
-    //   });
-    // });
-
-    // before((done) => {
-    //   chai.request(app)
-    //     .post('/api/v1/recipes')
-    //     .set('token', getToken)
-    //     .send(recipes.recipesPost[0])
-    //     .end((err, res) => {
-    //       createdRecipeId = res.body.data.id;
-    //       done();
-    //     });
-    // });
-
     it('should return 401 and user not signed if token is not provided before upvoting a recipe', (done) => {
       chai.request(app)
         .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
