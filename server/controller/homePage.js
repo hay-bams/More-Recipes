@@ -8,7 +8,10 @@ class homePage {
      * @param {obj} res
   */
   static homePage(req, res) {
-    res.status(200).send({ success: 'true', message: 'Welcome to More Recipes' });
+    res.status(200).send({
+      uccess: 'true',
+      message: 'Welcome to More Recipes'
+    });
   }
 }
 

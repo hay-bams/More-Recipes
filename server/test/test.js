@@ -31,6 +31,18 @@ describe('Api endpoints testing', () => {
         });
     });
 
+    it('should return 400 for an invlaid email', (done) => {
+      const userWithInvalidEmail = Object.assign({}, usersSeed)
+      userWithInvalidEmail.email = 'pur.com';
+      chai.request(app)
+        .post('/api/v1/users/signup')
+        .send(userWithInvalidEmail)
+        .end((err, res) => {
+          res.should.have.status(400);
+          done();
+        });
+    });
+
     it('should sign up a user and return 201 for a successful signup', (done) => {
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -554,9 +566,9 @@ describe('Api endpoints testing', () => {
       where: {}
     });
 
-    // models.Favourite.destroy({
-    //   where: {}
-    // });
+    models.Favourite.destroy({
+      where: {}
+    });
   });
 });
 
