@@ -204,7 +204,7 @@ class RecipeController {
       const recipeFound = await models.Recipe.findById(recipeId);
 
       if (!recipeFound) return res.status(404).send({ success: false, message: 'recipe does not exist' });
-      
+
       const userUpvote = {
         recipeId,
         userId: req.decoded.id
