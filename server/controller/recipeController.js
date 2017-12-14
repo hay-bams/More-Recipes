@@ -33,11 +33,13 @@ class RecipeController {
    */
   static async getAllRecipe(req, res) {
     try {
+      console.log(req.query);
       if (Object.keys(req.query).length > 0) {
+        console.log(req.query);
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
           const allRecipes = await models.Recipe.findAll();
-          if (!allRecipes) {
-            return res.status(204).send({ success: 'false', message: 'No recipes at the moment' });
+          if (allRecipes.length === 0) {
+            return res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
           }
           allRecipes.sort((a, b) => b.upvotes - a.upvotes);
           return res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
