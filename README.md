@@ -46,17 +46,6 @@ recipe. Users can also keep a list of their favorite recipes on the application.
 ```
 > npm install
 ```
-* create a .env file that will be used to load enviroment variables
-
-```
-DB_USERNAME = your database username
-DB_PASSWORD = your database password
-DB_DATABASE = your database name
-DB_HOST = "127.0.0.1"
-DB_PORT = "5432"
-DB_DIALECT = "postgres"
-SECRET = your key
-```
 
 * Migrate your databse schema using
 
