@@ -1,10 +1,12 @@
 import express from 'express';
+import HomePage from '../controller/homePage';
 import RecipeController from '../controller/recipeController';
 import UserController from '../controller/userController';
 import Middleware from '../controller/middleware';
 
 const router = express.Router();
 
+router.get('/', HomePage.homePage);
 router.get('/api/v1/recipes', RecipeController.getAllRecipe);
 router.post('/api/v1/recipes', Middleware.validateAddRecipe, Middleware.verifyToken, RecipeController.addRecipe);
 router.put('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.updateRecipe);

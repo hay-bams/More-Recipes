@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+import isEmail from 'validator/lib/isEmail';
 import models from '../models';
 
 const secret = 'This is your guy';
@@ -27,6 +28,11 @@ class UserController {
       if (userFound) {
         return res.status(403).send({ success: 'false', message: 'Email already registered' });
       }
+
+      if (!isEmail(req.body.email)) {
+        return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
+      }
+
       const newUser = await models.User.create(user);
       const token = jwt.sign({ id: newUser.id, }, secret, { expiresIn: 87640 });
       return res.status(201).send({

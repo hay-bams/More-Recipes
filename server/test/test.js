@@ -4,6 +4,7 @@ import chaiHttp from 'chai-http';
 import app from '../app';
 import models from '../models';
 import recipes from '../seeders/recipesPost';
+import usersSeed from '../seeders/user';
 
 const secret = 'This is your guy';
 
@@ -17,18 +18,8 @@ chai.use(chaiHttp);
 
 describe('Api endpoints testing', () => {
   describe('create a new user', () => {
-    beforeEach(() => {
-      user = {
-        firstName: 'Ayobami',
-        lastName: 'Adelakun',
-        email: 'topwealth@gmail.com',
-        password: 'password',
-        confirmPassword: 'password'
-      };
-    });
-
     it('should return 400 and password should match if password does not match confirm password', (done) => {
-      const userWithUnmatchedPassword = Object.assign({}, user);
+      const userWithUnmatchedPassword = Object.assign({}, usersSeed);
       delete userWithUnmatchedPassword.confirmPassword;
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -40,10 +31,22 @@ describe('Api endpoints testing', () => {
         });
     });
 
+    it('should return 400 for an invlaid email', (done) => {
+      const userWithInvalidEmail = Object.assign({}, usersSeed)
+      userWithInvalidEmail.email = 'pur.com';
+      chai.request(app)
+        .post('/api/v1/users/signup')
+        .send(userWithInvalidEmail)
+        .end((err, res) => {
+          res.should.have.status(400);
+          done();
+        });
+    });
+
     it('should sign up a user and return 201 for a successful signup', (done) => {
       chai.request(app)
         .post('/api/v1/users/signup')
-        .send(user)
+        .send(usersSeed)
         .end((err, res) => {
           res.should.have.status(201);
           res.body.should.be.a('object');
@@ -58,7 +61,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 403 for an already existing user', (done) => {
-      const sameUserData = Object.assign({}, user);
+      const sameUserData = Object.assign({}, usersSeed);
       chai.request(app)
         .post('/api/v1/users/signup')
         .send(sameUserData)
@@ -70,7 +73,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no email is provided', (done) => {
-      const noEmail = Object.assign({}, user);
+      const noEmail = Object.assign({}, usersSeed);
       delete noEmail.email;
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -82,7 +85,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no password is provided', (done) => {
-      const noPassword = Object.assign({}, user);
+      const noPassword = Object.assign({}, usersSeed);
       delete noPassword.password;
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -94,7 +97,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no first name is provided', (done) => {
-      const noFirstName = Object.assign({}, user);
+      const noFirstName = Object.assign({}, usersSeed);
       delete noFirstName.firstName;
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -106,7 +109,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no last name is provided', (done) => {
-      const noLastName = Object.assign({}, user);
+      const noLastName = Object.assign({}, usersSeed);
       delete noLastName.lastName;
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -131,7 +134,6 @@ describe('Api endpoints testing', () => {
         .post('/api/v1/users/signin')
         .send(user)
         .end((err, res) => {
-          console.log(res.body);
           const { token } = res.body;
           jwt.verify(token, secret, (err, decoded) => {
             createdUserId = decoded.id;
@@ -147,7 +149,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no email is provided', (done) => {
-      const noEmail = Object.assign({}, user);
+      const noEmail = Object.assign({}, usersSeed);
       delete noEmail.email;
       chai.request(app)
         .post('/api/v1/users/signin')
@@ -159,7 +161,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 if no password is provided', (done) => {
-      const noPassword = Object.assign({}, user);
+      const noPassword = Object.assign({}, usersSeed);
       delete noPassword.password;
       chai.request(app)
         .post('/api/v1/users/signin')
@@ -171,7 +173,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 403 if password is wrong', (done) => {
-      const wrongPassword = Object.assign({}, user);
+      const wrongPassword = Object.assign({}, usersSeed);
       wrongPassword.password = 'wrong  password';
       chai.request(app)
         .post('/api/v1/users/signin')
@@ -183,7 +185,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 403 if email is wrong and user is not found', (done) => {
-      const wrongEmail = Object.assign({}, user);
+      const wrongEmail = Object.assign({}, usersSeed);
       wrongEmail.email = 'wrongemail@gmail.com';
       chai.request(app)
         .post('/api/v1/users/signin')
@@ -564,9 +566,9 @@ describe('Api endpoints testing', () => {
       where: {}
     });
 
-    // models.Favourite.destroy({
-    //   where: {}
-    // });
+    models.Favourite.destroy({
+      where: {}
+    });
   });
 });
 
