@@ -307,23 +307,6 @@ describe('Api endpoints testing', () => {
   });
 
   describe('Vote a recipe', () => {
-    // after(() => {
-    //   models.User.destroy({
-    //     where: {}
-    //   });
-    // });
-
-    // before((done) => {
-    //   chai.request(app)
-    //     .post('/api/v1/recipes')
-    //     .set('token', getToken)
-    //     .send(recipes.recipesPost[0])
-    //     .end((err, res) => {
-    //       createdRecipeId = res.body.data.id;
-    //       done();
-    //     });
-    // });
-
     it('should return 401 and user not signed if token is not provided before upvoting a recipe', (done) => {
       chai.request(app)
         .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
@@ -433,6 +416,77 @@ describe('Api endpoints testing', () => {
     });
   });
 
+  describe('Add Review', () => {
+    const recipeReview = {
+      review: 'my first review'
+    };
+    it('should return 400 if the review field is empty', (done) => {
+      const noReview = Object.assign({}, recipeReview);
+      delete noReview.review;
+      chai.request(app)
+        .post(`/api/v1/recipes/${createdRecipeId}/reviews`)
+        .set('token', getToken)
+        .send(noReview)
+        .end((err, res) => {
+          res.should.have.status(400);
+          done();
+        });
+    });
+
+    it('should return 201 for a successful review', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/${createdRecipeId}/reviews`)
+        .set('token', getToken)
+        .send(recipeReview)
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    });
+  });
+
+  describe('Favourites', () => {
+    it('should return a status of 204 if user has no favourite', (done) => {
+      chai.request(app)
+        .get(`/api/users/${createdUserId}/recipes`)
+        .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(204);
+          done();
+        });
+    });
+
+    it('should return a status of 200 if for successfuly adding favourites', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/${createdRecipeId}`)
+        .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+
+    it('should return a status of 400 for attempting to add a recipe as favourite more than  once', (done) => {
+      chai.request(app)
+        .post(`/api/v1/recipes/${createdRecipeId}`)
+        .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(400);
+          done();
+        });
+    });
+
+    it('should return a status of 200 if user has favourites', (done) => {
+      chai.request(app)
+        .get(`/api/users/${createdUserId}/recipes`)
+        .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+  });
+
   describe('Update Recipe', () => {
     it('should return 404 for updating a recipe that does not exist', (done) => {
       chai.request(app)
@@ -509,6 +563,10 @@ describe('Api endpoints testing', () => {
     models.Recipe.destroy({
       where: {}
     });
+
+    // models.Favourite.destroy({
+    //   where: {}
+    // });
   });
 });
 

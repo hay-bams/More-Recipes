@@ -37,7 +37,7 @@ class RecipeController {
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
           const allRecipes = await models.Recipe.findAll();
           if (!allRecipes) {
-            return res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+            return res.status(204).send({ success: 'false', message: 'No recipes at the moment' });
           }
           allRecipes.sort((a, b) => b.upvotes - a.upvotes);
           return res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
@@ -45,7 +45,7 @@ class RecipeController {
       } else {
         const allRecipes = await models.Recipe.findAll();
         if (allRecipes.length === 0) {
-          res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+          res.status(204).send({ success: 'false', message: 'No recipes at the moment' });
         } else {
           res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
         }
@@ -124,6 +124,12 @@ class RecipeController {
       }
 
       const id = parseInt(req.params.recipeId, 10);
+      const recipeFound = await models.Recipe.findById(id);
+
+      if (!recipeFound) {
+        return res.status(404).send({ success: 'true', message: 'Can\'t add review for a recipe that does not exist' });
+      }
+
       const review = {
         review: req.body.review,
         userId: req.decoded.id,
@@ -149,7 +155,7 @@ class RecipeController {
           where: { userId: req.decoded.id }
         });
 
-        if (favourite.length === 0) return res.status(200).send({ success: 'true', message: 'No favourite recipes' });
+        if (favourite.length === 0) return res.status(204).send({ success: 'true', message: 'No favourite recipes' });
 
         res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
       } else {
