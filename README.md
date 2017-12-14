@@ -61,7 +61,7 @@ npm run start:dev
 
 ## Testing
 * Create a test database and name it more-recipes-test
-* run 
+* run this command
 ``` 
 npm run test 
 ```
