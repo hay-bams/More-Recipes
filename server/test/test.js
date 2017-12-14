@@ -446,12 +446,12 @@ describe('Api endpoints testing', () => {
   });
 
   describe('Favourites', () => {
-    it('should return a status of 204 if user has no favourite', (done) => {
+    it('should return a status of 200 if user has no favourite', (done) => {
       chai.request(app)
         .get(`/api/users/${createdUserId}/recipes`)
         .set('token', getToken)
         .end((err, res) => {
-          res.should.have.status(204);
+          res.should.have.status(200);
           done();
         });
     });
