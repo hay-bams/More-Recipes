@@ -45,7 +45,7 @@ class RecipeController {
       } else {
         const allRecipes = await models.Recipe.findAll();
         if (allRecipes.length === 0) {
-          res.status(204).send({ success: 'false', message: 'No recipes at the moment' });
+          res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
         } else {
           res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
         }
@@ -155,7 +155,7 @@ class RecipeController {
           where: { userId: req.decoded.id }
         });
 
-        if (favourite.length === 0) return res.status(204).send({ success: 'true', message: 'No favourite recipes' });
+        if (favourite.length === 0) return res.status(200).send({ success: 'true', message: 'No favourite recipes' });
 
         res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
       } else {
