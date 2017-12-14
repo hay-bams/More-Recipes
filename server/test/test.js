@@ -31,7 +31,7 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 for an invlaid email', (done) => {
+    it('should return 400 for an invalid email', (done) => {
       const userWithInvalidEmail = Object.assign({}, usersSeed)
       userWithInvalidEmail.email = 'pur.com';
       chai.request(app)
