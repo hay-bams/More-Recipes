@@ -52,10 +52,6 @@ class Middleware {
    * @param {*} next
    */
   static validateUserSignup(req, res, next) {
-    if (!isEmail(req.body.email)) {
-      return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
-    }
-
     if (!req.body.firstName) {
       return res.status(400).send({ success: 'false', message: 'please enter your first name' });
     } else if (!req.body.lastName) {
@@ -77,10 +73,6 @@ class Middleware {
    * @param {*} next
    */
   static validateUserSignin(req, res, next) {
-    if (!isEmail(req.body.email)) {
-      return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
-    }
-
     if (!req.body.email) {
       return res.status(400).send({ success: 'false', message: 'please enter your email' });
     } else if (!req.body.password) {

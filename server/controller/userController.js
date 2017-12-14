@@ -58,6 +58,10 @@ class UserController {
       if (!validPassword) {
         return res.status(403).send({ success: 'false', message: 'wrong password' });
       }
+
+      if (!isEmail(req.body.email)) {
+        return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
+      }
       const token = jwt.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
       res.status(201).send({ success: 'true', message: 'successfully signed in', token });
     } catch (err) {
