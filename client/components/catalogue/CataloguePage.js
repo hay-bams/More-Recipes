@@ -10,7 +10,7 @@ class Catalogue extends React.Component {
      <div>
         <Navigation />
         <RecipesCatalogue />
-        <PopularRecipes />
+        <PopularRecipes  />
         <Footer />
      </div>
     )

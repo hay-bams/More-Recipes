@@ -14,7 +14,9 @@ body {
   font-weight: 900;
 }
 
-
+.is-active {
+  background: blue;
+}
 
 .navbar-light .navbar-nav .nav-link {
   color: rgba(255, 255, 255, 1) !important;
@@ -188,7 +190,7 @@ footer .row {
   margin-top: 56px; 
   width: 200px;
    background: rgb(74, 68, 29) !important;
-  /*height: 600px;*/
+  height: 900px;
 
 }
 

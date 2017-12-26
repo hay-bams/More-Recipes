@@ -10,7 +10,8 @@ import { getAllRecipes }  from '../actions/actions.js';
  */
 class RecipeCatalogue extends React.Component {
   componentDidMount() {
-    this.props.getAllRecipes()
+    this.props.getAllRecipes();
+   // console.log(this.props)
   }
 
   renderCatalogue() {
@@ -61,7 +62,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {   
   return bindActionCreators({ getAllRecipes }, dispatch);
 }
 export default connect(mapStateToProps, mapDispatchToProps)(RecipeCatalogue);

@@ -14,6 +14,10 @@ var _bcryptjs = require('bcryptjs');
 
 var _bcryptjs2 = _interopRequireDefault(_bcryptjs);
 
+var _isEmail = require('validator/lib/isEmail');
+
+var _isEmail2 = _interopRequireDefault(_isEmail);
+
 var _models = require('../models');
 
 var _models2 = _interopRequireDefault(_models);
@@ -72,28 +76,36 @@ var UserController = function () {
                 return _context.abrupt('return', res.status(403).send({ success: 'false', message: 'Email already registered' }));
 
               case 8:
-                _context.next = 10;
-                return _models2.default.User.create(user);
+                if ((0, _isEmail2.default)(req.body.email)) {
+                  _context.next = 10;
+                  break;
+                }
+
+                return _context.abrupt('return', res.status(400).send({ sucess: 'false', message: 'invalid email address' }));
 
               case 10:
+                _context.next = 12;
+                return _models2.default.User.create(user);
+
+              case 12:
                 newUser = _context.sent;
                 token = _jsonwebtoken2.default.sign({ id: newUser.id }, secret, { expiresIn: 87640 });
                 return _context.abrupt('return', res.status(201).send({
                   success: 'true', message: 'User created', data: newUser, token: token
                 }));
 
-              case 15:
-                _context.prev = 15;
+              case 17:
+                _context.prev = 17;
                 _context.t0 = _context['catch'](0);
 
                 res.status(500).send({ success: 'false', message: 'Internal server error', error: _context.t0 });
 
-              case 18:
+              case 20:
               case 'end':
                 return _context.stop();
             }
           }
-        }, _callee, this, [[0, 15]]);
+        }, _callee, this, [[0, 17]]);
       }));
 
       function signup(_x, _x2) {
@@ -143,24 +155,32 @@ var UserController = function () {
                 return _context2.abrupt('return', res.status(403).send({ success: 'false', message: 'wrong password' }));
 
               case 9:
+                if ((0, _isEmail2.default)(req.body.email)) {
+                  _context2.next = 11;
+                  break;
+                }
+
+                return _context2.abrupt('return', res.status(400).send({ sucess: 'false', message: 'invalid email address' }));
+
+              case 11:
                 token = _jsonwebtoken2.default.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
 
                 res.status(201).send({ success: 'true', message: 'successfully signed in', token: token });
-                _context2.next = 16;
+                _context2.next = 18;
                 break;
 
-              case 13:
-                _context2.prev = 13;
+              case 15:
+                _context2.prev = 15;
                 _context2.t0 = _context2['catch'](0);
 
                 res.status(500).send({ success: 'false', message: 'Internal server error', error: _context2.t0 });
 
-              case 16:
+              case 18:
               case 'end':
                 return _context2.stop();
             }
           }
-        }, _callee2, this, [[0, 13]]);
+        }, _callee2, this, [[0, 15]]);
       }));
 
       function signin(_x3, _x4) {
