@@ -5,6 +5,17 @@ import { Link } from 'react-router-dom';
  * @class SignupForm
  */
 class SignupForm extends React.Component {
+  signup(e) {
+    e.preventDefault();
+    const user = {
+      firstName: this.firstName.value,
+      lastName: this.lastName.value,
+      email: this.email.value,
+      password: this.password.value,
+      confirmPassword: this.confirmPassword.value
+    }
+  }
+
     render() {
         return(
             <div className = "container-fluid main-register-container">
@@ -16,30 +27,30 @@ class SignupForm extends React.Component {
                   </div>
       
                   <div className = "card-body">
-                    <form>
+                    <form onSubmit={(e) => this.signup(e)}>
                        <div className = "form-group">
                         <label htmlFor = "first_name">First Name</label>
-                        <input type="text" name="first_name" className = "form-control" placeholder="Enter First name" />
+                        <input ref={(input) => this.firstName = input} type="text" name="firstName" className = "form-control" placeholder="Enter First name" />
                       </div>
       
                        <div className = "form-group">
                         <label htmlFor = "last_name">Last Name</label>
-                        <input type="text" name="last_name" className = "form-control" placeholder="Enter Last name" />
+                        <input ref={(input) => this.lastName = input} type="text" name="lastName" className = "form-control" placeholder="Enter Last name" />
                       </div>
       
                       <div className = "form-group">
                         <label htmlFor = "email">Email</label>
-                        <input type="email" name="email" className = "form-control" placeholder="Enter Email" />
+                        <input ref={(input) => this.email = input} type="email" name="email" className = "form-control" placeholder="Enter Email" />
                       </div>
       
                       <div className = "form-group">
                         <label htmlFor = "password">Password</label>
-                        <input type="password" name="password" className = "form-control" placeholder="Enter Password" />
+                        <input ref={(input) => this.password = input} type="password" name="password" className = "form-control" placeholder="Enter Password" />
                       </div>
       
                        <div className = "form-group">
                         <label htmlFor = "password">Confirm Password</label>
-                        <input type="password" name="password" className = "form-control" placeholder="Confirm Password" />
+                        <input ref={(input) => this.confirmPassword = input} type="password" name="Confirmpassword" className = "form-control" placeholder="Confirm Password" />
                       </div>
       
                       <div className = "form-group">
@@ -54,5 +65,9 @@ class SignupForm extends React.Component {
         )
     }
 }
+
+// const mapStateToProps = (state) => {
+//   return 
+// }
 
 export default SignupForm;

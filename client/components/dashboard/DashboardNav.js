@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 /**
  * @class DashboardNav
@@ -9,7 +9,7 @@ class DashboardNav extends React.Component {
         return (
           <header>
             <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top user-nav fav-navbar d-none d-md-block">
-            <Link to='/' className="navbar-brand">More Recipe</Link>
+            <NavLink to='/' className="navbar-brand">More Recipe</NavLink>
         
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -21,18 +21,18 @@ class DashboardNav extends React.Component {
                   <Link to='/dashboard' className="nav-link sidebar">Dashboard<span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
-                  <Link to='/dashboard/add_recipe' className="nav-link sidebar">Add Recipes</Link>
+                  <Link to='/add_recipe' className="nav-link sidebar">Add Recipes</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to='/dashboard/view_recipes' className="nav-link sidebar">View Recipes</Link>
-                </li>
-
-                <li className="nav-item">
-                  <Link to='/dashboard/favourites' className="nav-link sidebar">Favourites</Link>
+                  <Link to='/view_recipes' className="nav-link sidebar">View Recipes</Link>
                 </li>
 
                 <li className="nav-item">
-                  <Link to='/dashboard/user_profile' className="nav-link sidebar">User Profile</Link>
+                  <Link to='/favourites' className="nav-link sidebar">Favourites</Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link to='/user_profile' className="nav-link sidebar">User Profile</Link>
                 </li>
               </ul>
             </div>      
@@ -40,7 +40,7 @@ class DashboardNav extends React.Component {
 
           <nav className="navbar navbar-expand-md navbar-light fixed-top navigationBar d-md-none">
               <div className = "container-fluid">
-                <Link to='/' className="navbar-brand" href="#">My Recipe Logo</Link>
+                <NavLink to='/' className="navbar-brand" href="#">My Recipe Logo</NavLink>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon"></span>
                 </button>
