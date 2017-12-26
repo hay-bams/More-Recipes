@@ -4,8 +4,8 @@
   "env": {
     "node": true,
     "es6": true,
-	"mocha": true,
-	"jquery": true
+	  "mocha": true,
+    "jquery": true
   },
   "rules": {
     "one-var": 0,

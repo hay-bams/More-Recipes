@@ -4,13 +4,17 @@ var _http = require('http');
 
 var _http2 = _interopRequireDefault(_http);
 
-var _app = require('../app');
-
-var _app2 = _interopRequireDefault(_app);
-
 var _dotenv = require('dotenv');
 
 var _dotenv2 = _interopRequireDefault(_dotenv);
+
+require('babel-polyfill');
+
+var _babelCore = require('babel-core');
+
+var _app = require('../app');
+
+var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

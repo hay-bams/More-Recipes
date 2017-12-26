@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 import APPCONSTANT from '../constant';
 
-export const signUp = (state = null, action) => {
-  return action.type === APPCONSTANT.SIGN_UP ? action.payload : state;
-};
+// export const signUp = (state = null, action) => {
+//   return action.type === APPCONSTANT.SIGN_UP ? action.payload : state;
+// };
 
 export const addRecipe = (state = null, action) => {
   return action.type === APPCONSTANT.ADD_RECIPE ? action.payload : state;
 };
 
-export const recipes = (state = {}, action) => {
+export const recipes = (state = [], action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_RECIPE:
       return [
@@ -23,19 +23,19 @@ export const recipes = (state = {}, action) => {
   }
 };
 
-export const users = (state = [], action) => {
+export const user = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.SIGN_UP:
-      return [
+      return {
         ...state,
-        action.payload
-      ];
+        userData: action.payload
+      };
     default:
       return state;
   }
 };
 
 export default combineReducers({
-  users,
+  user,
   recipes
 });

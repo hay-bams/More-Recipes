@@ -21,8 +21,12 @@ import '../font-awesome/scss/font-awesome.scss';
 import '../build/css/custom.css';
 import '../build/js/script.js';
 
- const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore)(allReducers);
-//const createStoreWithMiddleware = createStore(allReducers);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+ const createStoreWithMiddleware = createStore(
+	 allReducers, {},
+	 composeEnhancers(applyMiddleware(ReduxPromise))
+);
 
 const Root = () => {
 	return (
@@ -36,10 +40,10 @@ const Root = () => {
 				<Route path='/signin' component={SigninPage} />
 				<Route path='/signup' component={SignupPage} />
 				<Route exact path='/dashboard' component={DashboardPage} />
-				<Route exact path='/dashboard/add_recipe' component={AddRecipePage} />
-				<Route exact path='/dashboard/view_recipes' component={ViewRecipePage} />
-				<Route exact path='/dashboard/favourites' component={FavouritePage} />
-				<Route exact path='/dashboard/user_profile' component={UserProfilePage} />
+				<Route exact path='/add_recipe' component={AddRecipePage} />
+				<Route exact path='/view_recipes' component={ViewRecipePage} />
+				<Route exact path='/favourites' component={FavouritePage} />
+				<Route exact path='/user_profile' component={UserProfilePage} />
 
 				<Route render={() => <p>404, not found. build a whole component for this</p>} />
             </Switch>

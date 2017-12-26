@@ -15,7 +15,8 @@ module.exports = {
     database: 'more-recipes-test',
     host: '127.0.0.1',
     port: 5432,
-    dialect: 'postgres'
+    dialect: 'postgres',
+    logging: false
   },
   production: {
     use_env_variable: 'DATABASE_URL'
