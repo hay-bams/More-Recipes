@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux';
 import APPCONSTANT from '../constant';
 
-// export const signUp = (state = null, action) => {
-//   return action.type === APPCONSTANT.SIGN_UP ? action.payload : state;
-// };
-
 export const addRecipe = (state = null, action) => {
   return action.type === APPCONSTANT.ADD_RECIPE ? action.payload : state;
 };
@@ -30,6 +26,23 @@ export const user = (state = {}, action) => {
         ...state,
         userData: action.payload
       };
+    case APPCONSTANT.SIGN_IN:
+      return {
+        ...state,
+        userData: action.payload
+      };
+    default:
+      return state;
+  }
+};
+
+export const errors = (state = {}, action) => {
+  switch (action.type) {
+    case APPCONSTANT.ERRORS:
+      return {
+        ...state,
+        errors: action.payload
+      };
     default:
       return state;
   }
@@ -37,5 +50,6 @@ export const user = (state = {}, action) => {
 
 export default combineReducers({
   user,
-  recipes
+  recipes,
+  errors
 });

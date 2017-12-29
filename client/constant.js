@@ -9,7 +9,8 @@ const constants = {
   GET_FAV: 'GET_FAV',
   ADD_FAV: 'ADD_FAV',
   UPVOTE: 'UPVOTE',
-  DOWNVOTE: 'DOWNVOTE'
+  DOWNVOTE: 'DOWNVOTE',
+  ERRORS: 'ERRORS'
 };
 
 export default constants;

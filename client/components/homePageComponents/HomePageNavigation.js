@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
 
 /**
  * @class HomePageNavigation
@@ -24,12 +25,20 @@ class HomePageNavigation extends React.Component {
                 <NavLink to='/catalogue' className="nav-link">Catalogue</NavLink>
             </li>
 
+           
             <li className="nav-item active">
-                <NavLink to = "/signin" className="nav-link" href="login.html">Sign in <span className="sr-only">(current)</span></NavLink>
+              { this.props.user.userData === undefined ? 
+                <NavLink to = "/signin" className="nav-link" href="login.html">Sign in 
+                <span className="sr-only">(current)</span></NavLink> : "" 
+              }
             </li>
+
             <li className="nav-item">
-                <NavLink to = "/signup" className="nav-link" href="register.html">Sign up</NavLink>
+              { this.props.user.userData === undefined ?  
+              <NavLink to = "/signup" className="nav-link" href="register.html">Sign up</NavLink> : ""
+              }
             </li>
+            
             </ul>
           </div>
         </div>
@@ -38,4 +47,11 @@ class HomePageNavigation extends React.Component {
   }
 }
 
-export default HomePageNavigation;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+
+export default connect(mapStateToProps, null)(HomePageNavigation);

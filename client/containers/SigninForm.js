@@ -1,9 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'; 
 import { Link } from 'react-router-dom';
+import { signin } from '../actions/actions.js';
+import Authenticate from '../auth/auth.js';
+
 /**
  * @class Signin
  */
 class SigninForm extends React.Component {
+  constructor(props) {
+    super(props)
+    this.signin = this.signin.bind(this);
+  }
+
+  componentDidUpdate() {
+    this.props.user.userData !== undefined ? this.props.redirectUser.push('/dashboard') : "";
+  }
+
+  signin(event) {
+    event.preventDefault();
+    const user = {
+      email: this.email.value,
+      password: this.password.value
+    }
+    this.props.signin(user);
+  }
+
     render() {
         return (
             <div className = "container-fluid main-login-container">
@@ -15,15 +38,16 @@ class SigninForm extends React.Component {
                   </div>
       
                   <div className = "card-body ">
-                    <form>
+                   <span>{this.props.errors.errors !== undefined ? this.props.errors.errors.response.data.message : ""}</span>
+                    <form onSubmit = {this.signin}>
                       <div className = "form-group">
                         <label htmlFor = "email">Email</label>
-                        <input type="email" name="email" className = "form-control" placeholder="Enter Email" />
+                        <input ref = {(input) => this.email = input} type="email" name="email" className = "form-control" placeholder="Enter Email" required />
                       </div>
       
                       <div className = "form-group">
                         <label htmlFor = "password">Password</label>
-                        <input type="password" name="password" className = "form-control" placeholder="Enter Password" />
+                        <input ref = {(input) => this.password = input} type="password" name="password" className = "form-control" placeholder="Enter Password" required/>
                       </div>
       
                       <div className = "form-group">
@@ -49,4 +73,15 @@ class SigninForm extends React.Component {
     }
 }
 
-export default SigninForm;
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    errors: state.errors
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({signin}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SigninForm);

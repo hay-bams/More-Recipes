@@ -27,7 +27,7 @@ class SignupForm extends React.Component {
       password: this.password.value,
       confirmPassword: this.confirmPassword.value
     }
-    this.message = Authenticate.validateUser(user);
+    this.message = Authenticate.validateUserSignup(user);
     this.props.signup(user);
     this.message = this.message ? this.message : "Email already exist";
   }
