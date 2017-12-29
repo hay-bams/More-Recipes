@@ -42,6 +42,22 @@ export const signup = async (userObject) => {
   };
 };
 
+export const signin = async (userObject) => {
+  let user;
+  try {
+    user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+  return {
+    type: APPCONSTANT.SIGN_IN,
+    payload: user
+  };
+};
+
 export default {
   signUp,
   addRecipe,

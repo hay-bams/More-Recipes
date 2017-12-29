@@ -1,5 +1,5 @@
 import React from 'react';
-import SiginForm from './SigninForm'; 
+import SiginForm from '../../containers/SigninForm'; 
 import Navigation from '../Navigation';
 
 /**
@@ -10,7 +10,7 @@ class SigninPage extends React.Component {
       return (
         <div className='bg-dark'>
           <Navigation />
-          <SiginForm />
+          <SiginForm  redirectUser = {this.props.history}/>
         </div>
       )
     }

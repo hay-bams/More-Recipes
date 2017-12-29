@@ -27,11 +27,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -46,11 +46,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -65,11 +65,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -84,11 +84,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -103,11 +103,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -122,11 +122,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -141,11 +141,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>
@@ -160,11 +160,11 @@ class FavouriteRecipes extends React.Component {
                         <div className="card-body">
                           <h4 className="card-title">Card title</h4>
                           <p className="card-text">
-                            <div className = "row">
+                            <span className = "row">
                               <a href="#" className = "text-success"><i className="fa fa-thumbs-up col-4" aria-hidden="true"></i>10</a>
                               <a href="#" className = "text-info"><i className="fa fa-comment col-4" aria-hidden="true"></i>25</a>
                               <a href="#" className = "text-danger"><i className="fa fa-thumbs-down col-4" aria-hidden="true"></i>3</a>
-                            </div>
+                            </span>
                           </p>
                           <span className = "btn btn-primary"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           <span className = "btn btn-danger"><i className="fa fa-trash-o" aria-hidden="true"></i></span>

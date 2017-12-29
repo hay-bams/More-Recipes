@@ -6,9 +6,8 @@ import DashboardNav from './DashboardNav';
  * @class DashboardPage
  */
 class DashboardPage extends React.Component {
-  componentWillMount() {
-    console.log(this.props.user)
-    this.props.user.userData == undefined ? this.props.history.push('/signup') : "";                                                                                                        
+  componentWillMount() {  
+    this.props.user.userData == undefined ? this.props.history.push('/signin') : "";                                                                                                        
   }
 
   render() {
