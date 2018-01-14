@@ -30,6 +30,21 @@ export const getAllRecipes = () => {
   };
 };
 
+export const getUserRecipes = async () => {
+  try {
+    const userRecipes = await axios.get('http://localhost:8000/api/v1/recipes');
+    return {
+      type: APPCONSTANT.GET_USER_RECIPES,
+      payload: userRecipes
+    }
+  } catch(err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: user
+    };
+  }
+}
+
 export const signup = async (userObject) => {
   let user;
   try {
@@ -44,21 +59,19 @@ export const signup = async (userObject) => {
 };
 
 export const signin = async (userObject) => {
-  let user;
-
   try {
-    user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
+    const user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
     localStorage['userToken'] = user.data.token;
+    return {
+      type: APPCONSTANT.SIGN_IN,
+      payload: user
+    };
   } catch (err) {
     return {
       type: APPCONSTANT.ERRORS,
       payload: err
     };
   }
-  return {
-    type: APPCONSTANT.SIGN_IN,
-    payload: user
-  };
 };
 
 export const clearError = () => {
@@ -72,5 +85,6 @@ export default {
   signup,
   addRecipe,
   getAllRecipes,
-  clearError
+  clearError,
+  getUserRecipes
 };
