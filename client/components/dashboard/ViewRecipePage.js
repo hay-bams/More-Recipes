@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Recipes from './Recipes';
+// import Recipes from './Recipes';
 import DashboardNav from './DashboardNav';
+import UserRecipes from '../../containers/UserRecipes';
 
 /**
  * @class AddRecipePage
@@ -11,7 +12,7 @@ class AddRecipePage extends React.Component {
         return (
             <div>
               <DashboardNav />
-              <Recipes />
+              <UserRecipes />
             </div>
         )
     }

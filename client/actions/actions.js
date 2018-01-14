@@ -1,23 +1,24 @@
 import axios from 'axios';
 import APPCONSTANT from '../constant';
 
-export const signUp = (id, firstName, lastName, image, email, password, createdAt, updatedAt) => {
-  // app logic should go here
-
-  return ({
-    type: APPCONSTANT.SIGN_UP,
-    payload: {
-      id, firstName, lastName, image, password, createdAt, updatedAt
-    }
-  });
-};
-
-export const addRecipe = (id, title, image, ingredients, instructions, upvotes, downvotes, createdAt, updatedAt, userId) => {
+export const addRecipe = async (recipeObject) => {
+  let recipe;
+  try {
+    recipe = await axios({
+      method: 'post',
+      url: 'http://localhost:8000/api/v1/recipes',
+      data: recipeObject,
+      headers: {token: localStorage['userToken']}
+    });
+  } catch (err) {
+      return {
+        type: APPCONSTANT.ERRORS,
+        payload: err
+      };
+  }
   return ({
     type: APPCONSTANT.ADD_RECIPE,
-    payload: {
-      id, title, image, ingredients, instructions, upvotes, downvotes, createdAt, updatedAt, userId
-    }
+    payload: recipe
   });
 };
 
@@ -28,6 +29,21 @@ export const getAllRecipes = () => {
     payload: recipes
   };
 };
+
+export const getUserRecipes = async () => {
+  try {
+    const userRecipes = await axios.get('http://localhost:8000/api/v1/recipes');
+    return {
+      type: APPCONSTANT.GET_USER_RECIPES,
+      payload: userRecipes
+    }
+  } catch(err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: user
+    };
+  }
+}
 
 export const signup = async (userObject) => {
   let user;
@@ -43,24 +59,32 @@ export const signup = async (userObject) => {
 };
 
 export const signin = async (userObject) => {
-  let user;
   try {
-    user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
+    const user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
+    localStorage['userToken'] = user.data.token;
+    return {
+      type: APPCONSTANT.SIGN_IN,
+      payload: user
+    };
   } catch (err) {
     return {
       type: APPCONSTANT.ERRORS,
       payload: err
     };
   }
-  return {
-    type: APPCONSTANT.SIGN_IN,
-    payload: user
-  };
 };
 
-export default {
-  signUp,
-  addRecipe,
-  getAllRecipes
+export const clearError = () => {
+  return {
+    type: APPCONSTANT.CLEAR_ERRORS,
+    payload: null
+  }
+}
 
+export default {
+  signup,
+  addRecipe,
+  getAllRecipes,
+  clearError,
+  getUserRecipes
 };

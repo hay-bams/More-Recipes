@@ -38,7 +38,7 @@ class SigninForm extends React.Component {
                   </div>
       
                   <div className = "card-body ">
-                   <span>{this.props.errors.errors !== undefined ? this.props.errors.errors.response.data.message : ""}</span>
+                   <span>{this.props.message.errors ? this.props.message.errors.response.data.message : ""}</span>
                     <form onSubmit = {this.signin}>
                       <div className = "form-group">
                         <label htmlFor = "email">Email</label>
@@ -76,7 +76,7 @@ class SigninForm extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    errors: state.errors
+    message: state.errors
   }
 }
 

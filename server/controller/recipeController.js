@@ -58,6 +58,26 @@ class RecipeController {
   }
 
   /**
+   * @return {obj} getUserRecipes
+   * @param {obj} req 
+   * @param {obj} res 
+   */
+  static async getUserRecipes(req, res) {
+    try {
+      const userRecipes = await models.Recipe.findAll({
+        where: { userId: req.decoded.id}
+      });
+      if (userRecipes.length === 0) {
+        res.status(200).send({ success: 'false', message: 'You have no recipes at the moment' });
+      } else {
+        res.status(200).send({ success: 'true', message: 'Recipes found', data: userRecipes });
+      }
+    } catch(err) {
+      res.status(500).send({ success: 'false', message: 'internal server error' });
+    }
+  }
+
+  /**
    * @return {obj} updateRecipe
    * @param {obj} req
    * @param {obj} res
