@@ -1,5 +1,8 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 import APPCONSTANT from '../constant';
+
+const secret = 'This is your guy';
 
 export const addRecipe = async (recipeObject) => {
   let recipe;
@@ -32,7 +35,18 @@ export const getAllRecipes = () => {
 
 export const getUserRecipes = async () => {
   try {
-    const userRecipes = await axios.get('http://localhost:8000/api/v1/recipes');
+    let userId;
+    const userToken = localStorage['userToken']
+    jwt.verify(userToken, secret, (err, decoded) => {
+      userId = decoded.id;
+    })
+     
+    const userRecipes = await axios({
+      method: 'get',
+      url: `http://localhost:8000/api/v1/recipes/${userId}`,
+      headers: {token: localStorage['userToken']}
+    });
+
     return {
       type: APPCONSTANT.GET_USER_RECIPES,
       payload: userRecipes
@@ -40,7 +54,7 @@ export const getUserRecipes = async () => {
   } catch(err) {
     return {
       type: APPCONSTANT.ERRORS,
-      payload: user
+      payload: err
     };
   }
 }
