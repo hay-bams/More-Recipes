@@ -10,7 +10,9 @@ const constants = {
   ADD_FAV: 'ADD_FAV',
   UPVOTE: 'UPVOTE',
   DOWNVOTE: 'DOWNVOTE',
-  ERRORS: 'ERRORS'
+  ERRORS: 'ERRORS',
+  CLEAR_ERRORS: 'CLEAR_ERRORS',
+  GET_USER_RECIPES: 'GET_USER_RECIPES'
 };
 
 export default constants;
