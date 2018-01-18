@@ -64,13 +64,16 @@ export const signup = async (userObject) => {
   let user;
   try {
     user = await axios.post('http://localhost:8000/api/v1/users/signup', userObject);
-  } catch (err) {
-    console.log(err);
+    return {
+      type: APPCONSTANT.SIGN_UP,
+      payload: user
+    };
+  } catch ({ response }) {
+    return {
+       type: APPCONSTANT.SIGN_UP_ERRORS,
+       payload: response
+    }
   }
-  return {
-    type: APPCONSTANT.SIGN_UP,
-    payload: user
-  };
 };
 
 export const signin = async (userObject) => {

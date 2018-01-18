@@ -57,6 +57,12 @@ export const errors = (state = {}, action) => {
         errors: action.payload
       };
 
+    case APPCONSTANT.SIGN_UP_ERRORS:
+    console.log(response);
+      return {
+        ...state
+      }
+
     case APPCONSTANT.CLEAR_ERRORS:
       return { 
         errors: action.payload
