@@ -10,13 +10,21 @@ import Authenticate from '../auth/auth.js';
  */
 class SigninForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
     this.signin = this.signin.bind(this);
+    this.state = {
+      errors: {}
+    }
   }
 
+  //create a bug fix branch for this feature tomorrow
+
   componentDidUpdate() {
-    this.props.user.userData !== undefined ? this.props.redirectUser.push('/dashboard') : "";
+    this.props.user.userData !== undefined ? this.props.redirectUser.push('/dashboard') : '';
   }
+
+
 
   signin(event) {
     event.preventDefault();
@@ -24,10 +32,18 @@ class SigninForm extends React.Component {
       email: this.email.value,
       password: this.password.value
     }
-    this.props.signin(user);
+    const errors = Authenticate.validateUserSignin(user);
+ 
+    if (errors.email !== '' || errors.password !== '') {
+      return this.setState({ errors }) 
+    }
+
+    const message = this.props.signin(user);
+    console.log(message) 
   }
 
     render() {
+      const  { errors }  = this.state;
         return (
             <div className = "container-fluid main-login-container">
             <div className = "row main-login">
@@ -38,17 +54,24 @@ class SigninForm extends React.Component {
                   </div>
       
                   <div className = "card-body ">
-                   <span>{this.props.message.errors ? this.props.message.errors.response.data.message : ""}</span>
                     <form onSubmit = {this.signin}>
                       <div className = "form-group">
                         <label htmlFor = "email">Email</label>
-                        <input ref = {(input) => this.email = input} type="email" name="email" className = "form-control" placeholder="Enter Email" required />
+                        <input ref = {(input) => this.email = input} type="email" name="email" className = "form-control" placeholder="Enter Email"/>
+                            { errors.email &&
+                              <span className="help-block">
+                                {errors.email}
+                              </span>
+                            }
                       </div>
       
                       <div className = "form-group">
                         <label htmlFor = "password">Password</label>
-                        <input ref = {(input) => this.password = input} type="password" name="password" className = "form-control" placeholder="Enter Password" required/>
+                        <input ref = {(input) => this.password = input} type="password" name="password" className = "form-control" placeholder="Enter Password"/>
                       </div>
+                      {errors.password &&
+                      <span>{errors.password}</span>
+                      }
       
                       <div className = "form-group">
                         <input type="checkbox" name="checkbox" />
@@ -76,7 +99,7 @@ class SigninForm extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    message: state.errors
+    errorMsg: state.errors
   }
 }
 

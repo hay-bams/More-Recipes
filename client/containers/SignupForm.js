@@ -18,8 +18,8 @@ class SignupForm extends React.Component {
     this.props.user.userData !== undefined ? this.props.redirectUser.push('/dashboard') : "";
   }
 
-  signup(e) {
-    e.preventDefault();
+  signup(event) {
+    event.preventDefault();
     const user = {
       firstName: this.firstName.value,
       lastName: this.lastName.value,

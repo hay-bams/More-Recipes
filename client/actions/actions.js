@@ -1,5 +1,8 @@
 import axios from 'axios';
+import jwt from 'jsonwebtoken';
 import APPCONSTANT from '../constant';
+
+const secret = 'This is your guy';
 
 export const addRecipe = async (recipeObject) => {
   let recipe;
@@ -10,6 +13,7 @@ export const addRecipe = async (recipeObject) => {
       data: recipeObject,
       headers: {token: localStorage['userToken']}
     });
+    
   } catch (err) {
       return {
         type: APPCONSTANT.ERRORS,
@@ -30,6 +34,32 @@ export const getAllRecipes = () => {
   };
 };
 
+export const getUserRecipes = async () => {
+  try {
+    let userId;
+    const userToken = localStorage['userToken']
+    jwt.verify(userToken, secret, (err, decoded) => {
+      userId = decoded.id;
+    })
+     
+    const userRecipes = await axios({
+      method: 'get',
+      url: `http://localhost:8000/api/v1/recipes/${userId}`,
+      headers: {token: localStorage['userToken']}
+    });
+
+    return {
+      type: APPCONSTANT.GET_USER_RECIPES,
+      payload: userRecipes
+    }
+  } catch(err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+}
+
 export const signup = async (userObject) => {
   let user;
   try {
@@ -44,21 +74,19 @@ export const signup = async (userObject) => {
 };
 
 export const signin = async (userObject) => {
-  let user;
-
   try {
-    user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
+    const user = await axios.post('http://localhost:8000/api/v1/users/signin', userObject);
     localStorage['userToken'] = user.data.token;
+    return {
+      type: APPCONSTANT.SIGN_IN,
+      payload: user
+    };
   } catch (err) {
     return {
-      type: APPCONSTANT.ERRORS,
+      type: APPCONSTANT.SIGN_IN_ERRORS,
       payload: err
-    };
+    }
   }
-  return {
-    type: APPCONSTANT.SIGN_IN,
-    payload: user
-  };
 };
 
 export const clearError = () => {
@@ -72,5 +100,6 @@ export default {
   signup,
   addRecipe,
   getAllRecipes,
-  clearError
+  clearError,
+  getUserRecipes
 };

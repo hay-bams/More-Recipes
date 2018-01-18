@@ -26,11 +26,18 @@ export const user = (state = {}, action) => {
         ...state,
         userData: action.payload
       };
+
     case APPCONSTANT.SIGN_IN:
       return {
         ...state,
         userData: action.payload
       };
+
+    case APPCONSTANT.ERRORS:
+      return {
+        ...state,
+        error: action.payload
+      }
     default:
       return state;
   }
@@ -43,31 +50,21 @@ export const errors = (state = {}, action) => {
         ...state,
         errors: action.payload
       };
+
+    case APPCONSTANT.SIGN_IN_ERRORS:
+      return {
+        ...state,
+        errors: action.payload
+      };
+
     case APPCONSTANT.CLEAR_ERRORS:
       return { 
         errors: action.payload
-      }
+      };
     default:
       return state;
   }
 };
-
-// export const clear = (state = {}, action) => {
-//   switch(action.type) {
-//     case APPCONSTANT.CLEAR_ERROR:
-//       return {
-//         ...state, 
-//         errors: action.payload
-//       }
-//     case APPCONSTANT.CLEAR_MESSAGE:
-//       return {
-//         ...state,
-//         message: action.payload
-//       }
-//     default:
-//       return state;
-//   }
-// }
 
 export default combineReducers({
   user,
