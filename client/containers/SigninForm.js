@@ -52,6 +52,8 @@ class SigninForm extends React.Component {
                   <div className = "card-header">
                     Login
                   </div>
+
+                  <span className="text-center">{ this.props.errorMsg }</span>
       
                   <div className = "card-body ">
                     <form onSubmit = {this.signin}>
@@ -99,7 +101,7 @@ class SigninForm extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    errorMsg: state.errors
+    errorMsg: state.errors.signInError
   }
 }
 
