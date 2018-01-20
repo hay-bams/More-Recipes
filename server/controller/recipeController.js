@@ -20,9 +20,17 @@ class RecipeController {
       };
 
       const newRecipe = await models.Recipe.create(recipe);
-      res.status(201).send({ success: 'true', message: 'Recipe Created', data: newRecipe });
+      res.status(201).send({
+        success: 'true',
+        message: 'Recipe Created',
+        data: newRecipe
+      });
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 
@@ -33,47 +41,73 @@ class RecipeController {
    */
   static async getAllRecipe(req, res) {
     try {
-      console.log(req.query);
       if (Object.keys(req.query).length > 0) {
-        console.log(req.query);
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
           const allRecipes = await models.Recipe.findAll();
           if (allRecipes.length === 0) {
-            return res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+            return res.status(200).send({
+              success: 'false',
+              message: 'No recipes at the moment'
+            });
           }
           allRecipes.sort((a, b) => b.upvotes - a.upvotes);
-          return res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
+          return res.status(200).send({
+            success: 'true',
+            message: 'Recipes found',
+            data: allRecipes
+          });
         }
       } else {
         const allRecipes = await models.Recipe.findAll();
         if (allRecipes.length === 0) {
-          res.status(200).send({ success: 'false', message: 'No recipes at the moment' });
+          res.status(200).send({
+            success: 'false',
+            message: 'No recipes at the moment'
+          });
         } else {
-          res.status(200).send({ success: 'true', message: 'Recipes found', data: allRecipes });
+          res.status(200).send({
+            success: 'true',
+            message: 'Recipes found',
+            data: allRecipes
+          });
         }
       }
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
     }
   }
 
   /**
    * @return {obj} getUserRecipes
-   * @param {obj} req 
-   * @param {obj} res 
+   * @param {obj} req
+   * @param {obj} res
    */
   static async getUserRecipes(req, res) {
     try {
       const userRecipes = await models.Recipe.findAll({
-        where: { userId: req.decoded.id}
+        where: { userId: req.decoded.id }
       });
       if (userRecipes.length === 0) {
-        res.status(200).send({ success: 'false', message: 'You have no recipes at the moment' });
+        res.status(200).send({
+          success: 'false',
+          message: 'You have no recipes at the moment'
+        });
       } else {
-        res.status(200).send({ success: 'true', message: 'Recipes found', data: userRecipes });
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: userRecipes
+        });
       }
-    } catch(err) {
-      res.status(500).send({ success: 'false', message: 'internal server error' });
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
     }
   }
 
@@ -88,7 +122,10 @@ class RecipeController {
       const recipeFound = await models.Recipe.findById(id);
 
       if (!recipeFound) {
-        return res.status(404).send({ success: 'false', message: 'Recipe does not exist' });
+        return res.status(404).send({
+          success: 'false',
+          message: 'Recipe does not exist'
+        });
       }
       const recipe = {
         title: req.body.title || recipeFound.title,
@@ -100,12 +137,23 @@ class RecipeController {
 
       if (recipeFound.userId === req.decoded.id) {
         const updatedRecipe = await recipeFound.update(recipe);
-        res.status(201).send({ success: 'true', message: 'Recipe updated successfully', data: updatedRecipe });
+        res.status(201).send({
+          success: 'true',
+          message: 'Recipe updated successfully',
+          data: updatedRecipe
+        });
       } else {
-        res.status(401).send({ success: 'false', message: 'you are not authorized to update this recipe' });
+        res.status(401).send({
+          success: 'false',
+          message: 'you are not authorized to update this recipe'
+        });
       }
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
     }
   }
 
@@ -120,17 +168,27 @@ class RecipeController {
       const recipeFound = await models.Recipe.findById(id);
 
       if (!recipeFound) {
-        return res.status(404).send({ success: 'false', message: 'Recipe does not exist' });
+        return res.status(404).send({
+          success: 'false',
+          message: 'Recipe does not exist'
+        });
       }
 
       if (recipeFound.userId === req.decoded.id) {
         recipeFound.destroy();
         res.status(200).send({ success: 'true', message: 'Recipe deleted' });
       } else {
-        res.status(401).send({ success: 'false', message: 'You are not authorized to delete this recipe' });
+        res.status(401).send({
+          success: 'false',
+          message: 'You are not authorized to delete this recipe'
+        });
       }
     } catch (err) {
-      res.status(500).send({ sucess: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        sucess: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 
@@ -142,14 +200,20 @@ class RecipeController {
   static async addReview(req, res) {
     try {
       if (!req.body.review) {
-        return res.status(400).send({ success: 'false', message: 'The review field is required' });
+        return res.status(400).send({
+          success: 'false',
+          message: 'The review field is required'
+        });
       }
 
       const id = parseInt(req.params.recipeId, 10);
       const recipeFound = await models.Recipe.findById(id);
 
       if (!recipeFound) {
-        return res.status(404).send({ success: 'true', message: 'Can\'t add review for a recipe that does not exist' });
+        return res.status(404).send({
+          success: 'true',
+          message: 'Can\'t add review for a recipe that does not exist'
+        });
       }
 
       const review = {
@@ -158,9 +222,17 @@ class RecipeController {
         recipeId: id
       };
       const newReview = await models.Review.create(review);
-      res.status(201).send({ success: 'true', message: 'New review added', data: newReview });
+      res.status(201).send({
+        success: 'true',
+        message: 'New review added',
+        data: newReview
+      });
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
     }
   }
 
@@ -179,12 +251,22 @@ class RecipeController {
 
         if (favourite.length === 0) return res.status(200).send({ success: 'true', message: 'No favourite recipes' });
 
-        res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
+        res.status(200).send({
+          success: 'true',
+          message: 'Successfully retrieved favourites',
+          data: favourite
+        });
       } else {
-        return res.status(400).send({ success: 'false', message: 'Please sign in' });
+        return res.status(400).send({
+          success: 'false',
+          message: 'Please sign in'
+        });
       }
     } catch (err) {
-      return res.status(500).send({ success: 'false', message: 'internal server error' });
+      return res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
     }
   }
 
@@ -205,11 +287,24 @@ class RecipeController {
         where: { recipeId, userId: req.decoded.id }
       });
 
-      if (fav) return res.status(400).send({ success: 'true', message: 'Recipe already added as favourite' });
+      if (fav) {
+        return res.status(400).send({
+          success: 'true',
+          message: 'Recipe already added as favourite'
+        });
+      }
       const newFav = await models.Favourite.create(favourite);
-      res.status(200).send({ success: 'true', message: 'Recipe added to favourites', data: newFav });
+      res.status(200).send({
+        success: 'true',
+        message: 'Recipe added to favourites',
+        data: newFav
+      });
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
     }
   }
 
@@ -223,7 +318,12 @@ class RecipeController {
       const recipeId = parseInt(req.params.recipeId, 10);
       const recipeFound = await models.Recipe.findById(recipeId);
 
-      if (!recipeFound) return res.status(404).send({ success: false, message: 'recipe does not exist' });
+      if (!recipeFound) {
+        return res.status(404).send({
+          success: false,
+          message: 'recipe does not exist'
+        });
+      }
 
       const userUpvote = {
         recipeId,
@@ -235,15 +335,25 @@ class RecipeController {
       });
 
       if (upvoteFound.length > 0) {
-        return res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' });
+        return res.status(400).send({
+          success: 'false',
+          message: 'can\'t upvote more than once'
+        });
       }
       const newUpvote = await models.Upvote.create(userUpvote);
-      res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote });
+      res.status(201).send({
+        success: 'true',
+        message: 'Recipe upvoted',
+        data: newUpvote
+      });
 
       if (recipeFound) {
         recipeFound.increment('upvotes', { where: { id: recipeId } });
       } else {
-        res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
+        res.status(500).send({
+          success: 'false',
+          message: 'Can\'t find recipe'
+        });
       }
 
       const downvoteFound = await models.Downvote.findAll({
@@ -257,7 +367,11 @@ class RecipeController {
         recipeFound.decrement('downvotes', { where: { id: recipeId } });
       }
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 
@@ -271,7 +385,12 @@ class RecipeController {
       const recipeId = parseInt(req.params.recipeId, 10);
       const recipeFound = await models.Recipe.findById(recipeId);
 
-      if (!recipeFound) return res.status(404).send({ success: false, message: 'recipe does not exist' });
+      if (!recipeFound) {
+        return res.status(404).send({
+          success: false,
+          message: 'recipe does not exist'
+        });
+      }
 
       const userDownvote = {
         recipeId,
@@ -283,10 +402,17 @@ class RecipeController {
       });
 
       if (downvoteFound.length > 0) {
-        return res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' });
+        return res.status(400).send({
+          success: 'false',
+          message: 'can\'t downvote more than once'
+        });
       }
       const newDownvote = models.Downvote.create(userDownvote);
-      res.status(201).send({ success: 'true', message: 'Recipe downvoted', data: newDownvote });
+      res.status(201).send({
+        success: 'true',
+        message: 'Recipe downvoted',
+        data: newDownvote
+      });
 
       if (recipeFound) {
         recipeFound.increment('downvotes', { where: { id: recipeId } });
@@ -303,7 +429,11 @@ class RecipeController {
         recipeFound.decrement('upvotes', { where: { id: recipeId } });
       }
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 }

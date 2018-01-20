@@ -1,0 +1,60 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "node": true,
+        "es6": true,
+        "mocha": true,
+        "jquery": true
+    },
+    "globals": {
+        "document": true,
+        "localStorage": true,
+        "toastr": true,
+        "$": true,
+        "window": true
+    },
+    "settings":{
+        "import/resolver":{
+            "node":{
+                "extensions":[".js",".jsx"]
+            }
+        }
+    },
+    "rules": {
+        "max-len": [ 1, 80, 2],
+        "one-var": 0,
+        "one-var-declaration-per-line": 0,
+        "new-cap": 0,
+        "consistent-return": 0,
+        "no-param-reassign": 0,
+        "comma-dangle": 0,
+        "curly": ["error", "multi-line"],
+        "import/no-unresolved": [2, { "commonjs": true }],
+        "no-shadow": ["error", { "allow": ["req", "res", "err"] }],
+        "valid-jsdoc": ["error", {
+        "requireReturn": true,
+        "requireReturnType": true,
+        "requireParamDescription": false,
+        "requireReturnDescription": true
+        }],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+            "components": [ "Link" ],
+            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "aspects": []
+          }],
+          "jsx-a11y/label-has-for": [ 2, {
+            "components": [ "Label" ],
+            "required": {
+                "every": [ "id" ]
+            },
+            "allowChildren": false
+        }],
+        "require-jsdoc": ["error", {
+            "require": {
+                "FunctionDeclaration": true,
+                "MethodDefinition": true,
+                "ClassDeclaration": true
+            }
+        }]
+    }
+}

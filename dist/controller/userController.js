@@ -89,9 +89,14 @@ var UserController = function () {
 
               case 12:
                 newUser = _context.sent;
-                token = _jsonwebtoken2.default.sign({ id: newUser.id }, secret, { expiresIn: 87640 });
+                token = _jsonwebtoken2.default.sign({
+                  id: newUser.id,
+                  firstName: newUser.firstName,
+                  lastName: newUser.lastName,
+                  email: newUser.email
+                }, secret, { expiresIn: 87640 });
                 return _context.abrupt('return', res.status(201).send({
-                  success: 'true', message: 'User created', data: newUser, token: token
+                  success: 'true', message: 'User created', token: token
                 }));
 
               case 17:
@@ -163,7 +168,12 @@ var UserController = function () {
                 return _context2.abrupt('return', res.status(400).send({ sucess: 'false', message: 'invalid email address' }));
 
               case 11:
-                token = _jsonwebtoken2.default.sign({ id: userFound.id }, secret, { expiresIn: 87640 });
+                token = _jsonwebtoken2.default.sign({
+                  id: userFound.id,
+                  firstName: userFound.firstName,
+                  lastName: userFound.lastName,
+                  email: userFound.email
+                }, secret, { expiresIn: 87640 });
 
                 res.status(201).send({ success: 'true', message: 'successfully signed in', token: token });
                 _context2.next = 18;

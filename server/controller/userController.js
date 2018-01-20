@@ -24,27 +24,43 @@ class UserController {
         password: hashedPassword,
       };
 
-      const userFound = await models.User.findOne({ where: { email: user.email } });
+      const userFound = await models.User.findOne({
+        where: { email: user.email }
+      });
       if (userFound) {
-        return res.status(403).send({ success: 'false', message: 'Email already registered' });
+        return res.status(403).send({
+          success: 'false',
+          message: 'Email already registered'
+        });
       }
 
       if (!isEmail(req.body.email)) {
-        return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
+        return res.status(400).send({
+          sucess: 'false',
+          message: 'invalid email address'
+        });
       }
 
       const newUser = await models.User.create(user);
-      const token = jwt.sign({ 
-        id: newUser.id, 
-        firstName: newUser.firstName, 
+      const publicUserData = {
+        id: newUser.id,
+        firstName: newUser.firstName,
         lastName: newUser.lastName,
         email: newUser.email
-      }, secret, { expiresIn: 87640 });
+      };
+      const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
       return res.status(201).send({
-        success: 'true', message: 'User created', token
+        success: 'true',
+        message: 'User created',
+        token,
+        user: publicUserData
       });
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 
@@ -55,27 +71,50 @@ class UserController {
    */
   static async signin(req, res) {
     try {
-      const userFound = await models.User.findOne({ where: { email: req.body.email } });
+      const userFound = await models.User.findOne({
+        where: { email: req.body.email }
+      });
       if (!userFound) {
-        return res.status(403).send({ success: 'false', message: 'Incorrect email or password, user not found' });
+        return res.status(403).send({
+          success: 'false',
+          message: 'Incorrect email or password, user not found'
+        });
       }
       const validPassword = bcrypt.compareSync(req.body.password, userFound.password);
       if (!validPassword) {
-        return res.status(403).send({ success: 'false', message: 'wrong password' });
+        return res.status(403).send({
+          success: 'false',
+          message: 'wrong password'
+        });
       }
 
       if (!isEmail(req.body.email)) {
-        return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
+        return res.status(400).send({
+          sucess: 'false',
+          message: 'invalid email address'
+        });
       }
-      const token = jwt.sign({ 
+
+      const publicUserData = {
         id: userFound.id,
-        firstName: userFound.firstName, 
+        firstName: userFound.firstName,
         lastName: userFound.lastName,
         email: userFound.email
-      }, secret, { expiresIn: 87640 });
-      res.status(201).send({ success: 'true', message: 'successfully signed in', token });
+      };
+
+      const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
+      res.status(201).send({
+        success: 'true',
+        message: 'successfully signed in',
+        token,
+        user: publicUserData
+      });
     } catch (err) {
-      res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
+      res.status(500).send({
+        success: 'false',
+        message: 'Internal server error',
+        error: err
+      });
     }
   }
 }
