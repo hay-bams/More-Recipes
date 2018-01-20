@@ -86,10 +86,11 @@ export const signin = async (userObject) => {
       type: APPCONSTANT.SIGN_IN,
       payload: user
     };
-  } catch (err) {
+  } catch ({ response }) {
     return {
       type: APPCONSTANT.SIGN_IN_ERRORS,
-      payload: err
+      payload: response.data.message,
+      name: 'signInError'
     }
   }
 };

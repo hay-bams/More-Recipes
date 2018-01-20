@@ -65,6 +65,13 @@ export const errors = (state = {}, action) => {
         errors: action.payload
       };
 
+    
+    case APPCONSTANT.SIGN_IN_ERRORS:
+      return {
+        ...state,
+        [action.name]: action.payload
+      };
+
     case APPCONSTANT.SIGN_UP_ERRORS:
       return {
         ...state,
