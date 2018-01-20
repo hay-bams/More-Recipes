@@ -51,17 +51,11 @@ export const errors = (state = {}, action) => {
         errors: action.payload
       };
 
-    case APPCONSTANT.SIGN_IN_ERRORS:
+    case APPCONSTANT.SIGN_UP_ERRORS:
       return {
         ...state,
-        errors: action.payload
+        [action.name]: action.payload
       };
-
-    case APPCONSTANT.SIGN_UP_ERRORS:
-    console.log(response);
-      return {
-        ...state
-      }
 
     case APPCONSTANT.CLEAR_ERRORS:
       return { 

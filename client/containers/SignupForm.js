@@ -41,7 +41,6 @@ class SignupForm extends React.Component {
 
 
     this.props.signup(user);
-    //this.message = this.message ? this.message : "Email already exist";
   }
 
   render() {
@@ -55,8 +54,8 @@ class SignupForm extends React.Component {
                   Register 
                 </div>
     
+                <span>{this.props.errorMsg}</span>
                 <div className = "card-body">
-                <span>{this.message}</span>
                   <form onSubmit={(e) => this.signup(e)}>
                       <div className = "form-group">
                       <label htmlFor = "first_name">First Name</label>
@@ -123,7 +122,8 @@ class SignupForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    errorMsg: state.errors.signUpError
   }
 }
 

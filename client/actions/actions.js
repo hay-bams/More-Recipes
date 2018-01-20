@@ -60,18 +60,20 @@ export const getUserRecipes = async () => {
   }
 }
 
+
 export const signup = async (userObject) => {
-  let user;
   try {
-    user = await axios.post('http://localhost:8000/api/v1/users/signup', userObject);
+    const user = await axios.post('http://localhost:8000/api/v1/users/signup', userObject);
+    localStorage['userToken'] = user.data.token;
     return {
       type: APPCONSTANT.SIGN_UP,
       payload: user
     };
   } catch ({ response }) {
     return {
-       type: APPCONSTANT.SIGN_UP_ERRORS,
-       payload: response
+      type: APPCONSTANT.SIGN_UP_ERRORS,
+      payload: response.data.message,
+      name: 'signUpError'
     }
   }
 };
