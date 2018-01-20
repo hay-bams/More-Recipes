@@ -172,6 +172,59 @@ var RecipeController = function () {
     }()
 
     /**
+     * @return {obj} getUserRecipes
+     * @param {obj} req 
+     * @param {obj} res 
+     */
+
+  }, {
+    key: 'getUserRecipes',
+    value: function () {
+      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
+        var userRecipes;
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.prev = 0;
+                _context3.next = 3;
+                return _models2.default.Recipe.findAll({
+                  where: { userId: req.decoded.id }
+                });
+
+              case 3:
+                userRecipes = _context3.sent;
+
+                if (userRecipes.length === 0) {
+                  res.status(200).send({ success: 'false', message: 'You have no recipes at the moment' });
+                } else {
+                  res.status(200).send({ success: 'true', message: 'Recipes found', data: userRecipes });
+                }
+                _context3.next = 10;
+                break;
+
+              case 7:
+                _context3.prev = 7;
+                _context3.t0 = _context3['catch'](0);
+
+                res.status(500).send({ success: 'false', message: 'internal server error' });
+
+              case 10:
+              case 'end':
+                return _context3.stop();
+            }
+          }
+        }, _callee3, this, [[0, 7]]);
+      }));
+
+      function getUserRecipes(_x5, _x6) {
+        return _ref3.apply(this, arguments);
+      }
+
+      return getUserRecipes;
+    }()
+
+    /**
      * @return {obj} updateRecipe
      * @param {obj} req
      * @param {obj} res
@@ -180,90 +233,8 @@ var RecipeController = function () {
   }, {
     key: 'updateRecipe',
     value: function () {
-      var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(req, res) {
-        var id, recipeFound, recipe, updatedRecipe;
-        return regeneratorRuntime.wrap(function _callee3$(_context3) {
-          while (1) {
-            switch (_context3.prev = _context3.next) {
-              case 0:
-                _context3.prev = 0;
-                id = parseInt(req.params.recipeId, 10);
-                _context3.next = 4;
-                return _models2.default.Recipe.findById(id);
-
-              case 4:
-                recipeFound = _context3.sent;
-
-                if (recipeFound) {
-                  _context3.next = 7;
-                  break;
-                }
-
-                return _context3.abrupt('return', res.status(404).send({ success: 'false', message: 'Recipe does not exist' }));
-
-              case 7:
-                recipe = {
-                  title: req.body.title || recipeFound.title,
-                  image: req.body.image || recipeFound.image,
-                  instructions: req.body.instructions || recipeFound.instructions,
-                  ingredients: req.body.ingredients || recipeFound.ingredients,
-                  userId: req.decoded.id
-                };
-
-                if (!(recipeFound.userId === req.decoded.id)) {
-                  _context3.next = 15;
-                  break;
-                }
-
-                _context3.next = 11;
-                return recipeFound.update(recipe);
-
-              case 11:
-                updatedRecipe = _context3.sent;
-
-                res.status(201).send({ success: 'true', message: 'Recipe updated successfully', data: updatedRecipe });
-                _context3.next = 16;
-                break;
-
-              case 15:
-                res.status(401).send({ success: 'false', message: 'you are not authorized to update this recipe' });
-
-              case 16:
-                _context3.next = 21;
-                break;
-
-              case 18:
-                _context3.prev = 18;
-                _context3.t0 = _context3['catch'](0);
-
-                res.status(500).send({ success: 'false', message: 'internal server error', error: _context3.t0 });
-
-              case 21:
-              case 'end':
-                return _context3.stop();
-            }
-          }
-        }, _callee3, this, [[0, 18]]);
-      }));
-
-      function updateRecipe(_x5, _x6) {
-        return _ref3.apply(this, arguments);
-      }
-
-      return updateRecipe;
-    }()
-
-    /**
-     * @return {obj} deleteRecipe
-     * @param {obj} req
-     * @param {obj} res
-     */
-
-  }, {
-    key: 'deleteRecipe',
-    value: function () {
       var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
-        var id, recipeFound;
+        var id, recipeFound, recipe, updatedRecipe;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
           while (1) {
             switch (_context4.prev = _context4.next) {
@@ -284,6 +255,88 @@ var RecipeController = function () {
                 return _context4.abrupt('return', res.status(404).send({ success: 'false', message: 'Recipe does not exist' }));
 
               case 7:
+                recipe = {
+                  title: req.body.title || recipeFound.title,
+                  image: req.body.image || recipeFound.image,
+                  instructions: req.body.instructions || recipeFound.instructions,
+                  ingredients: req.body.ingredients || recipeFound.ingredients,
+                  userId: req.decoded.id
+                };
+
+                if (!(recipeFound.userId === req.decoded.id)) {
+                  _context4.next = 15;
+                  break;
+                }
+
+                _context4.next = 11;
+                return recipeFound.update(recipe);
+
+              case 11:
+                updatedRecipe = _context4.sent;
+
+                res.status(201).send({ success: 'true', message: 'Recipe updated successfully', data: updatedRecipe });
+                _context4.next = 16;
+                break;
+
+              case 15:
+                res.status(401).send({ success: 'false', message: 'you are not authorized to update this recipe' });
+
+              case 16:
+                _context4.next = 21;
+                break;
+
+              case 18:
+                _context4.prev = 18;
+                _context4.t0 = _context4['catch'](0);
+
+                res.status(500).send({ success: 'false', message: 'internal server error', error: _context4.t0 });
+
+              case 21:
+              case 'end':
+                return _context4.stop();
+            }
+          }
+        }, _callee4, this, [[0, 18]]);
+      }));
+
+      function updateRecipe(_x7, _x8) {
+        return _ref4.apply(this, arguments);
+      }
+
+      return updateRecipe;
+    }()
+
+    /**
+     * @return {obj} deleteRecipe
+     * @param {obj} req
+     * @param {obj} res
+     */
+
+  }, {
+    key: 'deleteRecipe',
+    value: function () {
+      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
+        var id, recipeFound;
+        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.prev = 0;
+                id = parseInt(req.params.recipeId, 10);
+                _context5.next = 4;
+                return _models2.default.Recipe.findById(id);
+
+              case 4:
+                recipeFound = _context5.sent;
+
+                if (recipeFound) {
+                  _context5.next = 7;
+                  break;
+                }
+
+                return _context5.abrupt('return', res.status(404).send({ success: 'false', message: 'Recipe does not exist' }));
+
+              case 7:
 
                 if (recipeFound.userId === req.decoded.id) {
                   recipeFound.destroy();
@@ -291,25 +344,25 @@ var RecipeController = function () {
                 } else {
                   res.status(401).send({ success: 'false', message: 'You are not authorized to delete this recipe' });
                 }
-                _context4.next = 13;
+                _context5.next = 13;
                 break;
 
               case 10:
-                _context4.prev = 10;
-                _context4.t0 = _context4['catch'](0);
+                _context5.prev = 10;
+                _context5.t0 = _context5['catch'](0);
 
-                res.status(500).send({ sucess: 'false', message: 'Internal server error', error: _context4.t0 });
+                res.status(500).send({ sucess: 'false', message: 'Internal server error', error: _context5.t0 });
 
               case 13:
               case 'end':
-                return _context4.stop();
+                return _context5.stop();
             }
           }
-        }, _callee4, this, [[0, 10]]);
+        }, _callee5, this, [[0, 10]]);
       }));
 
-      function deleteRecipe(_x7, _x8) {
-        return _ref4.apply(this, arguments);
+      function deleteRecipe(_x9, _x10) {
+        return _ref5.apply(this, arguments);
       }
 
       return deleteRecipe;
@@ -324,35 +377,35 @@ var RecipeController = function () {
   }, {
     key: 'addReview',
     value: function () {
-      var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
+      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
         var id, recipeFound, review, newReview;
-        return regeneratorRuntime.wrap(function _callee5$(_context5) {
+        return regeneratorRuntime.wrap(function _callee6$(_context6) {
           while (1) {
-            switch (_context5.prev = _context5.next) {
+            switch (_context6.prev = _context6.next) {
               case 0:
-                _context5.prev = 0;
+                _context6.prev = 0;
 
                 if (req.body.review) {
-                  _context5.next = 3;
+                  _context6.next = 3;
                   break;
                 }
 
-                return _context5.abrupt('return', res.status(400).send({ success: 'false', message: 'The review field is required' }));
+                return _context6.abrupt('return', res.status(400).send({ success: 'false', message: 'The review field is required' }));
 
               case 3:
                 id = parseInt(req.params.recipeId, 10);
-                _context5.next = 6;
+                _context6.next = 6;
                 return _models2.default.Recipe.findById(id);
 
               case 6:
-                recipeFound = _context5.sent;
+                recipeFound = _context6.sent;
 
                 if (recipeFound) {
-                  _context5.next = 9;
+                  _context6.next = 9;
                   break;
                 }
 
-                return _context5.abrupt('return', res.status(404).send({ success: 'true', message: 'Can\'t add review for a recipe that does not exist' }));
+                return _context6.abrupt('return', res.status(404).send({ success: 'true', message: 'Can\'t add review for a recipe that does not exist' }));
 
               case 9:
                 review = {
@@ -360,32 +413,32 @@ var RecipeController = function () {
                   userId: req.decoded.id,
                   recipeId: id
                 };
-                _context5.next = 12;
+                _context6.next = 12;
                 return _models2.default.Review.create(review);
 
               case 12:
-                newReview = _context5.sent;
+                newReview = _context6.sent;
 
                 res.status(201).send({ success: 'true', message: 'New review added', data: newReview });
-                _context5.next = 19;
+                _context6.next = 19;
                 break;
 
               case 16:
-                _context5.prev = 16;
-                _context5.t0 = _context5['catch'](0);
+                _context6.prev = 16;
+                _context6.t0 = _context6['catch'](0);
 
-                res.status(500).send({ success: 'false', message: 'internal server error', error: _context5.t0 });
+                res.status(500).send({ success: 'false', message: 'internal server error', error: _context6.t0 });
 
               case 19:
               case 'end':
-                return _context5.stop();
+                return _context6.stop();
             }
           }
-        }, _callee5, this, [[0, 16]]);
+        }, _callee6, this, [[0, 16]]);
       }));
 
-      function addReview(_x9, _x10) {
-        return _ref5.apply(this, arguments);
+      function addReview(_x11, _x12) {
+        return _ref6.apply(this, arguments);
       }
 
       return addReview;
@@ -400,63 +453,63 @@ var RecipeController = function () {
   }, {
     key: 'getUserFavourites',
     value: function () {
-      var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
+      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(req, res) {
         var userId, favourite;
-        return regeneratorRuntime.wrap(function _callee6$(_context6) {
+        return regeneratorRuntime.wrap(function _callee7$(_context7) {
           while (1) {
-            switch (_context6.prev = _context6.next) {
+            switch (_context7.prev = _context7.next) {
               case 0:
-                _context6.prev = 0;
+                _context7.prev = 0;
                 userId = parseInt(req.params.userId, 10);
 
                 if (!(userId === req.decoded.id)) {
-                  _context6.next = 11;
+                  _context7.next = 11;
                   break;
                 }
 
-                _context6.next = 5;
+                _context7.next = 5;
                 return _models2.default.Favourite.findAll({
                   where: { userId: req.decoded.id }
                 });
 
               case 5:
-                favourite = _context6.sent;
+                favourite = _context7.sent;
 
                 if (!(favourite.length === 0)) {
-                  _context6.next = 8;
+                  _context7.next = 8;
                   break;
                 }
 
-                return _context6.abrupt('return', res.status(200).send({ success: 'true', message: 'No favourite recipes' }));
+                return _context7.abrupt('return', res.status(200).send({ success: 'true', message: 'No favourite recipes' }));
 
               case 8:
 
                 res.status(200).send({ success: 'true', message: 'Successfully retrieved favourites', data: favourite });
-                _context6.next = 12;
+                _context7.next = 12;
                 break;
 
               case 11:
-                return _context6.abrupt('return', res.status(400).send({ success: 'false', message: 'Please sign in' }));
+                return _context7.abrupt('return', res.status(400).send({ success: 'false', message: 'Please sign in' }));
 
               case 12:
-                _context6.next = 17;
+                _context7.next = 17;
                 break;
 
               case 14:
-                _context6.prev = 14;
-                _context6.t0 = _context6['catch'](0);
-                return _context6.abrupt('return', res.status(500).send({ success: 'false', message: 'internal server error' }));
+                _context7.prev = 14;
+                _context7.t0 = _context7['catch'](0);
+                return _context7.abrupt('return', res.status(500).send({ success: 'false', message: 'internal server error' }));
 
               case 17:
               case 'end':
-                return _context6.stop();
+                return _context7.stop();
             }
           }
-        }, _callee6, this, [[0, 14]]);
+        }, _callee7, this, [[0, 14]]);
       }));
 
-      function getUserFavourites(_x11, _x12) {
-        return _ref6.apply(this, arguments);
+      function getUserFavourites(_x13, _x14) {
+        return _ref7.apply(this, arguments);
       }
 
       return getUserFavourites;
@@ -471,60 +524,60 @@ var RecipeController = function () {
   }, {
     key: 'addUserFavourite',
     value: function () {
-      var _ref7 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(req, res) {
+      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(req, res) {
         var recipeId, favourite, fav, newFav;
-        return regeneratorRuntime.wrap(function _callee7$(_context7) {
+        return regeneratorRuntime.wrap(function _callee8$(_context8) {
           while (1) {
-            switch (_context7.prev = _context7.next) {
+            switch (_context8.prev = _context8.next) {
               case 0:
-                _context7.prev = 0;
+                _context8.prev = 0;
                 recipeId = parseInt(req.params.recipeId, 10);
                 favourite = {
                   recipeId: recipeId,
                   userId: req.decoded.id
                 };
-                _context7.next = 5;
+                _context8.next = 5;
                 return _models2.default.Favourite.findOne({
                   where: { recipeId: recipeId, userId: req.decoded.id }
                 });
 
               case 5:
-                fav = _context7.sent;
+                fav = _context8.sent;
 
                 if (!fav) {
-                  _context7.next = 8;
+                  _context8.next = 8;
                   break;
                 }
 
-                return _context7.abrupt('return', res.status(400).send({ success: 'true', message: 'Recipe already added as favourite' }));
+                return _context8.abrupt('return', res.status(400).send({ success: 'true', message: 'Recipe already added as favourite' }));
 
               case 8:
-                _context7.next = 10;
+                _context8.next = 10;
                 return _models2.default.Favourite.create(favourite);
 
               case 10:
-                newFav = _context7.sent;
+                newFav = _context8.sent;
 
                 res.status(200).send({ success: 'true', message: 'Recipe added to favourites', data: newFav });
-                _context7.next = 17;
+                _context8.next = 17;
                 break;
 
               case 14:
-                _context7.prev = 14;
-                _context7.t0 = _context7['catch'](0);
+                _context8.prev = 14;
+                _context8.t0 = _context8['catch'](0);
 
-                res.status(500).send({ success: 'false', message: 'internal server error', error: _context7.t0 });
+                res.status(500).send({ success: 'false', message: 'internal server error', error: _context8.t0 });
 
               case 17:
               case 'end':
-                return _context7.stop();
+                return _context8.stop();
             }
           }
-        }, _callee7, this, [[0, 14]]);
+        }, _callee8, this, [[0, 14]]);
       }));
 
-      function addUserFavourite(_x13, _x14) {
-        return _ref7.apply(this, arguments);
+      function addUserFavourite(_x15, _x16) {
+        return _ref8.apply(this, arguments);
       }
 
       return addUserFavourite;
@@ -539,112 +592,8 @@ var RecipeController = function () {
   }, {
     key: 'upvote',
     value: function () {
-      var _ref8 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8(req, res) {
-        var recipeId, recipeFound, userUpvote, upvoteFound, newUpvote, downvoteFound;
-        return regeneratorRuntime.wrap(function _callee8$(_context8) {
-          while (1) {
-            switch (_context8.prev = _context8.next) {
-              case 0:
-                _context8.prev = 0;
-                recipeId = parseInt(req.params.recipeId, 10);
-                _context8.next = 4;
-                return _models2.default.Recipe.findById(recipeId);
-
-              case 4:
-                recipeFound = _context8.sent;
-
-                if (recipeFound) {
-                  _context8.next = 7;
-                  break;
-                }
-
-                return _context8.abrupt('return', res.status(404).send({ success: false, message: 'recipe does not exist' }));
-
-              case 7:
-                userUpvote = {
-                  recipeId: recipeId,
-                  userId: req.decoded.id
-                };
-                _context8.next = 10;
-                return _models2.default.Upvote.findAll({
-                  where: { userId: req.decoded.id, recipeId: recipeId }
-                });
-
-              case 10:
-                upvoteFound = _context8.sent;
-
-                if (!(upvoteFound.length > 0)) {
-                  _context8.next = 13;
-                  break;
-                }
-
-                return _context8.abrupt('return', res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' }));
-
-              case 13:
-                _context8.next = 15;
-                return _models2.default.Upvote.create(userUpvote);
-
-              case 15:
-                newUpvote = _context8.sent;
-
-                res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote });
-
-                if (recipeFound) {
-                  recipeFound.increment('upvotes', { where: { id: recipeId } });
-                } else {
-                  res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
-                }
-
-                _context8.next = 20;
-                return _models2.default.Downvote.findAll({
-                  where: { userId: req.decoded.id, recipeId: recipeId }
-                });
-
-              case 20:
-                downvoteFound = _context8.sent;
-
-
-                if (downvoteFound.length > 0) {
-                  _models2.default.Downvote.destroy({
-                    where: { userId: req.decoded.id, recipeId: recipeId }
-                  });
-                  recipeFound.decrement('downvotes', { where: { id: recipeId } });
-                }
-                _context8.next = 27;
-                break;
-
-              case 24:
-                _context8.prev = 24;
-                _context8.t0 = _context8['catch'](0);
-
-                res.status(500).send({ success: 'false', message: 'Internal server error', error: _context8.t0 });
-
-              case 27:
-              case 'end':
-                return _context8.stop();
-            }
-          }
-        }, _callee8, this, [[0, 24]]);
-      }));
-
-      function upvote(_x15, _x16) {
-        return _ref8.apply(this, arguments);
-      }
-
-      return upvote;
-    }()
-
-    /**
-     * @return {obj} downvote
-     * @param {*} req
-     * @param {*} res
-     */
-
-  }, {
-    key: 'downvote',
-    value: function () {
       var _ref9 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(req, res) {
-        var recipeId, recipeFound, userDownvote, downvoteFound, newDownvote, UpvoteFound;
+        var recipeId, recipeFound, userUpvote, upvoteFound, newUpvote, downvoteFound;
         return regeneratorRuntime.wrap(function _callee9$(_context9) {
           while (1) {
             switch (_context9.prev = _context9.next) {
@@ -665,24 +614,128 @@ var RecipeController = function () {
                 return _context9.abrupt('return', res.status(404).send({ success: false, message: 'recipe does not exist' }));
 
               case 7:
-                userDownvote = {
+                userUpvote = {
                   recipeId: recipeId,
                   userId: req.decoded.id
                 };
                 _context9.next = 10;
+                return _models2.default.Upvote.findAll({
+                  where: { userId: req.decoded.id, recipeId: recipeId }
+                });
+
+              case 10:
+                upvoteFound = _context9.sent;
+
+                if (!(upvoteFound.length > 0)) {
+                  _context9.next = 13;
+                  break;
+                }
+
+                return _context9.abrupt('return', res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' }));
+
+              case 13:
+                _context9.next = 15;
+                return _models2.default.Upvote.create(userUpvote);
+
+              case 15:
+                newUpvote = _context9.sent;
+
+                res.status(201).send({ success: 'true', message: 'Recipe upvoted', data: newUpvote });
+
+                if (recipeFound) {
+                  recipeFound.increment('upvotes', { where: { id: recipeId } });
+                } else {
+                  res.status(500).send({ success: 'false', message: 'Can\'t find recipe' });
+                }
+
+                _context9.next = 20;
+                return _models2.default.Downvote.findAll({
+                  where: { userId: req.decoded.id, recipeId: recipeId }
+                });
+
+              case 20:
+                downvoteFound = _context9.sent;
+
+
+                if (downvoteFound.length > 0) {
+                  _models2.default.Downvote.destroy({
+                    where: { userId: req.decoded.id, recipeId: recipeId }
+                  });
+                  recipeFound.decrement('downvotes', { where: { id: recipeId } });
+                }
+                _context9.next = 27;
+                break;
+
+              case 24:
+                _context9.prev = 24;
+                _context9.t0 = _context9['catch'](0);
+
+                res.status(500).send({ success: 'false', message: 'Internal server error', error: _context9.t0 });
+
+              case 27:
+              case 'end':
+                return _context9.stop();
+            }
+          }
+        }, _callee9, this, [[0, 24]]);
+      }));
+
+      function upvote(_x17, _x18) {
+        return _ref9.apply(this, arguments);
+      }
+
+      return upvote;
+    }()
+
+    /**
+     * @return {obj} downvote
+     * @param {*} req
+     * @param {*} res
+     */
+
+  }, {
+    key: 'downvote',
+    value: function () {
+      var _ref10 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee10(req, res) {
+        var recipeId, recipeFound, userDownvote, downvoteFound, newDownvote, UpvoteFound;
+        return regeneratorRuntime.wrap(function _callee10$(_context10) {
+          while (1) {
+            switch (_context10.prev = _context10.next) {
+              case 0:
+                _context10.prev = 0;
+                recipeId = parseInt(req.params.recipeId, 10);
+                _context10.next = 4;
+                return _models2.default.Recipe.findById(recipeId);
+
+              case 4:
+                recipeFound = _context10.sent;
+
+                if (recipeFound) {
+                  _context10.next = 7;
+                  break;
+                }
+
+                return _context10.abrupt('return', res.status(404).send({ success: false, message: 'recipe does not exist' }));
+
+              case 7:
+                userDownvote = {
+                  recipeId: recipeId,
+                  userId: req.decoded.id
+                };
+                _context10.next = 10;
                 return _models2.default.Downvote.findAll({
                   where: { userId: req.decoded.id, recipeId: recipeId }
                 });
 
               case 10:
-                downvoteFound = _context9.sent;
+                downvoteFound = _context10.sent;
 
                 if (!(downvoteFound.length > 0)) {
-                  _context9.next = 13;
+                  _context10.next = 13;
                   break;
                 }
 
-                return _context9.abrupt('return', res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' }));
+                return _context10.abrupt('return', res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' }));
 
               case 13:
                 newDownvote = _models2.default.Downvote.create(userDownvote);
@@ -693,13 +746,13 @@ var RecipeController = function () {
                   recipeFound.increment('downvotes', { where: { id: recipeId } });
                 }
 
-                _context9.next = 18;
+                _context10.next = 18;
                 return _models2.default.Upvote.findAll({
                   where: { userId: req.decoded.id, recipeId: recipeId }
                 });
 
               case 18:
-                UpvoteFound = _context9.sent;
+                UpvoteFound = _context10.sent;
 
 
                 if (UpvoteFound.length > 0) {
@@ -708,25 +761,25 @@ var RecipeController = function () {
                   });
                   recipeFound.decrement('upvotes', { where: { id: recipeId } });
                 }
-                _context9.next = 25;
+                _context10.next = 25;
                 break;
 
               case 22:
-                _context9.prev = 22;
-                _context9.t0 = _context9['catch'](0);
+                _context10.prev = 22;
+                _context10.t0 = _context10['catch'](0);
 
-                res.status(500).send({ success: 'false', message: 'Internal server error', error: _context9.t0 });
+                res.status(500).send({ success: 'false', message: 'Internal server error', error: _context10.t0 });
 
               case 25:
               case 'end':
-                return _context9.stop();
+                return _context10.stop();
             }
           }
-        }, _callee9, this, [[0, 22]]);
+        }, _callee10, this, [[0, 22]]);
       }));
 
-      function downvote(_x17, _x18) {
-        return _ref9.apply(this, arguments);
+      function downvote(_x19, _x20) {
+        return _ref10.apply(this, arguments);
       }
 
       return downvote;

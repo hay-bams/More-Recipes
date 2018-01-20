@@ -3,7 +3,7 @@ body {
  #F8F8F8
  #eab7b7
  */
-  background: #F8F8F8;
+ background:  #efeded;
   position: relative;
   font-family: "open sans";
 }
@@ -204,7 +204,6 @@ footer .row {
 }
 
 .main-userboard-body {
-  margin-left: 200px;
   padding-top: 80px;
 }
 
