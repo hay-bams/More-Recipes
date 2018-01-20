@@ -13,6 +13,7 @@ export const addRecipe = async (recipeObject) => {
       data: recipeObject,
       headers: {token: localStorage['userToken']}
     });
+    
   } catch (err) {
       return {
         type: APPCONSTANT.ERRORS,
@@ -59,17 +60,22 @@ export const getUserRecipes = async () => {
   }
 }
 
+
 export const signup = async (userObject) => {
-  let user;
   try {
-    user = await axios.post('http://localhost:8000/api/v1/users/signup', userObject);
-  } catch (err) {
-    console.log(err);
+    const user = await axios.post('http://localhost:8000/api/v1/users/signup', userObject);
+    localStorage['userToken'] = user.data.token;
+    return {
+      type: APPCONSTANT.SIGN_UP,
+      payload: user
+    };
+  } catch ({ response }) {
+    return {
+      type: APPCONSTANT.SIGN_UP_ERRORS,
+      payload: response.data.message,
+      name: 'signUpError'
+    }
   }
-  return {
-    type: APPCONSTANT.SIGN_UP,
-    payload: user
-  };
 };
 
 export const signin = async (userObject) => {
@@ -82,9 +88,9 @@ export const signin = async (userObject) => {
     };
   } catch (err) {
     return {
-      type: APPCONSTANT.ERRORS,
+      type: APPCONSTANT.SIGN_IN_ERRORS,
       payload: err
-    };
+    }
   }
 };
 

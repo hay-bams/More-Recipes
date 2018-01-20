@@ -46,6 +46,12 @@ export const user = (state = {}, action) => {
         userData: action.payload
       };
 
+    case APPCONSTANT.ERRORS:
+      return {
+        ...state,
+        error: action.payload
+      }
+      
     default:
       return state;
   }
@@ -59,6 +65,12 @@ export const errors = (state = {}, action) => {
         errors: action.payload
       };
 
+    case APPCONSTANT.SIGN_UP_ERRORS:
+      return {
+        ...state,
+        [action.name]: action.payload
+      };
+
     case APPCONSTANT.CLEAR_ERRORS:
       return { 
         errors: action.payload
@@ -68,7 +80,6 @@ export const errors = (state = {}, action) => {
       return state;
   }
 };
-
 
 export default combineReducers({
   user,
