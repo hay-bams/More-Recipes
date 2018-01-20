@@ -1,16 +1,13 @@
 import { combineReducers } from 'redux';
 import APPCONSTANT from '../constant';
 
-export const addRecipe = (state = null, action) => {
-  return action.type === APPCONSTANT.ADD_RECIPE ? action.payload : state;
-};
 
 export const recipes = (state = [], action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_RECIPE:
       return [
         ...state,
-        action.payload
+        action.payload.data,
       ];
 
     case APPCONSTANT.GET_ALL_RECIPES:
@@ -22,36 +19,33 @@ export const recipes = (state = [], action) => {
 };
 
 export const userRecipes = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case APPCONSTANT.GET_USER_RECIPES:
       return action.payload.data;
 
     default:
       return state;
-
   }
-}
+};
 
 export const user = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.SIGN_UP:
       return {
-        ...state,
-        userData: action.payload
+        ...action.payload
       };
 
     case APPCONSTANT.SIGN_IN:
       return {
-        ...state,
-        userData: action.payload
+        ...action.payload
       };
 
     case APPCONSTANT.ERRORS:
       return {
         ...state,
         error: action.payload
-      }
-      
+      };
+
     default:
       return state;
   }
@@ -65,7 +59,7 @@ export const errors = (state = {}, action) => {
         errors: action.payload
       };
 
-    
+
     case APPCONSTANT.SIGN_IN_ERRORS:
       return {
         ...state,
@@ -79,7 +73,7 @@ export const errors = (state = {}, action) => {
       };
 
     case APPCONSTANT.CLEAR_ERRORS:
-      return { 
+      return {
         errors: action.payload
       };
 
@@ -89,7 +83,7 @@ export const errors = (state = {}, action) => {
 };
 
 export default combineReducers({
-  user,
+  userData: user,
   recipes,
   errors,
   userRecipes

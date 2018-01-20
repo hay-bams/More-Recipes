@@ -34,14 +34,18 @@ class UserController {
       }
 
       const newUser = await models.User.create(user);
-      const token = jwt.sign({ 
-        id: newUser.id, 
-        firstName: newUser.firstName, 
+      const publicUserData = {
+        id: newUser.id,
+        firstName: newUser.firstName,
         lastName: newUser.lastName,
         email: newUser.email
-      }, secret, { expiresIn: 87640 });
+      };
+      const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
       return res.status(201).send({
-        success: 'true', message: 'User created', token
+        success: 'true',
+        message: 'User created',
+        token,
+        user: publicUserData
       });
     } catch (err) {
       res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
@@ -67,13 +71,21 @@ class UserController {
       if (!isEmail(req.body.email)) {
         return res.status(400).send({ sucess: 'false', message: 'invalid email address' });
       }
-      const token = jwt.sign({ 
+
+      const publicUserData = {
         id: userFound.id,
-        firstName: userFound.firstName, 
+        firstName: userFound.firstName,
         lastName: userFound.lastName,
         email: userFound.email
-      }, secret, { expiresIn: 87640 });
-      res.status(201).send({ success: 'true', message: 'successfully signed in', token });
+      };
+
+      const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
+      res.status(201).send({
+        success: 'true',
+        message: 'successfully signed in',
+        token,
+        user: publicUserData
+      });
     } catch (err) {
       res.status(500).send({ success: 'false', message: 'Internal server error', error: err });
     }

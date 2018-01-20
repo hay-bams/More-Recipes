@@ -30,6 +30,7 @@ var router = _express2.default.Router();
 
 router.get('/', _homePage2.default.homePage);
 router.get('/api/v1/recipes', _recipeController2.default.getAllRecipe);
+router.get('/api/v1/recipes/:userId', _middleware2.default.verifyToken, _recipeController2.default.getUserRecipes);
 router.post('/api/v1/recipes', _middleware2.default.validateAddRecipe, _middleware2.default.verifyToken, _recipeController2.default.addRecipe);
 router.put('/api/v1/recipes/:recipeId', _middleware2.default.verifyToken, _recipeController2.default.updateRecipe);
 router.delete('/api/v1/recipes/:recipeId', _middleware2.default.verifyToken, _recipeController2.default.deleteRecipe);

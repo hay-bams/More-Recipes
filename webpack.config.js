@@ -10,17 +10,21 @@ module.exports = {
     contentBase: path.join(__dirname, 'client/build'),
     historyApiFallback: true,
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   devtool: 'cheap-module-source-map',
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015', 'stage-0']
         }
       },
+
       {
         test: /\.s?css$/,
         use: [
