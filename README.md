@@ -46,17 +46,6 @@ recipe. Users can also keep a list of their favorite recipes on the application.
 ```
 > npm install
 ```
-* create a .env file that will be used to load enviroment variables
-
-```
-DB_USERNAME = your database username
-DB_PASSWORD = your database password
-DB_DATABASE = your database name
-DB_HOST = "127.0.0.1"
-DB_PORT = "5432"
-DB_DIALECT = "postgres"
-SECRET = your key
-```
 
 * Migrate your databse schema using
 
@@ -72,7 +61,7 @@ npm run start:dev
 
 ## Testing
 * Create a test database and name it more-recipes-test
-* run 
+* run this command
 ``` 
 npm run test 
 ```
@@ -82,35 +71,6 @@ npm run test
 * Users can login and obtain a token which is verified on every request
 * Users will have to obtain a fresh token after 24 hours when their session has expired
 * Users will only be able to access the full application functionalities only if they are logged in
-
-
-## THE TEMPLATE
-
-### How to run project template locally
-
-These instructions will get you a copy of the template up and running on your local machine.
-
-checkout the [Live Version Here] (https://purpose50.github.io/More-Recipes/templates/)
-
--Clone this repository
-```bash
-git clone https://github.com/purpose50/More-Recipes.git
-```
-Get into the directory with the template
-```bash
-cd more-recipes/template
-```
-open tempplate locally`
-```index.html``` to view the templates
-
-
-
-
-**SERVER SIDE**
-*comming soon*
-
-
-
 
 **CLIENT SIDE**
 *coming soon*

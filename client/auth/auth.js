@@ -12,18 +12,35 @@ class Authenticate {
    *@returns {obj} validateUserSignup
    * @param {obj} user
    */
-  static validateUserSignup(user) {
+  validateUserSignup(user) {
+    this.errors = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
+    };
+
     if (!user.firstName) {
-      return 'please enter your first name'; 
-    } else if (!user.lastName) {
-      return 'please enter your last name';
-    } else if (!isEmail(user.email)) {
-      return 'please enter a valid email';
-    } else if (!user.password) {
-      return 'please enter your password';
-    } else if (user.password !== user.confirmPassword) {
-      return 'password should match';
+      this.errors.firstName = 'please enter your first name'; 
+    }  
+    
+    if (!user.lastName) {
+      this.errors.lastName = 'please enter your last name';
+    } 
+    
+    if (!isEmail(user.email)) {
+      this.errors.email = 'please enter a valid email';
+    } 
+    
+    if (!user.password) {
+      this.errors.password = 'please enter your password';
+    } 
+    
+    if (user.password !== user.confirmPassword) {
+      this.errors.confirmPassword = 'password should match';
     }
+    return this.errors;
   }
 
   /**

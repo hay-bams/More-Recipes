@@ -11,7 +11,6 @@ import { getAllRecipes }  from '../actions/actions.js';
 class RecipeCatalogue extends React.Component {
   componentDidMount() {
     this.props.getAllRecipes();
-   // console.log(this.props)
   }
 
   renderCatalogue() {
