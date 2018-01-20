@@ -12,12 +12,25 @@ export const recipes = (state = [], action) => {
         ...state,
         action.payload
       ];
+
     case APPCONSTANT.GET_ALL_RECIPES:
       return action.payload.data;
+
     default:
       return state;
   }
 };
+
+export const userRecipes = (state = [], action) => {
+  switch(action.type) {
+    case APPCONSTANT.GET_USER_RECIPES:
+      return action.payload.data;
+
+    default:
+      return state;
+
+  }
+}
 
 export const user = (state = {}, action) => {
   switch (action.type) {
@@ -38,6 +51,7 @@ export const user = (state = {}, action) => {
         ...state,
         error: action.payload
       }
+      
     default:
       return state;
   }
@@ -61,6 +75,7 @@ export const errors = (state = {}, action) => {
       return { 
         errors: action.payload
       };
+
     default:
       return state;
   }
@@ -69,5 +84,6 @@ export const errors = (state = {}, action) => {
 export default combineReducers({
   user,
   recipes,
-  errors
+  errors,
+  userRecipes
 });

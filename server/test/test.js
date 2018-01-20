@@ -44,6 +44,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should sign up a user and return 201 for a successful signup', (done) => {
+      console.log(usersSeed)
       chai.request(app)
         .post('/api/v1/users/signup')
         .send(usersSeed)
@@ -52,10 +53,6 @@ describe('Api endpoints testing', () => {
           res.body.should.be.a('object');
           res.body.should.have.property('success').eql('true');
           res.body.should.have.property('message').eql('User created');
-          res.body.data.should.have.property('firstName');
-          res.body.data.should.have.property('lastName');
-          res.body.data.should.have.property('email');
-          res.body.data.should.have.property('password');
           done();
         });
     });

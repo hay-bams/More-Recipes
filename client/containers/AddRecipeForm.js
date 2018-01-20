@@ -13,7 +13,6 @@ class AddRecipeForm extends React.Component {
     super(props);
     this.addRecipe =  this.addRecipe.bind(this);
     this.recipeNum = this.props.recipes.length;
-    console.log(this.recipeNum);
   }
 
   componentWillMount() {
@@ -28,7 +27,6 @@ class AddRecipeForm extends React.Component {
       instructions: this.instructions.value,
       image: 'imageURl'
     }
-    console.log(recipe)
     this.props.addRecipe(recipe);
   } 
 
@@ -47,10 +45,8 @@ class AddRecipeForm extends React.Component {
         <div className = "container">
           <div className = "row">
             <div className = "col-sm-12 col-md-8 col-lg-6">
-            {console.log(this.props.recipes.length)}
            {this.recipeNum = this.props.recipes.length - this.recipeNum === 1 ? 
             this.props.clearError() && <span></span> : ""} 
-            {console.log(this.props.message)}
               <span>{this.props.message.errors ? this.props.message.errors.response.data.message: ""}</span>
                 <form onSubmit = {this.addRecipe}>
                 <div className = "form-group">
