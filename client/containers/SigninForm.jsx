@@ -31,7 +31,7 @@ class SigninForm extends React.Component {
    */
   componentDidUpdate() {
     if (Object.keys(this.props.userData).length > 0) {
-      this.props.redirectUser.push('/dashboard');
+      this.props.redirectUser.push('/');
     }
   }
 
@@ -62,10 +62,10 @@ class SigninForm extends React.Component {
     const { errors } = this.state;
     return (
       <div className="container-fluid main-login-container">
-        <div className="row main-login">
+        <div className="row main-login overlay">
           <div className="col-12 col-sm-8 col-md-5 mx-auto">
-            <div className="card  mt-5">
-              <div className="card-header">
+            <div className="card  mt-5 card-form">
+              <div className="card-header text-center">
                     Login
               </div>
 

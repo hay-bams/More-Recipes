@@ -30,7 +30,7 @@ const Navigation = props => (
             <li className="nav-item active" />
 
             <li className="nav-item active">
-              { props.userData === undefined ?
+              { Object.keys(props.userData).length === 0 ?
                 <NavLink
                   to="/signin"
                   className="nav-link"
@@ -38,18 +38,18 @@ const Navigation = props => (
                 >Sign in
                   <span className="sr-only">(current)</span>
                 </NavLink> : ''
-              }
+            }
             </li>
 
             <li className="nav-item">
-              { props.userData === undefined ?
+              { Object.keys(props.userData).length === 0 ?
                 <NavLink
                   to="/signup"
                   className="nav-link"
                   href="register.html"
                 >Sign up
                 </NavLink> : ''
-              }
+            }
             </li>
 
           </ul>

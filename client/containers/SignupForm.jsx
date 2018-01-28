@@ -26,7 +26,7 @@ class SignupForm extends React.Component {
    */
   componentDidUpdate() {
     if (Object.keys(this.props.userData).length > 0) {
-      this.props.redirectUser.push('/dashboard');
+      this.props.redirectUser.push('/');
     }
   }
 
@@ -62,18 +62,16 @@ class SignupForm extends React.Component {
     const { errors } = this.state;
     return (
       <div className="container-fluid main-register-container">
-        <div className="row">
+        <div className="row overlay">
           <div className="col-sm-8 col-md-5 mx-auto">
-            <div className="card  mt-5">
-              <div className="card-header">
-                  Register
+            <div className="card  mt-5 card-form">
+              <div className="card-header text-center">
+               Sign Up
               </div>
-
               <span>{this.props.errorMsg}</span>
               <div className="card-body">
                 <form onSubmit={e => this.signup(e)}>
                   <div className="form-group">
-                    <label htmlFor="first_name">First Name</label>
                     <input
                       type="text"
                       name="firstName"
@@ -88,7 +86,6 @@ class SignupForm extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="last_name">Last Name</label>
                     <input
                       type="text"
                       name="lastName"
@@ -103,7 +100,6 @@ class SignupForm extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="email">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -118,7 +114,6 @@ class SignupForm extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="password">Password</label>
                     <input
                       type="password"
                       name="password"
@@ -133,7 +128,6 @@ class SignupForm extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="password">Confirm Password</label>
                     <input
                       type="password"
                       name="confirmPassword"

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const HomePageNavigation = props => (
@@ -21,10 +21,6 @@ const HomePageNavigation = props => (
 
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <NavLink to="/dashboard" className="nav-link">Dashboard</NavLink>
-          </li>
-
           <li className="nav-item">
             <NavLink to="/catalogue" className="nav-link">Catalogue</NavLink>
           </li>
@@ -52,6 +48,22 @@ const HomePageNavigation = props => (
               </NavLink> : ''
             }
           </li>
+
+          { Object.keys(props.userData).length > 0 ?
+            <li className="nav-item dropdown">
+              <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i className="fa fa-user" /> Ayobami <b className="caret" />
+              </Link>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link className="dropdown-item" to="/add_recipe">Add Recipes</Link>
+                <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
+                <div className="dropdown-divider" />
+                <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
+                <Link className="dropdown-item" to="/">Sign out</Link>
+              </div>
+            </li> : ''
+            }
+
 
         </ul>
       </div>

@@ -64,20 +64,12 @@ class AddRecipeForm extends React.Component {
   render() {
     const { errors, message } = this.state;
     return (
-      <div className="main-userboard-body">
-        <div className="container-fluid">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#">Dashboard</a>
-            </li>
-            <li className="breadcrumb-item active">Add Recipe</li>
-          </ol>
-        </div>
-
+      <div className="main-userboard-body add-recipe-body">
         <div className="container">
           <div className="row">
-            <div className="col-sm-12 col-md-8 col-lg-6">
-            {message}
+            <div className="mx-auto col-sm-12 col-md-8 col-lg-6 col-xs mt-5">
+              {message}
+              <h2 className="text-center"> Add Recipe</h2>
               <form onSubmit={this.addRecipe}>
                 <div className="form-group">
                   <label htmlFor="food">Recipe Name</label>

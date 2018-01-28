@@ -75,25 +75,18 @@ class Recipes extends React.Component {
    */
   render() {
     return (
-      <div className="main-userboard-body">
-        <div className="container-fluid">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#">Dashboard</a>
-            </li>
-            <li className="breadcrumb-item active">View Recipe</li>
-          </ol>
-        </div>
-
+      <div className="main">
         <div className="container">
           <div className="row">
-            <div className="col-lg-12">
-              <div className="row">
-                {this.renderRecipe()}
-              </div>
+            <div className="col-sm">
+              <h2 className="text-center catalogue">My Recipes</h2>
             </div>
           </div>
+          <div className="row">
+            {this.renderRecipe()}
+          </div>
         </div>
+        
       </div>
 
     );
