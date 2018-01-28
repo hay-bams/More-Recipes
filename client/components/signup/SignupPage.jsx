@@ -4,7 +4,7 @@ import SignupForm from '../../containers/SignupForm';
 import Navigation from '../Navigation';
 
 const SignupPage = props => (
-  <div className="bg-dark">
+  <div>
     <Navigation />
     <SignupForm redirectUser={props.history} />
   </div>
