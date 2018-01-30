@@ -1,21 +1,30 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: ['babel-polyfill', path.resolve(__dirname, './client/src/index.js')],
+  entry: ['babel-polyfill', path.resolve(__dirname, 'client/src/index.js')],
   output: {
     path: path.resolve(__dirname, './client/build'),
     filename: 'bundle.js',
+    publicPath: '/'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'client/build'),
+    contentBase: path.join(__dirname, 'client'),
     historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './client/index.html'
+    }),
+    new ExtractTextPlugin('style.custom.css')
+  ],
   devtool: 'cheap-module-source-map',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: [/node_modules/],
@@ -24,18 +33,15 @@ module.exports = {
           presets: ['react', 'es2015', 'stage-0']
         }
       },
-
       {
         test: /\.s?css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+        loader: ExtractTextPlugin.extract({
+          use: ['css-loader']
+        })
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?.*$|$)/,
-        loader: 'file-loader'
+        use: 'file-loader'
       }
     ]
   },

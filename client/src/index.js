@@ -17,7 +17,6 @@ import AddRecipePage from '../components/dashboard/AddRecipePage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
-import '../font-awesome/scss/font-awesome.scss';
 import '../css/custom.css';
 import '../js/script';
 
@@ -41,6 +40,7 @@ const Root = () => (
         <Route exact path="/dashboard" component={DashboardPage} />
         <Route exact path="/add_recipe" component={AddRecipePage} />
         <Route exact path="/view_recipes" component={ViewRecipePage} />
+        <Route exact path="/view_recipes/:id" component={ViewRecipePage} />
         <Route exact path="/favourites" component={FavouritePage} />
         <Route exact path="/user_profile" component={UserProfilePage} />
 
