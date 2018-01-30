@@ -23,6 +23,9 @@ export const userRecipes = (state = [], action) => {
     case APPCONSTANT.GET_USER_RECIPES:
       return action.payload.data;
 
+    case APPCONSTANT.DELETE_RECIPE:
+      return state.filter(recipe => recipe.id !== action.payload);
+
     default:
       return state;
   }

@@ -2,13 +2,22 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getUserRecipes } from '../actions/actions';
+import { getUserRecipes, deleteRecipe } from '../actions/actions';
 
 /**
  * @class Recipes
  */
 class Recipes extends React.Component {
+  /**
+   * @returns {void} constructor
+   */
+  constructor() {
+    super();
+    this.onDelete = this.onDelete.bind(this);
+    this.message = '';
+  }
   /**
    * @returns {void} componentDidMount
    */
@@ -17,10 +26,18 @@ class Recipes extends React.Component {
   }
 
   /**
+   * @param {number} id
+   * @return {void} onDelete
+   */
+  onDelete(id) {
+    this.props.deleteRecipe(id);
+    this.message = 'recipe deleted successfully';
+  }
+
+  /**
    * @returns {obj} renderRecipe
    */
   renderRecipe() {
-    // console.log(this.props.getUserRecipes())
     const userRecipe = _.mapKeys(this.props.userRecipes, 'id');
     return _.map(userRecipe, recipe => (
       <div
@@ -55,15 +72,15 @@ class Recipes extends React.Component {
                 </a>
               </span>
             </p>
-            <span className="btn btn-primary">
+            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-primary">
               <i className="fa fa-pencil-square-o" aria-hidden="true" />
-            </span>
-            <span className="btn btn-danger">
+            </Link>
+            <button className="btn btn-danger" onClick={() => { this.onDelete(recipe.id); }}>
               <i className="fa fa-trash-o" aria-hidden="true" />
-            </span>
-            <span className="btn btn-info">
+            </button>
+            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info">
               <i className="fa fa-eye" aria-hidden="true" />
-            </span>
+            </Link>
           </div>
         </div>
       </div>
@@ -80,15 +97,14 @@ class Recipes extends React.Component {
           <div className="row">
             <div className="col-sm">
               <h2 className="text-center catalogue">My Recipes</h2>
+              <h3 className="text-center">{this.message}</h3>
             </div>
           </div>
           <div className="row">
             {this.renderRecipe()}
           </div>
         </div>
-        
       </div>
-
     );
   }
 }
@@ -106,7 +122,16 @@ Recipes.propTypes = {
     userId: PropTypes.number,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string
-  })).isRequired
+  })).isRequired,
+  deleteRecipe: PropTypes.func.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.number
+    })
+  }),
+  history: PropTypes.shape({
+    push: PropTypes.func
+  })
 };
 
 const mapStateToProps = state => ({
@@ -114,7 +139,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { getUserRecipes },
+  { getUserRecipes, deleteRecipe },
   dispatch
 );
 

@@ -1,18 +1,18 @@
 import axios from 'axios';
-import jwt from 'jsonwebtoken';
 import APPCONSTANT from '../constant';
 
-const secret = 'This is your guy';
 const host = 'http://localhost:8000';
 
 export const addRecipe = async (recipeObject) => {
-  let recipe;
   try {
-    recipe = await axios({
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    const recipe = await axios({
       method: 'post',
       url: `${host}/api/v1/recipes`,
       data: recipeObject,
-      headers: { token: localStorage.getItem('userToken') }
+      headers: { token: userToken }
     });
     return ({
       type: APPCONSTANT.ADD_RECIPE,
@@ -36,17 +36,14 @@ export const getAllRecipes = async () => {
 
 export const getUserRecipes = async () => {
   try {
-    let userId;
-    const { userToken } = localStorage;
-    
-    jwt.verify(userToken, secret, (err, decoded) => {
-      userId = decoded.id;
-    });
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+    const userId = userData.user;
 
     const userRecipes = await axios({
       method: 'get',
       url: `${host}/api/v1/recipes/${userId}`,
-      headers: { token: localStorage.getItem('userToken') }
+      headers: { token: userToken }
     });
 
     return {
@@ -70,6 +67,7 @@ export const signup = async (userObject) => {
     );
     const { token, user } = response.data;
     localStorage.setItem('userToken', token);
+    localStorage.setItem('userData', JSON.stringify(response.data));
     return {
       type: APPCONSTANT.SIGN_UP,
       payload: {
@@ -92,7 +90,7 @@ export const signin = async (userObject) => {
       userObject
     );
     const { token, user } = response.data;
-    localStorage.setItem('userToken', token);
+    localStorage.setItem('userData', JSON.stringify(response.data));
     return {
       type: APPCONSTANT.SIGN_IN,
       payload: {
@@ -108,16 +106,34 @@ export const signin = async (userObject) => {
   }
 };
 
-export const clearError = () => ({
-  type: APPCONSTANT.CLEAR_ERRORS,
-  payload: null
-});
+export const deleteRecipe = async (recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    await axios({
+      method: 'delete',
+      url: `${host}/api/v1/recipes/${recipeId}`,
+      headers: { token: userToken }
+    });
+
+    return {
+      type: APPCONSTANT.DELETE_RECIPE,
+      payload: recipeId
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
 
 export default {
   signup,
   signin,
   addRecipe,
   getAllRecipes,
-  clearError,
-  getUserRecipes
+  getUserRecipes,
+  deleteRecipe
 };
