@@ -11,11 +11,6 @@ const SigninPage = props => (
   </div>
 );
 
-
-// SigninPage.defaultProps = {
-//   history: {}
-// };
-
 SigninPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func

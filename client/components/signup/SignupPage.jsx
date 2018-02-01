@@ -10,10 +10,6 @@ const SignupPage = props => (
   </div>
 );
 
-// SignupPage.defaultProps = {
-//   history: {}
-// };
-
 SignupPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
