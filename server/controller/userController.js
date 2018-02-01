@@ -117,6 +117,61 @@ class UserController {
       });
     }
   }
+
+  /**
+   * @return {obj} updateRecipe
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async updateProfile(req, res) {
+    try {
+      const id = parseInt(req.params.userId, 10);
+      const userFound = await models.User.findById(id);
+
+      if (!userFound) {
+        return res.status(404).send({
+          success: 'false',
+          message: 'user does not exist'
+        });
+      }
+
+      if (!isEmail(req.body.email)) {
+        return res.status(400).send({
+          sucess: 'false',
+          message: 'invalid email address'
+        });
+      }
+      const user = {
+        firstName: req.body.firstName || userFound.firstName,
+        lastName: req.body.lastName || userFound.lastName,
+        email: req.body.email || userFound.email,
+        password: req.body.password || userFound.password
+      };
+
+      const foundUser = await models.User.findOne({
+        where: { email: user.email }
+      });
+      if (foundUser) {
+        return res.status(403).send({
+          success: 'false',
+          message: 'Email already registered'
+        });
+      }
+      const updatedProfile = await userFound.update(user);
+
+      res.status(201).send({
+        success: 'true',
+        message: 'User updated successfully',
+        data: updatedProfile
+      });
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
+    }
+  }
 }
 
 export default UserController;
