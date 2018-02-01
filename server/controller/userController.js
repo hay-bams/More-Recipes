@@ -141,22 +141,14 @@ class UserController {
           message: 'invalid email address'
         });
       }
+      const hashedPassword = bcrypt.hashSync(req.body.password, 8);
       const user = {
         firstName: req.body.firstName || userFound.firstName,
         lastName: req.body.lastName || userFound.lastName,
         email: req.body.email || userFound.email,
-        password: req.body.password || userFound.password
+        password: hashedPassword || userFound.password
       };
-
-      const foundUser = await models.User.findOne({
-        where: { email: user.email }
-      });
-      if (foundUser) {
-        return res.status(403).send({
-          success: 'false',
-          message: 'Email already registered'
-        });
-      }
+    
       const updatedProfile = await userFound.update(user);
 
       res.status(201).send({

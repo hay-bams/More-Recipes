@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const DashboardNav = () => (
+const DashboardNav = props => (
   <header>
     <nav className="navbar navbar-expand-md navbar-light fixed-top navigationBar">
       <div className="container">
@@ -21,6 +23,7 @@ const DashboardNav = () => (
                 <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
+                <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>Edit Profile</Link>
                 <Link className="dropdown-item" to="/">Sign out</Link>
               </div>
             </li>
@@ -31,4 +34,23 @@ const DashboardNav = () => (
   </header>
 );
 
-export default DashboardNav;
+const mapStateToProps = state => ({
+  userData: state.userData
+});
+
+DashboardNav.defaultProps = {
+  userData: {}
+};
+
+DashboardNav.propTypes = {
+  userData: PropTypes.shape({
+    user: PropTypes.shape({
+      email: PropTypes.string,
+      firstName: PropTypes.string,
+      id: PropTypes.number,
+      lastName: PropTypes.string
+    })
+  })
+};
+
+export default connect(mapStateToProps, null)(DashboardNav);
