@@ -72,7 +72,7 @@ class Recipes extends React.Component {
                 </a>
               </span>
             </p>
-            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-primary">
+            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary">
               <i className="fa fa-pencil-square-o" aria-hidden="true" />
             </Link>
             <button className="btn btn-danger" onClick={() => { this.onDelete(recipe.id); }}>

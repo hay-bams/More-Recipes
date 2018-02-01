@@ -129,11 +129,35 @@ export const deleteRecipe = async (recipeId) => {
   }
 };
 
+export const editRecipe = async (recipeObject, recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    const recipe = await axios({
+      method: 'put',
+      url: `${host}/api/v1/recipes/${recipeId}`,
+      data: recipeObject,
+      headers: { token: userToken }
+    });
+    return ({
+      type: APPCONSTANT.EDIT_RECIPE,
+      payload: recipe.data
+    });
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
 export default {
   signup,
   signin,
   addRecipe,
   getAllRecipes,
   getUserRecipes,
-  deleteRecipe
+  deleteRecipe,
+  editRecipe
 };
