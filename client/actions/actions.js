@@ -152,6 +152,28 @@ export const editRecipe = async (recipeObject, recipeId) => {
   }
 };
 
+export const editUserProfile = async (userObject, userId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+
+    const recipe = await axios({
+      method: 'put',
+      url: `${host}/api/v1/user/${userId}`,
+      data: userObject,
+    });
+    return ({
+      type: APPCONSTANT.EDIT_USER_PROFILE,
+      payload: recipe.data
+    });
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'editProfileError'
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -159,5 +181,6 @@ export default {
   getAllRecipes,
   getUserRecipes,
   deleteRecipe,
-  editRecipe
+  editRecipe,
+  editUserProfile
 };

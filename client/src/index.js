@@ -15,6 +15,7 @@ import SignupPage from '../components/signup/SignupPage';
 import DashboardPage from '../components/dashboard/DashboardPage';
 import AddRecipePage from '../components/dashboard/AddRecipePage';
 import EditRecipePage from '../components/dashboard/EditRecipePage';
+import EditUserProfilePage from '../components/dashboard/EditUserProfilePage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
@@ -42,6 +43,7 @@ const Root = () => (
         <Route exact path="/add_recipe" component={AddRecipePage} />
         <Route exact path="/view_recipes" component={ViewRecipePage} />
         <Route exact path="/edit_recipes/:id" component={EditRecipePage} />
+        <Route exact path="/edit_user/:id" component={EditUserProfilePage} />
         <Route exact path="/favourites" component={FavouritePage} />
         <Route exact path="/user_profile" component={UserProfilePage} />
 
