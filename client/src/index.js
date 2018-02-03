@@ -35,8 +35,7 @@ const Root = () => (
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/catalogue" component={CataloguePage} />
-        <Route path="/details" component={DetailsPage} />
-        <Route path="/details" component={DetailsPage} />
+        <Route path="/details/:id" component={DetailsPage} />
         <Route path="/signin" component={SigninPage} />
         <Route path="/signup" component={SignupPage} />
         <Route exact path="/dashboard" component={DashboardPage} />

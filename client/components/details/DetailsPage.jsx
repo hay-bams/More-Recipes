@@ -1,17 +1,17 @@
 import React from 'react';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
-import ProductDetails from './ProductDetails';
+import ProductDetails from '../../containers/ProductDetails';
 import ProductReviews from './ProductReviews';
-import AddReview from './AddReview';
-
-const Details = () =>
+ import AddReview from '../../containers/AddReview';
+//import AddReview from './AddReview';
+const Details = props =>
   (
     <div>
       <Navigation />
-      <ProductDetails />
+      <ProductDetails {...props} />
       <ProductReviews />
-      <AddReview />
+      <AddReview {...props} />
       <Footer />
     </div>
   );

@@ -174,6 +174,30 @@ export const editUserProfile = async (userObject, userId) => {
   }
 };
 
+export const addReview = async (userReview, recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+    const review = await axios({
+      method: 'post',
+      url: `${host}/api/v1/recipes/${recipeId}/reviews`,
+      data: userReview,
+      headers: { token: userToken }
+    });
+
+    return {
+      type: APPCONSTANT.ADD_REVIEW,
+      payload: review.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'addReviewError'
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -182,5 +206,6 @@ export default {
   getUserRecipes,
   deleteRecipe,
   editRecipe,
-  editUserProfile
+  editUserProfile,
+  addReview
 };

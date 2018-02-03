@@ -55,7 +55,7 @@ class RecipeCatalogue extends React.Component {
                 </Link>
               </span>
             </span>
-            <Link to="/details" className="btn btn-info">view details</Link>
+            <Link to={`/details/${recipe.id}`} className="btn btn-info">view details</Link>
           </div>
         </div>
       </div>

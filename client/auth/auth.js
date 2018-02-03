@@ -92,6 +92,22 @@ class Authenticate {
     }
     return this.errors;
   }
+
+  /**
+   * @param {obj} userReview
+   * @returns {void} validateReview
+   */
+  validateReview(userReview) {
+    this.errors = {
+      review: ''
+    };
+
+    if (!userReview.review) {
+      this.errors.review = 'please enter review';
+    }
+
+    return this.errors;
+  }
 }
 
 const authenticate = new Authenticate();

@@ -54,6 +54,24 @@ export const user = (state = {}, action) => {
   }
 };
 
+export const reviews = (state = {}, action) => {
+  switch (action.type) {
+    case APPCONSTANT.ADD_REVIEW:
+      return {
+        ...action.payload.data
+      };
+
+    case APPCONSTANT.ERRORS:
+      return {
+        ...state,
+        error: action.payload
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const errors = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.ERRORS:
@@ -89,5 +107,6 @@ export default combineReducers({
   userData: user,
   recipes,
   errors,
-  userRecipes
+  userRecipes,
+  reviews
 });
