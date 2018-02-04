@@ -19,7 +19,7 @@ class EditRecipeForm extends React.Component {
     this.editRecipe = this.editRecipe.bind(this);
     this.onChange = this.onChange.bind(this);
     this.state = {
-      recipe: '',
+      recipe: {},
       errors: {},
       message: ''
     };

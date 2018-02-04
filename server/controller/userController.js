@@ -164,6 +164,39 @@ class UserController {
       });
     }
   }
+
+  /**
+   * @return {obj} findAllUsers
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async findAllUsers(req, res) {
+    const userFound = await models.User.findAll();
+    if (!userFound) {
+      return res.status(404).send({
+        success: 'false',
+        message: 'No user exist in the database'
+      });
+    }
+
+    const publicUserData = [];
+
+    userFound.map((user) => {
+      const userData = {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email
+      };
+      publicUserData.push(userData);
+    });
+
+    res.status(200).send({
+      success: 'true',
+      message: 'All Users',
+      data: publicUserData
+    });
+  }
 }
 
 export default UserController;

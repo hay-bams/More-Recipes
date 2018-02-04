@@ -20,7 +20,8 @@ class EditUserProfileForm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.state = {
       errors: {},
-      message: ''
+      message: '',
+      user: {}
     };
   }
 

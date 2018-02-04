@@ -174,6 +174,67 @@ export const editUserProfile = async (userObject, userId) => {
   }
 };
 
+export const addReview = async (userReview, recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+    const review = await axios({
+      method: 'post',
+      url: `${host}/api/v1/recipes/${recipeId}/reviews`,
+      data: userReview,
+      headers: { token: userToken }
+    });
+
+    return {
+      type: APPCONSTANT.ADD_REVIEW,
+      payload: review.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'addReviewError'
+    };
+  }
+};
+
+export const getRecipeReviews = async (recipeId) => {
+  try {
+    const recipeReviews = await axios({
+      method: 'get',
+      url: `${host}/api/v1/reviews/${recipeId}`,
+    });
+
+    return {
+      type: APPCONSTANT.GET_RECIPES_REVIEWS,
+      payload: recipeReviews.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
+export const getUsers = async () => {
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `${host}/api/v1/users`,
+    });
+    return {
+      type: APPCONSTANT.FIND_USERS,
+      payload: response.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -182,5 +243,8 @@ export default {
   getUserRecipes,
   deleteRecipe,
   editRecipe,
-  editUserProfile
+  editUserProfile,
+  addReview,
+  getRecipeReviews,
+  getUsers
 };
