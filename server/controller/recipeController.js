@@ -237,6 +237,37 @@ class RecipeController {
   }
 
   /**
+   * @return {obj} getRecipeReviews
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async getRecipeReviews(req, res) {
+    try {
+      const recipeId = parseInt(req.params.recipeId, 10);
+      const RecipeReviews = await models.Review.findAll({
+        where: { recipeId }
+      });
+      if (RecipeReviews.length === 0) {
+        res.status(200).send({
+          success: 'false',
+          message: 'recipe has no review at the moment'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Reviews found',
+          data: RecipeReviews
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
+    }
+  }
+
+  /**
    * @returns {obj} getUserFavourites
    * @param {*} req
    * @param {*} res

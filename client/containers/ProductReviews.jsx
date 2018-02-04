@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { getRecipeReviews } from '../../actions/actions';
+import { getRecipeReviews, getUsers } from '../actions/actions';
 
 
 /**
@@ -17,6 +17,16 @@ class ProductReviews extends React.Component {
     this.state = {};
     this.userReviews = [];
     this.renderReviews = this.renderReviews.bind(this);
+    this.findUser = this.findUser.bind(this);
+  }
+
+  /**
+  * @returns {void} componentWillMount
+  */
+  componentWillMount() {
+    const recipeId = parseInt(this.props.match.params.id, 10);
+    this.props.getRecipeReviews(recipeId);
+    this.props.getUsers();
   }
 
   /**
@@ -25,19 +35,33 @@ class ProductReviews extends React.Component {
   componentDidMount() {
     const recipeId = parseInt(this.props.match.params.id, 10);
     this.props.getRecipeReviews(recipeId);
+    this.props.getUsers();
   }
 
   /**
-   * @returns {obj} renderReview
+   * @param {obj} allUsers
+   * @param {obj} theReview
+   * @returns {void} findUser
+   */
+  findUser(allUsers, theReview) {
+    let firstName;
+    const user = allUsers.find(user => theReview.userId === user.id);
+    return user ? user.firstName : '';
+  }
+
+  /**
+   * @returns {void} renderReviews
    */
   renderReviews() {
-    console.log(this.props.userReviews);
+    const { allUsers } = this.props;
     return this.props.userReviews.map(theReview => (
       <div className="media" key={theReview.id}>
         <img className="mr-3" src="images/24475008.jpg" style={{ width: `${80}px` }} alt="Generic placeholder" />
         <div className="media-body">
-          <h5>reviewer's username</h5>
-          {theReview.review}
+          <h5>
+            {this.findUser(allUsers, theReview)}
+          </h5>
+          <p>{theReview.review}</p>
         </div>
       </div>
     ));
@@ -61,7 +85,13 @@ class ProductReviews extends React.Component {
 }
 
 ProductReviews.propTypes = {
-  // editRecipe: PropTypes.func,
+  getUsers: PropTypes.func.isRequired,
+  allUsers: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number,
+    firstName: PropTypes.firstName,
+    lastName: PropTypes.lastName,
+    email: PropTypes.email
+  })).isRequired,
   getRecipeReviews: PropTypes.func.isRequired,
   userReviews: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
@@ -79,11 +109,12 @@ ProductReviews.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  userReviews: state.reviews
+  userReviews: state.reviews,
+  allUsers: state.allUsers
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getRecipeReviews }, dispatch);
+  bindActionCreators({ getRecipeReviews, getUsers }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductReviews);
 

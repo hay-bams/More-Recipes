@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 /**
  *@class ProductDetails
@@ -66,10 +65,6 @@ class ProductDetails extends React.Component {
     );
   }
 }
-
-ProductDetails.defaultProps = {
-  // editRecipe: {}
-};
 
 ProductDetails.propTypes = {
   // editRecipe: PropTypes.func,

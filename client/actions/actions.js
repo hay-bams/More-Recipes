@@ -198,6 +198,43 @@ export const addReview = async (userReview, recipeId) => {
   }
 };
 
+export const getRecipeReviews = async (recipeId) => {
+  try {
+    const recipeReviews = await axios({
+      method: 'get',
+      url: `${host}/api/v1/reviews/${recipeId}`,
+    });
+
+    return {
+      type: APPCONSTANT.GET_RECIPES_REVIEWS,
+      payload: recipeReviews.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
+export const getUsers = async () => {
+  try {
+    const response = await axios({
+      method: 'get',
+      url: `${host}/api/v1/users`,
+    });
+    return {
+      type: APPCONSTANT.FIND_USERS,
+      payload: response.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -207,5 +244,7 @@ export default {
   deleteRecipe,
   editRecipe,
   editUserProfile,
-  addReview
+  addReview,
+  getRecipeReviews,
+  getUsers
 };

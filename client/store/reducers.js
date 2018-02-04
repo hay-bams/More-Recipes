@@ -54,12 +54,18 @@ export const user = (state = {}, action) => {
   }
 };
 
-export const reviews = (state = {}, action) => {
+export const reviews = (state = [], action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_REVIEW:
-      return {
+      return [
+        ...state,
+        action.payload.data
+      ];
+  
+    case APPCONSTANT.GET_RECIPES_REVIEWS:
+      return [
         ...action.payload.data
-      };
+      ];
 
     case APPCONSTANT.ERRORS:
       return {
@@ -67,6 +73,17 @@ export const reviews = (state = {}, action) => {
         error: action.payload
       };
 
+    default:
+      return state;
+  }
+};
+
+export const allUsers = (state = [], action) => {
+  switch (action.type) {
+    case APPCONSTANT.FIND_USERS:
+      return [
+        ...action.payload.data
+      ];
     default:
       return state;
   }
@@ -108,5 +125,6 @@ export default combineReducers({
   recipes,
   errors,
   userRecipes,
-  reviews
+  reviews,
+  allUsers
 });
