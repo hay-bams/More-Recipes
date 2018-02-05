@@ -1,12 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Switch, IndexRoute } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import ReduxPromise from 'redux-promise';
 import allReducers from '../store/reducers';
-import initialState from '../initial.json';
-import { signUp, getAllRecipes, addRecipe } from '../actions/actions';
 import HomePage from '../components/homePageComponents/HomePage';
 import CataloguePage from '../components/catalogue/CataloguePage';
 import DetailsPage from '../components/details/DetailsPage';
@@ -24,10 +22,22 @@ import '../js/script';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+
+const userData = JSON.parse(localStorage.getItem('userData')) || {};
+
+let user = {};
+if (userData.user !== undefined && userData.token !== undefined) {
+  user = {
+    user: userData.user,
+    token: userData.token
+  };
+}
+
 const createStoreWithMiddleware = createStore(
-	 allReducers, {},
-	 composeEnhancers(applyMiddleware(ReduxPromise))
+  allReducers, { userData: user },
+  composeEnhancers(applyMiddleware(ReduxPromise))
 );
+
 
 const Root = () => (
   <Router>

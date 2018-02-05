@@ -235,6 +235,29 @@ export const getUsers = async () => {
   }
 };
 
+export const upvoteRecipe = async (recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    const response = await axios({
+      method: 'post',
+      url: `${host}/api/v1/recipes/upvote/${recipeId}`,
+      headers: { token: userToken }
+    });
+
+    return {
+      type: APPCONSTANT.UPVOTE_RECIPE,
+      payload: response.data
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -246,5 +269,6 @@ export default {
   editUserProfile,
   addReview,
   getRecipeReviews,
-  getUsers
+  getUsers,
+  upvoteRecipe
 };

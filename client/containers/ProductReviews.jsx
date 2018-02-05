@@ -54,6 +54,7 @@ class ProductReviews extends React.Component {
    */
   renderReviews() {
     const { allUsers } = this.props;
+    console.log(this.props.userReviews)
     return this.props.userReviews.map(theReview => (
       <div className="media" key={theReview.id}>
         <img className="mr-3" src="images/24475008.jpg" style={{ width: `${80}px` }} alt="Generic placeholder" />

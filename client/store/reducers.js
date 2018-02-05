@@ -120,6 +120,17 @@ export const errors = (state = {}, action) => {
   }
 };
 
+export const upvote = (state = {}, action) => {
+  switch (action.type) {
+    case APPCONSTANT.UPVOTE_RECIPE:
+      return {
+        ...action.payload.data
+      };
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   userData: user,
   recipes,
