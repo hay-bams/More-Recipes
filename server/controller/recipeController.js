@@ -111,6 +111,36 @@ class RecipeController {
     }
   }
 
+
+   /**
+   * @return {obj} getSingleRecipe
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async getSingleRecipe(req, res) {
+    try {
+      const id = parseInt(req.params.recipeId, 10);
+      const userRecipe = await models.Recipe.findById(id);
+      if (!userRecipe) {
+        res.status(200).send({
+          success: 'false',
+          message: 'Reciope does not exist'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipe found',
+          data: userRecipe
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
+    }
+  }
+
   /**
    * @return {obj} updateRecipe
    * @param {obj} req
@@ -366,16 +396,13 @@ class RecipeController {
       });
 
       if (upvoteFound.length > 0) {
-        return res.status(400).send({
-          success: 'false',
-          message: 'can\'t upvote more than once'
-        });
+        return;
       }
       const newUpvote = await models.Upvote.create(userUpvote);
       res.status(201).send({
         success: 'true',
         message: 'Recipe upvoted',
-        data: newUpvote
+        data: newUpvote,
       });
 
       if (recipeFound) {

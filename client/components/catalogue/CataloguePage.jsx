@@ -4,7 +4,6 @@ import RecipesCatalogue from '../../containers/RecipesCatalogue';
 import PopularRecipes from '../PopularRecipes';
 import Footer from '../Footer';
 
-
 const Catalogue = () => (
   <div>
     <Navigation />

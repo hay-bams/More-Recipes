@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/', HomePage.homePage);
 router.get('/api/v1/recipes', RecipeController.getAllRecipe);
+router.get('/api/v1/recipes/:recipeId', RecipeController.getSingleRecipe);
 router.get('/api/v1/recipes/:userId', Middleware.verifyToken, RecipeController.getUserRecipes);
 router.post('/api/v1/recipes', Middleware.validateAddRecipe, Middleware.verifyToken, RecipeController.addRecipe);
 router.put('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.updateRecipe);

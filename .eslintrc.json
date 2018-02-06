@@ -11,7 +11,8 @@
         "localStorage": true,
         "toastr": true,
         "$": true,
-        "window": true
+        "window": true,
+        "compose": true
     },
     "settings":{
         "import/resolver":{

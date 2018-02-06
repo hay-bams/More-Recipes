@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { upvoteRecipe, getSingleRecipe } from '../actions/actions';
 
 /**
  *@class ProductDetails
@@ -12,24 +14,31 @@ class ProductDetails extends React.Component {
   constructor() {
     super();
     this.state = {};
+    this.upvote = this.upvote.bind(this);
   }
 
   /**
-   * @returns {void} componentWillMount
+   * @returns {void} componentDidMount
    */
-  componentWillMount() {
-    this.props.recipes.filter((recipe) => {
-      if (recipe.id === parseInt(this.props.match.params.id, 10)) {
-        this.setState({ recipe });
-      }
-    });
+  componentDidMount() {
+    const id = parseInt(this.props.match.params.id, 10);
+    this.props.getSingleRecipe(id);
+  }
+
+  /**
+   * @param {obj} event
+   * @returns {void} upvote
+   */
+  upvote(event) {
+    event.preventDefault();
+    this.props.upvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { recipe } = this.state;
+    const { recipe } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -39,7 +48,7 @@ class ProductDetails extends React.Component {
 
           <div className="col-sm-6 recipe-img">
             <img className="recipe-details img-fluid" src="images/recipe2.jpg" alt="Details" />
-            <a href="#" className="btn btn-success">
+            <a onClick={this.upvote} href="#" className="btn btn-success">
               {recipe.upvotes}
               <i className="fa fa-thumbs-up" aria-hidden="true" />
             </a>
@@ -67,8 +76,9 @@ class ProductDetails extends React.Component {
 }
 
 ProductDetails.propTypes = {
-  // editRecipe: PropTypes.func,
-  recipes: PropTypes.arrayOf(PropTypes.shape({
+  getSingleRecipe: PropTypes.func.isRequired,
+  upvoteRecipe: PropTypes.func.isRequired,
+  recipe: PropTypes.shape({
     upvotes: PropTypes.number,
     downvotes: PropTypes.number,
     id: PropTypes.number,
@@ -79,7 +89,7 @@ ProductDetails.propTypes = {
     userId: PropTypes.number,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string
-  })).isRequired,
+  }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string
@@ -88,7 +98,13 @@ ProductDetails.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes
+  recipe: state.singleRecipe,
+  upvotes: state.upvote,
+  userData: state.userData,
 });
 
-export default connect(mapStateToProps, null)(ProductDetails);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ upvoteRecipe, getSingleRecipe }, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);

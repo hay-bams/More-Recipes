@@ -34,6 +34,14 @@ export const getAllRecipes = async () => {
   };
 };
 
+export const getSingleRecipe = async (recipeId) => {
+  const recipe = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
+  return {
+    type: APPCONSTANT.GET_SINGLE_RECIPE,
+    payload: recipe.data
+  };
+};
+
 export const getUserRecipes = async () => {
   try {
     const userData = JSON.parse(localStorage.userData);
@@ -235,6 +243,29 @@ export const getUsers = async () => {
   }
 };
 
+export const upvoteRecipe = async (recipeId, userId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    const response = await axios({
+      method: 'post',
+      url: `${host}/api/v1/recipes/upvote/${recipeId}`,
+      headers: { token: userToken }
+    });
+
+    return {
+      type: APPCONSTANT.UPVOTE_RECIPE,
+      payload: recipeId
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -246,5 +277,6 @@ export default {
   editUserProfile,
   addReview,
   getRecipeReviews,
-  getUsers
+  getUsers,
+  upvoteRecipe
 };

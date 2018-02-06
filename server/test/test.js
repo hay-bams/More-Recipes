@@ -340,18 +340,6 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 and can\'t upvote more than once if a user attempts to upvote more than once', (done) => {
-      chai.request(app)
-        .post(`/api/v1/recipes/upvote/${createdRecipeId}`)
-        .set('token', getToken)
-        .send()
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property('message').eql('can\'t upvote more than once');
-          done();
-        });
-    });
-
     it('should downvote a recipe and return a status 201', (done) => {
       chai.request(app)
         .post(`/api/v1/recipes/downvote/${createdRecipeId}`)

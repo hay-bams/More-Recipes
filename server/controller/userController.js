@@ -99,7 +99,8 @@ class UserController {
         id: userFound.id,
         firstName: userFound.firstName,
         lastName: userFound.lastName,
-        email: userFound.email
+        email: userFound.email,
+        password: req.body.password
       };
 
       const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });

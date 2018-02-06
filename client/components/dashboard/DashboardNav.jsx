@@ -23,7 +23,11 @@ const DashboardNav = props => (
                 <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
-                <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>Edit Profile</Link>
+                { Object.keys(props.userData).length > 0 ?
+                  <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>
+                  Edit Profile
+                  </Link> : ''
+                }
                 <Link className="dropdown-item" to="/">Sign out</Link>
               </div>
             </li>
