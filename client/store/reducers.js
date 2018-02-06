@@ -18,6 +18,23 @@ export const recipes = (state = [], action) => {
   }
 };
 
+
+export const singleRecipe = (state = {}, action) => {
+  switch (action.type) {
+    case APPCONSTANT.GET_SINGLE_RECIPE:
+      return action.payload.data;
+
+    case APPCONSTANT.UPVOTE_RECIPE:
+      return {
+        ...state,
+        upvotes: state.upvotes + 1
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const userRecipes = (state = [], action) => {
   switch (action.type) {
     case APPCONSTANT.GET_USER_RECIPES:
@@ -61,7 +78,7 @@ export const reviews = (state = [], action) => {
         ...state,
         action.payload.data
       ];
-  
+
     case APPCONSTANT.GET_RECIPES_REVIEWS:
       return [
         ...action.payload.data
@@ -137,5 +154,6 @@ export default combineReducers({
   errors,
   userRecipes,
   reviews,
-  allUsers
+  allUsers,
+  singleRecipe
 });

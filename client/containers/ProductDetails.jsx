@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { upvoteRecipe } from '../actions/actions';
+import { upvoteRecipe, getSingleRecipe } from '../actions/actions';
 
 /**
  *@class ProductDetails
@@ -18,25 +18,11 @@ class ProductDetails extends React.Component {
   }
 
   /**
-   * @returns {void} componentWillMount
-   */
-  componentWillMount() {
-    this.props.recipes.filter((recipe) => {
-      if (recipe.id === parseInt(this.props.match.params.id, 10)) {
-        this.setState({ recipe });
-      }
-    });
-  }
-
-  /**
    * @returns {void} componentDidMount
    */
   componentDidMount() {
-    this.props.recipes.filter((recipe) => {
-      if (recipe.id === parseInt(this.props.match.params.id, 10)) {
-        this.setState({ recipe });
-      }
-    });
+    const id = parseInt(this.props.match.params.id, 10);
+    this.props.getSingleRecipe(id);
   }
 
   /**
@@ -45,19 +31,14 @@ class ProductDetails extends React.Component {
    */
   upvote(event) {
     event.preventDefault();
-    this.props.upvoteRecipe(this.state.recipe.id);
-    this.props.recipes.filter((recipe) => {
-      if (recipe.id === parseInt(this.props.match.params.id, 10)) {
-        this.setState({ recipe });
-      }
-    });
+    this.props.upvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { recipe } = this.state;
+    const { recipe } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -95,8 +76,9 @@ class ProductDetails extends React.Component {
 }
 
 ProductDetails.propTypes = {
+  getSingleRecipe: PropTypes.func.isRequired,
   upvoteRecipe: PropTypes.func.isRequired,
-  recipes: PropTypes.arrayOf(PropTypes.shape({
+  recipe: PropTypes.shape({
     upvotes: PropTypes.number,
     downvotes: PropTypes.number,
     id: PropTypes.number,
@@ -107,7 +89,7 @@ ProductDetails.propTypes = {
     userId: PropTypes.number,
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string
-  })).isRequired,
+  }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       id: PropTypes.string
@@ -116,11 +98,13 @@ ProductDetails.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes,
+  recipe: state.singleRecipe,
+  upvotes: state.upvote,
+  userData: state.userData,
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ upvoteRecipe }, dispatch);
+  bindActionCreators({ upvoteRecipe, getSingleRecipe }, dispatch);
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
