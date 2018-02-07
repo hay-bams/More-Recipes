@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { getAllRecipes } from '../actions/actions';
+import { getLatestRecipes } from '../actions/actions';
 
 /**
  * @class RecipeCatalogue
  */
-class RecipeCatalogue extends React.Component {
+class LatestRecipes extends React.Component {
   /**
    * @return {void} componentDidMount
    */
   componentDidMount() {
-    this.props.getAllRecipes();
+    this.props.getLatestRecipes();
   }
 
   /**
@@ -69,7 +69,7 @@ class RecipeCatalogue extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm">
-            <h2 className="text-center catalogue">Recipes Catalogue</h2>
+            <h2 className="text-center catalogue">Latest Recipes</h2>
           </div>
         </div>
 
@@ -81,8 +81,8 @@ class RecipeCatalogue extends React.Component {
   }
 }
 
-RecipeCatalogue.propTypes = {
-  getAllRecipes: PropTypes.func.isRequired,
+LatestRecipes.propTypes = {
+  getLatestRecipes: PropTypes.func.isRequired,
   recipes: PropTypes.arrayOf(PropTypes.shape({
     upvotes: PropTypes.number,
     downvotes: PropTypes.number,
@@ -98,11 +98,11 @@ RecipeCatalogue.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes
+  recipes: state.latestRecipes
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { getAllRecipes },
+  { getLatestRecipes },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeCatalogue);
+export default connect(mapStateToProps, mapDispatchToProps)(LatestRecipes);

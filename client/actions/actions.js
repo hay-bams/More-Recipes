@@ -34,6 +34,14 @@ export const getAllRecipes = async () => {
   };
 };
 
+export const getLatestRecipes = async () => {
+  const recipes = await axios.get(`${host}/api/v1/latest/recipes`);
+  return {
+    type: APPCONSTANT.GET_LATEST_RECIPES,
+    payload: recipes.data
+  };
+};
+
 export const getSingleRecipe = async (recipeId) => {
   const recipe = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
   return {

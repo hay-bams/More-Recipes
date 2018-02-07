@@ -112,6 +112,39 @@ class RecipeController {
   }
 
   /**
+   * @return {obj} getLatesRecipes
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async getLatestRecipe(req, res) {
+    try {
+      const latesRecipes = await models.Recipe.findAll({
+        order: [
+          ['id', 'DESC']
+        ],
+        limit: 4
+      });
+      if (latesRecipes.length === 0) {
+        res.status(200).send({
+          success: 'false',
+          message: 'You have no recipes at the moment'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: latesRecipes
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
+    }
+  }
+
+  /**
    * @return {obj} getSingleRecipe
    * @param {obj} req
    * @param {obj} res

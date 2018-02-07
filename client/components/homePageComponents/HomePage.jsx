@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePageheader from './HomePageHeader';
-import LatestRecipes from '../LatestRecipes';
+import LatestRecipes from '../../containers/LatestRecipes';
 import PopularRecipes from '../PopularRecipes';
 import Footer from '../Footer';
 
