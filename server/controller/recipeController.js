@@ -111,8 +111,7 @@ class RecipeController {
     }
   }
 
-
-   /**
+  /**
    * @return {obj} getSingleRecipe
    * @param {obj} req
    * @param {obj} res
@@ -460,10 +459,7 @@ class RecipeController {
       });
 
       if (downvoteFound.length > 0) {
-        return res.status(400).send({
-          success: 'false',
-          message: 'can\'t downvote more than once'
-        });
+        return;
       }
       const newDownvote = models.Downvote.create(userDownvote);
       res.status(201).send({

@@ -352,18 +352,6 @@ describe('Api endpoints testing', () => {
         });
     });
 
-    it('should return 400 and can\'t downvote more than once if a user attempts to upvote more than once', (done) => {
-      chai.request(app)
-        .post(`/api/v1/recipes/downvote/${createdRecipeId}`)
-        .set('token', getToken)
-        .send()
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property('message').eql('can\'t downvote more than once');
-          done();
-        });
-    });
-
     it('should return 404 and recipe does not exist if a user attempts to upvote a recipe that does not exist', (done) => {
       chai.request(app)
         .post('/api/v1/recipes/upvote/1000')
