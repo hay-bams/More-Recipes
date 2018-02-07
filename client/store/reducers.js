@@ -27,7 +27,13 @@ export const singleRecipe = (state = {}, action) => {
     case APPCONSTANT.UPVOTE_RECIPE:
       return {
         ...state,
-        upvotes: state.upvotes + 1
+        upvotes: state.upvotes + 1,
+      };
+
+    case APPCONSTANT.DOWNVOTE_RECIPE:
+      return {
+        ...state,
+        downvotes: state.downvotes + 1,
       };
 
     default:
