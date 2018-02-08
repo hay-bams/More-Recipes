@@ -4,10 +4,10 @@ import RecipesCatalogue from '../../containers/RecipesCatalogue';
 import PopularRecipes from '../PopularRecipes';
 import Footer from '../Footer';
 
-const Catalogue = () => (
+const Catalogue = props => (
   <div>
     <Navigation />
-    <RecipesCatalogue />
+    <RecipesCatalogue {...props} />
     <PopularRecipes />
     <Footer />
   </div>

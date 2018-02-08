@@ -35,6 +35,7 @@ class ProductDetails extends React.Component {
     event.preventDefault();
     this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
   }
+  
 
   /**
    * @returns {obj} render

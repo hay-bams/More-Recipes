@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
 import { getAllRecipes } from '../actions/actions';
 
@@ -10,10 +11,27 @@ import { getAllRecipes } from '../actions/actions';
  */
 class RecipeCatalogue extends React.Component {
   /**
+   * @returns {void} constructor
+   */
+  constructor() {
+    super();
+    this.handlePageClick = this.handlePageClick.bind(this);
+    this.renderCatalogue = this.renderCatalogue.bind(this);
+  }
+  /**
    * @return {void} componentDidMount
    */
   componentDidMount() {
-    this.props.getAllRecipes();
+    this.props.getAllRecipes(1);
+  }
+
+  /**
+   * @param {obj} data
+   * @returns {void} handlePageClick
+   */
+  handlePageClick(data) {
+    const selected = data.selected + 1;
+    this.props.getAllRecipes(selected);
   }
 
   /**
@@ -76,6 +94,29 @@ class RecipeCatalogue extends React.Component {
         <div className="row">
           {this.renderCatalogue()}
         </div>
+
+        <div className="row">
+          <div className="col-md-8 ml-auto">
+            <ReactPaginate
+              previousLabel="Previous"
+              nextLabel="Next"
+              breakLabel={<a href="">...</a>}
+              breakClassName="page-link"
+              pageCount={this.props.pages}
+              onPageChange={this.handlePageClick}
+              containerClassName="pagination pagination-lg"
+              pageLinkClassName="page-link"
+              nextLinkClassName="page-link"
+              previousLinkClassName="page-link"
+              disabledClassName="disabled"
+              pageClassName="page-item"
+              previousClassName="page-item"
+              nextClassName="page-item"
+              activeClassName="active"
+              subContainerClassName="pages pagination"
+            />
+          </div>
+        </div>
       </div>
     );
   }
@@ -98,7 +139,8 @@ RecipeCatalogue.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes
+  recipes: state.recipes.rows,
+  pages: state.recipes.pages
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
