@@ -34,6 +34,7 @@ class RecipeController {
     }
   }
 
+
   /**
    * @returns {obj} getAllRecipe
    * @param {obj} req
@@ -43,7 +44,16 @@ class RecipeController {
     try {
       if (Object.keys(req.query).length > 0) {
         if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
-          const allRecipes = await models.Recipe.findAll();
+          const limit = 4;
+          const recipes = await models.Recipe.findAndCountAll();
+          const pages = Math.ceil(recipes.count / limit);
+          const page = parseInt(req.params.page, 10);
+          const offset = (page * limit) - limit;
+          const allRecipes = await models.Recipe.findAll({
+            limit,
+            offset,
+            pages
+          });
           if (allRecipes.length === 0) {
             return res.status(200).send({
               success: 'false',
@@ -58,7 +68,15 @@ class RecipeController {
           });
         }
       } else {
-        const allRecipes = await models.Recipe.findAll();
+        const limit = 4;
+        const recipes = await models.Recipe.findAndCountAll();
+        const pages = Math.ceil(recipes.count / limit);
+        const page = parseInt(req.params.page, 10);
+        const offset = (page * limit) - limit;
+        const allRecipes = await models.Recipe.findAll({
+          limit,
+          offset
+        });
         if (allRecipes.length === 0) {
           res.status(200).send({
             success: 'false',
@@ -68,7 +86,8 @@ class RecipeController {
           res.status(200).send({
             success: 'true',
             message: 'Recipes found',
-            data: allRecipes
+            data: allRecipes,
+            pages
           });
         }
       }

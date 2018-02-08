@@ -2,16 +2,23 @@ import { combineReducers } from 'redux';
 import APPCONSTANT from '../constant';
 
 
-export const recipes = (state = [], action) => {
+export const recipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_RECIPE:
-      return [
+      return {
         ...state,
-        action.payload.data,
-      ];
+        rows: [
+          ...state.rows,
+          action.payload.data
+        ]
+      };
 
     case APPCONSTANT.GET_ALL_RECIPES:
-      return action.payload.data;
+      return {
+        ...state,
+        pages: action.payload.pages,
+        rows: action.payload.recipes.data
+      };
 
     default:
       return state;
