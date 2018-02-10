@@ -51,8 +51,7 @@ class RecipeController {
           const offset = (page * limit) - limit;
           const allRecipes = await models.Recipe.findAll({
             limit,
-            offset,
-            pages
+            offset
           });
           if (allRecipes.length === 0) {
             return res.status(200).send({
@@ -64,7 +63,8 @@ class RecipeController {
           return res.status(200).send({
             success: 'true',
             message: 'Recipes found',
-            data: allRecipes
+            data: allRecipes,
+            pages
           });
         }
       } else {
@@ -355,18 +355,40 @@ class RecipeController {
    */
   static async getUserFavourites(req, res) {
     try {
+      const limit = 3;
       const userId = parseInt(req.params.userId, 10);
+      const favouriteRecipes = await models.Favourite.findAndCountAll({
+        where: { userId: req.decoded.id },
+      });
+      const pages = Math.ceil(favouriteRecipes.count / limit);
+      const page = parseInt(req.params.page, 10);
+      const offset = (page * limit) - limit;
+      const getUserFav = [];
+
       if (userId === req.decoded.id) {
         const favourite = await models.Favourite.findAll({
-          where: { userId: req.decoded.id }
+          where: { userId: req.decoded.id },
+          limit,
+          offset
         });
 
-        if (favourite.length === 0) return res.status(200).send({ success: 'true', message: 'No favourite recipes' });
+        if (favourite.length === 0) {
+          return res.status(200).send({
+            success: 'true', message: 'No favourite recipes'
+          });
+        }
 
-        res.status(200).send({
-          success: 'true',
-          message: 'Successfully retrieved favourites',
-          data: favourite
+        favourite.map(async (userFav, index) => {
+          const getFav = await models.Recipe.findById(userFav.recipeId);
+          getUserFav.push(getFav);
+          if (favourite.length === index + 1) {
+            res.status(200).send({
+              success: 'true',
+              message: 'Successfully retrieved favourites',
+              data: getUserFav,
+              pages
+            });
+          }
         });
       } else {
         return res.status(400).send({

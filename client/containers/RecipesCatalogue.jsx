@@ -70,6 +70,13 @@ class RecipeCatalogue extends React.Component {
                     aria-hidden="true"
                   />{recipe.downvotes}
                 </Link>
+
+                <Link to="#" className="text-danger">
+                  <i
+                    className="fa fa-thumbs-down col-4"
+                    aria-hidden="true"
+                  />{recipe.downvotes}
+                </Link>
               </span>
             </span>
             <Link to={`/details/${recipe.id}`} className="btn btn-info">view details</Link>

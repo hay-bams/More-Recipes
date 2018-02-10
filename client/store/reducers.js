@@ -71,6 +71,29 @@ export const userRecipes = (state = [], action) => {
   }
 };
 
+export const favouriteRecipes = (state = { rows: [] }, action) => {
+  switch (action.type) {
+    case APPCONSTANT.ADD_FAV_RECIPE:
+      return {
+        ...state,
+        rows: [
+          ...state.rows,
+          action.payload.data
+        ]
+      };
+
+    case APPCONSTANT.GET_FAV_RECIPES:
+      return {
+        ...state,
+        pages: action.payload.pages,
+        rows: action.payload.recipes.data
+      };
+
+    default:
+      return state;
+  }
+};
+
 export const user = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.SIGN_UP:
@@ -179,5 +202,6 @@ export default combineReducers({
   reviews,
   allUsers,
   singleRecipe,
-  latestRecipes
+  latestRecipes,
+  favouriteRecipes
 });

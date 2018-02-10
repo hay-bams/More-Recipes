@@ -35,7 +35,12 @@ class ProductDetails extends React.Component {
     event.preventDefault();
     this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
   }
-  
+
+  // componentDidMount() {
+  //   const id = parseInt(this.props.match.params.id, 10);
+  //   this.props.getSingleRecipe(id);
+  // }
+
 
   /**
    * @returns {obj} render
@@ -64,6 +69,10 @@ class ProductDetails extends React.Component {
             <a onClick={this.downvote} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >
               {recipe.downvotes}
               <i className="fa fa-thumbs-down" aria-hidden="true" />
+            </a>
+
+            <a onClick={this.downvote} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >
+              <i className="fa fa-heart" aria-hidden="true" />
             </a>
           </div>
 

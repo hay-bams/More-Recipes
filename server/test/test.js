@@ -423,7 +423,7 @@ describe('Api endpoints testing', () => {
   describe('Favourites', () => {
     it('should return a status of 200 if user has no favourite', (done) => {
       chai.request(app)
-        .get(`/api/users/${createdUserId}/recipes`)
+        .get(`/api/users/${createdUserId}/recipes/1`)
         .set('token', getToken)
         .end((err, res) => {
           res.should.have.status(200);
@@ -453,7 +453,7 @@ describe('Api endpoints testing', () => {
 
     it('should return a status of 200 if user has favourites', (done) => {
       chai.request(app)
-        .get(`/api/users/${createdUserId}/recipes`)
+        .get(`/api/users/${createdUserId}/recipes/1`)
         .set('token', getToken)
         .end((err, res) => {
           res.should.have.status(200);
