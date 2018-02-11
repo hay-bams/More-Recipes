@@ -30,15 +30,6 @@ class ProductReviews extends React.Component {
   }
 
   /**
-   * @returns {void}componentDidMount
-   */
-  componentDidMount() {
-    const recipeId = parseInt(this.props.match.params.id, 10);
-    this.props.getRecipeReviews(recipeId);
-    this.props.getUsers();
-  }
-
-  /**
    * @param {obj} allUsers
    * @param {obj} theReview
    * @returns {void} findUser

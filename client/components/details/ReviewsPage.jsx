@@ -1,7 +1,7 @@
 import React from 'react';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
-import ProductDetails from '../../containers/ProductDetails';
+import ReviewDetails from '../../containers/ReviewDetails';
 import ProductReviews from '../../containers/ProductReviews';
 import AddReview from '../../containers/AddReview';
 
@@ -9,7 +9,7 @@ const Details = props =>
   (
     <div>
       <Navigation />
-      <ProductDetails {...props} />
+      <ReviewDetails {...props} />
       <ProductReviews {...props} />
       <AddReview {...props} />
       <Footer />

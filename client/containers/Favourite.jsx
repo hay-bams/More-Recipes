@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
@@ -38,8 +39,8 @@ class FavouriteRecipes extends React.Component {
    * @returns {obj} renderRecipe
    */
   renderFavouriteRecipes() {
-    const { favouriteRecipes } = this.props;
-    return favouriteRecipes.map(favouriteRecipe => (
+    const favouriteRecipes = _.mapKeys(this.props.favouriteRecipes, 'id');
+    return _.map(favouriteRecipes, favouriteRecipe => (
       <div
         className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 recipes"
         key={favouriteRecipe.id}
@@ -153,7 +154,8 @@ FavouriteRecipes.propTypes = {
 
 const mapStateToProps = state => ({
   favouriteRecipes: state.favouriteRecipes.rows,
-  pages: state.favouriteRecipes.pages
+  pages: state.favouriteRecipes.pages,
+  errorMsg: state.errors.addFavoriteError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
