@@ -20,7 +20,7 @@ router.post('/api/v1/users/signup', Middleware.validateUserSignup, UserControlle
 router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserController.signin);
 router.get('/api/v1/users', UserController.findAllUsers);
 router.put('/api/v1/user/:userId', UserController.updateProfile);
-router.get('/api/users/:userId/recipes', Middleware.verifyToken, RecipeController.getUserFavourites);
+router.get('/api/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
 router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
 router.post('/api/v1/recipes/upvote/:recipeId', Middleware.verifyToken, RecipeController.upvote);
 router.post('/api/v1/recipes/downvote/:recipeId', Middleware.verifyToken, RecipeController.downvote);

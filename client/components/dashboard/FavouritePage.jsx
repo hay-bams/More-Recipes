@@ -1,5 +1,5 @@
 import React from 'react';
-import FavouriteRecipes from './Favourite';
+import FavouriteRecipes from '../../containers/Favourite';
 import DashboardNav from './DashboardNav';
 
 
