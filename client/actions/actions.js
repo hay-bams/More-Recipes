@@ -220,14 +220,22 @@ export const addReview = async (userReview, recipeId) => {
 
 export const getRecipeReviews = async (recipeId) => {
   try {
+    let payloadData;
+    
     const recipeReviews = await axios({
       method: 'get',
       url: `${host}/api/v1/reviews/${recipeId}`,
     });
 
+    if (recipeReviews.data.data !== undefined) {
+      payloadData = recipeReviews.data.data;
+    } else {
+      payloadData = [];
+    }
+
     return {
       type: APPCONSTANT.GET_RECIPES_REVIEWS,
-      payload: recipeReviews.data
+      payload: payloadData
     };
   } catch (err) {
     return {
@@ -328,6 +336,30 @@ export const getFavouriteRecipes = async (page) => {
   }
 };
 
+export const addFavoriteRecipe = async (recipeId) => {
+  try {
+    console.log('clicked')
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    await axios({
+      method: 'post',
+      url: `${host}/api/v1/recipes/${recipeId}`,
+      headers: { token: userToken }
+    });
+    return ({
+      type: APPCONSTANT.ADD_FAV_RECIPE,
+      payload: recipeId
+    });
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'addFavoriteError'
+    };
+  }
+};
+
 export default {
   signup,
   signin,
@@ -342,5 +374,6 @@ export default {
   getUsers,
   upvoteRecipe,
   downvoteRecipe,
-  getFavouriteRecipes
+  getFavouriteRecipes,
+  addFavoriteRecipe
 };

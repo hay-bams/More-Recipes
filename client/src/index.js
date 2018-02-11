@@ -7,7 +7,7 @@ import ReduxPromise from 'redux-promise';
 import allReducers from '../store/reducers';
 import HomePage from '../components/homePageComponents/HomePage';
 import CataloguePage from '../components/catalogue/CataloguePage';
-import DetailsPage from '../components/details/DetailsPage';
+import DetailsPage from '../components/details/ReviewsPage';
 import SigninPage from '../components/signin/SigninPage';
 import SignupPage from '../components/signup/SignupPage';
 import DashboardPage from '../components/dashboard/DashboardPage';

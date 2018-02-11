@@ -73,15 +73,6 @@ export const userRecipes = (state = [], action) => {
 
 export const favouriteRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
-    case APPCONSTANT.ADD_FAV_RECIPE:
-      return {
-        ...state,
-        rows: [
-          ...state.rows,
-          action.payload.data
-        ]
-      };
-
     case APPCONSTANT.GET_FAV_RECIPES:
       return {
         ...state,
@@ -127,7 +118,7 @@ export const reviews = (state = [], action) => {
 
     case APPCONSTANT.GET_RECIPES_REVIEWS:
       return [
-        ...action.payload.data
+        ...action.payload
       ];
 
     case APPCONSTANT.ERRORS:

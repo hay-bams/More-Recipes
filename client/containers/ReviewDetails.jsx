@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { upvoteRecipe, getSingleRecipe, downvoteRecipe } from '../actions/actions';
+import { upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe } from '../actions/actions';
 
 /**
  *@class ProductDetails
  */
-class ProductDetails extends React.Component {
+class ReviewDetails extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -16,7 +16,17 @@ class ProductDetails extends React.Component {
     this.state = {};
     this.upvote = this.upvote.bind(this);
     this.downvote = this.downvote.bind(this);
+    this.addFavourite = this.addFavourite.bind(this);
   }
+
+  /**
+   * @returns {void} componentWillMount
+   */
+  componentWillMount() {
+    const id = parseInt(this.props.match.params.id, 10);
+    this.props.getSingleRecipe(id);
+  }
+
 
   /**
    * @param {obj} event
@@ -36,18 +46,20 @@ class ProductDetails extends React.Component {
     this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
   }
 
-  // componentDidMount() {
-  //   const id = parseInt(this.props.match.params.id, 10);
-  //   this.props.getSingleRecipe(id);
-  // }
-
+  /**
+   * @param {obj} event
+   * @returns {void} addFavorite
+   */
+  addFavourite(event) {
+    event.preventDefault();
+    const { recipe } = this.props;
+    this.props.addFavoriteRecipe(recipe.id);
+  }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const id = parseInt(this.props.match.params.id, 10);
-    this.props.getSingleRecipe(id);
     const { recipe } = this.props;
     return (
       <div className="container">
@@ -71,7 +83,7 @@ class ProductDetails extends React.Component {
               <i className="fa fa-thumbs-down" aria-hidden="true" />
             </a>
 
-            <a onClick={this.downvote} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >
+            <a onClick={this.addFavourite} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >
               <i className="fa fa-heart" aria-hidden="true" />
             </a>
           </div>
@@ -89,12 +101,13 @@ class ProductDetails extends React.Component {
   }
 }
 
-ProductDetails.propTypes = {
+ReviewDetails.propTypes = {
   userData: PropTypes.shape({
     user: PropTypes.shape({
       id: PropTypes.number
     })
   }).isRequired,
+  addFavoriteRecipe: PropTypes.func.isRequired,
   getSingleRecipe: PropTypes.func.isRequired,
   upvoteRecipe: PropTypes.func.isRequired,
   downvoteRecipe: PropTypes.func.isRequired,
@@ -124,7 +137,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ upvoteRecipe, getSingleRecipe, downvoteRecipe }, dispatch);
+  bindActionCreators({
+    upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe
+  }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ReviewDetails);
