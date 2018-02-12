@@ -3,12 +3,13 @@ import DashboardNav from './DashboardNav';
 import UserRecipes from '../../containers/UserRecipes';
 import Footer from '../Footer';
 
-const AddRecipePage = () => (
+
+const ViewRecipePage = props => (
   <div>
-    <DashboardNav />
+    <DashboardNav {...props}/>
     <UserRecipes />
     <Footer />
   </div>
 );
 
-export default AddRecipePage;
+export default ViewRecipePage;

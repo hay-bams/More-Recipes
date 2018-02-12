@@ -4,7 +4,7 @@ import DashboardNav from './DashboardNav';
 
 const EditUserProfilePage = props => (
   <div>
-    <DashboardNav />
+    <DashboardNav {...props} />
     <EditUserProfileForm {...props} />
   </div>
 );

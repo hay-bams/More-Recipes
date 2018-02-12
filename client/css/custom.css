@@ -30,6 +30,15 @@ body {
   height: 100%;
 }
 
+.error {
+  font-style: oblique;
+}
+
+.headerColor {
+  background: #279182;
+  color: #fff;
+}
+
 .jumbo-search {
   margin-top: 30px;
   margin-bottom: 50px;
@@ -130,7 +139,7 @@ body {
 
 
 footer {
-  background: rgba(187, 171, 57, 1) !important;
+  background: rgba(11, 9, 21, 0.9) !important;
   color:#fff;
 }
 
@@ -173,7 +182,7 @@ footer .row {
 }
 
 .navigationBar {
-  background-color: rgba(187, 171, 57, 0.9);
+  background-color:rgba(11, 9, 21, 0.9);
 }
 
 #navigation {

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import SiginForm from '../../containers/SigninForm';
 import Navigation from '../Navigation';
 
-
 const SigninPage = props => (
   <div>
     <Navigation />

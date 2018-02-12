@@ -68,7 +68,7 @@ class ReviewDetails extends React.Component {
             <h2 className="details">{recipe.title}</h2>
           </div>
 
-          <div className="col-sm-6 recipe-img">
+          <div className="col-lg-6 recipe-img">
             <img className="recipe-details img-fluid" src="images/recipe2.jpg" alt="Details" />
             <a onClick={this.upvote} href="#" className="btn btn-success">
               {recipe.upvotes}
@@ -88,10 +88,10 @@ class ReviewDetails extends React.Component {
             </a>
           </div>
 
-          <div className="col-sm-6">
-            <h3 className="text-center">Ingredients</h3>
+          <div className="col-lg-6">
+            <h3 className="">Ingredients</h3>
             <p>{recipe.ingredients}</p>
-            <h3 className="text-center preparation">Preparations</h3>
+            <h3 className="preparation">Preparations</h3>
             <p>{recipe.instructions}</p>
           </div>
         </div>

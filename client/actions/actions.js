@@ -338,7 +338,6 @@ export const getFavouriteRecipes = async (page) => {
 
 export const addFavoriteRecipe = async (recipeId) => {
   try {
-    console.log('clicked')
     const userData = JSON.parse(localStorage.userData);
     const userToken = userData.token;
 

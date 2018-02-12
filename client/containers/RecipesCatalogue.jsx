@@ -45,6 +45,7 @@ class RecipeCatalogue extends React.Component {
         key={recipe.id}
       >
         <div className="card recipe-card" style={{ border: 'none' }}>
+          <h4 className="card-header headerColor text-center">{recipe.title}</h4>
           <img
             className="card-img-top img-fluid"
             src="images/recipe5.jpg"
@@ -52,9 +53,9 @@ class RecipeCatalogue extends React.Component {
             style={{ height: `${200}px` }}
           />
           <div className="card-body">
-            <h4 className="card-title">{recipe.title}</h4>
+          <p>{recipe.instructions.slice(1, 60)}</p>
             <span className="card-text">
-              <span className="row">
+              <span className="row ml-1">
                 <Link to="#" className="text-success">
                   <i
                     className="fa fa-thumbs-up col-4"
@@ -70,16 +71,9 @@ class RecipeCatalogue extends React.Component {
                     aria-hidden="true"
                   />{recipe.downvotes}
                 </Link>
-
-                <Link to="#" className="text-danger">
-                  <i
-                    className="fa fa-thumbs-down col-4"
-                    aria-hidden="true"
-                  />{recipe.downvotes}
-                </Link>
               </span>
             </span>
-            <Link to={`/details/${recipe.id}`} className="btn btn-info">view details</Link>
+            <Link to={`/details/${recipe.id}`} className="btn btn-info ml-4">view details</Link>
           </div>
         </div>
       </div>

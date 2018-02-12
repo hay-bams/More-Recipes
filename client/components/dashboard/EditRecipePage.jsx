@@ -4,7 +4,7 @@ import DashboardNav from './DashboardNav';
 
 const EditRecipePage = props => (
   <div>
-    <DashboardNav />
+    <DashboardNav {...props} />
     <EditRecipeForm {...props} />
   </div>
 );

@@ -67,8 +67,8 @@ class AddRecipeForm extends React.Component {
       <div className="main-userboard-body add-recipe-body">
         <div className="container">
           <div className="row">
-            <div className="mx-auto col-sm-12 col-md-8 col-lg-6 col-xs mt-5">
-              {message}
+            <div className="mx-auto col-sm-12 col-md-8 col-lg-8 col-xs mt-5">
+              <span className="text-success">{message}</span>
               <h2 className="text-center"> Add Recipe</h2>
               <form onSubmit={this.addRecipe}>
                 <div className="form-group">
@@ -76,11 +76,11 @@ class AddRecipeForm extends React.Component {
                   <input
                     type="text"
                     name="title"
-                    className="form-control"
+                    className="form-control form-control-lg"
                     placeholder="Enter Recipe name"
                   />
                   { errors.title &&
-                  <span className="help-block">
+                  <span className="help-block error text-danger">
                     {errors.title}
                   </span>
                     }
@@ -95,11 +95,12 @@ class AddRecipeForm extends React.Component {
                   <input
                     ype="text"
                     name="ingredients"
-                    className="form-control"
+                    className="form-control form-control-lg"
                     placeholder="Enter Ingredients"
+                    id="ingredients"
                   />
                   { errors.ingredients &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.ingredients}
                     </span>
                     }
@@ -108,12 +109,13 @@ class AddRecipeForm extends React.Component {
                 <div className="form-group">
                   <label htmlFor="instruction">Instructions</label>
                   <textarea
-                    className="form-control"
+                    className="form-control form-control-lg"
                     placeholder="Enter Instructions"
                     name="instructions"
+                    id="instructions"
                   />
                   { errors.instructions &&
-                  <span className="help-block">
+                  <span className="help-block error text-danger">
                     {errors.instructions}
                   </span>
                     }

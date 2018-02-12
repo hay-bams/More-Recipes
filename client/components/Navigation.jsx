@@ -30,7 +30,7 @@ const Navigation = props => (
             <li className="nav-item active" />
 
             <li className="nav-item active">
-              { Object.keys(props.userData).length === 0 ?
+              { !props.userData.token ?
                 <NavLink
                   to="/signin"
                   className="nav-link"
@@ -42,7 +42,7 @@ const Navigation = props => (
             </li>
 
             <li className="nav-item">
-              { Object.keys(props.userData).length === 0 ?
+              { !props.userData.token ?
                 <NavLink
                   to="/signup"
                   className="nav-link"

@@ -3,9 +3,9 @@ import FavouriteRecipes from '../../containers/Favourite';
 import DashboardNav from './DashboardNav';
 
 
-const AddRecipePage = () => (
+const AddRecipePage = props => (
   <div>
-    <DashboardNav />
+    <DashboardNav {...props} />
     <FavouriteRecipes />
   </div>
 );

@@ -86,7 +86,8 @@ class EditRecipeForm extends React.Component {
         <div className="container">
           <div className="row">
             <div className="mx-auto col-sm-12 col-md-8 col-lg-6 col-xs mt-5">
-              {message}  <Link to="/view_recipes">View Recipe</Link>
+              <span className="text-success">{message}</span>
+              <Link to="/view_recipes">View Recipe</Link>
               <h2 className="text-center"> Edit Recipe</h2>
               <form onSubmit={this.editRecipe}>
                 <div className="form-group">
@@ -100,7 +101,7 @@ class EditRecipeForm extends React.Component {
                     onChange={this.onChange}
                   />
                   { errors.title &&
-                  <span className="help-block">
+                  <span className="help-block text-danger error">
                     {errors.title}
                   </span>
                     }
@@ -121,7 +122,7 @@ class EditRecipeForm extends React.Component {
                     onChange={this.onChange}
                   />
                   { errors.ingredients &&
-                    <span className="help-block">
+                    <span className="help-block text-danger error">
                       {errors.ingredients}
                     </span>
                     }
@@ -133,11 +134,12 @@ class EditRecipeForm extends React.Component {
                     className="form-control"
                     placeholder="Enter Instructions"
                     name="instructions"
+                    id="instructions"
                     value={recipe.instructions}
                     onChange={this.onChange}
                   />
                   { errors.instructions &&
-                  <span className="help-block">
+                  <span className="help-block text-danger error">
                     {errors.instructions}
                   </span>
                     }

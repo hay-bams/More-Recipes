@@ -2,10 +2,10 @@ import React from 'react';
 import HomePageNavigation from './HomePageNavigation';
 import Carousel from '../Carousel';
 
-const HomePageHeader = () => (
+const HomePageHeader = (props) => (
   <header>
     {/* Navigation */}
-    <HomePageNavigation />
+    <HomePageNavigation {...props} />
     <Carousel />
   </header>
 );

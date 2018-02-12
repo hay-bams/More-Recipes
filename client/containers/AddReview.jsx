@@ -10,6 +10,14 @@ import { addReview } from '../actions/actions';
  */
 class AddReview extends React.Component {
   /**
+   * @param {obj} event
+   * @returns {void} clearForm
+   */
+  static clearForm(event) {
+    event.target.review.value = '';
+  }
+
+  /**
    * @returns {void} constructor
    */
   constructor() {
@@ -37,6 +45,7 @@ class AddReview extends React.Component {
 
     const recipeId = parseInt(this.props.match.params.id, 10);
     this.props.addReview(userReview, recipeId);
+    AddReview.clearForm(event);
   }
 
   /**
@@ -47,13 +56,13 @@ class AddReview extends React.Component {
     return (
       <div className="container">
         <div className="row review-form">
-          <div className="col-sm-6">
+          <div className="col-lg-6">
             <h4>Add Review</h4>
             <form onSubmit={this.addReview}>
               <div className="form-group">
-                <textarea className="form-control" name="review"/>
+                <textarea className="form-control" name="review" />
                 { errors.review &&
-                  <span className="help-block">
+                  <span className="help-block error text-danger">
                     {errors.review}
                   </span>
                     }
