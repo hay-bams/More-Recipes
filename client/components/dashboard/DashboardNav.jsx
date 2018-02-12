@@ -1,10 +1,18 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+const isSignedIn = (props) => {
+  if (localStorage.userData === undefined) {
+    console.log('reached')
+    props.history.push('/signin');
+  }
+};
+
 const DashboardNav = props => (
   <header>
+    {isSignedIn(props)}
     <nav className="navbar navbar-expand-md navbar-light fixed-top navigationBar">
       <div className="container">
         <Link to="/" className="navbar-brand">More Recipes</Link>
@@ -23,12 +31,12 @@ const DashboardNav = props => (
                 <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
-                { Object.keys(props.userData).length > 0 ?
+                { props.userData.token ?
                   <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>
                   Edit Profile
                   </Link> : ''
                 }
-                <Link className="dropdown-item" to="/">Sign out</Link>
+                <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
               </div>
             </li>
           </ul>

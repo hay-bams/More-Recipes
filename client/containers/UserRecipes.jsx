@@ -51,7 +51,7 @@ class Recipes extends React.Component {
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />
-          <div className="card-body">
+          <div className="card-body mx-auto">
             <h4 className="card-title">{recipe.title}</h4>
             <p className="card-text">
               <span className="row">
@@ -72,13 +72,13 @@ class Recipes extends React.Component {
                 </a>
               </span>
             </p>
-            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary">
+            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit">
               <i className="fa fa-pencil-square-o" aria-hidden="true" />
             </Link>
-            <button className="btn btn-danger" onClick={() => { this.onDelete(recipe.id); }}>
+            <button className="btn btn-danger delete" onClick={() => { this.onDelete(recipe.id); }}>
               <i className="fa fa-trash-o" aria-hidden="true" />
             </button>
-            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info">
+            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view">
               <i className="fa fa-eye" aria-hidden="true" />
             </Link>
           </div>

@@ -7,7 +7,7 @@ import ReduxPromise from 'redux-promise';
 import allReducers from '../store/reducers';
 import HomePage from '../components/homePageComponents/HomePage';
 import CataloguePage from '../components/catalogue/CataloguePage';
-import DetailsPage from '../components/details/ReviewsPage';
+import DetailsPage from '../components/details/DetailsPage';
 import SigninPage from '../components/signin/SigninPage';
 import SignupPage from '../components/signup/SignupPage';
 import DashboardPage from '../components/dashboard/DashboardPage';
@@ -19,6 +19,8 @@ import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
 import '../css/custom.css';
 import '../js/script';
+import DashboardNav from '../components/dashboard/DashboardNav';
+import HomePageNavigation from '../components/homePageComponents/HomePageNavigation';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

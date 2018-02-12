@@ -2,9 +2,9 @@ import React from 'react';
 import UserProfile from './UserProfile';
 import DashboardNav from './DashboardNav';
 
-const UserProfilePage = () => (
+const UserProfilePage = props => (
   <div>
-    <DashboardNav />
+    <DashboardNav {...props} />
     <UserProfile />
   </div>
 );

@@ -46,13 +46,16 @@ class SigninForm extends React.Component {
       email: event.target.email.value,
       password: event.target.password.value
     };
-    const errors = Authenticate.validateUserSignin(user);
+    let errors = Authenticate.validateUserSignin(user);
 
     if (errors.email !== '' || errors.password !== '') {
       return this.setState({ errors });
     }
 
     this.props.signin(user);
+
+    errors = {};
+    this.setState({ errors });
   }
 
   /**
@@ -69,7 +72,9 @@ class SigninForm extends React.Component {
                     Login
               </div>
 
-              <span className="text-center">{ this.props.errorMsg }</span>
+              <span className="text-center error text-danger">
+                { this.props.errorMsg }
+              </span>
 
               <div className="card-body ">
                 <form onSubmit={this.signin}>
@@ -82,7 +87,7 @@ class SigninForm extends React.Component {
                       placeholder="Enter Email"
                     />
                     { errors.email &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.email}
                     </span>
                     }
@@ -98,7 +103,7 @@ class SigninForm extends React.Component {
                     />
                   </div>
                   {errors.password &&
-                  <span>{errors.password}</span>
+                  <span className="error error text-danger">{errors.password}</span>
                       }
 
                   <div className="form-group">

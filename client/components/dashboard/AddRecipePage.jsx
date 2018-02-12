@@ -3,16 +3,9 @@ import { connect } from 'react-redux';
 import AddRecipeForm from '../../containers/AddRecipeForm';
 import DashboardNav from './DashboardNav';
 
-const validateUser = (props) => {
-  if (props.userData.token === undefined) {
-    props.history.push('/signin');
-  }
-};
-
 const AddRecipePage = props => (
   <div>
-    {validateUser(props)}
-    <DashboardNav />
+    <DashboardNav {...props} />
     <AddRecipeForm />
   </div>
 );

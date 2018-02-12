@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
       password: event.target.password.value,
       confirmPassword: event.target.confirmPassword.value
     };
-    const errors = Authenticate.validateUserSignup(user);
+    let errors = Authenticate.validateUserSignup(user);
 
     if (errors.email !== '' || errors.password !== '' ||
        errors.firstName !== '' || errors.lastName !== '' ||
@@ -51,8 +51,9 @@ class SignupForm extends React.Component {
       return this.setState({ errors });
     }
 
-
     this.props.signup(user);
+    errors = {};
+    this.setState({ errors });
   }
 
   /**
@@ -68,7 +69,7 @@ class SignupForm extends React.Component {
               <div className="card-header text-center">
                Sign Up
               </div>
-              <span>{this.props.errorMsg}</span>
+              <span className="error text-danger">{this.props.errorMsg}</span>
               <div className="card-body">
                 <form onSubmit={e => this.signup(e)}>
                   <div className="form-group">
@@ -79,7 +80,7 @@ class SignupForm extends React.Component {
                       placeholder="Enter First name"
                     />
                     { errors.firstName &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.firstName}
                     </span>
                       }
@@ -93,7 +94,7 @@ class SignupForm extends React.Component {
                       placeholder="Enter Last name"
                     />
                     { errors.lastName &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.lastName}
                     </span>
                       }
@@ -107,7 +108,7 @@ class SignupForm extends React.Component {
                       placeholder="Enter Email"
                     />
                     { errors.email &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.email}
                     </span>
                       }
@@ -121,7 +122,7 @@ class SignupForm extends React.Component {
                       placeholder="Enter Password"
                     />
                     { errors.password &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.password}
                     </span>
                       }
@@ -135,7 +136,7 @@ class SignupForm extends React.Component {
                       placeholder="Confirm Password"
                     />
                     { errors.confirmPassword &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.confirmPassword}
                     </span>
                       }

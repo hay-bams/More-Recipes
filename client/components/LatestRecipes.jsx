@@ -109,7 +109,7 @@ const LatestRecipes = () => (
           <div className="card-body">
             <h4 className="card-title">Recipe name</h4>
             <span className="card-text">
-              <span className="row">
+              <span className="row row ml-1">
                 <Link to="#" className="text-success">
                   <i className="fa fa-thumbs-up col-6" aria-hidden="true" />10
                 </Link>
@@ -123,7 +123,7 @@ const LatestRecipes = () => (
                 </Link>
               </span>
             </span>
-            <Link to="/details" className="btn btn-info">view details</Link>
+            <Link to="/details" className="btn btn-info row ml-">view details</Link>
           </div>
         </div>
       </div>

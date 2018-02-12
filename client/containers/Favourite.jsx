@@ -52,7 +52,7 @@ class FavouriteRecipes extends React.Component {
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />
-          <div className="card-body">
+          <div className="card-body mx-auto">
             <h4 className="card-title">{favouriteRecipe.title}</h4>
             <p className="card-text">
               <span className="row">

@@ -27,7 +27,7 @@ const HomePageNavigation = props => (
 
 
           <li className="nav-item active">
-            { Object.keys(props.userData).length === 0 ?
+            { !props.userData.token ?
               <NavLink
                 to="/signin"
                 className="nav-link"
@@ -39,7 +39,7 @@ const HomePageNavigation = props => (
           </li>
 
           <li className="nav-item">
-            { Object.keys(props.userData).length === 0 ?
+            { !props.userData.token ?
               <NavLink
                 to="/signup"
                 className="nav-link"
@@ -49,7 +49,7 @@ const HomePageNavigation = props => (
             }
           </li>
 
-          { Object.keys(props.userData).length > 0 ?
+          { props.userData.token ?
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fa fa-user" /> Ayobami <b className="caret" />
@@ -59,13 +59,13 @@ const HomePageNavigation = props => (
                 <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
                 <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
-                { Object.keys(props.userData).length > 0 ?
+                { props.userData.token ?
                   <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>
                   Edit Profile
                   </Link> : ''
                 }
-                
-                <Link className="dropdown-item" to="/">Sign out</Link>
+
+                <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
               </div>
             </li> : ''
             }

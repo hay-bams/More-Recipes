@@ -46,7 +46,7 @@ class ProductReviews extends React.Component {
   renderReviews() {
     const { allUsers } = this.props;
     return this.props.userReviews.map(theReview => (
-      <div className="media" key={theReview.id}>
+      <div className="media mt-3" key={theReview.id}>
         <img className="mr-3" src="images/24475008.jpg" style={{ width: `${80}px` }} alt="Generic placeholder" />
         <div className="media-body">
           <h5>
@@ -65,7 +65,7 @@ class ProductReviews extends React.Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-sm-8 reviews">
+          <div className="col-sm-6 reviews">
             <h3>Reviews</h3>
             {this.renderReviews()}
           </div>

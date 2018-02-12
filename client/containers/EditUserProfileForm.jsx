@@ -97,7 +97,7 @@ class EditUserProfileForm extends React.Component {
                       onChange={this.onChange}
                     />
                     { errors.firstName &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.firstName}
                     </span>
                       }
@@ -113,7 +113,7 @@ class EditUserProfileForm extends React.Component {
                       onChange={this.onChange}
                     />
                     { errors.lastName &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.lastName}
                     </span>
                       }
@@ -129,7 +129,7 @@ class EditUserProfileForm extends React.Component {
                       onChange={this.onChange}
                     />
                     { errors.email &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.email}
                     </span>
                       }
@@ -145,7 +145,7 @@ class EditUserProfileForm extends React.Component {
                       onChange={this.onChange}
                     />
                     { errors.password &&
-                    <span className="help-block">
+                    <span className="help-block error text-danger">
                       {errors.password}
                     </span>
                       }
