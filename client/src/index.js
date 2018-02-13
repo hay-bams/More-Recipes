@@ -10,6 +10,7 @@ import CataloguePage from '../components/catalogue/CataloguePage';
 import DetailsPage from '../components/details/DetailsPage';
 import SigninPage from '../components/signin/SigninPage';
 import SignupPage from '../components/signup/SignupPage';
+import signoutPage from '../components/SignoutPage';
 import DashboardPage from '../components/dashboard/DashboardPage';
 import AddRecipePage from '../components/dashboard/AddRecipePage';
 import EditRecipePage from '../components/dashboard/EditRecipePage';
@@ -50,6 +51,7 @@ const Root = () => (
         <Route path="/details/:id" component={DetailsPage} />
         <Route path="/signin" component={SigninPage} />
         <Route path="/signup" component={SignupPage} />
+        <Route path="/signoutPage" component={signoutPage} />
         <Route exact path="/dashboard" component={DashboardPage} />
         <Route exact path="/add_recipe" component={AddRecipePage} />
         <Route exact path="/view_recipes" component={ViewRecipePage} />
