@@ -132,7 +132,6 @@ ReviewDetails.propTypes = {
 
 const mapStateToProps = state => ({
   recipe: state.singleRecipe,
-  upvotes: state.upvote,
   userData: state.userData,
 });
 
