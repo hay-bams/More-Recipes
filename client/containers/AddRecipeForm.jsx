@@ -27,8 +27,7 @@ class AddRecipeForm extends React.Component {
     super(props);
     this.addRecipe = this.addRecipe.bind(this);
     this.state = {
-      errors: {},
-      message: ''
+      errors: {}
     };
   }
 
@@ -55,7 +54,7 @@ class AddRecipeForm extends React.Component {
     AddRecipeForm.clearForm(event);
 
     errors = {};
-    this.setState({ errors, message: 'Recipe added Successfully' });
+    this.setState({ errors });
   }
 
   /**

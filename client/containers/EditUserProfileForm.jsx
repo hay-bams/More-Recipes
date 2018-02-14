@@ -20,7 +20,6 @@ class EditUserProfileForm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.state = {
       errors: {},
-      message: '',
       user: {}
     };
   }
@@ -66,14 +65,14 @@ class EditUserProfileForm extends React.Component {
     }
     this.props.editUserProfile(user, this.props.match.params.id);
     errors = {};
-    this.setState({ errors, message: 'user profile updated successfully' });
+    this.setState({ errors });
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { errors, message } = this.state;
+    const { errors } = this.state;
     const { user } = this.state;
     return (
       <div className="container-fluid main-register-container">
@@ -81,7 +80,6 @@ class EditUserProfileForm extends React.Component {
           <div className="col-sm-8 col-md-5 mx-auto">
             <div className="card  mt-5 card-form">
               <div className="card-header text-center">
-                {message}
                 <h2 className="text-center"> Edit User Profile</h2>
               </div>
               <span>{this.props.errorMsg}</span>

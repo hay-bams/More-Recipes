@@ -16,7 +16,6 @@ class Recipes extends React.Component {
   constructor() {
     super();
     this.onDelete = this.onDelete.bind(this);
-    this.message = '';
   }
   /**
    * @returns {void} componentDidMount
@@ -31,7 +30,6 @@ class Recipes extends React.Component {
    */
   onDelete(id) {
     this.props.deleteRecipe(id);
-    this.message = 'recipe deleted successfully';
   }
 
   /**
@@ -97,7 +95,6 @@ class Recipes extends React.Component {
           <div className="row">
             <div className="col-sm">
               <h2 className="text-center catalogue">My Recipes</h2>
-              <h3 className="text-center">{this.message}</h3>
             </div>
           </div>
           <div className="row">

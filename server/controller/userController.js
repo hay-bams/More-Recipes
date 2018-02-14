@@ -51,7 +51,7 @@ class UserController {
       const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
       return res.status(201).send({
         success: 'true',
-        message: 'User created',
+        message: 'User created successfully',
         token,
         user: publicUserData
       });
