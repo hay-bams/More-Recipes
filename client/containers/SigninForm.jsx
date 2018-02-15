@@ -23,8 +23,6 @@ class SigninForm extends React.Component {
     };
   }
 
-  //  create a bug fix branch for this feature tomorrow
-
   /**
    * Execute when component updates
    * @returns {null} null
@@ -71,10 +69,6 @@ class SigninForm extends React.Component {
               <div className="card-header text-center">
                     Login
               </div>
-
-              <span className="text-center error text-danger">
-                { this.props.errorMsg }
-              </span>
 
               <div className="card-body ">
                 <form onSubmit={this.signin}>
@@ -143,8 +137,7 @@ class SigninForm extends React.Component {
 
 SigninForm.defaultProps = {
   userData: {},
-  redirectUser: {},
-  errorMsg: ''
+  redirectUser: {}
 };
 
 SigninForm.propTypes = {
@@ -156,7 +149,6 @@ SigninForm.propTypes = {
       lastName: PropTypes.string
     })
   }),
-  errorMsg: PropTypes.string,
   signin: PropTypes.func.isRequired,
   redirectUser: PropTypes.shape({
     push: PropTypes.func

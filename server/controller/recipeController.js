@@ -467,9 +467,9 @@ class RecipeController {
       const upvoteFound = await models.Upvote.findAll({
         where: { userId: req.decoded.id, recipeId }
       });
-
+      
       if (upvoteFound.length > 0) {
-        return;
+        return res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' });
       }
       const newUpvote = await models.Upvote.create(userUpvote);
       res.status(201).send({
@@ -533,7 +533,7 @@ class RecipeController {
       });
 
       if (downvoteFound.length > 0) {
-        return;
+        return res.status(400).send({ success: 'false', message: 'can\'t downvote more than once' });
       }
       const newDownvote = models.Downvote.create(userDownvote);
       res.status(201).send({

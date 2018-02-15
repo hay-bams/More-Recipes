@@ -105,7 +105,7 @@ class RecipeCatalogue extends React.Component {
               breakClassName="page-link"
               pageCount={this.props.pages}
               onPageChange={this.handlePageClick}
-              containerClassName="pagination pagination-lg"
+              containerClassName="pagination pagination-md"
               pageLinkClassName="page-link"
               nextLinkClassName="page-link"
               previousLinkClassName="page-link"

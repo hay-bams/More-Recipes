@@ -28,7 +28,6 @@ class EditUserProfileForm extends React.Component {
    * @returns {void} componentWillMount
    */
   componentWillMount() {
-    // console.log(this.props.recipes);
     const { user } = this.props.userData;
     this.setState({ user });
   }

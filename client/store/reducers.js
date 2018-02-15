@@ -102,13 +102,6 @@ export const user = (state = {}, action) => {
       return {
         ...action.payload
       };
-
-    case APPCONSTANT.ERRORS:
-      return {
-        ...state,
-        error: action.payload
-      };
-
     default:
       return state;
   }
@@ -126,13 +119,6 @@ export const reviews = (state = [], action) => {
       return [
         ...action.payload
       ];
-
-    case APPCONSTANT.ERRORS:
-      return {
-        ...state,
-        error: action.payload
-      };
-
     default:
       return state;
   }
@@ -151,12 +137,17 @@ export const allUsers = (state = [], action) => {
 
 export const errors = (state = {}, action) => {
   switch (action.type) {
-    case APPCONSTANT.ERRORS:
+    case APPCONSTANT.ADD_REVIEW_ERRORS:
       return {
         ...state,
-        errors: action.payload
+        [action.name]: action.payload
       };
 
+    case APPCONSTANT.GET_REVIEW_ERRORS:
+      return {
+        ...state,
+        [action.name]: action.payload
+      };
 
     case APPCONSTANT.SIGN_IN_ERRORS:
       return {
@@ -165,6 +156,12 @@ export const errors = (state = {}, action) => {
       };
 
     case APPCONSTANT.SIGN_UP_ERRORS:
+      return {
+        ...state,
+        [action.name]: action.payload
+      };
+
+    case APPCONSTANT.ADD_FAVOURITE_ERRORS:
       return {
         ...state,
         [action.name]: action.payload

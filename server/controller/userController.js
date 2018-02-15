@@ -71,6 +71,14 @@ class UserController {
    */
   static async signin(req, res) {
     try {
+
+      if (!isEmail(req.body.email)) {
+        return res.status(400).send({
+          sucess: 'false',
+          message: 'invalid email address'
+        });
+      }
+
       const userFound = await models.User.findOne({
         where: { email: req.body.email }
       });
@@ -85,13 +93,6 @@ class UserController {
         return res.status(403).send({
           success: 'false',
           message: 'wrong password'
-        });
-      }
-
-      if (!isEmail(req.body.email)) {
-        return res.status(400).send({
-          sucess: 'false',
-          message: 'invalid email address'
         });
       }
 
