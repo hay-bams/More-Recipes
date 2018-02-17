@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon ./server/bin/www --exec babel-node",
-    "start": "npm run build && node ./dist/bin/www.js",
-    "build": "babel ./server -d ./dist",
-    "heroku-postbuild": "npm run migrate",
+    "start": "node ./dist/bin/www.js",
+    "build:server": "babel ./server -d ./dist --copy-files",
+    "heroku-postbuild": "npm run build && npm run migrate",
+    "build": "npm run build:client && npm run build:server",
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
     "test": "export NODE_ENV=test|| SET NODE_ENV=test&& mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",
     "webpack": "webpack-dev-server",
+    "build:client": "webpack -p",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
@@ -71,21 +73,7 @@
     "sequelize": "^4.20.1",
     "sequelize-cli": "^3.0.0",
     "style-loader": "^0.19.0",
-    "validator": "^9.2.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react",
-      "stage-0"
-    ]
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "chai": "^4.1.2",
+    "validator": "^9.2.0",
     "coveralls": "^3.0.0",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.1.0",
@@ -97,11 +85,20 @@
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^22.3.0",
-    "mocha": "^4.0.1",
     "moxios": "^0.4.0",
     "nyc": "^11.2.1",
     "redux-mock-store": "^1.5.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ]
+  },
+  "devDependencies": {
+    
   }
 }

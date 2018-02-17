@@ -1,14 +1,16 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import config from 'dotenv';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
 import router from './routes';
-import config from 'dotenv';
 
 config.config();
 
 // set upthe express app
 const app = express();
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cors());
 
@@ -19,5 +21,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(router);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+});
 
 export default app;

@@ -1,7 +1,9 @@
 import axios from 'axios';
 import APPCONSTANT from '../constant';
 
-const host = 'http://localhost:8000';
+const host = window.location.hostname === 'localhost' ?
+  'http://localhost:8000' : 'https://purpose-more-recipes.herokuapp.com';
+
 
 export const addRecipe = async (recipeObject) => {
   try {

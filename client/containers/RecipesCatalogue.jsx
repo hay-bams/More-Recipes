@@ -6,6 +6,8 @@ import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
 import { getAllRecipes } from '../actions/actions';
 
+import recipeImage from '../images/recipe24.jpg';
+
 /**
  * @class RecipeCatalogue
  */
@@ -48,7 +50,7 @@ class RecipeCatalogue extends React.Component {
           <h4 className="card-header headerColor text-center">{recipe.title}</h4>
           <img
             className="card-img-top img-fluid"
-            src={`images/${recipe.image}`}
+            src={recipeImage}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />

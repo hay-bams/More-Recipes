@@ -62,15 +62,12 @@ describe('Api endpoints testing', function () {
     });
 
     it('should sign up a user and return 201 for a successful signup', function (done) {
+      console.log(_user2.default);
       _chai2.default.request(_app2.default).post('/api/v1/users/signup').send(_user2.default).end(function (err, res) {
         res.should.have.status(201);
         res.body.should.be.a('object');
         res.body.should.have.property('success').eql('true');
-        res.body.should.have.property('message').eql('User created');
-        res.body.data.should.have.property('firstName');
-        res.body.data.should.have.property('lastName');
-        res.body.data.should.have.property('email');
-        res.body.data.should.have.property('password');
+        res.body.should.have.property('message').eql('User created successfully');
         done();
       });
     });
@@ -293,26 +290,10 @@ describe('Api endpoints testing', function () {
       });
     });
 
-    it('should return 400 and can\'t upvote more than once if a user attempts to upvote more than once', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/recipes/upvote/' + createdRecipeId).set('token', getToken).send().end(function (err, res) {
-        res.should.have.status(400);
-        res.body.should.have.property('message').eql('can\'t upvote more than once');
-        done();
-      });
-    });
-
     it('should downvote a recipe and return a status 201', function (done) {
       _chai2.default.request(_app2.default).post('/api/v1/recipes/downvote/' + createdRecipeId).set('token', getToken).send().end(function (err, res) {
         res.should.have.status(201);
         res.body.should.have.property('message').eql('Recipe downvoted');
-        done();
-      });
-    });
-
-    it('should return 400 and can\'t downvote more than once if a user attempts to upvote more than once', function (done) {
-      _chai2.default.request(_app2.default).post('/api/v1/recipes/downvote/' + createdRecipeId).set('token', getToken).send().end(function (err, res) {
-        res.should.have.status(400);
-        res.body.should.have.property('message').eql('can\'t downvote more than once');
         done();
       });
     });
@@ -336,7 +317,7 @@ describe('Api endpoints testing', function () {
 
   describe('Get Recipe', function () {
     it('should get all recipes if they exist and return a status of 200', function (done) {
-      _chai2.default.request(_app2.default).get('/api/v1/recipes').end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/v1/recipes/page/1').end(function (err, res) {
         res.should.have.status(200);
         res.body.should.have.a('object');
         res.body.data.should.have.a('array');
@@ -369,7 +350,7 @@ describe('Api endpoints testing', function () {
 
   describe('Favourites', function () {
     it('should return a status of 200 if user has no favourite', function (done) {
-      _chai2.default.request(_app2.default).get('/api/users/' + createdUserId + '/recipes').set('token', getToken).end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/users/' + createdUserId + '/recipes/1').set('token', getToken).end(function (err, res) {
         res.should.have.status(200);
         done();
       });
@@ -390,7 +371,7 @@ describe('Api endpoints testing', function () {
     });
 
     it('should return a status of 200 if user has favourites', function (done) {
-      _chai2.default.request(_app2.default).get('/api/users/' + createdUserId + '/recipes').set('token', getToken).end(function (err, res) {
+      _chai2.default.request(_app2.default).get('/api/users/' + createdUserId + '/recipes/1').set('token', getToken).end(function (err, res) {
         res.should.have.status(200);
         done();
       });
