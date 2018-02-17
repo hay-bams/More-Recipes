@@ -39,21 +39,21 @@ class FavouriteRecipes extends React.Component {
    * @returns {obj} renderRecipe
    */
   renderFavouriteRecipes() {
-    const favouriteRecipes = _.mapKeys(this.props.favouriteRecipes, 'id');
-    return _.map(favouriteRecipes, favouriteRecipe => (
+    const { favouriteRecipes } = this.props;
+    return favouriteRecipes.map(favouriteRecipe => (
       <div
-        className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 recipes"
+        className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
         key={favouriteRecipe.id}
       >
         <div className="card recipe-card" style={{ border: 'none' }}>
           <img
             className="card-img-top img-fluid"
-            src="../images/recipe22.jpg"
+            src={`images/${favouriteRecipe.image}`}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />
           <div className="card-body mx-auto">
-            <h4 className="card-title">{favouriteRecipe.title}</h4>
+            <h4 className="card-title text-center">{favouriteRecipe.title}</h4>
             <p className="card-text">
               <span className="row">
                 <a href="#" className="text-success">
@@ -73,12 +73,17 @@ class FavouriteRecipes extends React.Component {
                 </a>
               </span>
             </p>
-            <Link to={`/view_recipes/${favouriteRecipe.id}`} className="btn btn-info">
-              <i className="fa fa-eye" aria-hidden="true" />
+            <Link to={`/details/${favouriteRecipe.id}`} className="btn btn-info" style={{ marginLeft: `${5}px` }}>
+              <i className="fa fa-eye" />
+            </Link>
+            <Link to={`/details/${favouriteRecipe.id}`} className="btn btn-info" style={{ marginLeft: `${5}px` }}>
+              <i className="fa fa-remove" />
             </Link>
           </div>
         </div>
       </div>
+
+
     ));
   }
 
@@ -108,7 +113,7 @@ class FavouriteRecipes extends React.Component {
                 breakClassName="page-link"
                 pageCount={this.props.pages}
                 onPageChange={this.handlePageClick}
-                containerClassName="pagination pagination-lg"
+                containerClassName="pagination pagination-md"
                 pageLinkClassName="page-link"
                 nextLinkClassName="page-link"
                 previousLinkClassName="page-link"

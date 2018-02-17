@@ -48,7 +48,7 @@ class RecipeCatalogue extends React.Component {
           <h4 className="card-header headerColor text-center">{recipe.title}</h4>
           <img
             className="card-img-top img-fluid"
-            src="images/recipe5.jpg"
+            src={`images/${recipe.image}`}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />

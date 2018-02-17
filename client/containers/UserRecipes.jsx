@@ -36,21 +36,21 @@ class Recipes extends React.Component {
    * @returns {obj} renderRecipe
    */
   renderRecipe() {
-    const userRecipe = _.mapKeys(this.props.userRecipes, 'id');
-    return _.map(userRecipe, recipe => (
+    const { userRecipes } = this.props;
+    return userRecipes.map(recipe => (
       <div
-        className="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 recipes"
+        className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
         key={recipe.id}
       >
         <div className="card recipe-card" style={{ border: 'none' }}>
           <img
             className="card-img-top img-fluid"
-            src="../images/recipe22.jpg"
+            src={`images/${recipe.image}`}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />
           <div className="card-body mx-auto">
-            <h4 className="card-title">{recipe.title}</h4>
+            <h4 className="card-title text-center">{recipe.title}</h4>
             <p className="card-text">
               <span className="row">
                 <a href="#" className="text-success">
@@ -70,13 +70,13 @@ class Recipes extends React.Component {
                 </a>
               </span>
             </p>
-            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit">
+            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit" style={{ marginLeft: `${5}px` }}>
               <i className="fa fa-pencil-square-o" aria-hidden="true" />
             </Link>
-            <button className="btn btn-danger delete" onClick={() => { this.onDelete(recipe.id); }}>
+            <button className="btn btn-danger delete" onClick={() => { this.onDelete(recipe.id); }} style={{ marginLeft: `${5}px` }}>
               <i className="fa fa-trash-o" aria-hidden="true" />
             </button>
-            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view">
+            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view" style={{ marginLeft: `${5}px` }}>
               <i className="fa fa-eye" aria-hidden="true" />
             </Link>
           </div>
