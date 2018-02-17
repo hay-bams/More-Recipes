@@ -7,7 +7,6 @@ export const addRecipe = async (recipeObject) => {
   try {
     const userData = JSON.parse(localStorage.userData);
     const userToken = userData.token;
-
     const response = await axios({
       method: 'post',
       url: `${host}/api/v1/recipes`,
@@ -218,7 +217,7 @@ export const addReview = async (userReview, recipeId) => {
     };
   } catch (err) {
     return {
-      type: APPCONSTANT.ERRORS,
+      type: APPCONSTANT.ADD_REVIEW_ERRORS,
       payload: err,
       name: 'addReviewError'
     };
@@ -246,8 +245,9 @@ export const getRecipeReviews = async (recipeId) => {
     };
   } catch (err) {
     return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
+      type: APPCONSTANT.GET_REVIEW_ERRORS,
+      payload: err,
+      name: 'getReviewError'
     };
   }
 };
@@ -280,14 +280,14 @@ export const upvoteRecipe = async (recipeId, userId) => {
       url: `${host}/api/v1/recipes/upvote/${recipeId}`,
       headers: { token: userToken }
     });
-
+    
     toastr.success(response.data.message);
     return {
       type: APPCONSTANT.UPVOTE_RECIPE,
       payload: recipeId
     };
   } catch (err) {
-   // toastr.error(response.data.message);
+    toastr.error(err.response.data.message);
     return {
       type: APPCONSTANT.ERRORS,
       payload: err
@@ -312,7 +312,7 @@ export const downvoteRecipe = async (recipeId) => {
       payload: recipeId
     };
   } catch (err) {
-    toastr.error(response.data.message);
+    toastr.error(err.response.data.message);
     return {
       type: APPCONSTANT.ERRORS,
       payload: err
@@ -363,8 +363,10 @@ export const addFavoriteRecipe = async (recipeId) => {
       payload: recipeId
     });
   } catch (err) {
+
+    toastr.error(err.response.data.message);
     return {
-      type: APPCONSTANT.ERRORS,
+      type: APPCONSTANT.ADD_FAVOURITE_ERRORS,
       payload: err,
       name: 'addFavoriteError'
     };

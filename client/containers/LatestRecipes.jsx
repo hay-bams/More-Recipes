@@ -27,7 +27,7 @@ class LatestRecipes extends React.Component {
         key={recipe.id}
       >
         <div className="card recipe-card" style={{ border: 'none' }}>
-        <h4 className="card-header headerColor text-center">{recipe.title}</h4>
+          <h4 className="card-header headerColor text-center">{recipe.title}</h4>
           <img
             className="card-img-top img-fluid"
             src={`images/${recipe.image}`}

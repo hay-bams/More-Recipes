@@ -20,8 +20,6 @@ import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
 import '../css/custom.css';
 import '../js/script';
-import DashboardNav from '../components/dashboard/DashboardNav';
-import HomePageNavigation from '../components/homePageComponents/HomePageNavigation';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

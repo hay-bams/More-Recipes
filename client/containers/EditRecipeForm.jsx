@@ -28,7 +28,6 @@ class EditRecipeForm extends React.Component {
    * @returns {void} componentWillMount
    */
   componentWillMount() {
-    // console.log(this.props.recipes);
     this.props.recipes.filter((recipe) => {
       if (recipe.id === parseInt(this.props.match.params.id, 10)) {
         this.setState({ recipe });

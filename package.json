@@ -15,7 +15,8 @@
     "webpack": "webpack-dev-server",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
-    "migrate": "./node_modules/.bin/sequelize db:migrate"
+    "migrate": "./node_modules/.bin/sequelize db:migrate",
+    "jest": "jest --watch"
   },
   "engines": {
     "node": "8.9.1",
@@ -95,8 +96,11 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^22.3.0",
     "mocha": "^4.0.1",
+    "moxios": "^0.4.0",
     "nyc": "^11.2.1",
+    "redux-mock-store": "^1.5.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }

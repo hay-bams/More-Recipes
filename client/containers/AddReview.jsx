@@ -42,10 +42,15 @@ class AddReview extends React.Component {
     if (errors.review !== '') {
       return this.setState({ errors });
     }
-
-    const recipeId = parseInt(this.props.match.params.id, 10);
-    this.props.addReview(userReview, recipeId);
-    AddReview.clearForm(event);
+    const userData = localStorage.getItem('userData');
+    if (userData !== null) {
+      const recipeId = parseInt(this.props.match.params.id, 10);
+      this.props.addReview(userReview, recipeId);
+      AddReview.clearForm(event);
+    } else {
+      toastr.warning('you must be signed in');
+      this.props.history.push('/signin');
+    }
   }
 
   /**
@@ -89,6 +94,9 @@ AddReview.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string
     })
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.funct
   }).isRequired
 };
 

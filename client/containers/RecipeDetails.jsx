@@ -7,7 +7,7 @@ import { upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe } from
 /**
  *@class ProductDetails
  */
-class ReviewDetails extends React.Component {
+class RecipeDetails extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -34,7 +34,13 @@ class ReviewDetails extends React.Component {
    */
   upvote(event) {
     event.preventDefault();
-    this.props.upvoteRecipe(this.props.recipe.id);
+    const userData = localStorage.getItem('userData');
+    if (userData !== null) {
+      this.props.upvoteRecipe(this.props.recipe.id);
+    } else {
+      toastr.warning('you must be signed in')
+      this.props.history.push('/signin')
+    }
   }
 
   /**
@@ -43,7 +49,13 @@ class ReviewDetails extends React.Component {
    */
   downvote(event) {
     event.preventDefault();
-    this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
+    const userData = localStorage.getItem('userData');
+    if (userData !== null) {
+      this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
+    } else {
+      toastr.warning('you must be signed in')
+      this.props.history.push('/signin')
+    }
   }
 
   /**
@@ -52,8 +64,14 @@ class ReviewDetails extends React.Component {
    */
   addFavourite(event) {
     event.preventDefault();
-    const { recipe } = this.props;
-    this.props.addFavoriteRecipe(recipe.id);
+    const userData = localStorage.getItem('userData');
+    if (userData !== null) {
+      const { recipe } = this.props;
+      this.props.addFavoriteRecipe(recipe.id);
+    } else {
+      toastr.warning('you must be signed in')
+      this.props.history.push('/signin');
+    }
   }
 
   /**
@@ -101,7 +119,7 @@ class ReviewDetails extends React.Component {
   }
 }
 
-ReviewDetails.propTypes = {
+RecipeDetails.propTypes = {
   userData: PropTypes.shape({
     user: PropTypes.shape({
       id: PropTypes.number
@@ -127,6 +145,9 @@ ReviewDetails.propTypes = {
     params: PropTypes.shape({
       id: PropTypes.string
     })
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.funct
   }).isRequired
 };
 
@@ -141,4 +162,4 @@ const mapDispatchToProps = dispatch =>
   }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReviewDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeDetails);
