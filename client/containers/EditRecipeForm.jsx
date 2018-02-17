@@ -20,8 +20,7 @@ class EditRecipeForm extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.state = {
       recipe: {},
-      errors: {},
-      message: ''
+      errors: {}
     };
   }
 
@@ -72,22 +71,20 @@ class EditRecipeForm extends React.Component {
     // AddRecipeForm.clearForm(event);
 
     errors = {};
-    this.setState({ errors, message: 'Recipe updated successfully' });
+    this.setState({ errors });
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { errors, message } = this.state;
+    const { errors } = this.state;
     const { recipe } = this.state;
     return (
       <div className="main-userboard-body add-recipe-body">
         <div className="container">
           <div className="row">
             <div className="mx-auto col-sm-12 col-md-8 col-lg-6 col-xs mt-5">
-              <span className="text-success">{message}</span>
-              <Link to="/view_recipes">View Recipe</Link>
               <h2 className="text-center"> Edit Recipe</h2>
               <form onSubmit={this.editRecipe}>
                 <div className="form-group">

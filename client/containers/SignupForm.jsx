@@ -69,7 +69,6 @@ class SignupForm extends React.Component {
               <div className="card-header text-center">
                Sign Up
               </div>
-              <span className="error text-danger">{this.props.errorMsg}</span>
               <div className="card-body">
                 <form onSubmit={e => this.signup(e)}>
                   <div className="form-group">
@@ -160,8 +159,7 @@ class SignupForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  userData: state.userData,
-  errorMsg: state.errors.signUpError
+  userData: state.userData
 });
 
 SignupForm.defaultProps = {
@@ -179,7 +177,6 @@ SignupForm.propTypes = {
       lastName: PropTypes.string
     })
   }),
-  errorMsg: PropTypes.string,
   signup: PropTypes.func.isRequired,
   redirectUser: PropTypes.shape({
     push: PropTypes.func

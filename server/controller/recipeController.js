@@ -22,7 +22,7 @@ class RecipeController {
       const newRecipe = await models.Recipe.create(recipe);
       res.status(201).send({
         success: 'true',
-        message: 'Recipe Created',
+        message: 'Recipe Created Successfully',
         data: newRecipe
       });
     } catch (err) {

@@ -52,7 +52,7 @@ describe('Api endpoints testing', () => {
           res.should.have.status(201);
           res.body.should.be.a('object');
           res.body.should.have.property('success').eql('true');
-          res.body.should.have.property('message').eql('User created');
+          res.body.should.have.property('message').eql('User created successfully');
           done();
         });
     });
