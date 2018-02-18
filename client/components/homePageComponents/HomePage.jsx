@@ -1,6 +1,7 @@
 import React from 'react';
 import HomePageheader from './HomePageHeader';
 import LatestRecipes from '../../containers/LatestRecipes';
+import PopularRecipes from '../../containers/PopularRecipes';
 import Footer from '../Footer';
 
 
@@ -16,6 +17,7 @@ const HomePage = props => (
     {/* {isSignedIn(props)} */}
     <HomePageheader />
     <LatestRecipes />
+    <PopularRecipes />
     <Footer />
   </div>
 );

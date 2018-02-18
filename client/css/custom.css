@@ -161,6 +161,17 @@ footer .row {
   margin-bottom: 35px;
 }
 
+.img-recipe {
+  background: rgba(0, 0, 0, 1);
+	transition: 1s;
+}
+
+.img-recipe:hover {
+	opacity: 0.5;
+  /* transform: rotate(180deg); */
+  transform: scale(-1);
+}
+
 .recipe-img {
   margin-bottom: 55px;
 }
