@@ -2,38 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
-import { getAllRecipes } from '../actions/actions';
-
-import recipeImage from '../images/recipe24.jpg';
+import { getPopularRecipes } from '../actions/actions';
 
 /**
  * @class RecipeCatalogue
  */
-class RecipeCatalogue extends React.Component {
-  /**
-   * @returns {void} constructor
-   */
-  constructor() {
-    super();
-    this.handlePageClick = this.handlePageClick.bind(this);
-    this.renderCatalogue = this.renderCatalogue.bind(this);
-  }
+class PopularRecipes extends React.Component {
   /**
    * @return {void} componentDidMount
    */
   componentDidMount() {
-    this.props.getAllRecipes(1);
-  }
-
-  /**
-   * @param {obj} data
-   * @returns {void} handlePageClick
-   */
-  handlePageClick(data) {
-    const selected = data.selected + 1;
-    this.props.getAllRecipes(selected);
+    this.props.getPopularRecipes();
   }
 
   /**
@@ -55,7 +35,7 @@ class RecipeCatalogue extends React.Component {
             style={{ height: `${200}px` }}
           />
           <div className="card-body">
-          <p>{recipe.instructions.slice(1, 60)}</p>
+            <p>{recipe.instructions.slice(1, 60)}</p>
             <span className="card-text">
               <span className="row ml-1">
                 <Link to="#" className="text-success">
@@ -75,7 +55,7 @@ class RecipeCatalogue extends React.Component {
                 </Link>
               </span>
             </span>
-            <Link to={`/details/${recipe.id}`} className="btn btn-info ml-4">view details</Link>
+            <Link to={`/details/${recipe.id}`} className="btn btn-info row ml-4">view details</Link>
           </div>
         </div>
       </div>
@@ -90,43 +70,20 @@ class RecipeCatalogue extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-sm">
-            <h2 className="text-center catalogue">Recipes Catalogue</h2>
+            <h2 className="text-center catalogue">Popular Recipes</h2>
           </div>
         </div>
 
         <div className="row">
           {this.renderCatalogue()}
         </div>
-
-        <div className="row">
-          <div className="col-md-8 ml-auto">
-            <ReactPaginate
-              previousLabel="Previous"
-              nextLabel="Next"
-              breakLabel={<a href="">...</a>}
-              breakClassName="page-link"
-              pageCount={this.props.pages}
-              onPageChange={this.handlePageClick}
-              containerClassName="pagination pagination-md"
-              pageLinkClassName="page-link"
-              nextLinkClassName="page-link"
-              previousLinkClassName="page-link"
-              disabledClassName="disabled"
-              pageClassName="page-item"
-              previousClassName="page-item"
-              nextClassName="page-item"
-              activeClassName="active"
-              subContainerClassName="pages pagination"
-            />
-          </div>
-        </div>
       </div>
     );
   }
 }
 
-RecipeCatalogue.propTypes = {
-  getAllRecipes: PropTypes.func.isRequired,
+PopularRecipes.propTypes = {
+  getPopularRecipes: PropTypes.func.isRequired,
   recipes: PropTypes.arrayOf(PropTypes.shape({
     upvotes: PropTypes.number,
     downvotes: PropTypes.number,
@@ -142,12 +99,11 @@ RecipeCatalogue.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.recipes.rows,
-  pages: state.recipes.pages
+  recipes: state.popularRecipes
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { getAllRecipes },
+  { getPopularRecipes },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeCatalogue);
+export default connect(mapStateToProps, mapDispatchToProps)(PopularRecipes);

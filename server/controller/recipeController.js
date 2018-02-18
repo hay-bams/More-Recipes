@@ -137,13 +137,13 @@ class RecipeController {
    */
   static async getLatestRecipe(req, res) {
     try {
-      const latesRecipes = await models.Recipe.findAll({
+      const latestRecipes = await models.Recipe.findAll({
         order: [
           ['id', 'DESC']
         ],
         limit: 4
       });
-      if (latesRecipes.length === 0) {
+      if (latestRecipes.length === 0) {
         res.status(200).send({
           success: 'false',
           message: 'You have no recipes at the moment'
@@ -152,7 +152,40 @@ class RecipeController {
         res.status(200).send({
           success: 'true',
           message: 'Recipes found',
-          data: latesRecipes
+          data: latestRecipes
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error'
+      });
+    }
+  }
+
+  /**
+   * @return {obj} getPopularRecipes
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async getPopularRecipe(req, res) {
+    try {
+      const popularRecipes = await models.Recipe.findAll({
+        order: [
+          ['upvotes', 'DESC']
+        ],
+        limit: 4
+      });
+      if (popularRecipes.length === 0) {
+        res.status(200).send({
+          success: 'false',
+          message: 'You have no recipes at the moment'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: popularRecipes
         });
       }
     } catch (err) {

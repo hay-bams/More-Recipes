@@ -35,6 +35,16 @@ export const latestRecipes = (state = [], action) => {
   }
 };
 
+export const popularRecipes = (state = [], action) => {
+  switch (action.type) {
+    case APPCONSTANT.GET_POPULAR_RECIPES:
+      return action.payload.data;
+
+    default:
+      return state;
+  }
+};
+
 
 export const singleRecipe = (state = {}, action) => {
   switch (action.type) {
@@ -187,4 +197,5 @@ export default combineReducers({
   singleRecipe,
   latestRecipes,
   favouriteRecipes,
+  popularRecipes
 });

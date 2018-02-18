@@ -47,6 +47,14 @@ export const getLatestRecipes = async () => {
   };
 };
 
+export const getPopularRecipes = async () => {
+  const recipes = await axios.get(`${host}/api/v1/popular/recipes`);
+  return {
+    type: APPCONSTANT.GET_POPULAR_RECIPES,
+    payload: recipes.data
+  };
+};
+
 export const getSingleRecipe = async (recipeId) => {
   const recipe = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
   return {
@@ -390,5 +398,6 @@ export default {
   upvoteRecipe,
   downvoteRecipe,
   getFavouriteRecipes,
-  addFavoriteRecipe
+  addFavoriteRecipe,
+  getPopularRecipes
 };

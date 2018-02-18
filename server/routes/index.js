@@ -9,6 +9,7 @@ const router = express.Router();
 //  router.get('/', HomePage.homePage);
 router.get('/api/v1/recipes/page/:page', RecipeController.getAllRecipe);
 router.get('/api/v1/latest/recipes', RecipeController.getLatestRecipe);
+router.get('/api/v1/popular/recipes', RecipeController.getPopularRecipe);
 router.get('/api/v1/recipes/:recipeId', RecipeController.getSingleRecipe);
 router.get('/api/v1/:userId/recipes/', Middleware.verifyToken, RecipeController.getUserRecipes);
 router.post('/api/v1/recipes', Middleware.validateAddRecipe, Middleware.verifyToken, RecipeController.addRecipe);
