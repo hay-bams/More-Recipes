@@ -99,7 +99,7 @@ PopularRecipes.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  recipes: state.popularRecipes
+  recipes: state.popularRecipes.rows
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

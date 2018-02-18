@@ -14,31 +14,38 @@ export const recipes = (state = { rows: [] }, action) => {
       };
 
     case APPCONSTANT.GET_ALL_RECIPES:
-      return {
-        ...state,
-        pages: action.payload.pages,
-        rows: action.payload.recipes.data
-      };
+      return action.payload.data !== undefined ?
+        { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
+        state;
+      // return {
+      //   ...state,
+      //   pages: action.payload.pages,
+      //   rows: action.payload.recipes.data
+      // };
 
     default:
       return state;
   }
 };
 
-export const latestRecipes = (state = [], action) => {
+export const latestRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_LATEST_RECIPES:
-      return action.payload.data;
+      return action.payload.data !== undefined ?
+        { ...state, rows: action.payload.data } :
+        state;
 
     default:
       return state;
   }
 };
 
-export const popularRecipes = (state = [], action) => {
+export const popularRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_POPULAR_RECIPES:
-      return action.payload.data;
+      return action.payload.data !== undefined ?
+        { ...state, rows: action.payload.data } :
+        state;
 
     default:
       return state;

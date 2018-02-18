@@ -67,7 +67,6 @@ class AddRecipeForm extends React.Component {
         <div className="container">
           <div className="row">
             <div className="mx-auto col-sm-12 col-md-8 col-lg-8 col-xs mt-5">
-              <span className="text-success">{message}</span>
               <h2 className="text-center"> Add Recipe</h2>
               <form onSubmit={this.addRecipe}>
                 <div className="form-group">

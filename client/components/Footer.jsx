@@ -11,7 +11,7 @@ const Footer = () => (
         </div>
 
         <div className="col- col-sm-6">
-          <nav className="navbar navbar-expand navbar-dark ">
+          <nav className="navbar fixed-bottom  navbar-expand navbar-dark ">
             <ul className="navbar-nav ml-sm-auto">
               <li className="nav-item active">
                 <Link
