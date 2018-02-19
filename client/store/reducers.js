@@ -14,15 +14,9 @@ export const recipes = (state = { rows: [] }, action) => {
       };
 
     case APPCONSTANT.GET_ALL_RECIPES:
-      return action.payload.data !== undefined ?
+      return action.payload.recipes.data !== undefined ?
         { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
         state;
-      // return {
-      //   ...state,
-      //   pages: action.payload.pages,
-      //   rows: action.payload.recipes.data
-      // };
-
     default:
       return state;
   }
@@ -97,11 +91,9 @@ export const userRecipes = (state = [], action) => {
 export const favouriteRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_FAV_RECIPES:
-      return {
-        ...state,
-        pages: action.payload.pages,
-        rows: action.payload.recipes.data
-      };
+      return action.payload.recipes.data !== undefined ?
+        { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
+        state;
 
     default:
       return state;

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const HomePageNavigation = props => (
   <nav className="navbar navbar-expand-md navbar-light fixed-top navigationBar">
     <div className="container-fluid">
-      <NavLink to="/" className="navbar-brand">My Recipe Logo</NavLink>
+      <NavLink to="/" className="navbar-brand">More Recipes</NavLink>
       <button
         className="navbar-toggler"
         type="button"

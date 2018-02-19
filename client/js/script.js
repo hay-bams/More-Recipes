@@ -5,9 +5,6 @@ $(function() {
 	$('.fullheight').css('height', wheight);
 	$('.fullheight2').css('height', wheight2);
 	$('#navigation').css('height', wheight);
-	$('.main-login-container').css('height', wheight);
-	$('.overlay').css('height', wheight);
-	$('.main-register-container').css('height', wheight);
 
 	//replace IMG insode carousel with a background image
 	$('#featured .carousel-item img').each(function() {
@@ -22,7 +19,7 @@ $(function() {
 
 		$('.fullheight').css('height', wheight);
 		$('.fullheight2').css('height', wheight2);
-		$('.overlay').css('height', wheight);
+		// $('.overlay').css('height', wheight);
 
 	});
 

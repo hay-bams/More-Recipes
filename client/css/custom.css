@@ -144,7 +144,8 @@ footer {
 }
 
 footer .row {
-  padding-top: 20px;
+  padding-top: 10px;
+  margin-top: 38px;
 }
 
 .review-form {
@@ -161,15 +162,21 @@ footer .row {
   margin-bottom: 35px;
 }
 
+.upload-recipe-img {
+  background-color: rgba(0,0,0,.2) !important;
+  height: 190px;
+  padding: 60px;
+  color: rgba(0,0,0,.6);
+  font-weight: bolder;
+}
+
 .img-recipe {
-  background: rgba(0, 0, 0, 1);
+  /* background: rgba(0, 0, 0, 1); */
 	transition: 1s;
 }
 
 .img-recipe:hover {
-	opacity: 0.5;
-  /* transform: rotate(180deg); */
-  transform: scale(-1);
+	opacity: 0.5
 }
 
 .recipe-img {
@@ -190,6 +197,11 @@ footer .row {
 
 .recipe-card {
   margin-bottom: 20px;
+  transition: 1s;
+}
+
+.recipe-card:hover {
+  transform: scale(1.1);
 }
 
 .navigationBar {
@@ -265,6 +277,7 @@ header .navbar-toggler {
 
 .overlay {
   background: rgba(0, 0, 0, 0.4);
+  height: 730px;
 }
 
 .card-form {

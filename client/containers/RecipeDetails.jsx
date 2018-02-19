@@ -87,7 +87,7 @@ class RecipeDetails extends React.Component {
           </div>
 
           <div className="col-lg-6 recipe-img">
-            <img className="recipe-details img-fluid" src={`images/${recipe.image}`} alt="Details" />
+            <img className="recipe-details img-fluid" src={recipe.image} alt="Details" />
             <a onClick={this.upvote} href="#" className="btn btn-success">
               {recipe.upvotes}
               <i className="fa fa-thumbs-up" aria-hidden="true" />
