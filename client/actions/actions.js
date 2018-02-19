@@ -29,37 +29,37 @@ export const addRecipe = async (recipeObject) => {
 };
 
 export const getAllRecipes = async (page) => {
-  const recipes = await axios.get(`${host}/api/v1/recipes/page/${page}`);
+  const response = await axios.get(`${host}/api/v1/recipes/page/${page}`);
   return {
     type: APPCONSTANT.GET_ALL_RECIPES,
     payload: {
-      recipes: recipes.data,
-      pages: recipes.data.pages
+      recipes: response.data,
+      pages: response.data.pages
     },
   };
 };
 
 export const getLatestRecipes = async () => {
-  const recipes = await axios.get(`${host}/api/v1/latest/recipes`);
+  const response = await axios.get(`${host}/api/v1/latest/recipes`);
   return {
     type: APPCONSTANT.GET_LATEST_RECIPES,
-    payload: recipes.data
+    payload: response.data
   };
 };
 
 export const getPopularRecipes = async () => {
-  const recipes = await axios.get(`${host}/api/v1/popular/recipes`);
+  const response = await axios.get(`${host}/api/v1/popular/recipes`);
   return {
     type: APPCONSTANT.GET_POPULAR_RECIPES,
-    payload: recipes.data
+    payload: response.data
   };
 };
 
 export const getSingleRecipe = async (recipeId) => {
-  const recipe = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
+  const response = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
   return {
     type: APPCONSTANT.GET_SINGLE_RECIPE,
-    payload: recipe.data
+    payload: response.data
   };
 };
 
