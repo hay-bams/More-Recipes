@@ -9,7 +9,7 @@ const Navigation = props => (
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
     >
       <div className="container">
-        <NavLink to="/" className="navbar-brand">My Recipes</NavLink>
+        <NavLink to="/" className="navbar-brand">More Recipes</NavLink>
         <button
           className="navbar-toggler"
           type="button"

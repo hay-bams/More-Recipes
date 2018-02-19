@@ -26,11 +26,11 @@ class LatestRecipes extends React.Component {
         className="col-12 col-sm-6 col-md-4 col-lg-3 recipes"
         key={recipe.id}
       >
-        <div className="card recipe-card" style={{ border: 'none' }}>
+        <div className="card recipe-card recipe-trans" style={{ border: 'none' }}>
           <h4 className="card-header headerColor text-center">{recipe.title}</h4>
           <img
             className="card-img-top img-fluid img-recipe"
-            src={`images/${recipe.image}`}
+            src={recipe.image}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />

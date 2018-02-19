@@ -48,7 +48,7 @@ class FavouriteRecipes extends React.Component {
         <div className="card recipe-card" style={{ border: 'none' }}>
           <img
             className="card-img-top img-fluid"
-            src={`images/${favouriteRecipe.image}`}
+            src={favouriteRecipe.image}
             alt="Card  cap"
             style={{ height: `${200}px` }}
           />
