@@ -1,0 +1,1016 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "More recipes api documentation",
+    "description": "# Introduction\nThis apis perform CRUD for a recipe website called more recipes\n\n# Overview\nThings that the developers should know about\n\n# Authentication\nThe api's make use of Json web token to authenticate users\n\n#status codes\n* 401\n* 404\n* 400\n* 500\n* 200\n* 201\n\n# Rate limit\nThere is no limit to the number of request a user can make",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://purpose-more-recipes.herokuapp.com/api",
+      "variables": {}
+    },
+    {
+      "url": "http:///api/v1/user",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/v1/recipes": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes",
+        "description": "This api endpoint add new recipes to the database",
+        "operationId": "/api/v1/recipes",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "title",
+                  "ingredients",
+                  "instructions",
+                  "image"
+                ],
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "some title"
+                  },
+                  "ingredients": {
+                    "type": "string",
+                    "example": "ingredieints"
+                  },
+                  "instructions": {
+                    "type": "string",
+                    "example": "instrcutions"
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "image"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/2/reviews": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/:recipeId/reviews",
+        "description": "This api endpoint add review for recipes ",
+        "operationId": "/api/v1/recipes/:recipeid/reviews",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "review"
+                ],
+                "type": "object",
+                "properties": {
+                  "review": {
+                    "type": "string",
+                    "example": "some review"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/users/signup": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/users/signup",
+        "description": "This api endpoint sign up a new user",
+        "operationId": "/api/v1/users/signup",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "email",
+                  "firstName",
+                  "lastName",
+                  "password",
+                  "confirmPassword"
+                ],
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "testemail@gmail.com"
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "example": "Ayobami"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "example": "Adelakun"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "example": "password"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/users/signin": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/users/signin",
+        "description": "This api endpoint sign in an existing user",
+        "operationId": "/api/v1/users/signin",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "email",
+                  "password"
+                ],
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "purposenigeria@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "password"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/2": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/:recipeId",
+        "description": "This api endpoint gets a single recipes from the database",
+        "operationId": "/api/v1/recipes/:recipeid1",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "put": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/:recipeId",
+        "description": "This api endpoint should update recipes",
+        "operationId": "/api/v1/recipes/:recipeid2",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "application/x-www-form-urlencoded"
+            },
+            "example": "application/x-www-form-urlencoded"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "required": [
+                  "title"
+                ],
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "updated title"
+                  }
+                }
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      },
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/:recipeId",
+        "description": "This api endpoint add favorite for the recipe",
+        "operationId": "/api/v1/recipes/:recipeid",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/downvote/2": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/upvote/:recipeId",
+        "description": "This api endpoint upvote recipes ",
+        "operationId": "/api/v1/recipes/upvote/:recipeid",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/page/1": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/page/:page",
+        "description": "This apie endpoint gets all the recipes in the database",
+        "operationId": "/api/v1/recipes/page/:page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/latest/recipes": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/latest/recipes",
+        "description": "This api endpoint gets the latest recipes in the database",
+        "operationId": "/api/v1/latest/recipes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/popular/recipes": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/popular/recipes",
+        "description": "This api endpoint gets the popular recipes in the database",
+        "operationId": "/api/v1/popular/recipes",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/117/recipes": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/:userId/recipes/",
+        "description": "This api endpoint  get recipes added by a user",
+        "operationId": "/api/v1/:userid/recipes/",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/reviews/2": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/reviews/:recipeId",
+        "description": "This api endpoint should get all reviews for a recipe",
+        "operationId": "/api/v1/reviews/:recipeid",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/users",
+        "description": "This api endpoint should find all registered users",
+        "operationId": "/api/v1/users",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/users/1/recipes/1": {
+      "get": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/users/:userId/recipes/:page",
+        "description": "This api endpoint should get user favourite recipes",
+        "operationId": "/api/users/:userid/recipes/:page",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/{userId}": {
+      "put": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/user/:userId",
+        "description": "This api endpoint should update user profile",
+        "operationId": "/api/v1/user/:userid",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": ""
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "http:///api/v1/user",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/6": {
+      "delete": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "/api/v1/recipes/:recipeId",
+        "description": "This api endpoint should delete recipes",
+        "operationId": "/api/v1/recipes/:recipeid3",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjE5NzIsImV4cCI6MTUxOTE0OTYxMn0.xuKr-mrIvrvec5Pv70T05BBY5UVIx_bM63gkkQr2gc0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    },
+    "/v1/recipes/upvote/2": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "https://purpose-more-recipes.herokuapp.com/api/v1/recipes/upvote/2",
+        "description": "",
+        "operationId": "Https://purposeMoreRecipes.herokuapp.com/api/v1/recipes/upvote/2",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InB1cnBvc2VuaWdlcmlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicGFzc3dvcmQiLCJpYXQiOjE1MTkwNjExMzMsImV4cCI6MTUxOTE0ODc3M30.xidAgAeP5st8NGBwkkQowvBX2KCClJQ3nwT8fQMmyl0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "deprecated": false,
+        "security": [],
+        "servers": [
+          {
+            "url": "https://purpose-more-recipes.herokuapp.com/api",
+            "variables": {}
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  }
+}
