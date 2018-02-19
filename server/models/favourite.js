@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     Favourite.belongsTo(models.User, {
       foreignKey: 'userId'
     });
+
+    Favourite.belongsTo(models.Recipe, {
+      foreignKey: 'recipeId'
+    });
   };
   return Favourite;
 };

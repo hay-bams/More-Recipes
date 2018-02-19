@@ -89,16 +89,16 @@ class RecipeDetails extends React.Component {
           <div className="col-lg-6 recipe-img">
             <img className="recipe-details img-fluid" src={recipe.image} alt="Details" />
             <a onClick={this.upvote} href="#" className="btn btn-success">
-              {recipe.upvotes}
               <i className="fa fa-thumbs-up" aria-hidden="true" />
+              {recipe.upvotes}
             </a>
             <a href="#" className="btn btn-info" style={{ marginLeft: `${5}px` }}>
-              25
               <i className="fa fa-comment" aria-hidden="true" />
+              25
             </a>
             <a onClick={this.downvote} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >
-              {recipe.downvotes}
               <i className="fa fa-thumbs-down" aria-hidden="true" />
+              {recipe.downvotes}
             </a>
 
             <a onClick={this.addFavourite} href="#" className="btn btn-danger" style={{ marginLeft: `${5}px` }} >

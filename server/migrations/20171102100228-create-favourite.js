@@ -9,7 +9,13 @@ module.exports = {
       },
       recipeId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Recipes',
+          key: 'id',
+          as: 'recipeId'
+        },
       },
       createdAt: {
         allowNull: false,
