@@ -95,12 +95,11 @@ class AddRecipeForm extends React.Component {
   async addRecipe(event) {
     event.preventDefault();
     AddRecipeForm.clearForm(event);
-    const imageURI = await this.uploadImageToCloudinary();
-    const recipe = {
+
+    let recipe = {
       title: this.state.title,
       ingredients: this.state.ingredients,
       instructions: this.state.instructions,
-      image: imageURI
     };
 
     let errors = Authenticate.validateAddRecipe(recipe);
@@ -109,6 +108,16 @@ class AddRecipeForm extends React.Component {
      errors.instructions) {
       return this.setState({ errors });
     }
+
+    const imageURI = await this.uploadImageToCloudinary();
+    recipe = {
+      title: this.state.title,
+      ingredients: this.state.ingredients,
+      instructions: this.state.instructions,
+      image: imageURI
+    };
+
+
     this.props.addRecipe(recipe);
 
     errors = {};

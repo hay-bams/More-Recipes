@@ -77,8 +77,7 @@ class Authenticate {
     this.errors = {
       title: '',
       ingredients: '',
-      instructions: '',
-      image: ''
+      instructions: ''
     };
     if (!recipe.title) {
       this.errors.title = 'please enter a recipe title';
@@ -91,10 +90,7 @@ class Authenticate {
     if (!recipe.instructions) {
       this.errors.instructions = 'please enter recipe instructions';
     }
-
-    if (!recipe.image) {
-      this.errors.image = 'please upload the recipe image';
-    }
+    
     return this.errors;
   }
 

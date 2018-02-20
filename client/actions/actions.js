@@ -121,7 +121,7 @@ export const signin = async (userObject) => {
       userObject
     );
     const { token, user } = response.data;
-    localStorage.setItem('userData', JSON.stringify(response.data));  
+    localStorage.setItem('userData', JSON.stringify(response.data));
     toastr.success(response.data.message);
     return {
       type: APPCONSTANT.SIGN_IN,
@@ -237,7 +237,7 @@ export const addReview = async (userReview, recipeId) => {
 export const getRecipeReviews = async (recipeId) => {
   try {
     let payloadData;
-    
+
     const recipeReviews = await axios({
       method: 'get',
       url: `${host}/api/v1/reviews/${recipeId}`,
@@ -290,7 +290,7 @@ export const upvoteRecipe = async (recipeId, userId) => {
       url: `${host}/api/v1/recipes/upvote/${recipeId}`,
       headers: { token: userToken }
     });
-    
+
     toastr.success(response.data.message);
     return {
       type: APPCONSTANT.UPVOTE_RECIPE,
@@ -309,7 +309,7 @@ export const downvoteRecipe = async (recipeId) => {
   try {
     const userData = JSON.parse(localStorage.userData);
     const userToken = userData.token;
-    
+
     const response = await axios({
       method: 'post',
       url: `${host}/api/v1/recipes/downvote/${recipeId}`,
@@ -373,7 +373,6 @@ export const addFavoriteRecipe = async (recipeId) => {
       payload: recipeId
     });
   } catch (err) {
-
     toastr.error(err.response.data.message);
     return {
       type: APPCONSTANT.ADD_FAVOURITE_ERRORS,
