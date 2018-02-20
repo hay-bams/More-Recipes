@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { getRecipeReviews, getUsers } from '../actions/actions';
+import recipeImage from '../images/24475008.jpg';
 
 
 /**
@@ -47,7 +48,7 @@ class ProductReviews extends React.Component {
     const { allUsers } = this.props;
     return this.props.userReviews.map(theReview => (
       <div className="media mt-3" key={theReview.id}>
-        <img className="mr-3" src="images/24475008.jpg" style={{ width: `${80}px` }} alt="Generic placeholder" />
+        <img className="mr-3" src={recipeImage} style={{ width: `${80}px` }} alt="Generic placeholder" />
         <div className="media-body">
           <h5>
             {this.findUser(allUsers, theReview)}
