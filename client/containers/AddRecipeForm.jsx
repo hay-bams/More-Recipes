@@ -232,7 +232,6 @@ class AddRecipeForm extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
 }
@@ -248,7 +247,8 @@ AddRecipeForm.propTypes = {
 
 
 const mapStateToProps = state => ({
-  recipes: state.recipes
+  recipes: state.recipes,
+  loaded: state.loaded
 });
 
 const mapDispatchToProps = dispatch =>
