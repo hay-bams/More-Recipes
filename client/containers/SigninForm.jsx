@@ -73,7 +73,6 @@ class SigninForm extends React.Component {
               <div className="card-body ">
                 <form onSubmit={this.signin}>
                   <div className="form-group">
-                    <label htmlFor="email">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -88,7 +87,6 @@ class SigninForm extends React.Component {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="password">Password</label>
                     <input
                       type="password"
                       name="password"

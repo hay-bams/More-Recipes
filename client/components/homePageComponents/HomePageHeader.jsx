@@ -1,11 +1,11 @@
 import React from 'react';
-import HomePageNavigation from './HomePageNavigation';
+import Navigation from '../Navigation';
 import Carousel from '../Carousel';
 
-const HomePageHeader = (props) => (
+const HomePageHeader = props => (
   <header>
     {/* Navigation */}
-    <HomePageNavigation {...props} />
+    <Navigation {...props} />
     <Carousel />
   </header>
 );

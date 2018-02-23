@@ -5,7 +5,7 @@ import Footer from '../Footer';
 
 const Catalogue = props => (
   <div>
-    <Navigation />
+    <Navigation {...props}/>
     <RecipesCatalogue {...props} />
     <Footer />
   </div>

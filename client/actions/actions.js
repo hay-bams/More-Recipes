@@ -382,21 +382,13 @@ export const addFavoriteRecipe = async (recipeId) => {
   }
 };
 
-export default {
-  signup,
-  signin,
-  addRecipe,
-  getAllRecipes,
-  getUserRecipes,
-  deleteRecipe,
-  editRecipe,
-  editUserProfile,
-  addReview,
-  getRecipeReviews,
-  getUsers,
-  upvoteRecipe,
-  downvoteRecipe,
-  getFavouriteRecipes,
-  addFavoriteRecipe,
-  getPopularRecipes
-};
+export const signout = async () => {
+  try {
+    return {
+      type: APPCONSTANT.SIGN_OUT,
+      payload: null
+    }
+  } catch (err) {
+
+  }
+}

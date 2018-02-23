@@ -8,7 +8,7 @@ import AddReview from '../../containers/AddReview';
 const Details = props =>
   (
     <div>
-      <Navigation />
+      <Navigation {...props}/>
       <RecipeDetails {...props} />
       <hr />
       <RecipeReviews {...props} />
