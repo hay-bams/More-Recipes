@@ -111,6 +111,11 @@ export const user = (state = {}, action) => {
       return {
         ...action.payload
       };
+
+    case APPCONSTANT.SIGN_OUT:
+      state = {};
+      return state;
+
     default:
       return state;
   }

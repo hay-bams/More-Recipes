@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 
 const SignupPage = props => (
   <div>
-    <Navigation />
+    <Navigation {...props}/>
     <SignupForm redirectUser={props.history} />
   </div>
 );

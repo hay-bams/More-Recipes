@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 
 const SigninPage = props => (
   <div>
-    <Navigation />
+    <Navigation  {...props} />
     <SiginForm redirectUser={props.history} />
   </div>
 );

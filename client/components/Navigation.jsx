@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Navigation = props => (
@@ -8,7 +8,7 @@ const Navigation = props => (
     <nav
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
     >
-      <div className="container">
+      <div className="container-fluid">
         <NavLink to="/" className="navbar-brand">More Recipes</NavLink>
         <button
           className="navbar-toggler"
@@ -27,10 +27,14 @@ const Navigation = props => (
           id="navbarSupportedContent"
         >
           <ul className="navbar-nav ml-auto">
-            <li className="nav-item active" />
+            {props.location.pathname !== '/catalogue' ?
+              <li className="nav-item">
+                <NavLink to="/catalogue" className="nav-link">Catalogue</NavLink>
+              </li> : ''
+          }
 
             <li className="nav-item active">
-              { !props.userData.token ?
+              { !props.userData.token && props.location.pathname !== '/signin' ?
                 <NavLink
                   to="/signin"
                   className="nav-link"
@@ -42,7 +46,7 @@ const Navigation = props => (
             </li>
 
             <li className="nav-item">
-              { !props.userData.token ?
+              { !props.userData.token && props.location.pathname !== '/signup' ?
                 <NavLink
                   to="/signup"
                   className="nav-link"
@@ -51,6 +55,27 @@ const Navigation = props => (
                 </NavLink> : ''
             }
             </li>
+
+            { props.userData.token ?
+              <li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i className="fa fa-user" /> {props.userData.user.firstName} <b className="caret" />
+                </Link>
+                <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <Link className="dropdown-item" to="/add_recipe">Add Recipes</Link>
+                  <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
+                  <div className="dropdown-divider" />
+                  <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
+                  { props.userData.token ?
+                    <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>
+                  Edit Profile
+                    </Link> : ''
+                }
+
+                  <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
+                </div>
+              </li> : ''
+            }
 
           </ul>
         </div>
