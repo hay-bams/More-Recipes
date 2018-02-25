@@ -1,41 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { editUserProfile } from '../actions/actions';
+import { editUserPassword } from '../actions/actions';
 import Authenticate from '../auth/auth';
 
 /**
  * @class EditRecipeForm
  */
-class EditUserProfileForm extends React.Component {
+class EditUserPasswordForm extends React.Component {
   /**
    * @param {obj} props
    * @returns {void} constructor
    */
   constructor(props) {
     super(props);
-    this.editProfile = this.editProfile.bind(this);
+    this.editPassword = this.editPassword.bind(this);
     this.onChange = this.onChange.bind(this);
     this.state = {
       errors: {},
       user: {},
-      firstName: '',
-      lastName: '',
-      email: '',
+      password: '',
+      confirmPassword: ''
     };
-  }
-
-  /**
-   * @returns {void} componentWillMount
-   */
-  componentWillMount() {
-    const { user } = this.props.userData;
-    this.setState({ user });
-    this.setState({ firstName: user.firstName });
-    this.setState({ lastName: user.lastName });
-    this.setState({ email: user.email });
   }
 
   /**
@@ -50,21 +37,18 @@ class EditUserProfileForm extends React.Component {
    * @param {obj} event
    * @returns {void} addRecipe
    */
-  editProfile(event) {
+  editPassword(event) {
     event.preventDefault();
     const user = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      email: event.target.email.value
+      password: event.target.password.value
     };
 
-    let errors = Authenticate.validateUserProfile(user);
+    let errors = Authenticate.validatePassword(user, this.state.confirmPassword);
 
-    if (errors.email !== '' || errors.firstName !== ''
-      || errors.lastName !== '') {
+    if (errors.password !== '' || errors.confirmPassword !== '') {
       return this.setState({ errors });
     }
-    this.props.editUserProfile(user, this.props.match.params.id);
+    this.props.editUserPassword(user, this.props.match.params.id);
     errors = {};
     this.setState({ errors });
   }
@@ -74,62 +58,46 @@ class EditUserProfileForm extends React.Component {
    */
   render() {
     const { errors } = this.state;
-    const { user } = this.state;
     return (
       <div className="container-fluid main-register-container">
         <div className="row overlay">
           <div className="col-sm-8 col-md-5 mx-auto">
             <div className="card  mt-5 card-form">
               <div className="card-header text-center">
-                <h2 className="text-center"> Edit User Profile</h2>
+                <h2 className="text-center"> Edit Password</h2>
               </div>
               <span>{this.props.errorMsg}</span>
               <div className="card-body">
-                <form onSubmit={this.editProfile}>
+                <form onSubmit={this.editPassword}>
+
                   <div className="form-group">
                     <input
-                      type="text"
-                      name="firstName"
+                      type="password"
+                      name="password"
                       className="form-control"
-                      placeholder="Enter First name"
-                      value={this.state.firstName}
+                      placeholder="Enter New Password"
+                      value={this.state.password}
                       onChange={this.onChange}
                     />
-                    { errors.firstName &&
+                    { errors.password &&
                     <span className="help-block error text-danger">
-                      {errors.firstName}
+                      {errors.password}
                     </span>
                       }
                   </div>
 
                   <div className="form-group">
                     <input
-                      type="text"
-                      name="lastName"
+                      type="password"
+                      name="confirmPassword"
                       className="form-control"
-                      placeholder="Enter Last name"
-                      value={this.state.lastName}
+                      placeholder="Confirm Password"
+                      value={this.state.confirmPassword}
                       onChange={this.onChange}
                     />
-                    { errors.lastName &&
+                    { errors.confirmPassword &&
                     <span className="help-block error text-danger">
-                      {errors.lastName}
-                    </span>
-                      }
-                  </div>
-
-                  <div className="form-group">
-                    <input
-                      type="email"
-                      name="email"
-                      className="form-control"
-                      placeholder="Enter Email"
-                      value={this.state.email}
-                      onChange={this.onChange}
-                    />
-                    { errors.email &&
-                    <span className="help-block error text-danger">
-                      {errors.email}
+                      {errors.confirmPassword}
                     </span>
                       }
                   </div>
@@ -137,7 +105,7 @@ class EditUserProfileForm extends React.Component {
                   <div className="form-group">
                     <input
                       type="submit"
-                      value="Update Profile"
+                      value="Update Password"
                       className="btn btn-success btn-block"
                     />
                   </div>
@@ -152,14 +120,14 @@ class EditUserProfileForm extends React.Component {
 }
 
 
-EditUserProfileForm.defaultProps = {
-  editUserProfile: {},
+EditUserPasswordForm.defaultProps = {
+  editUserPassword: {},
   userData: {},
   errorMsg: ''
 };
 
-EditUserProfileForm.propTypes = {
-  editUserProfile: PropTypes.func,
+EditUserPasswordForm.propTypes = {
+  editUserPassword: PropTypes.func,
   userData: PropTypes.shape({
     user: PropTypes.shape({
       email: PropTypes.string,
@@ -177,13 +145,7 @@ EditUserProfileForm.propTypes = {
 };
 
 
-const mapStateToProps = state => ({
-  userData: state.userData,
-  errorMsg: state.errors.signUpError
-});
-
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ editUserProfile }, dispatch);
+  bindActionCreators({ editUserPassword }, dispatch);
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditUserProfileForm);
+export default connect(null, mapDispatchToProps)(EditUserPasswordForm);

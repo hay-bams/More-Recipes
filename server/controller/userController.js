@@ -121,7 +121,7 @@ class UserController {
   }
 
   /**
-   * @return {obj} updateRecipe
+   * @return {obj} updateProfile
    * @param {obj} req
    * @param {obj} res
    */
@@ -143,12 +143,11 @@ class UserController {
           message: 'invalid email address'
         });
       }
-      const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+
       const user = {
         firstName: req.body.firstName || userFound.firstName,
         lastName: req.body.lastName || userFound.lastName,
-        email: req.body.email || userFound.email,
-        password: hashedPassword || userFound.password
+        email: req.body.email || userFound.email
       };
     
       const updatedProfile = await userFound.update(user);
@@ -157,6 +156,45 @@ class UserController {
         success: 'true',
         message: 'User updated successfully',
         data: updatedProfile
+      });
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
+        error: err
+      });
+    }
+  }
+
+
+  /**
+   * @return {obj} updatePassword
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async updatePassword(req, res) {
+    try {
+      const id = parseInt(req.params.userId, 10);
+      const userFound = await models.User.findById(id);
+
+      if (!userFound) {
+        return res.status(404).send({
+          success: 'false',
+          message: 'user does not exist'
+        });
+      }
+
+      const hashedPassword = bcrypt.hashSync(req.body.password, 8);
+      const userPassword = {
+        password: hashedPassword || userFound.password
+      };
+    
+      await userFound.update(userPassword);
+
+      res.status(201).send({
+        success: 'true',
+        message: 'Password updated successfully',
+        data: userPassword
       });
     } catch (err) {
       res.status(500).send({

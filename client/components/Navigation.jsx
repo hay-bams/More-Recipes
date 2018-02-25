@@ -71,7 +71,12 @@ const Navigation = props => (
                   Edit Profile
                     </Link> : ''
                 }
-
+                  <div className="dropdown-divider" />
+                  { props.userData.token ?
+                   <Link className="dropdown-item" to={`/edit_password/${props.userData.user.id}`}>
+                  Edit Password
+                    </Link> : ''
+                }
                   <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
                 </div>
               </li> : ''
