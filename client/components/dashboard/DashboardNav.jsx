@@ -13,7 +13,7 @@ const DashboardNav = props => (
   <header>
     {isSignedIn(props)}
     <nav className="navbar navbar-expand-md navbar-light fixed-top navigationBar">
-      <div className="container">
+      <div className="container-fluid">
         <Link to="/" className="navbar-brand">More Recipes</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -35,6 +35,12 @@ const DashboardNav = props => (
                   Edit Profile
                   </Link> : ''
                 }
+                  { props.userData.token ?
+                  <Link className="dropdown-item" to={`/edit_password/${props.userData.user.id}`}>
+                  Edit Password
+                  </Link> : ''
+                }
+                <div className="dropdown-divider" />
                 <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
               </div>
             </li>

@@ -38,21 +38,21 @@ class PopularRecipes extends React.Component {
             <p>{recipe.instructions.slice(1, 60)}</p>
             <span className="card-text">
               <span className="row ml-1">
-                <Link to="#" className="text-success">
+                <span className="text-success">
                   <i
                     className="fa fa-thumbs-up col-4"
                     aria-hidden="true"
                   />{recipe.upvotes}
-                </Link>
-                <Link to="#" className="text-info">
+                </span>
+                <span className="text-info">
                   <i className="fa fa-comment col-4" aria-hidden="true" />25
-                </Link>
-                <Link to="#" className="text-danger">
+                </span>
+                <span className="text-danger">
                   <i
                     className="fa fa-thumbs-down col-4"
                     aria-hidden="true"
                   />{recipe.downvotes}
-                </Link>
+                </span>
               </span>
             </span>
             <Link to={`/details/${recipe.id}`} className="btn btn-info row ml-4">view details</Link>

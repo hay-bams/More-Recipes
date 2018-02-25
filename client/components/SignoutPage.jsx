@@ -19,6 +19,7 @@ SignoutPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   }).isRequired,
+  signout: PropTypes.func.isRequired
 
 };
 

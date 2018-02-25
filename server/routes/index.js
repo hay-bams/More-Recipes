@@ -6,7 +6,6 @@ import Middleware from '../controller/middleware';
 
 const router = express.Router();
 
-//  router.get('/', HomePage.homePage);
 router.get('/api/v1/recipes/page/:page', RecipeController.getAllRecipe);
 router.get('/api/v1/latest/recipes', RecipeController.getLatestRecipe);
 router.get('/api/v1/popular/recipes', RecipeController.getPopularRecipe);
@@ -21,6 +20,7 @@ router.post('/api/v1/users/signup', Middleware.validateUserSignup, UserControlle
 router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserController.signin);
 router.get('/api/v1/users', UserController.findAllUsers);
 router.put('/api/v1/user/:userId', UserController.updateProfile);
+router.put('/api/v1/:userId/user', UserController.updatePassword);
 router.get('/api/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
 router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
 router.post('/api/v1/recipes/upvote/:recipeId', Middleware.verifyToken, RecipeController.upvote);

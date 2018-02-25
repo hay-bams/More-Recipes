@@ -188,8 +188,6 @@ export const editRecipe = async (recipeObject, recipeId) => {
 
 export const editUserProfile = async (userObject, userId) => {
   try {
-    const userData = JSON.parse(localStorage.userData);
-
     const response = await axios({
       method: 'put',
       url: `${host}/api/v1/user/${userId}`,
@@ -205,6 +203,29 @@ export const editUserProfile = async (userObject, userId) => {
       type: APPCONSTANT.ERRORS,
       payload: err,
       name: 'editProfileError'
+    };
+  }
+};
+
+
+export const editUserPassword = async (userObject, userId) => {
+  try {
+    const response = await axios({
+      method: 'put',
+      url: `${host}/api/v1/${userId}/user`,
+      data: userObject,
+    });
+
+    toastr.success(response.data.message);
+    return ({
+      type: APPCONSTANT.EDIT_USER_PASSWORD,
+      payload: response.data
+    });
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'editPasswordrror'
     };
   }
 };

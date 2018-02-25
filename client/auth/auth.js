@@ -46,6 +46,56 @@ class Authenticate {
     return this.errors;
   }
 
+
+    /**
+   *@returns {obj} validateUserProfile
+   * @param {obj} user
+   */
+  validateUserProfile(user) {
+    this.errors = {
+      firstName: '',
+      lastName: '',
+      email: '',
+    };
+
+    if (!user.firstName) {
+      this.errors.firstName = 'please enter your first name';
+    }
+
+    if (!user.lastName) {
+      this.errors.lastName = 'please enter your last name';
+    }
+
+    if (!isEmail(user.email)) {
+      this.errors.email = 'please enter a valid email';
+    }
+
+    return this.errors;
+  }
+
+
+     /**
+   *@returns {obj} validatePassword
+   * @param {obj} user
+   */
+  validatePassword(user, confirmPassword) {
+    this.errors = {
+     password: '',
+     confirmPassword: ''
+    };
+
+    if (!user.password) {
+      this.errors.password = 'please enter your password';
+    }
+    
+    if (user.password !== confirmPassword) {
+      this.errors.confirmPassword = 'password should match';
+    }
+
+    return this.errors;
+  }
+
+
   /**
    *@returns {obj} validateUserSignin
    * @param {obj} user
