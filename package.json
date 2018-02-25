@@ -75,6 +75,7 @@
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
+    "react-confirm-alert": "^1.0.8",
     "react-dom": "^16.1.1",
     "react-dropzone": "^4.2.8",
     "react-loader": "^2.4.2",

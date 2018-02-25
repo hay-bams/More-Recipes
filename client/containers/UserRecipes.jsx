@@ -2,6 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getUserRecipes, deleteRecipe } from '../actions/actions';
@@ -16,6 +18,7 @@ class Recipes extends React.Component {
   constructor() {
     super();
     this.onDelete = this.onDelete.bind(this);
+    this.showModal = this.showModal.bind(this);
   }
   /**
    * @returns {void} componentDidMount
@@ -33,6 +36,24 @@ class Recipes extends React.Component {
   }
 
   /**
+   *
+   * @param {obj} event
+   * @returns {obj} showModal
+   */
+  showModal(event) {
+    const recipeId = parseInt(event.target.id, 10);
+    return (confirmAlert({
+      title: 'Confirm Delete',
+      message: 'Are you sure to delete this recipe ?',
+      confirmLabel: 'Confirm',
+      cancelLabel: 'Cancel',
+      onConfirm: () => this.onDelete(recipeId),
+      onCancel: () => '',
+    })
+    );
+  }
+
+  /**
    * @returns {obj} renderRecipe
    */
   renderRecipe() {
@@ -42,6 +63,7 @@ class Recipes extends React.Component {
         className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
         key={recipe.id}
       >
+
         <div className="card recipe-card" style={{ border: 'none' }}>
           <img
             className="card-img-top img-fluid img-recipe"
@@ -73,7 +95,7 @@ class Recipes extends React.Component {
             <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit" style={{ marginLeft: `${5}px` }}>
               <i className="fa fa-pencil-square-o" aria-hidden="true" />
             </Link>
-            <button className="btn btn-danger delete" onClick={() => { this.onDelete(recipe.id); }} style={{ marginLeft: `${5}px` }}>
+            <button className="btn btn-danger delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
               <i className="fa fa-trash-o" aria-hidden="true" />
             </button>
             <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view" style={{ marginLeft: `${5}px` }}>
