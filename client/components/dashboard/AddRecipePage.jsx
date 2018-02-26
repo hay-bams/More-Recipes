@@ -6,7 +6,7 @@ import DashboardNav from './DashboardNav';
 const AddRecipePage = props => (
   <div>
     <DashboardNav {...props} />
-    <AddRecipeForm />
+    <AddRecipeForm {...props}/>
   </div>
 );
 

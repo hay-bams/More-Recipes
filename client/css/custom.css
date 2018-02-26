@@ -1,11 +1,13 @@
-body {
- /* 
- #F8F8F8
- #eab7b7
- */
- background:  #efeded;
+html {
   position: relative;
+  min-height: 100%;
+}
+
+body {
+ background:  #efeded;
+  /* position: relative; */
   font-family: "open sans";
+  margin-bottom: 60px;
 }
 
 .navbar-light .navbar-brand {
@@ -138,14 +140,15 @@ body {
 }
 
 
-footer {
-  background: rgba(11, 9, 21, 0.9) !important;
-  color:#fff;
-}
-
-footer .row {
-  padding-top: 10px;
-  margin-top: 38px;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  color: #fff;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: rgba(11, 9, 21, 0.9) !important;
 }
 
 .review-form {

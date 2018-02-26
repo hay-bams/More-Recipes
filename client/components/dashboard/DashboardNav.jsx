@@ -35,7 +35,7 @@ const DashboardNav = props => (
                   Edit Profile
                   </Link> : ''
                 }
-                  { props.userData.token ?
+                { props.userData.token ?
                   <Link className="dropdown-item" to={`/edit_password/${props.userData.user.id}`}>
                   Edit Password
                   </Link> : ''

@@ -75,13 +75,15 @@ export const singleRecipe = (state = {}, action) => {
   }
 };
 
-export const userRecipes = (state = [], action) => {
+export const userRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_USER_RECIPES:
-      return action.payload.data;
+      return action.payload.data !== undefined ?
+        { ...state, rows: action.payload.data } :
+        state;
 
     case APPCONSTANT.DELETE_RECIPE:
-      return state.filter(recipe => recipe.id !== action.payload);
+      return state.rows.filter(recipe => recipe.id !== action.payload);
 
     default:
       return state;
