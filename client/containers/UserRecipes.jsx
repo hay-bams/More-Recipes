@@ -23,7 +23,7 @@ class Recipes extends React.Component {
   /**
    * @returns {void} componentDidMount
    */
-  componentDidMount() {
+  async componentDidMount() {
     this.props.getUserRecipes();
   }
 
@@ -31,8 +31,8 @@ class Recipes extends React.Component {
    * @param {number} id
    * @return {void} onDelete
    */
-  onDelete(id) {
-    this.props.deleteRecipe(id);
+  async onDelete(id) {
+    await this.props.deleteRecipe(id);
   }
 
   /**
@@ -58,53 +58,57 @@ class Recipes extends React.Component {
    */
   renderRecipe() {
     const { userRecipes } = this.props;
-    return userRecipes.map(recipe => (
-      <div
-        className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
-        key={recipe.id}
-      >
+    return userRecipes === undefined || userRecipes.length === 0  ?
+      <div className="card mx-auto">
+          <h3>You do not have any recipe at the moment</h3>
+      </div> :
+      userRecipes.map(recipe => (
+        <div
+          className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
+          key={recipe.id}
+        >
 
-        <div className="card recipe-card" style={{ border: 'none' }}>
-          <img
-            className="card-img-top img-fluid img-recipe"
-            src={recipe.image}
-            alt="Card  cap"
-            style={{ height: `${200}px` }}
-          />
-          <div className="card-body mx-auto">
-            <h4 className="card-title text-center">{recipe.title}</h4>
-            <p className="card-text">
-              <span className="row">
-                <a href="#" className="text-success">
-                  <i
-                    className="fa fa-thumbs-up col-4"
-                    aria-hidden="true"
-                  />{recipe.upvotes}
-                </a>
-                <a href="#" className="text-info">
-                  <i className="fa fa-comment col-4" aria-hidden="true" />
-                </a>
-                <a href="#" className="text-danger">
-                  <i
-                    className="fa fa-thumbs-down col-4"
-                    aria-hidden="true"
-                  />{recipe.downvotes}
-                </a>
-              </span>
-            </p>
-            <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit" style={{ marginLeft: `${5}px` }}>
-              <i className="fa fa-pencil-square-o" aria-hidden="true" />
-            </Link>
-            <button className="btn btn-danger delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
-              <i className="fa fa-trash-o" aria-hidden="true" />
-            </button>
-            <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view" style={{ marginLeft: `${5}px` }}>
-              <i className="fa fa-eye" aria-hidden="true" />
-            </Link>
+          <div className="card recipe-card" style={{ border: 'none' }}>
+            <img
+              className="card-img-top img-fluid img-recipe"
+              src={recipe.image}
+              alt="Card  cap"
+              style={{ height: `${200}px` }}
+            />
+            <div className="card-body mx-auto">
+              <h4 className="card-title text-center">{recipe.title}</h4>
+              <p className="card-text">
+                <span className="row">
+                  <a href="#" className="text-success">
+                    <i
+                      className="fa fa-thumbs-up col-4"
+                      aria-hidden="true"
+                    />{recipe.upvotes}
+                  </a>
+                  <a href="#" className="text-info">
+                    <i className="fa fa-comment col-4" aria-hidden="true" />
+                  </a>
+                  <a href="#" className="text-danger">
+                    <i
+                      className="fa fa-thumbs-down col-4"
+                      aria-hidden="true"
+                    />{recipe.downvotes}
+                  </a>
+                </span>
+              </p>
+              <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit" style={{ marginLeft: `${5}px` }}>
+                <i className="fa fa-pencil-square-o" aria-hidden="true" />
+              </Link>
+              <button className="btn btn-danger delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
+                <i className="fa fa-trash-o" aria-hidden="true" id={recipe.id}/>
+              </button>
+              <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view" style={{ marginLeft: `${5}px` }}>
+                <i className="fa fa-eye" aria-hidden="true" />
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    ));
+      ));
   }
 
   /**
@@ -142,19 +146,11 @@ Recipes.propTypes = {
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string
   })).isRequired,
-  deleteRecipe: PropTypes.func.isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.number
-    })
-  }),
-  history: PropTypes.shape({
-    push: PropTypes.func
-  })
+  deleteRecipe: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  userRecipes: state.userRecipes
+  userRecipes: state.userRecipes.rows
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(

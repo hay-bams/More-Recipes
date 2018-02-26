@@ -4,6 +4,7 @@ import Dropzone from 'react-dropzone';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import Loader from 'react-loader';
 import { addRecipe } from '../actions/actions';
 import Authenticate from '../auth/auth';
 
@@ -39,7 +40,9 @@ class AddRecipeForm extends React.Component {
     this.state = {
       errors: {},
       imageURI: null,
-      image: null
+      image: null,
+      loaded: true,
+      uploadError: null
     };
   }
 
@@ -57,7 +60,6 @@ class AddRecipeForm extends React.Component {
    * @return {void} handleDrop
    */
   handleDrop(file) {
-    console.log(file[0]);
     this.setState({ image: file[0] });
   }
 
@@ -67,7 +69,6 @@ class AddRecipeForm extends React.Component {
    * @return {obj} uploadImageToCloudinary
    */
   async uploadImageToCloudinary() {
-    this;
     try {
       const imageFile = this.state.image;
       const CLOUDINARY_URL = 'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload';
@@ -93,35 +94,40 @@ class AddRecipeForm extends React.Component {
    * @returns {void} addRecipe
    */
   async addRecipe(event) {
-    event.preventDefault();
-    AddRecipeForm.clearForm(event);
+    try {
+      event.preventDefault();
+      let recipe = {
+        title: this.state.title,
+        ingredients: this.state.ingredients,
+        instructions: this.state.instructions,
+      };
 
-    let recipe = {
-      title: this.state.title,
-      ingredients: this.state.ingredients,
-      instructions: this.state.instructions,
-    };
+      let errors = Authenticate.validateAddRecipe(recipe);
 
-    let errors = Authenticate.validateAddRecipe(recipe);
-
-    if (errors.title !== '' || errors.ingredients !== '' ||
+      if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
-      return this.setState({ errors });
+        return this.setState({ errors });
+      }
+      this.setState({ loaded: false });
+
+      const imageURI = await this.uploadImageToCloudinary();
+      recipe = {
+        title: this.state.title,
+        ingredients: this.state.ingredients,
+        instructions: this.state.instructions,
+        image: imageURI
+      };
+
+      await this.props.addRecipe(recipe);
+      this.props.history.push('view_recipes');
+
+      errors = {};
+      this.setState({ errors });
+    } catch (err) {
+      if (err.response.data.error.message) {
+        this.setState({ loaded: true, uploadError: 'image is required' });
+      }
     }
-
-    const imageURI = await this.uploadImageToCloudinary();
-    recipe = {
-      title: this.state.title,
-      ingredients: this.state.ingredients,
-      instructions: this.state.instructions,
-      image: imageURI
-    };
-
-
-    this.props.addRecipe(recipe);
-
-    errors = {};
-    this.setState({ errors });
   }
 
   /**
@@ -132,7 +138,7 @@ class AddRecipeForm extends React.Component {
     if (this.state.image) {
       imageSource = this.state.image.preview;
     }
-    const { errors } = this.state;
+    const { errors, uploadError } = this.state;
     return (
       <div className="main-userboard-body add-recipe-body">
         <div className="container">
@@ -163,9 +169,9 @@ class AddRecipeForm extends React.Component {
                  }
                 </Dropzone>
                 <div>
-                  { errors.image &&
+                  { uploadError &&
                   <span className="help-block error text-danger">
-                    {errors.image}
+                    {uploadError}
                   </span>
                     }
                 </div>
@@ -219,7 +225,27 @@ class AddRecipeForm extends React.Component {
                   </span>
                     }
                 </div>
-
+                <Loader
+                  loaded={this.state.loaded}
+                  lines={13}
+                  length={30}
+                  width={10}
+                  radius={30}
+                  corners={1}
+                  rotate={0}
+                  direction={1}
+                  color="#000"
+                  speed={2}
+                  trail={60}
+                  shadow={false}
+                  hwaccel={false}
+                  className="spinner"
+                  zIndex={2e9}
+                  top="70%"
+                  left="50%"
+                  scale={1.00}
+                  loadedClassName="loadedContent"
+                />
                 <div className="form-group">
                   <input
                     type="submit"
@@ -242,7 +268,10 @@ AddRecipeForm.defaultProps = {
 };
 
 AddRecipeForm.propTypes = {
-  addRecipe: PropTypes.func
+  addRecipe: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired
 };
 
 
