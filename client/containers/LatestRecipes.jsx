@@ -45,7 +45,7 @@ class LatestRecipes extends React.Component {
                   />{recipe.upvotes}
                 </span>
                 <span className="text-info">
-                  <i className="fa fa-comment col-4" aria-hidden="true" />25
+                  <i className="fa fa-eye col-4" aria-hidden="true" />25
                 </span>
                 <span className="text-danger">
                   <i
@@ -55,7 +55,7 @@ class LatestRecipes extends React.Component {
                 </span>
               </span>
             </span>
-            <Link to={`/details/${recipe.id}`} className="btn btn-info row ml-4">view details</Link>
+            <Link to={`/details/${recipe.id}`} className="btn btn-outline-info row ml-4">view details</Link>
           </div>
         </div>
       </div>

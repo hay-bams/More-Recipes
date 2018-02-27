@@ -55,7 +55,7 @@ class PopularRecipes extends React.Component {
                 </span>
               </span>
             </span>
-            <Link to={`/details/${recipe.id}`} className="btn btn-info row ml-4">view details</Link>
+            <Link to={`/details/${recipe.id}`} className="btn btn-outline-info row ml-4">view details</Link>
           </div>
         </div>
       </div>

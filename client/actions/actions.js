@@ -403,6 +403,30 @@ export const addFavoriteRecipe = async (recipeId) => {
   }
 };
 
+export const deleteFavoriteRecipe = async (recipeId) => {
+  try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
+
+    const response = await axios({
+      method: 'delete',
+      url: `${host}/api/v1/${recipeId}/recipes`,
+      headers: { token: userToken }
+    });
+    toastr.success(response.data.message);
+    return {
+      type: APPCONSTANT.DELETE_FAVORITE_RECIPE,
+      payload: recipeId
+    };
+  } catch (err) {
+    return {
+      type: APPCONSTANT.ERRORS,
+      payload: err,
+      name: 'deleteFavoriteError'
+    };
+  }
+};
+
 export const signout = async () => {
   try {
     return {

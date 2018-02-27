@@ -23,6 +23,7 @@ router.put('/api/v1/user/:userId', UserController.updateProfile);
 router.put('/api/v1/:userId/user', UserController.updatePassword);
 router.get('/api/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
 router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
+router.delete('/api/v1/:recipeId/recipes', Middleware.verifyToken, RecipeController.deleteUserFavorite);
 router.post('/api/v1/recipes/upvote/:recipeId', Middleware.verifyToken, RecipeController.upvote);
 router.post('/api/v1/recipes/downvote/:recipeId', Middleware.verifyToken, RecipeController.downvote);
 
