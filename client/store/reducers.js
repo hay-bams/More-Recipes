@@ -83,7 +83,7 @@ export const userRecipes = (state = { rows: [] }, action) => {
         state;
 
     case APPCONSTANT.DELETE_RECIPE:
-      return state.rows.filter(recipe => recipe.id !== action.payload);
+      return { ...state, rows: state.rows.filter(recipe => recipe.id !== action.payload) };
 
     default:
       return state;
@@ -96,6 +96,9 @@ export const favouriteRecipes = (state = { rows: [] }, action) => {
       return action.payload.recipes.data !== undefined ?
         { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
         state;
+
+    case APPCONSTANT.DELETE_FAVORITE_RECIPE:
+      return { ...state, rows: state.rows.filter(recipe => recipe.id !== action.payload) };
 
     default:
       return state;

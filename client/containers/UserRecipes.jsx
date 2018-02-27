@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { confirmAlert } from 'react-confirm-alert'; // Import
+import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -19,11 +19,12 @@ class Recipes extends React.Component {
     super();
     this.onDelete = this.onDelete.bind(this);
     this.showModal = this.showModal.bind(this);
+    this.userRecipes = [];
   }
   /**
    * @returns {void} componentDidMount
    */
-  async componentDidMount() {
+  componentDidMount() {
     this.props.getUserRecipes();
   }
 
@@ -31,9 +32,10 @@ class Recipes extends React.Component {
    * @param {number} id
    * @return {void} onDelete
    */
-  async onDelete(id) {
-    await this.props.deleteRecipe(id);
+  onDelete(id) {
+    this.props.deleteRecipe(id);
   }
+
 
   /**
    *
@@ -45,8 +47,8 @@ class Recipes extends React.Component {
     return (confirmAlert({
       title: 'Confirm Delete',
       message: 'Are you sure to delete this recipe ?',
-      confirmLabel: 'Confirm',
-      cancelLabel: 'Cancel',
+      confirmLabel: 'Yes',
+      cancelLabel: 'No',
       onConfirm: () => this.onDelete(recipeId),
       onCancel: () => '',
     })
@@ -58,9 +60,11 @@ class Recipes extends React.Component {
    */
   renderRecipe() {
     const { userRecipes } = this.props;
-    return userRecipes === undefined || userRecipes.length === 0  ?
-      <div className="card mx-auto">
-          <h3>You do not have any recipe at the moment</h3>
+    return userRecipes.length === 0 ?
+      <div className="mx-auto">
+        <p className="text-center">You do not have any recipe at the moment.
+          <Link to="/add_recipe"> create recipe here</Link>
+        </p>
       </div> :
       userRecipes.map(recipe => (
         <div
@@ -79,30 +83,30 @@ class Recipes extends React.Component {
               <h4 className="card-title text-center">{recipe.title}</h4>
               <p className="card-text">
                 <span className="row">
-                  <a href="#" className="text-success">
+                  <span href="#" className="text-success">
                     <i
                       className="fa fa-thumbs-up col-4"
                       aria-hidden="true"
                     />{recipe.upvotes}
-                  </a>
-                  <a href="#" className="text-info">
+                  </span>
+                  <span href="#" className="text-info">
                     <i className="fa fa-comment col-4" aria-hidden="true" />
-                  </a>
-                  <a href="#" className="text-danger">
+                  </span>
+                  <span href="#" className="text-danger">
                     <i
                       className="fa fa-thumbs-down col-4"
                       aria-hidden="true"
                     />{recipe.downvotes}
-                  </a>
+                  </span>
                 </span>
               </p>
-              <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-primary edit" style={{ marginLeft: `${5}px` }}>
+              <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-outline-info edit" style={{ marginLeft: `${5}px` }}>
                 <i className="fa fa-pencil-square-o" aria-hidden="true" />
               </Link>
-              <button className="btn btn-danger delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
-                <i className="fa fa-trash-o" aria-hidden="true" id={recipe.id}/>
+              <button className="btn btn-outline-info delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
+                <i className="fa fa-trash-o" aria-hidden="true" id={recipe.id} />
               </button>
-              <Link to={`/view_recipes/${recipe.id}`} className="btn btn-info view" style={{ marginLeft: `${5}px` }}>
+              <Link to={`/view_recipes/${recipe.id}`} className="btn btn-outline-info view" style={{ marginLeft: `${5}px` }}>
                 <i className="fa fa-eye" aria-hidden="true" />
               </Link>
             </div>

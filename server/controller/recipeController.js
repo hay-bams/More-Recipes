@@ -475,6 +475,43 @@ class RecipeController {
     }
   }
 
+    /**
+   * @return {obj} deleteRecipe
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async deleteUserFavorite(req, res) {
+    try {
+      const recipeId = parseInt(req.params.recipeId, 10);
+      const favourite = await models.Favourite.findAll({
+        where: { userId: req.decoded.id, recipeId }
+      });
+
+      if (favourite.length === 0) {
+        return res.status(404).send({
+          success: 'false',
+          message: 'Recipe does not exist'
+        });
+      }
+
+      if (favourite[0].userId === req.decoded.id) {
+        favourite[0].destroy();
+        res.status(200).send({ success: 'true', message: 'Favourite deleted' });
+      } else {
+        res.status(401).send({
+          success: 'false',
+          message: 'You are not authorized to delete this recipe'
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        sucess: 'false',
+        message: 'Internal server error',
+        error: err
+      });
+    }
+  }
+
   /**
    * @return {obj} upvote
    * @param {*} req
