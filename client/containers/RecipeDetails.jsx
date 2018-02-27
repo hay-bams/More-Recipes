@@ -92,10 +92,7 @@ class RecipeDetails extends React.Component {
               <i className="fa fa-thumbs-up" aria-hidden="true" />
               {recipe.upvotes}
             </a>
-            <a href="#" className="btn btn-outline-dark" style={{ marginLeft: `${5}px` }}>
-              <i className="fa fa-eye" aria-hidden="true" />
-              25
-            </a>
+
             <a onClick={this.downvote} href="#" className="btn btn-outline-dark" style={{ marginLeft: `${5}px` }} >
               <i className="fa fa-thumbs-down" aria-hidden="true" />
               {recipe.downvotes}

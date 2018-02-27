@@ -21,6 +21,11 @@ const DashboardNav = props => (
 
         <div className="collapse navbar-collapse resetNav" id="navbarSupportedContent">
           <ul className="navbar-nav ml-auto">
+            {props.location.pathname !== '/catalogue' ?
+              <li className="nav-item">
+                <Link to="/catalogue" className="nav-link">Catalogue</Link>
+              </li> : ''
+          }
             <li className="nav-item dropdown">
               <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fa fa-user" /> {props.userData.user ? props.userData.user.firstName : ''}  <b className="caret" />

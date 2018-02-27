@@ -263,7 +263,6 @@ header .navbar-toggler {
  color: black;
  top: 0;
  bottom: 0;
- height: 100%;
 }
 
 .main-register-container {
@@ -280,7 +279,7 @@ header .navbar-toggler {
 
 .overlay {
   background: rgba(0, 0, 0, 0.4);
-  height: 730px;
+  height: 796px;
 }
 
 .card-form {

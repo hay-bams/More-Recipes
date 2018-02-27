@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { getRecipeReviews, getUsers } from '../actions/actions';
+import Gravatar from 'react-gravatar';
 import recipeImage from '../images/24475008.jpg';
 
 
@@ -19,6 +20,9 @@ class ProductReviews extends React.Component {
     this.userReviews = [];
     this.renderReviews = this.renderReviews.bind(this);
     this.findUser = this.findUser.bind(this);
+    this.state = {
+      userInfo: null
+    };
   }
 
   /**
@@ -35,10 +39,17 @@ class ProductReviews extends React.Component {
    * @param {obj} theReview
    * @returns {void} findUser
    */
-  findUser(allUsers, theReview) {
+  findUser(allUsers, theReview, filterUser) {
     let firstName;
+    let userInfo;
     const user = allUsers.find(user => theReview.userId === user.id);
-    return user ? user.firstName : '';
+    if (filterUser === 'firstName' && user !== undefined) {
+      // console.log(user)
+      return user.firstName
+    } else if (filterUser === 'email' && user !== undefined) {
+      return user.email
+    }
+  //  return user ? user.firstName : '';
   }
 
   /**
@@ -46,12 +57,17 @@ class ProductReviews extends React.Component {
    */
   renderReviews() {
     const { allUsers } = this.props;
+    let user;
     return this.props.userReviews.map(theReview => (
       <div className="media mt-3" key={theReview.id}>
-        <img className="mr-3" src={recipeImage} style={{ width: `${80}px` }} alt="Generic placeholder" />
-        <div className="media-body">
+         <Gravatar 
+         email={this.findUser(allUsers, theReview, 'email')} 
+         rating="pg" 
+         className="CustomAvatar-image"
+         /> 
+        <div className="media-body ml-2">
           <h5>
-            {this.findUser(allUsers, theReview)}
+          {this.findUser(allUsers, theReview, 'firstName')}
           </h5>
           <p>{theReview.review}</p>
         </div>

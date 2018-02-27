@@ -78,6 +78,7 @@
     "react-confirm-alert": "^1.0.8",
     "react-dom": "^16.1.1",
     "react-dropzone": "^4.2.8",
+    "react-gravatar": "^2.6.3",
     "react-loader": "^2.4.3",
     "react-loader-spinner": "^1.4.7",
     "react-paginate": "^5.0.0",
