@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import isEmail from 'validator/lib/isEmail';
 import models from '../models';
 
-const secret = 'This is your guy';
+const secret = process.env.SECRET;
 
 /**
  * @class controller

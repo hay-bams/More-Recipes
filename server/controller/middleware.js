@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const secret = 'This is your guy';
+const secret = process.env.SECRET;
 
 /**
  * @class Middleware
