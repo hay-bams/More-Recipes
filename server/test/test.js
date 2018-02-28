@@ -6,7 +6,7 @@ import models from '../models';
 import recipes from '../seeders/recipesPost';
 import usersSeed from '../seeders/user';
 
-const secret = 'This is your guy';
+const secret = process.env.SECRET;
 
 const should = chai.should();
 let user = {};
@@ -44,7 +44,6 @@ describe('Api endpoints testing', () => {
     });
 
     it('should sign up a user and return 201 for a successful signup', (done) => {
-      console.log(usersSeed)
       chai.request(app)
         .post('/api/v1/users/signup')
         .send(usersSeed)
@@ -265,6 +264,7 @@ describe('Api endpoints testing', () => {
         .set('token', getToken)
         .send(recipes.recipesPost[0])
         .end((err, res) => {
+          console.log(res.body.data.id);
           createdRecipeId = res.body.data.id;
           res.should.have.status(201);
           res.body.should.be.a('object');
