@@ -33,6 +33,16 @@ module.exports = {
         type: Sequelize.INTEGER,
         defaultValue: 0
       },
+      views: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
+      userViews: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

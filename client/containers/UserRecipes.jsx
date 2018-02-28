@@ -90,7 +90,7 @@ class Recipes extends React.Component {
                     />{recipe.upvotes}
                   </span>
                   <span href="#" className="text-info">
-                    <i className="fa fa-comment col-4" aria-hidden="true" />
+                    <i className="fa fa-eye col-4" aria-hidden="true" /> {recipe.views}
                   </span>
                   <span href="#" className="text-danger">
                     <i

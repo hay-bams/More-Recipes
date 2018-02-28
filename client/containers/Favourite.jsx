@@ -99,7 +99,7 @@ class FavouriteRecipes extends React.Component {
                     />{favouriteRecipe.upvotes}
                   </span>
                   <span href="#" className="text-info">
-                    <i className="fa fa-eye text-info col-4" aria-hidden="true" /> 5
+                    <i className="fa fa-eye text-info col-4" aria-hidden="true" /> {recipe.views}
                   </span>
                   <span href="#" className="text-danger">
                     <i

@@ -206,17 +206,38 @@ class RecipeController {
       const id = parseInt(req.params.recipeId, 10);
       const userRecipe = await models.Recipe.findById(id);
       if (!userRecipe) {
-        res.status(200).send({
+        return res.status(200).send({
           success: 'false',
-          message: 'Reciope does not exist'
+          message: 'Recipe does not exist'
         });
-      } else {
-        res.status(200).send({
+      }
+      
+      if (userRecipe.userViews === 0 && req.decoded !== undefined &&
+        req.decoded.id === userRecipe.userId) {
+        const singleRecipe = await userRecipe.update({
+          userViews: 1,
+          views: userRecipe.views + 1
+        });
+
+        return res.status(200).send({
+          success: 'true',
+          message: 'Recipe found',
+          data: singleRecipe
+        });
+      } else if (userRecipe.userViews > 0 && req.decoded !== undefined &&
+         req.decoded.id === userRecipe.userId) {
+        return res.status(200).send({
           success: 'true',
           message: 'Recipe found',
           data: userRecipe
         });
       }
+      const singleRecipe = await userRecipe.update({ views: userRecipe.views + 1 });
+      return res.status(200).send({
+        success: 'true',
+        message: 'Recipe found',
+        data: singleRecipe
+      });
     } catch (err) {
       res.status(500).send({
         success: 'false',
@@ -475,7 +496,7 @@ class RecipeController {
     }
   }
 
-    /**
+  /**
    * @return {obj} deleteRecipe
    * @param {obj} req
    * @param {obj} res
@@ -537,7 +558,7 @@ class RecipeController {
       const upvoteFound = await models.Upvote.findAll({
         where: { userId: req.decoded.id, recipeId }
       });
-      
+
       if (upvoteFound.length > 0) {
         return res.status(400).send({ success: 'false', message: 'can\'t upvote more than once' });
       }

@@ -45,7 +45,7 @@ class PopularRecipes extends React.Component {
                   />{recipe.upvotes}
                 </span>
                 <span className="text-info">
-                  <i className="fa fa-comment col-4" aria-hidden="true" />25
+                  <i className="fa fa-eye col-4" aria-hidden="true" /> {recipe.views}
                 </span>
                 <span className="text-danger">
                   <i

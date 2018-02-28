@@ -44,12 +44,10 @@ class ProductReviews extends React.Component {
     let userInfo;
     const user = allUsers.find(user => theReview.userId === user.id);
     if (filterUser === 'firstName' && user !== undefined) {
-      // console.log(user)
       return user.firstName
     } else if (filterUser === 'email' && user !== undefined) {
       return user.email
     }
-  //  return user ? user.firstName : '';
   }
 
   /**
