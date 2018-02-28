@@ -67,6 +67,32 @@ class Middleware {
   }
 
   /**
+   * @returns {obj} getUserId
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
+   */
+  static getUserId(req, res, next) {
+    const { token } = req.headers;
+    if (!token) {
+      return next();
+    }
+
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) {
+        return res.status(401).send({
+          success: 'false',
+          message: 'Invalid username or password.',
+          error: err
+        });
+      }
+
+      req.decoded = decoded;
+      next();
+    });
+  }
+
+  /**
    * @returns {*} validateUserSignup
    * @param {*} req
    * @param {*} res

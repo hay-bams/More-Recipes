@@ -56,7 +56,21 @@ export const getPopularRecipes = async () => {
 };
 
 export const getSingleRecipe = async (recipeId) => {
-  const response = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
+  const userData = localStorage.userData ?
+    JSON.parse(localStorage.userData) : '';
+
+  const userToken = userData ? userData.token : '';
+  let response;
+  if (userToken) {
+    response = await axios({
+      method: 'get',
+      url: `${host}/api/v1/recipes/${recipeId}`,
+      headers: { token: userToken }
+    });
+  } else {
+    response = await axios.get(`${host}/api/v1/recipes/${recipeId}`);
+  }
+
   return {
     type: APPCONSTANT.GET_SINGLE_RECIPE,
     payload: response.data
@@ -432,8 +446,12 @@ export const signout = async () => {
     return {
       type: APPCONSTANT.SIGN_OUT,
       payload: null
-    }
+    };
   } catch (err) {
-
+    return {
+      type: APPCONSTANT.SIGN_OUT_ERRORS,
+      payload: null,
+      name: 'signOutError'
+    };
   }
-}
+};
