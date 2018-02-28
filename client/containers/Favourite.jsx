@@ -99,7 +99,7 @@ class FavouriteRecipes extends React.Component {
                     />{favouriteRecipe.upvotes}
                   </span>
                   <span href="#" className="text-info">
-                    <i className="fa fa-eye text-info col-4" aria-hidden="true" /> {recipe.views}
+                    <i className="fa fa-eye text-info col-4" aria-hidden="true" /> {favouriteRecipe.views}
                   </span>
                   <span href="#" className="text-danger">
                     <i
@@ -172,6 +172,10 @@ class FavouriteRecipes extends React.Component {
   }
 }
 
+FavouriteRecipes.defaultProps = {
+  pages: 1
+};
+
 FavouriteRecipes.propTypes = {
   getFavouriteRecipes: PropTypes.func.isRequired,
   deleteFavoriteRecipe: PropTypes.func.isRequired,
@@ -187,7 +191,7 @@ FavouriteRecipes.propTypes = {
     createdAt: PropTypes.string,
     updatedAt: PropTypes.string
   })).isRequired,
-  pages: PropTypes.number.isRequired
+  pages: PropTypes.number
 };
 
 const mapStateToProps = state => ({

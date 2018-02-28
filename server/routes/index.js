@@ -21,7 +21,7 @@ router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserControlle
 router.get('/api/v1/users', UserController.findAllUsers);
 router.put('/api/v1/user/:userId', UserController.updateProfile);
 router.put('/api/v1/:userId/user', UserController.updatePassword);
-router.get('/api/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
+router.get('/api/v1/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
 router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
 router.delete('/api/v1/:recipeId/recipes', Middleware.verifyToken, RecipeController.deleteUserFavorite);
 router.post('/api/v1/recipes/upvote/:recipeId', Middleware.verifyToken, RecipeController.upvote);

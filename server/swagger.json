@@ -21,9 +21,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes",
+        "summary": "Add Recipe",
         "description": "This api endpoint add new recipes to the database",
-        "operationId": "/api/v1/recipes",
+        "operationId": "add recipe",
         "parameters": [
           {
             "name": "token",
@@ -119,9 +119,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/:recipeId/reviews",
+        "summary": "Add Review",
         "description": "This api endpoint add review for recipes ",
-        "operationId": "/api/v1/recipes/:recipeid/reviews",
+        "operationId": "Add Review",
         "parameters": [
           {
             "name": "token",
@@ -202,9 +202,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/users/signup",
+        "summary": "User Signup",
         "description": "This api endpoint sign up a new user",
-        "operationId": "/api/v1/users/signup",
+        "operationId": "User Signup",
         "parameters": [
           {
             "name": "Content-Type",
@@ -292,9 +292,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/users/signin",
+        "summary": "User Signin",
         "description": "This api endpoint sign in an existing user",
-        "operationId": "/api/v1/users/signin",
+        "operationId": "User Signin",
         "parameters": [
           {
             "name": "Content-Type",
@@ -367,9 +367,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/:recipeId",
+        "summary": "Get Single Recipe",
         "description": "This api endpoint gets a single recipes from the database",
-        "operationId": "/api/v1/recipes/:recipeid1",
+        "operationId": "Get Single Recipe",
         "parameters": [],
         "responses": {
           "200": {
@@ -402,9 +402,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/:recipeId",
+        "summary": "Update Recipe",
         "description": "This api endpoint should update recipes",
-        "operationId": "/api/v1/recipes/:recipeid2",
+        "operationId": "Update Recipe",
         "parameters": [
           {
             "name": "token",
@@ -483,9 +483,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/:recipeId",
+        "summary": "Add Favorite",
         "description": "This api endpoint add favorite for the recipe",
-        "operationId": "/api/v1/recipes/:recipeid",
+        "operationId": "Add Favorite",
         "parameters": [
           {
             "name": "token",
@@ -534,9 +534,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/upvote/:recipeId",
-        "description": "This api endpoint upvote recipes ",
-        "operationId": "/api/v1/recipes/upvote/:recipeid",
+        "summary": "Recipe Downvote",
+        "description": "This api endpoint downvote recipes ",
+        "operationId": "Recipe Downvote",
         "parameters": [
           {
             "name": "token",
@@ -585,9 +585,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/page/:page",
+        "summary": "Get All Recipes",
         "description": "This apie endpoint gets all the recipes in the database",
-        "operationId": "/api/v1/recipes/page/:page",
+        "operationId": "Get All Recipes",
         "parameters": [],
         "responses": {
           "200": {
@@ -622,9 +622,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/latest/recipes",
+        "summary": "Get Latest Recipes",
         "description": "This api endpoint gets the latest recipes in the database",
-        "operationId": "/api/v1/latest/recipes",
+        "operationId": "Get Latest Recipes",
         "parameters": [],
         "responses": {
           "200": {
@@ -659,9 +659,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/popular/recipes",
+        "summary": "Get Popular Recipes",
         "description": "This api endpoint gets the popular recipes in the database",
-        "operationId": "/api/v1/popular/recipes",
+        "operationId": "Get Popular Recipes",
         "parameters": [],
         "responses": {
           "200": {
@@ -696,9 +696,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/:userId/recipes/",
+        "summary": "User Recipes",
         "description": "This api endpoint  get recipes added by a user",
-        "operationId": "/api/v1/:userid/recipes/",
+        "operationId": "User Recipes",
         "parameters": [
           {
             "name": "token",
@@ -747,9 +747,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/reviews/:recipeId",
+        "summary": "Get Recipe Reviews",
         "description": "This api endpoint should get all reviews for a recipe",
-        "operationId": "/api/v1/reviews/:recipeid",
+        "operationId": "Get Recipe Reviews",
         "parameters": [],
         "responses": {
           "200": {
@@ -784,9 +784,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/users",
+        "summary": "Get All Users",
         "description": "This api endpoint should find all registered users",
-        "operationId": "/api/v1/users",
+        "operationId": "Get All Users",
         "parameters": [],
         "responses": {
           "200": {
@@ -821,9 +821,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/users/:userId/recipes/:page",
+        "summary": "Get User Favorite",
         "description": "This api endpoint should get user favourite recipes",
-        "operationId": "/api/users/:userid/recipes/:page",
+        "operationId": "Get User Favorite",
         "parameters": [
           {
             "name": "token",
@@ -872,9 +872,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/user/:userId",
+        "summary": "Update User Profile",
         "description": "This api endpoint should update user profile",
-        "operationId": "/api/v1/user/:userid",
+        "operationId": "Update User Profile",
         "parameters": [
           {
             "name": "userId",
@@ -922,9 +922,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "/api/v1/recipes/:recipeId",
+        "summary": "Delete Recipe",
         "description": "This api endpoint should delete recipes",
-        "operationId": "/api/v1/recipes/:recipeid3",
+        "operationId": "Delete Recipe",
         "parameters": [
           {
             "name": "token",
@@ -973,9 +973,9 @@
         "tags": [
           "Misc"
         ],
-        "summary": "https://purpose-more-recipes.herokuapp.com/api/v1/recipes/upvote/2",
-        "description": "",
-        "operationId": "Https://purposeMoreRecipes.herokuapp.com/api/v1/recipes/upvote/2",
+        "summary": "Recipe Upvote",
+        "description": "This api endpoint upvote recipes ",
+        "operationId": "Recipe Upvote",
         "parameters": [
           {
             "name": "token",
@@ -992,8 +992,15 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": ""
+          "201": {
+            "description": "",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
           }
         },
         "deprecated": false,
@@ -1012,5 +1019,1168 @@
         }
       }
     }
-  }
+  },
+  "components": {
+    "schemas": {
+      "Upvote Recipe": {
+        "title": "Upvote Recipe",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe upvoted",
+          "data": {
+            "id": 4,
+            "recipeId": 2,
+            "userId": 2,
+            "updatedAt": "2018-02-28T15:23:01.478Z",
+            "createdAt": "2018-02-28T15:23:01.478Z"
+          }
+        }
+      },
+      "Data": {
+        "title": "Data",
+        "required": [
+          "id",
+          "recipeId",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Downvote Recipe": {
+        "title": "Downvote Recipe",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe downvoted",
+          "data": {
+            "id": 4,
+            "recipeId": 2,
+            "userId": 2,
+            "updatedAt": "2018-02-28T15:23:01.478Z",
+            "createdAt": "2018-02-28T15:23:01.478Z"
+          }
+        }
+      },
+      "Data2": {
+        "title": "Data",
+        "required": [
+          "id",
+          "recipeId",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Add Recipe": {
+        "title": "Add Recipe",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe Created Successfully",
+          "data": {
+            "upvotes": 0,
+            "downvotes": 0,
+            "views": 0,
+            "userViews": 0,
+            "id": 12,
+            "title": "some title",
+            "image": "image",
+            "instructions": "instrcutions",
+            "ingredients": "ingredieints",
+            "userId": 2,
+            "updatedAt": "2018-02-28T17:55:22.416Z",
+            "createdAt": "2018-02-28T17:55:22.416Z"
+          }
+        }
+      },
+      "Data3": {
+        "title": "Data",
+        "required": [
+            "upvotes",
+            "downvotes",
+            "views",
+            "userViews",
+            "id",
+            "title",
+            "image",
+            "instructions",
+            "ingredients",
+            "userId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Add Review": {
+        "title": "Add Reviews",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "New review added",
+          "data": {
+            "id": 6,
+            "review": "some review",
+            "userId": 2,
+            "recipeId": 2,
+            "updatedAt": "2018-02-28T17:55:57.521Z",
+            "createdAt": "2018-02-28T17:55:57.521Z"
+          }
+        }
+      },
+      "Data4": {
+        "title": "Data",
+        "required": [
+            "id",
+            "review",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "review": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Sign Up": {
+        "title": "Sign Up",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "User created successfully",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InRlc3RlbWFpbDRAZ21haWwuY29tIiwiaWF0IjoxNTE5ODQwNTcxLCJleHAiOjE1MTk5MjgyMTF9.8zM9dJARteTjJr5mr03CWtkatOlZ5tQM_WE30j18M10",
+          "user": {
+            "id": 9,
+            "firstName": "Ayobami",
+            "lastName": "Adelakun",
+            "email": "testemail4@gmail.com"
+          }
+        }
+      },
+      "user": {
+        "title": "user",
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Sign In": {
+        "title": "Sign In",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          },
+          "user": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "User Signed in successfully",
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwiZmlyc3ROYW1lIjoiQXlvYmFtaSIsImxhc3ROYW1lIjoiQWRlbGFrdW4iLCJlbWFpbCI6InRlc3RlbWFpbDRAZ21haWwuY29tIiwiaWF0IjoxNTE5ODQwNTcxLCJleHAiOjE1MTk5MjgyMTF9.8zM9dJARteTjJr5mr03CWtkatOlZ5tQM_WE30j18M10",
+          "user": {
+            "id": 9,
+            "firstName": "Ayobami",
+            "lastName": "Adelakun",
+            "email": "testemail4@gmail.com"
+          }
+        }
+      },
+      "user2": {
+        "title": "user",
+        "required": [
+          "id",
+          "firstName",
+          "lastName",
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Add Favorite": {
+        "title": "Add Favorite",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe added to favourites",
+          "data": {
+              "id": 4,
+              "recipeId": 1,
+              "userId": 2,
+              "updatedAt": "2018-02-28T17:56:37.990Z",
+              "createdAt": "2018-02-28T17:56:37.990Z"
+          }
+        }
+      },
+      "Data5": {
+        "title": "Data",
+        "required": [
+            "id",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Get All Recipes": {
+        "title": "Get All Recipes",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipes found",
+          "data": [
+              {
+                  "id": 6,
+                  "title": "Plantain chicken",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816897/o94zcbsykwcywelf8hlv.jpg",
+                  "ingredients": "40 pcs unripe habanero peppers (atarodo, ose oyibo, atarugu) 2 green tatashe peppers or green bell peppers 1 locust bean seasoning (Iru, ogiri okpei or dawadawa) 20cl red palm oil (at least) 1 big onion 1 handful crayfish 850g assorted meat and fish. I used: Beef Shaki (cow tripe) Dry fish Stock fish ",
+                  "instructions": "Auctor neque vitae tempus quam pellentesque. Phasellus faucibus scelerisque eleifend donec pretium vulputate. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Enim nec dui nunc mattis. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Vel turpis nunc eget lorem. Hac habitasse platea dictumst quisque sagittis purus sit amet. Tincidunt praesent semper feugiat nibh. Iaculis urna id volutpat lacus laoreet. Et odio pellentesque diam volutpat commodo sed egestas.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 0,
+                  "userViews": 0,
+                  "createdAt": "2018-02-28T11:21:50.241Z",
+                  "updatedAt": "2018-02-28T11:21:50.241Z",
+                  "userId": 2
+              },
+              {
+                  "id": 1,
+                  "title": "Cauliflower wrap",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519814746/ioj7ff1vrdgmyp7ccm6t.gif",
+                  "ingredients": "3 cauliflower florets 1 egg ½ red onion (sliced) Red bell pepper (chopped) Green bell pepper (chopped) Yellow bell pepper (chopped) 1 button mushroom (sliced) Salt (to taste) 3 strips bacon Mayonnaise (for serving) Carrot Oil (for frying) ",
+                  "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 3,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T10:45:47.891Z",
+                  "updatedAt": "2018-02-28T10:52:47.664Z",
+                  "userId": 1
+              },
+              {
+                  "id": 5,
+                  "title": "Cake stew",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816787/yvaxdvxl2t9a5cbagqea.jpg",
+                  "ingredients": "Assorted meat and fish. use a combination of the following: Beef Shaki (cow tripe) Smoked fish Dry fish Stock fish 20 cl palm oil 500g Efo Shoko 5 tatashe peppers 2 tablespoons ground crayfish 2 red onions 2 small stock cubes 2 tablespoons locust beans (iru) Salt & Habanero / Scotch Bonnet peppers (to taste) ",
+                  "instructions": "Semper risus in hendrerit gravida. Integer malesuada nunc vel risus. Aenean euismod elementum nisi quis eleifend quam. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Faucibus nisl tincidunt eget nullam non. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales. Ornare lectus sit amet est placerat in egestas erat imperdiet. Quis vel eros donec ac odio tempor orci dapibus. At augue eget arcu dictum varius duis. Nunc mattis enim ut tellus elementum sagittis vitae et. Sed odio morbi quis commodo. Tristique risus nec feugiat in fermentum posuere urna. Suspendisse in est ante in nibh mauris. Cursus metus aliquam eleifend mi in nulla posuere. Enim sed faucibus turpis in eu mi bibendum neque. Ultrices sagittis orci a scelerisque purus semper eget. Eget mi proin sed libero enim.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 1,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T11:19:47.901Z",
+                  "updatedAt": "2018-02-28T11:26:03.869Z",
+                  "userId": 2
+              },
+              {
+                  "id": 3,
+                  "title": "African veg soup",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816552/psgnrlk2wokhqzklpdbb.jpg",
+                  "ingredients": "½ cup (90g) soft rice ½ cup (60g) boiled rice ½ teaspoon yeast 1 small onion 1 Egg ½ tin Peak Milk Sugar (to taste) 2 pinches of salt Vegetable oil: for frying ",
+                  "instructions": "Pellentesque elit eget gravida cum. Velit laoreet id donec ultrices tincidunt arcu. Ut tortor pretium viverra suspendisse. Pellentesque id nibh tortor id aliquet lectus. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Varius sit amet mattis vulputate enim nulla aliquet. Dignissim convallis aenean et tortor. Congue eu consequat ac felis donec. Pretium aenean pharetra magna ac placerat. Dictumst quisque sagittis purus sit amet volutpat consequat mauris. Magna fringilla urna porttitor rhoncus dolor purus non enim. Eget egestas purus viverra accumsan in nisl nisi. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc. Amet nulla facilisi morbi tempus iaculis. Amet purus gravida quis blandit turpis cursus. Quam elementum pulvinar etiam non quam lacus. Eu augue ut lectus arcu bibendum at varius vel pharetra.",
+                  "upvotes": 0,
+                  "downvotes": 1,
+                  "views": 1,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T11:15:53.550Z",
+                  "updatedAt": "2018-02-28T17:56:54.077Z",
+                  "userId": 2
+              }
+          ],
+          "pages": 2
+        }
+      },
+      "Data6": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Get Latest Recipes": {
+        "title": "Get Latest Recipes",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipes found",
+          "data": [
+              {
+                  "id": 12,
+                  "title": "some title",
+                  "image": "image",
+                  "ingredients": "ingredieints",
+                  "instructions": "instrcutions",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 0,
+                  "userViews": 0,
+                  "createdAt": "2018-02-28T17:55:22.416Z",
+                  "updatedAt": "2018-02-28T17:55:22.416Z",
+                  "userId": 2
+              },
+              {
+                  "id": 11,
+                  "title": "some title",
+                  "image": "image",
+                  "ingredients": "ingredieints",
+                  "instructions": "instrcutions",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 0,
+                  "userViews": 0,
+                  "createdAt": "2018-02-28T17:22:01.772Z",
+                  "updatedAt": "2018-02-28T17:22:01.772Z",
+                  "userId": 2
+              },
+              {
+                  "id": 10,
+                  "title": "some title",
+                  "image": "image",
+                  "ingredients": "ingredieints",
+                  "instructions": "instrcutions",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 0,
+                  "userViews": 0,
+                  "createdAt": "2018-02-28T15:06:14.903Z",
+                  "updatedAt": "2018-02-28T15:06:14.903Z",
+                  "userId": 6
+              },
+              {
+                  "id": 6,
+                  "title": "Plantain chicken",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816897/o94zcbsykwcywelf8hlv.jpg",
+                  "ingredients": "40 pcs unripe habanero peppers (atarodo, ose oyibo, atarugu) 2 green tatashe peppers or green bell peppers 1 locust bean seasoning (Iru, ogiri okpei or dawadawa) 20cl red palm oil (at least) 1 big onion 1 handful crayfish 850g assorted meat and fish. I used: Beef Shaki (cow tripe) Dry fish Stock fish ",
+                  "instructions": "Auctor neque vitae tempus quam pellentesque. Phasellus faucibus scelerisque eleifend donec pretium vulputate. Ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget. Enim nec dui nunc mattis. Consequat interdum varius sit amet mattis vulputate enim nulla aliquet. Eget egestas purus viverra accumsan in nisl nisi scelerisque. Vel turpis nunc eget lorem. Hac habitasse platea dictumst quisque sagittis purus sit amet. Tincidunt praesent semper feugiat nibh. Iaculis urna id volutpat lacus laoreet. Et odio pellentesque diam volutpat commodo sed egestas.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 0,
+                  "userViews": 0,
+                  "createdAt": "2018-02-28T11:21:50.241Z",
+                  "updatedAt": "2018-02-28T11:21:50.241Z",
+                  "userId": 2
+              }
+          ]
+        }
+      },
+      "Data7": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Get Popular Recipes": {
+        "title": "Get Popular Recipes",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipes found",
+          "data": [
+              {
+                  "id": 2,
+                  "title": "updated title",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519814919/zenvhinhymc3xgt4hoay.jpg",
+                  "ingredients": "250g beef Red wine ½ onion 1 big red bell pepper 1 mushroom Black pepper 2 seasoning cubes Vegetable oil Ginger powder Onion powder Salt Parsley",
+                  "instructions": "Quam id leo in vitae turpis massa sed elementum. Mauris in aliquam sem fringilla ut morbi tincidunt. Nam at lectus urna duis convallis convallis tellus id interdum. Bibendum enim facilisis gravida neque convallis a cras semper auctor. Vulputate odio ut enim blandit. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Pellentesque id nibh tortor id. Nunc consequat interdum varius sit amet mattis. Ullamcorper sit amet risus nullam. Turpis massa sed elementum tempus egestas sed sed risus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Odio eu feugiat pretium nibh ipsum consequat nisl.",
+                  "upvotes": 1,
+                  "downvotes": 0,
+                  "views": 9,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T10:48:41.060Z",
+                  "updatedAt": "2018-02-28T17:37:51.542Z",
+                  "userId": 2
+              },
+              {
+                  "id": 1,
+                  "title": "Cauliflower wrap",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519814746/ioj7ff1vrdgmyp7ccm6t.gif",
+                  "ingredients": "3 cauliflower florets 1 egg ½ red onion (sliced) Red bell pepper (chopped) Green bell pepper (chopped) Yellow bell pepper (chopped) 1 button mushroom (sliced) Salt (to taste) 3 strips bacon Mayonnaise (for serving) Carrot Oil (for frying) ",
+                  "instructions": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 3,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T10:45:47.891Z",
+                  "updatedAt": "2018-02-28T10:52:47.664Z",
+                  "userId": 1
+              },
+              {
+                  "id": 5,
+                  "title": "Cake stew",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816787/yvaxdvxl2t9a5cbagqea.jpg",
+                  "ingredients": "Assorted meat and fish. use a combination of the following: Beef Shaki (cow tripe) Smoked fish Dry fish Stock fish 20 cl palm oil 500g Efo Shoko 5 tatashe peppers 2 tablespoons ground crayfish 2 red onions 2 small stock cubes 2 tablespoons locust beans (iru) Salt & Habanero / Scotch Bonnet peppers (to taste) ",
+                  "instructions": "Semper risus in hendrerit gravida. Integer malesuada nunc vel risus. Aenean euismod elementum nisi quis eleifend quam. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Faucibus nisl tincidunt eget nullam non. Interdum velit laoreet id donec ultrices tincidunt arcu non sodales. Ornare lectus sit amet est placerat in egestas erat imperdiet. Quis vel eros donec ac odio tempor orci dapibus. At augue eget arcu dictum varius duis. Nunc mattis enim ut tellus elementum sagittis vitae et. Sed odio morbi quis commodo. Tristique risus nec feugiat in fermentum posuere urna. Suspendisse in est ante in nibh mauris. Cursus metus aliquam eleifend mi in nulla posuere. Enim sed faucibus turpis in eu mi bibendum neque. Ultrices sagittis orci a scelerisque purus semper eget. Eget mi proin sed libero enim.",
+                  "upvotes": 0,
+                  "downvotes": 0,
+                  "views": 1,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T11:19:47.901Z",
+                  "updatedAt": "2018-02-28T11:26:03.869Z",
+                  "userId": 2
+              },
+              {
+                  "id": 3,
+                  "title": "African veg soup",
+                  "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519816552/psgnrlk2wokhqzklpdbb.jpg",
+                  "ingredients": "½ cup (90g) soft rice ½ cup (60g) boiled rice ½ teaspoon yeast 1 small onion 1 Egg ½ tin Peak Milk Sugar (to taste) 2 pinches of salt Vegetable oil: for frying ",
+                  "instructions": "Pellentesque elit eget gravida cum. Velit laoreet id donec ultrices tincidunt arcu. Ut tortor pretium viverra suspendisse. Pellentesque id nibh tortor id aliquet lectus. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Varius sit amet mattis vulputate enim nulla aliquet. Dignissim convallis aenean et tortor. Congue eu consequat ac felis donec. Pretium aenean pharetra magna ac placerat. Dictumst quisque sagittis purus sit amet volutpat consequat mauris. Magna fringilla urna porttitor rhoncus dolor purus non enim. Eget egestas purus viverra accumsan in nisl nisi. Nascetur ridiculus mus mauris vitae ultricies leo integer malesuada nunc. Amet nulla facilisi morbi tempus iaculis. Amet purus gravida quis blandit turpis cursus. Quam elementum pulvinar etiam non quam lacus. Eu augue ut lectus arcu bibendum at varius vel pharetra.",
+                  "upvotes": 0,
+                  "downvotes": 1,
+                  "views": 1,
+                  "userViews": 1,
+                  "createdAt": "2018-02-28T11:15:53.550Z",
+                  "updatedAt": "2018-02-28T17:56:54.077Z",
+                  "userId": 2
+              }
+          ]
+        }
+      },
+      "Data8": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Update Recipes": {
+        "title": "Update Recipes",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe found",
+          "data": {
+              "id": 2,
+              "title": "updated title",
+              "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519814919/zenvhinhymc3xgt4hoay.jpg",
+              "ingredients": "250g beef Red wine ½ onion 1 big red bell pepper 1 mushroom Black pepper 2 seasoning cubes Vegetable oil Ginger powder Onion powder Salt Parsley",
+              "instructions": "Quam id leo in vitae turpis massa sed elementum. Mauris in aliquam sem fringilla ut morbi tincidunt. Nam at lectus urna duis convallis convallis tellus id interdum. Bibendum enim facilisis gravida neque convallis a cras semper auctor. Vulputate odio ut enim blandit. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Pellentesque id nibh tortor id. Nunc consequat interdum varius sit amet mattis. Ullamcorper sit amet risus nullam. Turpis massa sed elementum tempus egestas sed sed risus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Odio eu feugiat pretium nibh ipsum consequat nisl.",
+              "upvotes": 1,
+              "downvotes": 0,
+              "views": 10,
+              "userViews": 1,
+              "createdAt": "2018-02-28T10:48:41.060Z",
+              "updatedAt": "2018-02-28T17:57:20.589Z",
+              "userId": 2
+          }
+        }
+      },
+      "Data9": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Get Review": {
+        "title": "Get Reviews",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Reviews found",
+          "data": [
+              {
+                  "id": 4,
+                  "review": "some review",
+                  "createdAt": "2018-02-28T15:06:30.174Z",
+                  "updatedAt": "2018-02-28T15:06:30.174Z",
+                  "recipeId": 2,
+                  "userId": 6
+              },
+              {
+                  "id": 5,
+                  "review": "some review",
+                  "createdAt": "2018-02-28T17:22:20.709Z",
+                  "updatedAt": "2018-02-28T17:22:20.709Z",
+                  "recipeId": 2,
+                  "userId": 2
+              },
+              {
+                  "id": 6,
+                  "review": "some review",
+                  "createdAt": "2018-02-28T17:55:57.521Z",
+                  "updatedAt": "2018-02-28T17:55:57.521Z",
+                  "recipeId": 2,
+                  "userId": 2
+              }
+          ]
+        }
+      },
+      "Data10": {
+        "title": "Data",
+        "required": [
+            "id",
+            "review",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "review": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Update Recipe": {
+        "title": "Update Recipe",
+        "required": [
+          "success",
+          "message",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Data"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe updated successfully",
+          "data": {
+              "id": 2,
+              "title": "updated title",
+              "image": "https://res.cloudinary.com/dsj9ygnq2/image/upload/v1519814919/zenvhinhymc3xgt4hoay.jpg",
+              "ingredients": "250g beef Red wine ½ onion 1 big red bell pepper 1 mushroom Black pepper 2 seasoning cubes Vegetable oil Ginger powder Onion powder Salt Parsley",
+              "instructions": "Quam id leo in vitae turpis massa sed elementum. Mauris in aliquam sem fringilla ut morbi tincidunt. Nam at lectus urna duis convallis convallis tellus id interdum. Bibendum enim facilisis gravida neque convallis a cras semper auctor. Vulputate odio ut enim blandit. Orci eu lobortis elementum nibh tellus molestie nunc non blandit. Pellentesque id nibh tortor id. Nunc consequat interdum varius sit amet mattis. Ullamcorper sit amet risus nullam. Turpis massa sed elementum tempus egestas sed sed risus. Mauris nunc congue nisi vitae suscipit tellus mauris a. Malesuada proin libero nunc consequat interdum varius sit amet mattis. Odio eu feugiat pretium nibh ipsum consequat nisl.",
+              "upvotes": 1,
+              "downvotes": 0,
+              "views": 10,
+              "userViews": 1,
+              "createdAt": "2018-02-28T10:48:41.060Z",
+              "updatedAt": "2018-02-28T17:57:20.589Z",
+              "userId": 2
+          }
+        }
+      },
+      "Data11": {
+        "title": "Data",
+        "required": [
+            "upvotes",
+            "downvotes",
+            "views",
+            "userViews",
+            "id",
+            "title",
+            "image",
+            "instructions",
+            "ingredients",
+            "userId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
+      "Delete Recipe": {
+        "title": "Delete Recipe",
+        "required": [
+          "success",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "success": "true",
+          "message": "Recipe deleted"
+        }
+      }
+    }
+  },
+  "security": [
+    {}
+  ]
 }
