@@ -373,7 +373,7 @@ export const getFavouriteRecipes = async (page) => {
 
     const response = await axios({
       method: 'get',
-      url: `${host}/api/users/${userId}/recipes/${page}`,
+      url: `${host}/api/v1/users/${userId}/recipes/${page}`,
       headers: { token: userToken }
     });
 

@@ -137,13 +137,6 @@ class UserController {
         });
       }
 
-      if (!isEmail(req.body.email)) {
-        return res.status(400).send({
-          sucess: 'false',
-          message: 'invalid email address'
-        });
-      }
-
       const user = {
         firstName: req.body.firstName || userFound.firstName,
         lastName: req.body.lastName || userFound.lastName,
