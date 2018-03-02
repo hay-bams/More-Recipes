@@ -1,8 +1,8 @@
 import axios from 'axios';
 import APPCONSTANT from '../constant';
 
-const host = window.location.hostname === 'localhost' ?
-  'http://localhost:8000' : 'https://purpose-more-recipes.herokuapp.com';
+const host = window.location.hostname === 'purpose-more-recipes.herokuapp.com' ?
+  'https://purpose-more-recipes.herokuapp.com' : 'http://localhost:8000';
 
 
 export const addRecipe = async (recipeObject) => {
@@ -20,11 +20,16 @@ export const addRecipe = async (recipeObject) => {
       type: APPCONSTANT.ADD_RECIPE,
       payload: response.data
     });
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+       response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -93,11 +98,16 @@ export const getUserRecipes = async () => {
       type: APPCONSTANT.GET_USER_RECIPES,
       payload: userRecipes.data
     };
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -119,6 +129,15 @@ export const signup = async (userObject) => {
       }
     };
   } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
     toastr.error(response.data.message);
     return {
       type: APPCONSTANT.SIGN_UP_ERRORS,
@@ -144,6 +163,15 @@ export const signin = async (userObject) => {
       }
     };
   } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
     toastr.error(response.data.message);
     return {
       type: APPCONSTANT.SIGN_IN_ERRORS,
@@ -168,11 +196,16 @@ export const deleteRecipe = async (recipeId) => {
       type: APPCONSTANT.DELETE_RECIPE,
       payload: recipeId
     };
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -192,42 +225,57 @@ export const editRecipe = async (recipeObject, recipeId) => {
       type: APPCONSTANT.EDIT_RECIPE,
       payload: response.data
     });
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
 export const editUserProfile = async (userObject, userId) => {
   try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
     const response = await axios({
       method: 'put',
       url: `${host}/api/v1/user/${userId}`,
       data: userObject,
+      headers: { token: userToken }
     });
     toastr.success(response.data.message);
     return ({
       type: APPCONSTANT.EDIT_USER_PROFILE,
       payload: response.data
     });
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err,
-      name: 'editProfileError'
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
 
 export const editUserPassword = async (userObject, userId) => {
   try {
+    const userData = JSON.parse(localStorage.userData);
+    const userToken = userData.token;
     const response = await axios({
       method: 'put',
       url: `${host}/api/v1/${userId}/user`,
       data: userObject,
+      headers: { token: userToken }
     });
 
     toastr.success(response.data.message);
@@ -235,12 +283,16 @@ export const editUserPassword = async (userObject, userId) => {
       type: APPCONSTANT.EDIT_USER_PASSWORD,
       payload: response.data
     });
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err,
-      name: 'editPasswordrror'
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -260,10 +312,19 @@ export const addReview = async (userReview, recipeId) => {
       type: APPCONSTANT.ADD_REVIEW,
       payload: response.data
     };
-  } catch (err) {
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
     return {
       type: APPCONSTANT.ADD_REVIEW_ERRORS,
-      payload: err,
+      payload: response,
       name: 'addReviewError'
     };
   }
@@ -288,10 +349,19 @@ export const getRecipeReviews = async (recipeId) => {
       type: APPCONSTANT.GET_RECIPES_REVIEWS,
       payload: payloadData
     };
-  } catch (err) {
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
     return {
       type: APPCONSTANT.GET_REVIEW_ERRORS,
-      payload: err,
+      payload: response,
       name: 'getReviewError'
     };
   }
@@ -307,11 +377,16 @@ export const getUsers = async () => {
       type: APPCONSTANT.FIND_USERS,
       payload: response.data
     };
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -331,12 +406,17 @@ export const upvoteRecipe = async (recipeId, userId) => {
       type: APPCONSTANT.UPVOTE_RECIPE,
       payload: recipeId
     };
-  } catch (err) {
-    toastr.error(err.response.data.message);
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
+    toastr.error(response.data.message);
   }
 };
 
@@ -356,12 +436,17 @@ export const downvoteRecipe = async (recipeId) => {
       type: APPCONSTANT.DOWNVOTE_RECIPE,
       payload: recipeId
     };
-  } catch (err) {
-    toastr.error(err.response.data.message);
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
+    toastr.error(response.data.message);
   }
 };
 
@@ -373,7 +458,7 @@ export const getFavouriteRecipes = async (page) => {
 
     const response = await axios({
       method: 'get',
-      url: `${host}/api/users/${userId}/recipes/${page}`,
+      url: `${host}/api/v1/users/${userId}/recipes/${page}`,
       headers: { token: userToken }
     });
 
@@ -384,11 +469,16 @@ export const getFavouriteRecipes = async (page) => {
         pages: response.data.pages
       },
     };
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 
@@ -407,11 +497,20 @@ export const addFavoriteRecipe = async (recipeId) => {
       type: APPCONSTANT.ADD_FAV_RECIPE,
       payload: recipeId
     });
-  } catch (err) {
-    toastr.error(err.response.data.message);
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
+    toastr.error(response.data.message);
     return {
       type: APPCONSTANT.ADD_FAVOURITE_ERRORS,
-      payload: err,
+      payload: response,
       name: 'addFavoriteError'
     };
   }
@@ -432,12 +531,16 @@ export const deleteFavoriteRecipe = async (recipeId) => {
       type: APPCONSTANT.DELETE_FAVORITE_RECIPE,
       payload: recipeId
     };
-  } catch (err) {
-    return {
-      type: APPCONSTANT.ERRORS,
-      payload: err,
-      name: 'deleteFavoriteError'
-    };
+  } catch ({ response }) {
+    if (response.data.error !== undefined &&
+      response.data.error.name === 'TokenExpiredError') {
+      localStorage.removeItem('userData');
+      toastr.warning('session has expired, please signin');
+      return {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+    }
   }
 };
 

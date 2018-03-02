@@ -71,7 +71,6 @@ class UserController {
    */
   static async signin(req, res) {
     try {
-
       if (!isEmail(req.body.email)) {
         return res.status(400).send({
           sucess: 'false',
@@ -134,13 +133,6 @@ class UserController {
         return res.status(404).send({
           success: 'false',
           message: 'user does not exist'
-        });
-      }
-
-      if (!isEmail(req.body.email)) {
-        return res.status(400).send({
-          sucess: 'false',
-          message: 'invalid email address'
         });
       }
 

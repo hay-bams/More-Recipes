@@ -37,6 +37,7 @@ class ProductReviews extends React.Component {
   /**
    * @param {obj} allUsers
    * @param {obj} theReview
+   * @param {string} filterUser
    * @returns {void} findUser
    */
   findUser(allUsers, theReview, filterUser) {

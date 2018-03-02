@@ -11,6 +11,10 @@ const SignoutPage = (props) => {
   return <div />;
 };
 
+const mapStateToProps = state => ({
+  errorMsg: state.errors.signUpError
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ signout }, dispatch);
 
@@ -23,5 +27,5 @@ SignoutPage.propTypes = {
 
 };
 
-export default connect(null, mapDispatchToProps)(SignoutPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SignoutPage);
 
