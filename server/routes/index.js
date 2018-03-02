@@ -19,8 +19,8 @@ router.post('/api/v1/recipes/:recipeId/reviews', Middleware.verifyToken, RecipeC
 router.post('/api/v1/users/signup', Middleware.validateUserSignup, UserController.signup);
 router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserController.signin);
 router.get('/api/v1/users', UserController.findAllUsers);
-router.put('/api/v1/user/:userId', UserController.updateProfile);
-router.put('/api/v1/:userId/user', UserController.updatePassword);
+router.put('/api/v1/user/:userId', Middleware.verifyToken, UserController.updateProfile);
+router.put('/api/v1/:userId/user', Middleware.verifyToken, UserController.updatePassword);
 router.get('/api/v1/users/:userId/recipes/:page', Middleware.verifyToken, RecipeController.getUserFavourites);
 router.post('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeController.addUserFavourite);
 router.delete('/api/v1/:recipeId/recipes', Middleware.verifyToken, RecipeController.deleteUserFavorite);

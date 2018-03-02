@@ -25,18 +25,18 @@ import '../js/script';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
-const userData = JSON.parse(localStorage.getItem('userData')) || {};
+const getUserData = JSON.parse(localStorage.getItem('userData')) || {};
 
-let user = {};
-if (userData.user !== undefined && userData.token !== undefined) {
-  user = {
-    user: userData.user,
-    token: userData.token
+let userData = {};
+if (getUserData.user !== undefined && getUserData.token !== undefined) {
+  userData = {
+    user: getUserData.user,
+    token: getUserData.token
   };
 }
 
 const createStoreWithMiddleware = createStore(
-  allReducers, { userData: user },
+  allReducers, { userData },
   composeEnhancers(applyMiddleware(ReduxPromise))
 );
 

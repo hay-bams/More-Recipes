@@ -18,6 +18,8 @@ describe('The recipe actions', () => {
       upvotes: 0,
       downvotes: 0,
       id: 138,
+      views: 0,
+      userViews: 0,
       title: 'title',
       image: 'image',
       instructions: 'instructiona',
@@ -44,7 +46,12 @@ describe('The recipe actions', () => {
       payload: recipeResponse
     };
 
-    await store.dispatch(addRecipe({}));
+    await store.dispatch(addRecipe({
+      title: 'title',
+      image: 'image',
+      instructions: 'instructiona',
+      ingredients: 'ingredeints'
+    }));
     expect(store.getActions()[0]).toEqual(expectedAction);
   });
 });

@@ -71,7 +71,6 @@ class UserController {
    */
   static async signin(req, res) {
     try {
-
       if (!isEmail(req.body.email)) {
         return res.status(400).send({
           sucess: 'false',
