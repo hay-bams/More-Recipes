@@ -264,7 +264,6 @@ describe('Api endpoints testing', () => {
         .set('token', getToken)
         .send(recipes.recipesPost[0])
         .end((err, res) => {
-          console.log(res.body.data.id);
           createdRecipeId = res.body.data.id;
           res.should.have.status(201);
           res.body.should.be.a('object');

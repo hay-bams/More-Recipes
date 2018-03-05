@@ -42,54 +42,53 @@ class RecipeController {
    */
   static async getAllRecipe(req, res) {
     try {
-      if (Object.keys(req.query).length > 0) {
-        if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
-          const limit = 4;
-          const recipes = await models.Recipe.findAndCountAll();
-          const pages = Math.ceil(recipes.count / limit);
-          const page = parseInt(req.params.page, 10);
-          const offset = (page * limit) - limit;
-          const allRecipes = await models.Recipe.findAll({
-            limit,
-            offset
-          });
-          if (allRecipes.length === 0) {
-            return res.status(200).send({
-              success: 'false',
-              message: 'No recipes at the moment'
-            });
-          }
-          allRecipes.sort((a, b) => b.upvotes - a.upvotes);
-          return res.status(200).send({
-            success: 'true',
-            message: 'Recipes found',
-            data: allRecipes,
-            pages
-          });
-        }
-      } else {
-        const limit = 4;
-        const recipes = await models.Recipe.findAndCountAll();
-        const pages = Math.ceil(recipes.count / limit);
-        const page = parseInt(req.params.page, 10);
-        const offset = (page * limit) - limit;
-        const allRecipes = await models.Recipe.findAll({
+      const limit = 4;
+      let recipes, pages, page, offset, allRecipes;
+
+      if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
+        recipes = await models.Recipe.findAndCountAll();
+        pages = Math.ceil(recipes.count / limit);
+        page = parseInt(req.query.page, 10);
+        offset = (page * limit) - limit;
+        allRecipes = await models.Recipe.findAll({
           limit,
           offset
         });
         if (allRecipes.length === 0) {
-          res.status(200).send({
+          return res.status(200).send({
             success: 'false',
             message: 'No recipes at the moment'
           });
-        } else {
-          res.status(200).send({
-            success: 'true',
-            message: 'Recipes found',
-            data: allRecipes,
-            pages
-          });
         }
+        allRecipes.sort((a, b) => b.upvotes - a.upvotes);
+        return res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: allRecipes,
+          pages
+        });
+      }
+
+      recipes = await models.Recipe.findAndCountAll();
+      pages = Math.ceil(recipes.count / limit);
+      page = parseInt(req.query.page, 10);
+      offset = (page * limit) - limit;
+      allRecipes = await models.Recipe.findAll({
+        limit,
+        offset
+      });
+      if (allRecipes.length === 0) {
+        res.status(200).send({
+          success: 'false',
+          message: 'No recipes at the moment'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: allRecipes,
+          pages
+        });
       }
     } catch (err) {
       res.status(500).send({
@@ -211,7 +210,7 @@ class RecipeController {
           message: 'Recipe does not exist'
         });
       }
-      
+
       if (userRecipe.userViews === 0 && req.decoded !== undefined &&
         req.decoded.id === userRecipe.userId) {
         const singleRecipe = await userRecipe.update({
@@ -322,6 +321,85 @@ class RecipeController {
       res.status(500).send({
         sucess: 'false',
         message: 'Internal server error',
+        error: err
+      });
+    }
+  }
+
+  /**
+   * @returns {obj} searchRecipes
+   * @param {obj} req
+   * @param {obj} res
+   */
+  static async searchRecipes(req, res) {
+    try {
+      const limit = 4;
+      const { search } = req.query;
+      let recipes, pages, page, offset, allRecipes;
+
+      if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
+        recipes = await models.Recipe.findAndCountAll();
+        pages = Math.ceil(recipes.count / limit);
+        page = parseInt(req.query.page, 10);
+        offset = (page * limit) - limit;
+        allRecipes = await models.Recipe.findAll({
+          limit,
+          offset
+        });
+        if (allRecipes.length === 0) {
+          return res.status(200).send({
+            success: 'false',
+            message: 'No recipes at the moment'
+          });
+        }
+        allRecipes.sort((a, b) => b.upvotes - a.upvotes);
+        return res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: allRecipes,
+          pages
+        });
+      }
+
+      recipes = await models.Recipe.findAndCountAll({
+        where: {
+          $or: [
+            { title: { $ilike: `%${search}%` } },
+            { ingredients: { $ilike: `%${search}%` } }
+          ]
+        }
+      });
+      pages = Math.ceil(recipes.count / limit);
+      page = parseInt(req.query.page, 10);
+      offset = (page * limit) - limit;
+      allRecipes = await models.Recipe.findAll({
+        where: {
+          $or: [
+            { title: { $ilike: `%${search}%` } },
+            { ingredients: { $ilike: `%${search}%` } }
+          ]
+        },
+        limit,
+        offset
+      });
+
+      if (allRecipes.length === 0) {
+        res.status(200).send({
+          success: 'false',
+          message: 'No recipes found'
+        });
+      } else {
+        res.status(200).send({
+          success: 'true',
+          message: 'Recipes found',
+          data: allRecipes,
+          pages
+        });
+      }
+    } catch (err) {
+      res.status(500).send({
+        success: 'false',
+        message: 'internal server error',
         error: err
       });
     }

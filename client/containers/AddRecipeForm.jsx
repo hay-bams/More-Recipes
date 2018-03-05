@@ -119,7 +119,7 @@ class AddRecipeForm extends React.Component {
       };
 
       await this.props.addRecipe(recipe);
-      this.props.history.push('view_recipes');
+      this.props.history.push('/view_recipes');
 
       errors = {};
       this.setState({ errors });
