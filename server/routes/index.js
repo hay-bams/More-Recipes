@@ -6,7 +6,8 @@ import Middleware from '../controller/middleware';
 
 const router = express.Router();
 
-router.get('/api/v1/recipes/page/:page', RecipeController.getAllRecipe);
+router.get('/api/v1/recipes', RecipeController.getAllRecipe);
+router.get('/api/v1/search/recipes', RecipeController.searchRecipes);
 router.get('/api/v1/latest/recipes', RecipeController.getLatestRecipe);
 router.get('/api/v1/popular/recipes', RecipeController.getPopularRecipe);
 router.get('/api/v1/recipes/:recipeId', Middleware.getUserId, RecipeController.getSingleRecipe);
