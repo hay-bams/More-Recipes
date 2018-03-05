@@ -34,9 +34,20 @@ export const addRecipe = async (recipeObject) => {
 };
 
 export const getAllRecipes = async (page) => {
-  const response = await axios.get(`${host}/api/v1/recipes/page/${page}`);
+  const response = await axios.get(`${host}/api/v1/recipes?page=${page}`);
   return {
     type: APPCONSTANT.GET_ALL_RECIPES,
+    payload: {
+      recipes: response.data,
+      pages: response.data.pages
+    },
+  };
+};
+
+export const searchRecipes = async (page, search) => {
+  const response = await axios.get(`${host}/api/v1/search/recipes?search=${search}&page=${page}`);
+  return {
+    type: APPCONSTANT.SEARCH_RECIPES,
     payload: {
       recipes: response.data,
       pages: response.data.pages

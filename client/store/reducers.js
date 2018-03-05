@@ -16,7 +16,14 @@ export const recipes = (state = { rows: [] }, action) => {
     case APPCONSTANT.GET_ALL_RECIPES:
       return action.payload.recipes.data !== undefined ?
         { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
-        state;
+        { rows: null };
+
+    case APPCONSTANT.SEARCH_RECIPES:
+
+      return action.payload.recipes.data !== undefined ?
+        { ...state, pages: action.payload.pages, rows: action.payload.recipes.data } :
+        { rows: null };
+
     default:
       return state;
   }

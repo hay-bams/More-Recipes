@@ -264,7 +264,6 @@ describe('Api endpoints testing', () => {
         .set('token', getToken)
         .send(recipes.recipesPost[0])
         .end((err, res) => {
-          console.log(res.body.data.id);
           createdRecipeId = res.body.data.id;
           res.should.have.status(201);
           res.body.should.be.a('object');
@@ -380,7 +379,7 @@ describe('Api endpoints testing', () => {
   describe('Get Recipe', () => {
     it('should get all recipes if they exist and return a status of 200', (done) => {
       chai.request(app)
-        .get('/api/v1/recipes/page/1')
+        .get('/api/v1/recipes?page=1')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.have.a('object');
