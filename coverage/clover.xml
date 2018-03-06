@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1520326766452" clover="3.2.0">
   <project timestamp="1520326766452" name="All files">
+=======
+<coverage generated="1520330536450" clover="3.2.0">
+  <project timestamp="1520330536450" name="All files">
+>>>>>>> chore(test): client side test
     <metrics statements="266" coveredstatements="182" conditionals="134" coveredconditionals="50" methods="34" coveredmethods="34" elements="434" coveredelements="266" complexity="0" loc="266" ncloc="266" packages="3" files="3" classes="3">
       <package name="client">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
