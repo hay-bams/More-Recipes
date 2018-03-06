@@ -1,27 +1,20 @@
-language: node_js
-
-node_js:
-  - stable
-
-install:
-  - npm install
-
-env: 
-  global:
-    - CC_TEST_REPORTER_ID=97ce718b4cd6c5ffe068dfa41b189385c6bb13a995ec12112773d169bd606b56
-  - NODE_ENV=test
-  
-before_script:
-  - createdb more-recipes-test --username=postgres
-  - sequelize db:migrate
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
-
-script:
-  - npm test
-
-after_success: npm run coverage
-
-after_script:
+after_success:
+  - npm run coverage
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+before_script: 
+  - "createdb more-recipes-test --username=postgres"
+  - "sequelize db:migrate"
+  - "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
+  - "chmod +x ./cc-test-reporter"
+  - "./cc-test-reporter before-build"
+env: 
+  global: 
+    - CC_TEST_REPORTER_ID=909f11d7619b3cc5e9499e4d7e2d5cee766f415380a96afb82516ce58474f56a
+    - NODE_ENV=test
+install: 
+  - "npm install"
+language: node_js
+node_js: 
+  - stable
+script: 
+  - "npm test"
