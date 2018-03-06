@@ -18,7 +18,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "jest": "jest --watch"
+    "jest": "jest --watch --coverage"
   },
   "engines": {
     "node": "8.9.1",

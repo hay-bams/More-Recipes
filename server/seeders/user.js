@@ -6,4 +6,13 @@ const user = {
   confirmPassword: 'password'
 };
 
+export const userUpdate = {
+  firstName: 'Ayobami',
+};
+
+export const passwordUpdate = {
+  password: 'password',
+  confirmPassword: 'password'
+};
+
 export default user;

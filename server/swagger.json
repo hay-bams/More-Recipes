@@ -11,7 +11,7 @@
       "variables": {}
     },
     {
-      "url": "http:///api/v1/user",
+      "url": "http://localhost:8000/api",
       "variables": {}
     }
   ],
