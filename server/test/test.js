@@ -4,7 +4,8 @@ import chaiHttp from 'chai-http';
 import app from '../app';
 import models from '../models';
 import recipes from '../seeders/recipesPost';
-import usersSeed from '../seeders/user';
+import usersSeed, { userUpdate, passwordUpdate } from '../seeders/user';
+
 
 const secret = process.env.SECRET;
 
@@ -32,7 +33,7 @@ describe('Api endpoints testing', () => {
     });
 
     it('should return 400 for an invalid email', (done) => {
-      const userWithInvalidEmail = Object.assign({}, usersSeed)
+      const userWithInvalidEmail = Object.assign({}, usersSeed);
       userWithInvalidEmail.email = 'pur.com';
       chai.request(app)
         .post('/api/v1/users/signup')
@@ -140,6 +141,28 @@ describe('Api endpoints testing', () => {
           res.body.should.have.property('message').eql('successfully signed in');
           res.body.should.have.property('token');
           getToken = res.body.token;
+          done();
+        });
+    });
+
+    it('should update a user profile and return 201 if token is provided', (done) => {
+      chai.request(app)
+        .put(`/api/v1/user/${createdUserId}`)
+        .set('token', getToken)
+        .send(userUpdate)
+        .end((err, res) => {
+          res.should.have.status(201);
+          done();
+        });
+    });
+
+    it('should update a user profile and return 201 if token is provided', (done) => {
+      chai.request(app)
+        .put(`/api/v1/${createdUserId}/user/`)
+        .set('token', getToken)
+        .send(passwordUpdate)
+        .end((err, res) => {
+          res.should.have.status(201);
           done();
         });
     });
@@ -388,9 +411,70 @@ describe('Api endpoints testing', () => {
           done();
         });
     });
+
+    it('should get user recipes if they exist and return a status of 200', (done) => {
+      chai.request(app)
+        .get(`/api/v1/${createdUserId}/recipes/`)
+        .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
+    it('should get the latest recipes and return a status of 200', (done) => {
+      chai.request(app)
+        .get('/api/v1/latest/recipes')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
+    it('should get the popular recipes and return a status of 200', (done) => {
+      chai.request(app)
+        .get('/api/v1/popular/recipes')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
+    it('should get a single recipes and return a status of 200', (done) => {
+      chai.request(app)
+        .get(`/api/v1/recipes/${createdRecipeId}`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('object');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
+    it('should search recipes and return a status of 200', (done) => {
+      chai.request(app)
+        .get('/api/v1/search/recipes?search=beans&page=1')
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
   });
 
-  describe('Add Review', () => {
+  describe('Review', () => {
     const recipeReview = {
       review: 'my first review'
     };
@@ -417,6 +501,19 @@ describe('Api endpoints testing', () => {
           done();
         });
     });
+
+    it('should get all reviews for a recipe if they exist and return a status of 200', (done) => {
+      chai.request(app)
+        .get(`/api/v1/reviews/${createdRecipeId}`)
+        .end((err, res) => {
+          res.should.have.status(200);
+          res.body.should.have.a('object');
+          res.body.data.should.have.a('array');
+          res.body.should.have.property('data');
+          done();
+        });
+    });
+
   });
 
   describe('Favourites', () => {
@@ -454,6 +551,17 @@ describe('Api endpoints testing', () => {
       chai.request(app)
         .get(`/api/users/${createdUserId}/recipes/1`)
         .set('token', getToken)
+        .end((err, res) => {
+          res.should.have.status(200);
+          done();
+        });
+    });
+
+    it('should delete user favorite recipe and return a status of 200 if token is provided', (done) => {
+      chai.request(app)
+        .delete(`/api/v1/${createdRecipeId}/recipes`)
+        .set('token', getToken)
+        .send()
         .end((err, res) => {
           res.should.have.status(200);
           done();

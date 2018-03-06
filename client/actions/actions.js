@@ -35,6 +35,7 @@ export const addRecipe = async (recipeObject) => {
 
 export const getAllRecipes = async (page) => {
   const response = await axios.get(`${host}/api/v1/recipes?page=${page}`);
+  // console.log(response);
   return {
     type: APPCONSTANT.GET_ALL_RECIPES,
     payload: {

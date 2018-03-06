@@ -128,7 +128,6 @@ class UserController {
     try {
       const id = parseInt(req.params.userId, 10);
       const userFound = await models.User.findById(id);
-
       if (!userFound) {
         return res.status(404).send({
           success: 'false',
