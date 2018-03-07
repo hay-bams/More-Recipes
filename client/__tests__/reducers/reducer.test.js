@@ -2,7 +2,7 @@ import { recipes, latestRecipes, popularRecipes, singleRecipe,
   userRecipes, favouriteRecipes, user, reviews } from '../../store/reducers';
 import APPCONSTANT from '../../constant';
 
-describe('all reducers', () => {
+describe('Recipe reducers', () => {
   describe('Recipe', () => {
     test('Should return unchanged state when no matching action is found', () => {
       const state = { rows: [{ id: 2 }] };
@@ -177,70 +177,6 @@ describe('all reducers', () => {
       });
 
       expect(newState).toEqual({ rows: [{ id: 2 }, { id: 3 }, { id: 4 }] });
-    });
-  });
-
-  describe('users', () => {
-    test('Should update userData in store when called with SIGN_UP: action', () => {
-      const state = { rows: [{ id: 1 }] };
-      const newUser = { id: 1 };
-      const token = 'some token';
-      const newState = user(state, {
-        type: APPCONSTANT.SIGN_UP,
-        payload: {
-          newUser, token
-        }
-      });
-
-      expect(newState).toEqual({ newUser, token });
-    });
-
-    test('Should update userData in store when called with SIGN_IN action', () => {
-      const state = { rows: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] };
-      const newUser = { id: 1 };
-      const token = 'some token';
-      const newState = user(state, {
-        type: APPCONSTANT.SIGN_IN,
-        payload: {
-          newUser, token
-        }
-      });
-
-      expect(newState).toEqual({ newUser, token });
-    });
-
-    test('Should update userData in store when called with SIGN_OUT action', () => {
-      const state = {};
-      const newState = user(state, {
-        type: APPCONSTANT.SIGN_OUT,
-        payload: null
-      });
-
-      expect(newState).toEqual(state);
-    });
-  });
-
-  describe('reviews', () => {
-    test('Should update review in store when called with ADD_REVIEW action', () => {
-      const state = [];
-      const newReview = { data: { id: 1 } };
-      const newState = reviews(state, {
-        type: APPCONSTANT.ADD_REVIEW,
-        payload: newReview
-      });
-
-      expect(newState).toEqual([{ id: 1 }]);
-    });
-
-    test('Should update reviews in store when called with ADD_REVIEW action', () => {
-      const state = [];
-      const allReviews = [{ id: 1 }, { id: 2 }];
-      const newState = reviews(state, {
-        type: APPCONSTANT.GET_RECIPES_REVIEWS,
-        payload: allReviews
-      });
-
-      expect(newState).toEqual([{ id: 1 }, { id: 2 }]);
     });
   });
 });

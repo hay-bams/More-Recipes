@@ -16,4 +16,10 @@ module.exports = {
       error() {}
     }
   },
+  setupFiles: [
+    '<rootDir>/client/__tests__/setupTests.js'
+  ],
+  snapshotSerializers: [
+    'enzyme-to-json/serializer'
+  ]
 };
