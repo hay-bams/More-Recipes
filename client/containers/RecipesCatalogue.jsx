@@ -17,12 +17,15 @@ class RecipeCatalogue extends React.Component {
   constructor() {
     super();
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.onSelect = this.onSelect.bind(this);
     this.renderCatalogue = this.renderCatalogue.bind(this);
     this.onSearch = this.onSearch.bind(this);
     this.state = {
       search: false,
       page: 1,
       loaded: true,
+      sort: null,
+      order: null
     };
   }
   /**
@@ -30,7 +33,7 @@ class RecipeCatalogue extends React.Component {
    */
   async componentDidMount() {
     this.setState({ loaded: false });
-    await this.props.getAllRecipes(this.state.page);
+    await this.props.getAllRecipes(this.state.sort, this.state.order, this.state.page);
     this.setState({ loaded: true });
   }
 
@@ -41,8 +44,24 @@ class RecipeCatalogue extends React.Component {
   async onSearch(event) {
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value, search: true, loaded: false });
-   await this.props.searchRecipes(this.state.page, event.target.value);
-   this.setState({ loaded: true });
+    await this.props.searchRecipes(this.state.page, event.target.value, this.state.sort, this.state.order);
+    this.setState({ loaded: true });
+  }
+
+  /**
+   * @param {obj} event
+   * @returns {void} onSelect
+   */
+  onSelect(event) {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value, loaded: false }, async () => {
+      if (this.state.search) {
+        await this.props.searchRecipes(this.state.page, this.state.recipeSearch, this.state.sort, this.state.order);
+      } else {
+        await this.props.getAllRecipes(this.state.sort, this.state.order, this.state.page);
+      }
+      this.setState({ loaded: true });
+    });
   }
 
   /**
@@ -54,11 +73,11 @@ class RecipeCatalogue extends React.Component {
     this.setState({ loaded: false });
     this.setState({ page: selected });
     if (this.state.search) {
-    await  this.props.searchRecipes(selected, this.state.recipeSearch);
+      await this.props.searchRecipes(selected, this.state.recipeSearch, this.state.sort, this.state.order);
     } else {
-     await this.props.getAllRecipes(selected);
+      await this.props.getAllRecipes(this.state.sort, this.state.order, selected);
     }
-     this.setState({ loaded: true });
+    this.setState({ loaded: true });
   }
 
   /**
@@ -134,7 +153,27 @@ class RecipeCatalogue extends React.Component {
                   name="recipeSearch"
                   onChange={this.onSearch}
                 />
-                <hr />
+               
+               <hr />
+
+                <div className="row">
+                  <div className="form-group col-sm-6" onChange={this.onSelect}>
+                    <select name="sort" className="form-control">
+                      <option value="">Sort By</option>
+                      <option value="upvotes">Upvotes</option>
+                      <option value="downvotes">Downvotes</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group col-sm-6" onChange={this.onSelect}>
+                    <select name="order" className="form-control">
+                      <option value="">Order By</option>
+                      <option value="asc">Ascending</option>
+                      <option value="desc">Descending</option>
+                    </select>
+                  </div>
+                </div>
+              
               </div>
             </form>
           </div>

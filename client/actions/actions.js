@@ -33,9 +33,19 @@ export const addRecipe = async (recipeObject) => {
   }
 };
 
-export const getAllRecipes = async (page) => {
-  const response = await axios.get(`${host}/api/v1/recipes?page=${page}`);
-  // console.log(response);
+export const getAllRecipes = async (sort, order, page) => {
+  let response;
+ if (!sort && !order) {
+  response = await axios.get(`${host}/api/v1/recipes?page=${page}`);
+  return {
+    type: APPCONSTANT.GET_ALL_RECIPES,
+    payload: {
+      recipes: response.data,
+      pages: response.data.pages
+    },
+  };
+ }
+ response = await axios.get(`${host}/api/v1/recipes?sort=${sort}&order=${order}&page=${page}`);
   return {
     type: APPCONSTANT.GET_ALL_RECIPES,
     payload: {
@@ -45,8 +55,19 @@ export const getAllRecipes = async (page) => {
   };
 };
 
-export const searchRecipes = async (page, search) => {
-  const response = await axios.get(`${host}/api/v1/search/recipes?search=${search}&page=${page}`);
+export const searchRecipes = async (page, search, sort, order) => {
+  let response;
+  if (!sort && !order) { 
+    response = await axios.get(`${host}/api/v1/search/recipes?search=${search}&page=${page}`);
+    return {
+      type: APPCONSTANT.SEARCH_RECIPES,
+      payload: {
+        recipes: response.data,
+        pages: response.data.pages
+      },
+    };
+  }
+  response = await axios.get(`${host}/api/v1/search/recipes?sort=${sort}&order=${order}&search=${search}&page=${page}`);
   return {
     type: APPCONSTANT.SEARCH_RECIPES,
     payload: {

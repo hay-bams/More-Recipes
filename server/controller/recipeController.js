@@ -34,7 +34,6 @@ class RecipeController {
     }
   }
 
-
   /**
    * @returns {obj} getAllRecipe
    * @param {obj} req
@@ -45,12 +44,19 @@ class RecipeController {
       const limit = 4;
       let recipes, pages, page, offset, allRecipes;
 
-      if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
+      if ((req.query.sort === 'upvotes' || (req.query.sort === 'downvotes')) &&
+       (req.query.order === 'desc' || req.query.order === 'asc')) {
         recipes = await models.Recipe.findAndCountAll();
         pages = Math.ceil(recipes.count / limit);
         page = parseInt(req.query.page, 10);
         offset = (page * limit) - limit;
+        const sortby = req.query.sort === 'upvotes' ? 'upvotes' : 'downvotes';
+        const ordering = req.query.order === 'desc' ? 'DESC' : 'ASC';
+
         allRecipes = await models.Recipe.findAll({
+          order: [
+            [sortby, ordering]
+          ],
           limit,
           offset
         });
@@ -60,7 +66,7 @@ class RecipeController {
             message: 'No recipes at the moment'
           });
         }
-        allRecipes.sort((a, b) => b.upvotes - a.upvotes);
+
         return res.status(200).send({
           success: 'true',
           message: 'Recipes found',
@@ -337,12 +343,32 @@ class RecipeController {
       const { search } = req.query;
       let recipes, pages, page, offset, allRecipes;
 
-      if (req.query.sort === 'upvotes' && req.query.order === 'desc') {
-        recipes = await models.Recipe.findAndCountAll();
+      if ((req.query.sort === 'upvotes' || (req.query.sort === 'downvotes')) &&
+      (req.query.order === 'desc' || req.query.order === 'asc')) {
+        recipes = await models.Recipe.findAndCountAll({
+          where: {
+            $or: [
+              { title: { $ilike: `%${search}%` } },
+              { ingredients: { $ilike: `%${search}%` } }
+            ]
+          }
+        });
         pages = Math.ceil(recipes.count / limit);
         page = parseInt(req.query.page, 10);
         offset = (page * limit) - limit;
+        const sortby = req.query.sort === 'upvotes' ? 'upvotes' : 'downvotes';
+        const ordering = req.query.order === 'desc' ? 'DESC' : 'ASC';
+      
         allRecipes = await models.Recipe.findAll({
+          where: {
+            $or: [
+              { title: { $ilike: `%${search}%` } },
+              { ingredients: { $ilike: `%${search}%` } }
+            ]
+          },
+          order: [
+            [sortby, ordering]
+          ],
           limit,
           offset
         });
@@ -352,7 +378,7 @@ class RecipeController {
             message: 'No recipes at the moment'
           });
         }
-        allRecipes.sort((a, b) => b.upvotes - a.upvotes);
+
         return res.status(200).send({
           success: 'true',
           message: 'Recipes found',
