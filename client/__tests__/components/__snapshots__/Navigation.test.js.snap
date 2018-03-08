@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation should render Navigation correctly 1`] = `
+<header>
+  <nav
+    className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
+  >
+    <div
+      className="container-fluid"
+    >
+      <NavLink
+        activeClassName="active"
+        ariaCurrent="true"
+        className="navbar-brand"
+        to="/"
+      >
+        More Recipes
+      </NavLink>
+      <button
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-target="#navbarSupportedContent"
+        data-toggle="collapse"
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        className="collapse navbar-collapse resetNav"
+        id="navbarSupportedContent"
+      >
+        <ul
+          className="navbar-nav ml-auto"
+        >
+          <li
+            className="nav-item"
+          >
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-link"
+              to="/catalogue"
+            >
+              Catalogue
+            </NavLink>
+          </li>
+          <li
+            className="nav-item active"
+          >
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-link"
+              href="login.html"
+              to="/signin"
+            >
+              Sign in
+              <span
+                className="sr-only"
+              >
+                (current)
+              </span>
+            </NavLink>
+          </li>
+          <li
+            className="nav-item"
+          >
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              className="nav-link"
+              href="register.html"
+              to="/signup"
+            >
+              Sign up
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

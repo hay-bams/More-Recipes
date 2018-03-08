@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Navigation = props => (
+export const Navigation = props => (
   <header>
     <nav
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"

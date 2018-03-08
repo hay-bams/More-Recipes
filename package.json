@@ -12,13 +12,13 @@
     "babel": "babel server/app.js --watch  --out-file app-compiled.js",
     "babel-node": "babel-node --",
     "lint": "./node_modules/.bin/eslint server/app.js",
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",
+    "test": "NODE_ENV=test nyc mocha --compilers js:babel-core/register --require babel-polyfill server/test/**.js --exit",
     "webpack": "webpack-dev-server",
     "build:client": "webpack -p",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "jest": "jest"
+    "test:client": "jest --config=jest.config.js"
   },
   "engines": {
     "node": "8.9.1",
@@ -96,6 +96,11 @@
     "validator": "^9.2.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1"
   },
   "babel": {
     "presets": [
