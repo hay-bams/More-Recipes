@@ -4,15 +4,13 @@ import configureMockStore from 'redux-mock-store';
 
 import APPCONSTANT from '../../constant';
 import { addRecipe, getAllRecipes, searchRecipes, getLatestRecipes,
-  getPopularRecipes, getSingleRecipe, getUserRecipes, signup, signin,
-  deleteRecipe, editRecipe, editUserProfile, editUserPassword, addReview,
-  getRecipeReviews, getUsers, upvoteRecipe, downvoteRecipe, getFavouriteRecipes,
+  getPopularRecipes, getSingleRecipe, getUserRecipes,
+  deleteRecipe, editRecipe, upvoteRecipe, downvoteRecipe, getFavouriteRecipes,
   addFavoriteRecipe, deleteFavoriteRecipe,
   signout } from '../../actions/actions';
 
-import { recipeResponse, getRecipeResponse, singleRecipe, userData,
-  recipeUpdate, updatedUserData, updateUserPassword, review, getReview,
-  allUsers, upvote, downvote } from '../__mocks__/response/response';
+import { recipeResponse, getRecipeResponse, singleRecipe,
+  recipeUpdate, upvote, downvote } from '../__mocks__/response/response';
 
 
 const mockStore = configureMockStore([reduxPromise]);

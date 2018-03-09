@@ -3,12 +3,11 @@ import reduxPromise from 'redux-promise';
 import configureMockStore from 'redux-mock-store';
 
 import APPCONSTANT from '../../constant';
-import { signup, signin, editUserProfile, editUserPassword, getUsers, 
+import { signup, signin, editUserProfile, editUserPassword, getUsers,
   signout } from '../../actions/actions';
 
-import { recipeResponse, getRecipeResponse, singleRecipe, userData,
-  recipeUpdate, updatedUserData, updateUserPassword, review, getReview,
-  allUsers, upvote, downvote } from '../__mocks__/response/response';
+import { userData, updatedUserData, updateUserPassword,
+  allUsers } from '../__mocks__/response/response';
 
 
 const mockStore = configureMockStore([reduxPromise]);

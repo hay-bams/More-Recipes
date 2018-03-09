@@ -1,5 +1,5 @@
 import { recipes, latestRecipes, popularRecipes, singleRecipe,
-  userRecipes, favouriteRecipes, user, reviews } from '../../store/reducers';
+  userRecipes, favouriteRecipes } from '../../reducers/reducers';
 import APPCONSTANT from '../../constant';
 
 describe('Recipe reducers', () => {

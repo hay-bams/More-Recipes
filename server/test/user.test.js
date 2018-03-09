@@ -178,7 +178,7 @@ describe('User Controller test', () => {
         });
     });
 
-    it.only('should return 400 if no email is provided', (done) => {
+    it('should return 400 if no email is provided', (done) => {
       chai.request(app)
         .post('/api/v1/users/signin')
         .send(noEmail)
@@ -189,8 +189,6 @@ describe('User Controller test', () => {
     });
 
     it('should return 400 if no password is provided', (done) => {
-      const noPassword = Object.assign({}, usersSeed);
-      delete noPassword.password;
       chai.request(app)
         .post('/api/v1/users/signin')
         .send(noPassword)
