@@ -2,15 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { getRecipeReviews, getUsers } from '../actions/actions';
 import Gravatar from 'react-gravatar';
-import recipeImage from '../images/24475008.jpg';
-
+import { getUsers } from '../actions/user';
+import { getRecipeReviews } from '../actions/review';
 
 /**
- * @class ProductReviews
+ * @class RecipeReviews
  */
-class ProductReviews extends React.Component {
+class RecipeReviews extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -91,7 +90,7 @@ class ProductReviews extends React.Component {
   }
 }
 
-ProductReviews.propTypes = {
+RecipeReviews.propTypes = {
   getUsers: PropTypes.func.isRequired,
   allUsers: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number,
@@ -123,5 +122,5 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getRecipeReviews, getUsers }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductReviews);
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeReviews);
 

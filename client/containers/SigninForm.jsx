@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { signin } from '../actions/actions';
+import { signin } from '../actions/user';
 import Authenticate from '../auth/auth';
 
 /**

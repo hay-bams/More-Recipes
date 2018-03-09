@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Authenticate from '../auth/auth';
-import { addReview } from '../actions/actions';
+import { addReview } from '../actions/review';
 
 /**
  * @class AddReview
