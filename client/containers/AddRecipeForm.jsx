@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader';
-import { addRecipe } from '../actions/actions';
+import { addRecipe } from '../actions/recipe';
 import Authenticate from '../auth/auth';
 
 const dropZoneStyles = {

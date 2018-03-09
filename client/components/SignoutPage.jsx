@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signout } from '../actions/actions';
+import { signout } from '../actions/user';
 
 const SignoutPage = (props) => {
   localStorage.removeItem('userData');

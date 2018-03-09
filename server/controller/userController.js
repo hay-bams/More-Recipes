@@ -36,7 +36,7 @@ class UserController {
 
       if (!isEmail(req.body.email)) {
         return res.status(400).send({
-          sucess: 'false',
+          success: 'false',
           message: 'invalid email address'
         });
       }
@@ -73,7 +73,7 @@ class UserController {
     try {
       if (!isEmail(req.body.email)) {
         return res.status(400).send({
-          sucess: 'false',
+          success: 'false',
           message: 'invalid email address'
         });
       }

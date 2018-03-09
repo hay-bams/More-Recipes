@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
 import Loader from 'react-loader';
-import { getAllRecipes, searchRecipes } from '../actions/actions';
+import { getAllRecipes, searchRecipes } from '../actions/recipe';
 
 /**
  * @class RecipeCatalogue

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { getPopularRecipes } from '../actions/actions';
+import { getPopularRecipes } from '../actions/recipe';
 
 /**
  * @class RecipeCatalogue

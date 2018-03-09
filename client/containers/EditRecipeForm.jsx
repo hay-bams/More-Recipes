@@ -5,7 +5,7 @@ import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import PropTypes from 'prop-types';
 import Loader from 'react-loader';
-import { editRecipe, getSingleRecipe } from '../actions/actions';
+import { editRecipe, getSingleRecipe } from '../actions/recipe';
 import Authenticate from '../auth/auth';
 
 const dropZoneStyles = {

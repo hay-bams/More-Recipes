@@ -7,7 +7,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
-import { getFavouriteRecipes, deleteFavoriteRecipe } from '../actions/actions';
+import { getFavouriteRecipes, deleteFavoriteRecipe } from '../actions/recipe';
 
 /**
  * @class FavouriteRecipes

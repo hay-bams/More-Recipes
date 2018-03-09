@@ -81,7 +81,6 @@ describe('User actions', () => {
         type: APPCONSTANT.EDIT_USER_PROFILE,
         payload: updatedUserData
       };
-      // console.log(expectedAction)
       const newUser = {
         firstName: 'Ayobami'
       };

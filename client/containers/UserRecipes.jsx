@@ -6,7 +6,7 @@ import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { getUserRecipes, deleteRecipe } from '../actions/actions';
+import { getUserRecipes, deleteRecipe } from '../actions/recipe';
 
 /**
  * @class Recipes
