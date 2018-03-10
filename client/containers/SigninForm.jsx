@@ -9,17 +9,20 @@ import Authenticate from '../auth/auth';
 /**
  * @class Signin
  */
-class SigninForm extends React.Component {
+export class SigninForm extends React.Component {
   /**
    * Initialize component state
    * @param {obj} props component props
    */
   constructor(props) {
     super(props);
-
     this.signin = this.signin.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.state = {
-      errors: {}
+      email: '',
+      password: '',
+      emailError: '',
+      passwordError: ''
     };
   }
 
@@ -34,6 +37,16 @@ class SigninForm extends React.Component {
   }
 
   /**
+  *
+  * @param {obj} event
+  * @returns {void} onChange
+  */
+  onChange(event) {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  /**
    * Execute when component updates
    * @param {obj} event event object
    * @returns {null} null
@@ -41,26 +54,23 @@ class SigninForm extends React.Component {
   signin(event) {
     event.preventDefault();
     const user = {
-      email: event.target.email.value,
-      password: event.target.password.value
+      email: this.state.email,
+      password: this.state.password
     };
-    let errors = Authenticate.validateUserSignin(user);
+    const errors = Authenticate.validateUserSignin(user);
 
     if (errors.email !== '' || errors.password !== '') {
-      return this.setState({ errors });
+      return this.setState({
+        emailError: errors.email, passwordError: errors.password
+      });
     }
-
     this.props.signin(user);
-
-    errors = {};
-    this.setState({ errors });
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { errors } = this.state;
     return (
       <div className="container-fluid main-login-container">
         <div className="row main-login overlay">
@@ -78,10 +88,11 @@ class SigninForm extends React.Component {
                       name="email"
                       className="form-control"
                       placeholder="Enter Email"
+                      onChange={this.onChange}
                     />
-                    { errors.email &&
+                    { this.state.emailError &&
                     <span className="help-block error text-danger">
-                      {errors.email}
+                      {this.state.emailError}
                     </span>
                     }
                   </div>
@@ -92,11 +103,14 @@ class SigninForm extends React.Component {
                       name="password"
                       className="form-control"
                       placeholder="Enter Password"
+                      onChange={this.onChange}
                     />
                   </div>
-                  {errors.password &&
-                  <span className="error error text-danger">{errors.password}</span>
-                      }
+                  {this.state.passwordError &&
+                    <span className="error error text-danger">
+                      {this.state.passwordError}
+                    </span>
+                  }
 
                   <div className="form-group">
                     <input type="checkbox" name="checkbox" />
@@ -135,7 +149,7 @@ class SigninForm extends React.Component {
 
 SigninForm.defaultProps = {
   userData: {},
-  redirectUser: {}
+  redirectUser: {},
 };
 
 SigninForm.propTypes = {
@@ -160,4 +174,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({ signin }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigninForm);
+const ConnectedSigninForm =
+connect(mapStateToProps, mapDispatchToProps)(SigninForm);
+
+export default ConnectedSigninForm;

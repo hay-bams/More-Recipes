@@ -93,7 +93,6 @@ class EditRecipeForm extends React.Component {
       });
       this.setState({ image: response.data.secure_url });
       return Promise.resolve(response.data.secure_url);
-      // return response.data.secure_url;
     } catch (err) {
       return Promise.reject(err);
     }

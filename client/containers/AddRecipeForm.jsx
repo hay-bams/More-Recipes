@@ -15,6 +15,7 @@ const dropZoneStyles = {
 
 /**
  * @class AddRecipeForm
+ * 
  */
 class AddRecipeForm extends React.Component {
   /**

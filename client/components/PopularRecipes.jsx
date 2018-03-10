@@ -12,7 +12,7 @@ const PopularRecipes = () => (
     <div className="row popular-content">
       <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
         <div className="card recipe-card" style={{ border: 'none' }}>
-        <h4 className="card-header headerColor text-center">Recipe name</h4>
+          <h4 className="card-header headerColor text-center">Recipe name</h4>
           <img
             className="card-img-top img-fluid"
             src="images/recipe5.jpg"
@@ -39,9 +39,9 @@ const PopularRecipes = () => (
         </div>
       </div>
 
-       <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
         <div className="card recipe-card" style={{ border: 'none' }}>
-        <h4 className="card-header headerColor text-center text-center">Recipe name</h4>
+          <h4 className="card-header headerColor text-center text-center">Recipe name</h4>
           <img
             className="card-img-top img-fluid"
             src="images/recipe5.jpg"
@@ -68,9 +68,9 @@ const PopularRecipes = () => (
         </div>
       </div>
 
-       <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
         <div className="card recipe-card" style={{ border: 'none' }}>
-        <h4 className="card-header headerColor text-center">Recipe name</h4>
+          <h4 className="card-header headerColor text-center">Recipe name</h4>
           <img
             className="card-img-top img-fluid"
             src="images/recipe5.jpg"
@@ -97,9 +97,9 @@ const PopularRecipes = () => (
         </div>
       </div>
 
-       <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
+      <div className="col-12 col-sm-6 col-md-4 col-lg-3 recipes">
         <div className="card recipe-card" style={{ border: 'none' }}>
-        <h4 className="card-header headerColor text-center">Recipe name</h4>
+          <h4 className="card-header headerColor text-center">Recipe name</h4>
           <img
             className="card-img-top img-fluid"
             src="images/recipe5.jpg"
