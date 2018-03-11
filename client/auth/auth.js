@@ -47,7 +47,7 @@ class Authenticate {
   }
 
 
-    /**
+  /**
    *@returns {obj} validateUserProfile
    * @param {obj} user
    */
@@ -74,20 +74,21 @@ class Authenticate {
   }
 
 
-     /**
+  /**
    *@returns {obj} validatePassword
    * @param {obj} user
+   * @param {string} confirmPassword
    */
   validatePassword(user, confirmPassword) {
     this.errors = {
-     password: '',
-     confirmPassword: ''
+      password: '',
+      confirmPassword: ''
     };
 
     if (!user.password) {
       this.errors.password = 'please enter your password';
     }
-    
+
     if (user.password !== confirmPassword) {
       this.errors.confirmPassword = 'password should match';
     }
@@ -140,7 +141,7 @@ class Authenticate {
     if (!recipe.instructions) {
       this.errors.instructions = 'please enter recipe instructions';
     }
-    
+
     return this.errors;
   }
 

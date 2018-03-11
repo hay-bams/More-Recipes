@@ -23,7 +23,7 @@ describe('Signin component', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('it should render error for invalid email form submission', () => {
+  test('it should render error for invalid email in form submission', () => {
     const wrapper = shallow(<SigninForm {...props} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
@@ -31,7 +31,7 @@ describe('Signin component', () => {
     expect(wrapper.state('emailError').length).toBeGreaterThan(0);
   });
 
-  test('it should render error for invalid password form submission', () => {
+  test('it should render error for empty password in form submission', () => {
     const wrapper = shallow(<SigninForm {...props} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}

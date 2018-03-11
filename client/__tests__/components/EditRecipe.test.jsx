@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moxios from 'moxios';
-import { AddRecipeForm } from '../../containers/AddRecipeForm';
+import { EditRecipeForm } from '../../containers/EditRecipeForm';
 
 describe('', () => {
   beforeEach(() => {
@@ -12,20 +12,33 @@ describe('', () => {
   });
 
   const props = {
-    addRecipe: jest.fn(() => Promise.resolve()),
+    editRecipe: jest.fn(() => Promise.resolve()),
+    getSingleRecipe: jest.fn(),
+    recipe: {
+      id: 1,
+      title: 'title',
+      image: 'image',
+      instructions: 'instructions',
+      ingredients: 'ingredients',
+    },
     history: {
       push: jest.fn()
+    },
+    match: {
+      params: {
+        id: '1'
+      }
     }
   };
 
-  test('it should render AddRecipe form', () => {
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+  test('it should render EditRecipe form', () => {
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     expect(wrapper.find('form').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
 
   test('it should render error for empty ingredient in form submission', () => {
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -33,7 +46,7 @@ describe('', () => {
   });
 
   test('should render error for empty instructions in form submission', () => {
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -41,7 +54,7 @@ describe('', () => {
   });
 
   test('it should render error for empty title in form submission', () => {
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -51,7 +64,7 @@ describe('', () => {
   test('should set title state on input change', () => {
     const value = 'rice';
     const name = 'title';
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('input').at(0).simulate('change', {
       target: { name, value },
       preventDefault: () => {}
@@ -62,7 +75,7 @@ describe('', () => {
   test('should set ingredient state on input change', () => {
     const value = 'salt';
     const name = 'ingredient';
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('input').at(0).simulate('change', {
       target: { name, value },
       preventDefault: () => {}
@@ -73,7 +86,7 @@ describe('', () => {
   test('should set instruction state on input change', () => {
     const value = 'how to cook rice';
     const name = 'instruction';
-    const wrapper = shallow(<AddRecipeForm {...props} />);
+    const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.find('textarea').simulate('change', {
       target: { name, value },
       preventDefault: () => {}
@@ -81,7 +94,12 @@ describe('', () => {
     expect(wrapper.state('instruction')).toBe(value);
   });
 
-  // test('should call addRecipe prop for valid form submission', () => {
+  test('should check that componentWillMount is defined', () => {
+    const wrapper = shallow(<EditRecipeForm {...props} />);
+    expect(wrapper.instance().componentWillMount).toBeTruthy();
+  });
+
+  // test('should call editRecipe prop for valid form submission', () => {
   //   const response = {
   //     secure_url: 'image_url'
   //   };
@@ -101,7 +119,7 @@ describe('', () => {
   //     image: 'image_url'
   //   };
 
-  //   const wrapper = shallow(<AddRecipeForm {...props} />);
+  //   const wrapper = shallow(<EditRecipeForm {...props} />);
   //   wrapper.instance().setState({
   //     title: 'title',
   //     ingredients: 'ingredients',
@@ -112,7 +130,7 @@ describe('', () => {
   //     preventDefault: () => {}
   //   });
 
-  //  expect(props.addRecipe).toHaveBeenLastCalledWith(recipe);
+  //  expect(props.editRecipe).toHaveBeenLastCalledWith(recipe);
   // //  expect(props.addRecipe).toHaveBeenLastCalledWith(recipe)
   // });
 });

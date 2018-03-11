@@ -16,7 +16,7 @@ const dropZoneStyles = {
 /**
  * @class EditRecipeForm
  */
-class EditRecipeForm extends React.Component {
+export class EditRecipeForm extends React.Component {
   /**
    * @param {obj} props
    * @returns {void} constructor
@@ -28,14 +28,16 @@ class EditRecipeForm extends React.Component {
     this.uploadImageToCloudinary = this.uploadImageToCloudinary.bind(this);
     this.handleDrop = this.handleDrop.bind(this);
     this.state = {
-      errors: {},
       image: null,
       title: '',
       instructions: '',
       ingredients: '',
       loaded: true,
       uploadError: null,
-      imagePath: null
+      imagePath: null,
+      titleError: '',
+      ingredientError: '',
+      instructionError: ''
     };
   }
 
@@ -76,7 +78,7 @@ class EditRecipeForm extends React.Component {
    */
   async uploadImageToCloudinary() {
     try {
-      if (this.state.imagePath !== null) {
+      if (this.state.image === null) {
         return this.state.imagePath;
       }
       const imageFile = this.state.image;
@@ -115,7 +117,11 @@ class EditRecipeForm extends React.Component {
 
       if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
-        return this.setState({ errors });
+        return this.setState({
+          titleError: errors.title,
+          ingredientError: errors.ingredients,
+          instructionError: errors.instructions
+        });
       }
 
       this.setState({ loaded: false });
@@ -143,7 +149,7 @@ class EditRecipeForm extends React.Component {
    * @returns {obj} render
    */
   render() {
-    const { errors, uploadError } = this.state;
+    const { uploadError } = this.state;
     return (
       <div className="main-userboard-body add-recipe-body">
         <div className="container">
@@ -180,9 +186,9 @@ class EditRecipeForm extends React.Component {
                     value={this.state.title}
                     onChange={this.onChange}
                   />
-                  { errors.title &&
+                  { this.state.titleError &&
                   <span className="help-block text-danger error">
-                    {errors.title}
+                    {this.state.titleError}
                   </span>
                     }
                 </div>
@@ -197,9 +203,9 @@ class EditRecipeForm extends React.Component {
                     value={this.state.ingredients}
                     onChange={this.onChange}
                   />
-                  { errors.ingredients &&
+                  { this.state.ingredientError &&
                     <span className="help-block text-danger error">
-                      {errors.ingredients}
+                      {this.state.ingredientError}
                     </span>
                     }
                 </div>
@@ -214,9 +220,9 @@ class EditRecipeForm extends React.Component {
                     value={this.state.instructions}
                     onChange={this.onChange}
                   />
-                  { errors.instructions &&
+                  { this.state.instructionError &&
                   <span className="help-block text-danger error">
-                    {errors.instructions}
+                    {this.state.instructionError}
                   </span>
                     }
                 </div>
@@ -269,16 +275,11 @@ EditRecipeForm.propTypes = {
   editRecipe: PropTypes.func,
   getSingleRecipe: PropTypes.func.isRequired,
   recipe: PropTypes.shape({
-    upvotes: PropTypes.number,
-    downvotes: PropTypes.number,
     id: PropTypes.number,
     title: PropTypes.string,
     image: PropTypes.string,
     instructions: PropTypes.string,
     ingredients: PropTypes.string,
-    userId: PropTypes.number,
-    createdAt: PropTypes.string,
-    updatedAt: PropTypes.string
   }).isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -299,4 +300,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators({ editRecipe, getSingleRecipe }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditRecipeForm);
+const ConnectedEditRecipeForm =
+   connect(mapStateToProps, mapDispatchToProps)(EditRecipeForm);
+
+export default ConnectedEditRecipeForm;

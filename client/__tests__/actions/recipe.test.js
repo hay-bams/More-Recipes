@@ -19,29 +19,32 @@ describe('All actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('Add Recipe', () => {
-    test('Should dispatch addRecipe action when addRecipe is called', async () => {
-      moxios.stubRequest('http://localhost:8000/api/v1/recipes', {
-        status: 201,
-        response: recipeResponse
-      });
-      localStorage.userData = JSON.stringify({
-        token: 'some_token'
-      });
-      const store = mockStore({});
+    test(
+      'Should dispatch addRecipe action when addRecipe is called',
+      async () => {
+        moxios.stubRequest('http://localhost:8000/api/v1/recipes', {
+          status: 201,
+          response: recipeResponse
+        });
+        localStorage.userData = JSON.stringify({
+          token: 'some_token'
+        }); 
+        const store = mockStore({});
 
-      const expectedAction = {
-        type: APPCONSTANT.ADD_RECIPE,
-        payload: recipeResponse
-      };
+        const expectedAction = {
+          type: APPCONSTANT.ADD_RECIPE,
+          payload: recipeResponse
+        };
 
-      await store.dispatch(addRecipe({
-        title: 'title',
-        image: 'image',
-        instructions: 'instructiona',
-        ingredients: 'ingredeints'
-      }));
-      expect(store.getActions()[0]).toEqual(expectedAction);
-    });
+        await store.dispatch(addRecipe({
+          title: 'title',
+          image: 'image',
+          instructions: 'instructiona',
+          ingredients: 'ingredeints'
+        }));
+        expect(store.getActions()[0]).toEqual(expectedAction);
+      }
+    );
   });
 
   describe('Get all recipes', () => {

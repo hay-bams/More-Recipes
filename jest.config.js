@@ -3,8 +3,9 @@ module.exports = {
   globals: {
     localStorage: {
       setItem: (() => {}),
+      getItem: (() => {}),
       clearItem: (() => {}),
-      removeItem: (() => {})
+      removeItem: (() => {}),
     },
     window: {
       location: {
@@ -13,11 +14,12 @@ module.exports = {
     },
     toastr: {
       success() {},
-      error() {}
+      error() {},
+      warning() {}
     }
   },
   setupFiles: [
-    '<rootDir>/client/__tests__/setupTests.js'
+    '<rootDir>/client/__tests__/setupTests.js',
   ],
   snapshotSerializers: [
     'enzyme-to-json/serializer'

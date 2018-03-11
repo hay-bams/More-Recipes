@@ -6,7 +6,6 @@ import { Navigation } from '../../components/Navigation';
 describe('Navigation', () => {
   test('should render Navigation correctly', () => {
     const wrapper = shallow(<Navigation location={{}} />);
-    // expect(wrapper.find('header').length).toBe(1);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render AddReview form 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row review-form"
+  >
+    <div
+      className="col-lg-6"
+    >
+      <h4>
+        Add Review
+      </h4>
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="form-group"
+        >
+          <textarea
+            className="form-control"
+            name="review"
+            onChange={[Function]}
+            value=""
+          />
+        </div>
+        <div
+          className="form-group"
+        >
+          <input
+            className="btn btn-success"
+            type="submit"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

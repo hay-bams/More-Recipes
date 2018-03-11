@@ -15,9 +15,9 @@ const dropZoneStyles = {
 
 /**
  * @class AddRecipeForm
- * 
+ *
  */
-class AddRecipeForm extends React.Component {
+export class AddRecipeForm extends React.Component {
   /**
    * @param {obj} event
    * @returns {void} clearForm
@@ -39,11 +39,13 @@ class AddRecipeForm extends React.Component {
     this.handleDrop = this.handleDrop.bind(this);
     this.onChange = this.onChange.bind(this);
     this.state = {
-      errors: {},
       imageURI: null,
       image: null,
       loaded: true,
-      uploadError: null
+      uploadError: null,
+      ingredientError: '',
+      titleError: '',
+      instructionError: ''
     };
   }
 
@@ -84,7 +86,6 @@ class AddRecipeForm extends React.Component {
         data: formData
       });
       return Promise.resolve(response.data.secure_url);
-      // return response.data.secure_url;
     } catch (err) {
       return Promise.reject(err);
     }
@@ -107,21 +108,24 @@ class AddRecipeForm extends React.Component {
 
       if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
-        return this.setState({ errors });
+        return this.setState({
+          ingredientError: errors.ingredients,
+          titleError: errors.title,
+          instructionError: errors.instructions
+        });
       }
       this.setState({ loaded: false });
-
       const imageURI = await this.uploadImageToCloudinary();
+      
       recipe = {
         title: this.state.title,
         ingredients: this.state.ingredients,
         instructions: this.state.instructions,
         image: imageURI
       };
-
       await this.props.addRecipe(recipe);
+     
       this.props.history.push('/view_recipes');
-
       errors = {};
       this.setState({ errors });
     } catch (err) {
@@ -139,7 +143,7 @@ class AddRecipeForm extends React.Component {
     if (this.state.image) {
       imageSource = this.state.image.preview;
     }
-    const { errors, uploadError } = this.state;
+    const { uploadError } = this.state;
     return (
       <div className="main-userboard-body add-recipe-body">
         <div className="container">
@@ -187,9 +191,9 @@ class AddRecipeForm extends React.Component {
                     className="form-control form-control-lg"
                     placeholder="Enter Recipe name"
                   />
-                  { errors.title &&
+                  { this.state.titleError &&
                   <span className="help-block error text-danger">
-                    {errors.title}
+                    {this.state.titleError}
                   </span>
                     }
                 </div>
@@ -204,9 +208,9 @@ class AddRecipeForm extends React.Component {
                     placeholder="Enter Ingredients"
                     id="ingredients"
                   />
-                  { errors.ingredients &&
+                  { this.state.ingredientError &&
                     <span className="help-block error text-danger">
-                      {errors.ingredients}
+                      { this.state.ingredientError}
                     </span>
                     }
                 </div>
@@ -220,9 +224,9 @@ class AddRecipeForm extends React.Component {
                     name="instructions"
                     id="instructions"
                   />
-                  { errors.instructions &&
+                  { this.state.instructionError &&
                   <span className="help-block error text-danger">
-                    {errors.instructions}
+                    { this.state.instructionError}
                   </span>
                     }
                 </div>
@@ -284,5 +288,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ addRecipe }, dispatch);
 
+const ConnectedAddRecipeForm =
+  connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddRecipeForm);
+export default ConnectedAddRecipeForm;

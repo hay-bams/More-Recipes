@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.98% </span>
+        <span class="strong">62.15% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>131/208</span>
+        <span class='fraction'>133/214</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">6.76% </span>
+        <span class="strong">12.2% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/74</span>
+        <span class='fraction'>10/82</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>22/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.98% </span>
+        <span class="strong">62.15% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>131/208</span>
+        <span class='fraction'>133/214</span>
       </div>
     </div>
   </div>
@@ -615,7 +615,28 @@
 570
 571
 572
-573</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+573
+574
+575
+576
+577
+578
+579
+580
+581
+582
+583
+584
+585
+586
+587
+588
+589
+590
+591
+592
+593
+594</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -651,8 +672,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -663,8 +694,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1222,9 +1264,19 @@ export const addRecipe = async (recipeObject) =&gt; {
   }
 };
 &nbsp;
-export const getAllRecipes = async (page) =&gt; {
-  const response = await axios.get(`${host}/api/v1/recipes?page=${page}`);
-  // console.log(response);
+export const getAllRecipes = async (sort, order, page) =&gt; {
+  let response;
+  <span class="missing-if-branch" title="if path not taken" >I</span>if (!sort &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >!order)</span> {
+<span class="cstat-no" title="statement not covered" >    response = await axios.get(`${host}/api/v1/recipes?page=${page}`);</span>
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      type: APPCONSTANT.GET_ALL_RECIPES,
+      payload: {
+        recipes: response.data,
+        pages: response.data.pages
+      },
+    };
+  }
+  response = await axios.get(`${host}/api/v1/recipes?sort=${sort}&amp;order=${order}&amp;page=${page}`);
   return {
     type: APPCONSTANT.GET_ALL_RECIPES,
     payload: {
@@ -1234,9 +1286,20 @@ export const getAllRecipes = async (page) =&gt; {
   };
 };
 &nbsp;
-export const searchRecipes = async (page, search) =&gt; {
-  const response = await axios.get(`${host}/api/v1/search/recipes?search=${search}&amp;page=${page}`);
-  return {
+export const searchRecipes = async (page, search, sort, order) =&gt; {
+  let response;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (!sort &amp;&amp; !order) {
+    response = await axios.get(`${host}/api/v1/search/recipes?search=${search}&amp;page=${page}`);
+    return {
+      type: APPCONSTANT.SEARCH_RECIPES,
+      payload: {
+        recipes: response.data,
+        pages: response.data.pages
+      },
+    };
+  }
+<span class="cstat-no" title="statement not covered" >  response = await axios.get(`${host}/api/v1/search/recipes?sort=${sort}&amp;order=${order}&amp;search=${search}&amp;page=${page}`);</span>
+<span class="cstat-no" title="statement not covered" >  return {</span>
     type: APPCONSTANT.SEARCH_RECIPES,
     payload: {
       recipes: response.data,
@@ -1765,7 +1828,7 @@ export const signout = async () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 07 2018 15:11:14 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sun Mar 11 2018 01:17:22 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../prettify.js"></script>
