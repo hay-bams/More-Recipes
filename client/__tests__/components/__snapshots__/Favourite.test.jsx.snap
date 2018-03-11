@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it should render Favourites correctly 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm"
+      >
+        <h2
+          className="text-center catalogue"
+        >
+          My Favorite Recipes
+        </h2>
+        <h3
+          className="text-center"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
+        key="1"
+      >
+        <div
+          className="card recipe-card"
+          style={
+            Object {
+              "border": "none",
+            }
+          }
+        >
+          <img
+            alt="Card  cap"
+            className="card-img-top img-fluid img-recipe"
+            src="image"
+            style={
+              Object {
+                "height": "200px",
+              }
+            }
+          />
+          <div
+            className="card-body mx-auto"
+          >
+            <h4
+              className="card-title text-center"
+            >
+              titlw
+            </h4>
+            <p
+              className="card-text"
+            >
+              <span
+                className="row"
+              >
+                <span
+                  className="text-success"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-thumbs-up col-4"
+                  />
+                  0
+                </span>
+                <span
+                  className="text-info"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-eye text-info col-4"
+                  />
+                   
+                </span>
+                <span
+                  className="text-danger"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-thumbs-down col-4"
+                  />
+                  0
+                </span>
+              </span>
+            </p>
+            <Link
+              className="btn btn-outline-info"
+              replace={false}
+              style={
+                Object {
+                  "marginLeft": "5px",
+                }
+              }
+              to="/details/1"
+            >
+              View
+            </Link>
+            <button
+              className="btn btn-outline-info ml-2"
+              id={1}
+              onClick={[Function]}
+            >
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-8 ml-auto"
+      >
+        <PaginationBoxView
+          activeClassName="active"
+          breakClassName="page-link"
+          breakLabel={
+            <a
+              href=""
+            >
+              ...
+            </a>
+          }
+          containerClassName="pagination pagination-md"
+          disableInitialCallback={false}
+          disabledClassName="disabled"
+          marginPagesDisplayed={3}
+          nextClassName="page-item"
+          nextLabel="Next"
+          nextLinkClassName="page-link"
+          onPageChange={[Function]}
+          pageClassName="page-item"
+          pageCount={1}
+          pageLinkClassName="page-link"
+          pageRangeDisplayed={2}
+          previousClassName="page-item"
+          previousLabel="Previous"
+          previousLinkClassName="page-link"
+          subContainerClassName="pages pagination"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`it should render correctly if there are no favourites 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm"
+      >
+        <h2
+          className="text-center catalogue"
+        >
+          My Favorite Recipes
+        </h2>
+        <h3
+          className="text-center"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="mx-auto"
+      >
+        <p
+          className="text-center"
+        >
+          You do not have any favorite recipe at the moment.
+        </p>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-md-8 ml-auto"
+      />
+    </div>
+  </div>
+</div>
+`;

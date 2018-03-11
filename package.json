@@ -18,7 +18,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "test:client": "jest --config=jest.config.js  --watch"
+    "test:client": "jest --config=jest.config.js  --coverage"
   },
   "engines": {
     "node": "8.9.1",
@@ -100,7 +100,8 @@
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.1"
+    "enzyme-to-json": "^3.3.1",
+    "sinon": "^4.4.2"
   },
   "babel": {
     "presets": [

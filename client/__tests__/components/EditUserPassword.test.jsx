@@ -13,7 +13,7 @@ describe('', () => {
     }
   };
 
-  test('it should render EditRecipe form', () => {
+  test('it should render EditUserPasswordForm correctly', () => {
     const wrapper = shallow(<EditUserPasswordForm {...props} />);
     expect(wrapper.find('form').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
@@ -21,11 +21,30 @@ describe('', () => {
 
   test('it should render error for empty password in form submission', () => {
     const wrapper = shallow(<EditUserPasswordForm {...props} />);
+    wrapper.instance().setState({
+      password: '',
+      confirmPassword: 'password'
+    });
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
     expect(wrapper.state('passwordError').length).toBeGreaterThan(0);
   });
+
+  test(
+    'it should render error for empty confirmPassword in form submission',
+    () => {
+      const wrapper = shallow(<EditUserPasswordForm {...props} />);
+      wrapper.instance().setState({
+        password: 'password',
+        confirmPassword: ''
+      });
+      wrapper.find('form').simulate('submit', {
+        preventDefault: () => {}
+      });
+      expect(wrapper.state('passwordMatchError').length).toBeGreaterThan(0);
+    }
+  );
 
   test('should set password state on input change', () => {
     const value = 'password';

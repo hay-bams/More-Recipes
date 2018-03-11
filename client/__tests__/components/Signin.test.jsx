@@ -17,7 +17,7 @@ describe('Signin component', () => {
     }
   };
 
-  test('it should render signin form', () => {
+  test('it should render signinForm correctly', () => {
     const wrapper = shallow(<SigninForm {...props} />);
     expect(wrapper.find('form').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();

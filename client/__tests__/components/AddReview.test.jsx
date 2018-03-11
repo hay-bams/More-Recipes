@@ -15,7 +15,7 @@ describe('', () => {
     }
   };
 
-  test('it should render AddReview form', () => {
+  test('it should render AddReviewForm correctly', () => {
     const wrapper = shallow(<AddReview {...props} />);
     expect(wrapper.find('form').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
@@ -23,6 +23,10 @@ describe('', () => {
 
   test('it should render error for empty review in form submission', () => {
     const wrapper = shallow(<AddReview {...props} />);
+    wrapper.instance().setState({
+      review: ''
+    });
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });

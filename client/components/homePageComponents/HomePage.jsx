@@ -1,14 +1,14 @@
 import React from 'react';
 import HomePageheader from './HomePageHeader';
-import LatestRecipes from '../../containers/LatestRecipes';
-import PopularRecipes from '../../containers/PopularRecipes';
+import ConnectedLatestRecipes from '../../containers/LatestRecipes';
+import ConnectedPopularRecipes from '../../containers/PopularRecipes';
 import Footer from '../Footer';
 
 const HomePage = props => (
   <div>
     <HomePageheader {...props}/>
-    <LatestRecipes />
-    <PopularRecipes />
+    <ConnectedLatestRecipes />
+    <ConnectedPopularRecipes />
     <Footer />
   </div>
 );

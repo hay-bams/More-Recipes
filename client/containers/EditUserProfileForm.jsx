@@ -9,7 +9,7 @@ import Authenticate from '../auth/auth';
 /**
  * @class EditRecipeForm
  */
-class EditUserProfileForm extends React.Component {
+export class EditUserProfileForm extends React.Component {
   /**
    * @param {obj} props
    * @returns {void} constructor
@@ -19,11 +19,12 @@ class EditUserProfileForm extends React.Component {
     this.editProfile = this.editProfile.bind(this);
     this.onChange = this.onChange.bind(this);
     this.state = {
-      errors: {},
-      user: {},
       firstName: '',
       lastName: '',
       email: '',
+      firstNameError: '',
+      lastNameError: '',
+      emailError: ''
     };
   }
 
@@ -32,7 +33,6 @@ class EditUserProfileForm extends React.Component {
    */
   componentWillMount() {
     const { user } = this.props.userData;
-    this.setState({ user });
     this.setState({ firstName: user.firstName });
     this.setState({ lastName: user.lastName });
     this.setState({ email: user.email });
@@ -53,28 +53,34 @@ class EditUserProfileForm extends React.Component {
   editProfile(event) {
     event.preventDefault();
     const user = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      email: event.target.email.value
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email
     };
 
-    let errors = Authenticate.validateUserProfile(user);
+    const errors = Authenticate.validateUserProfile(user);
 
     if (errors.email !== '' || errors.firstName !== ''
       || errors.lastName !== '') {
-      return this.setState({ errors });
+      return this.setState({
+        firstNameError: errors.firstName,
+        lastNameError: errors.lastName,
+        emailError: errors.email
+      });
     }
     this.props.editUserProfile(user, this.props.match.params.id);
-    errors = {};
-    this.setState({ errors });
+
+    this.setState({
+      firstNameError: '',
+      lastNameError: '',
+      emailError: ''
+    });
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { errors } = this.state;
-    const { user } = this.state;
     return (
       <div className="container-fluid main-register-container">
         <div className="row overlay">
@@ -95,9 +101,9 @@ class EditUserProfileForm extends React.Component {
                       value={this.state.firstName}
                       onChange={this.onChange}
                     />
-                    { errors.firstName &&
+                    { this.state.firstNameError &&
                     <span className="help-block error text-danger">
-                      {errors.firstName}
+                      {this.state.firstNameError}
                     </span>
                       }
                   </div>
@@ -111,9 +117,9 @@ class EditUserProfileForm extends React.Component {
                       value={this.state.lastName}
                       onChange={this.onChange}
                     />
-                    { errors.lastName &&
+                    { this.state.lastNameError &&
                     <span className="help-block error text-danger">
-                      {errors.lastName}
+                      {this.state.lastNameError}
                     </span>
                       }
                   </div>
@@ -127,9 +133,9 @@ class EditUserProfileForm extends React.Component {
                       value={this.state.email}
                       onChange={this.onChange}
                     />
-                    { errors.email &&
+                    { this.state.emailError &&
                     <span className="help-block error text-danger">
-                      {errors.email}
+                      {this.state.emailError}
                     </span>
                       }
                   </div>
@@ -185,5 +191,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ editUserProfile }, dispatch);
 
+const ConnectedEditUserProfileForm =
+  connect(mapStateToProps, mapDispatchToProps)(EditUserProfileForm);
 
-export default connect(mapStateToProps, mapDispatchToProps)(EditUserProfileForm);
+
+export default ConnectedEditUserProfileForm;

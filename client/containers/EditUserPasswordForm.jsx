@@ -52,6 +52,10 @@ export class EditUserPasswordForm extends React.Component {
       });
     }
     this.props.editUserPassword(user, this.props.match.params.id);
+    this.setState({
+      passwordError: '',
+      passwordMatchError: ''
+    });
   }
 
   /**

@@ -18,7 +18,7 @@ describe('', () => {
     }
   };
 
-  test('it should render AddRecipe form', () => {
+  test('it should render AddRecipeForm correctly', () => {
     const wrapper = shallow(<AddRecipeForm {...props} />);
     expect(wrapper.find('form').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
@@ -26,6 +26,12 @@ describe('', () => {
 
   test('it should render error for empty ingredient in form submission', () => {
     const wrapper = shallow(<AddRecipeForm {...props} />);
+    wrapper.instance().setState({
+      title: 'title',
+      ingredients: '',
+      instructions: 'instructions'
+    });
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -34,6 +40,12 @@ describe('', () => {
 
   test('should render error for empty instructions in form submission', () => {
     const wrapper = shallow(<AddRecipeForm {...props} />);
+    wrapper.instance().setState({
+      title: 'title',
+      ingredients: 'ingredients',
+      instructions: ''
+    });
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -42,6 +54,12 @@ describe('', () => {
 
   test('it should render error for empty title in form submission', () => {
     const wrapper = shallow(<AddRecipeForm {...props} />);
+    wrapper.instance().setState({
+      title: '',
+      ingredients: 'ingredients',
+      instructions: 'instructions'
+    });
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });

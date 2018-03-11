@@ -19,6 +19,7 @@ import EditUserPasswordPage from '../components/dashboard/EditUserPasswordPage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import '../css/custom.css';
 import '../js/script';
 

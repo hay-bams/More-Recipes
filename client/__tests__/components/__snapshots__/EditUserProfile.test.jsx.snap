@@ -1,14 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Signin component it should render signinForm correctly 1`] = `
+exports[`it should render EditUserProfile form correctly 1`] = `
 <div
-  className="container-fluid main-login-container"
+  className="container-fluid main-register-container"
 >
   <div
-    className="row main-login overlay"
+    className="row overlay"
   >
     <div
-      className="col-12 col-sm-8 col-md-5 mx-auto"
+      className="col-sm-8 col-md-5 mx-auto"
     >
       <div
         className="card  mt-5 card-form"
@@ -16,10 +16,15 @@ exports[`Signin component it should render signinForm correctly 1`] = `
         <div
           className="card-header text-center"
         >
-          Login
+          <h2
+            className="text-center"
+          >
+             Edit User Profile
+          </h2>
         </div>
+        <span />
         <div
-          className="card-body "
+          className="card-body"
         >
           <form
             onSubmit={[Function]}
@@ -29,10 +34,11 @@ exports[`Signin component it should render signinForm correctly 1`] = `
             >
               <input
                 className="form-control"
-                name="email"
+                name="firstName"
                 onChange={[Function]}
-                placeholder="Enter Email"
-                type="email"
+                placeholder="Enter First name"
+                type="text"
+                value="Ayobami"
               />
             </div>
             <div
@@ -40,20 +46,24 @@ exports[`Signin component it should render signinForm correctly 1`] = `
             >
               <input
                 className="form-control"
-                name="password"
+                name="lastName"
                 onChange={[Function]}
-                placeholder="Enter Password"
-                type="password"
+                placeholder="Enter Last name"
+                type="text"
+                value="Adelakun"
               />
             </div>
             <div
               className="form-group"
             >
               <input
-                name="checkbox"
-                type="checkbox"
+                className="form-control"
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter Email"
+                type="email"
+                value="testemail@gmail.com"
               />
-              Remember me
             </div>
             <div
               className="form-group"
@@ -61,26 +71,8 @@ exports[`Signin component it should render signinForm correctly 1`] = `
               <input
                 className="btn btn-success btn-block"
                 type="submit"
-                value="Log in"
+                value="Update Profile"
               />
-            </div>
-            <div
-              className="text-center"
-            >
-              <Link
-                className="d-block small mt-3"
-                replace={false}
-                to="/signup"
-              >
-                Register an Account
-              </Link>
-              <Link
-                className="d-block small"
-                replace={false}
-                to="/signin"
-              >
-                Forgot Password?
-              </Link>
             </div>
           </form>
         </div>

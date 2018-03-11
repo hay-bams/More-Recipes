@@ -114,7 +114,7 @@ export class EditRecipeForm extends React.Component {
       };
 
       let errors = Authenticate.validateAddRecipe(recipe);
-
+    
       if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
         return this.setState({
