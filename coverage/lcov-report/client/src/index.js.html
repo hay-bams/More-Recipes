@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for client/src/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">client/src</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/53</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from 'react';<span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ></span></span>
+import { render <span class="cstat-no" title="statement not covered" >} from 'react-dom';</span>
+import { BrowserRouter<span class="cstat-no" title="statement not covered" > as Router, Route, Switch } </span>from 'react-router-dom';
+import { crea<span class="cstat-no" title="statement not covered" >teStore, applyMid</span>dleware, compose } from 'redux';
+import { Provider <span class="cstat-no" title="statement not covered" >} from 'react-redux';</span>
+import ReduxPromise <span class="cstat-no" title="statement not covered" >from 'redux-promise';<span class="cstat-no" title="statement not covered" ></span></span>
+import allReducers <span class="cstat-no" title="statement not covered" >from '../reducers/allReducers';<span class="cstat-no" title="statement not covered" ></span></span>
+import HomePage <span class="cstat-no" title="statement not covered" >from '../components/homePageComponents/HomePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import CataloguePage <span class="cstat-no" title="statement not covered" >from '../components/catalogue/CataloguePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import DetailsPage <span class="cstat-no" title="statement not covered" >from '../components/details/DetailsPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import SigninPage <span class="cstat-no" title="statement not covered" >from '../components/signin/SigninPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import SignupPage <span class="cstat-no" title="statement not covered" >from '../components/signup/SignupPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import signoutPage <span class="cstat-no" title="statement not covered" >from '../components/SignoutPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import DashboardPage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/DashboardPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import AddRecipePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/AddRecipePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import EditRecipePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/EditRecipePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import EditUserProfilePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/EditUserProfilePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import EditUserPasswordPage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/EditUserPasswordPage';<span class="cstat-no" title="statement not covered" ></span></span>
+import ViewRecipePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/ViewRecipePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import FavouritePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/FavouritePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import UserProfilePage <span class="cstat-no" title="statement not covered" >from '../components/dashboard/UserProfilePage';<span class="cstat-no" title="statement not covered" ></span></span>
+import NotFound <span class="cstat-no" title="statement not covered" >from '../components/NotFound';<span class="cstat-no" title="statement not covered" ></span></span>
+<span class="cstat-no" title="statement not covered" >import 'react-confirm-alert/src/react-confirm-alert.css';</span>
+<span class="cstat-no" title="statement not covered" >import '../css/custom.css';</span>
+<span class="cstat-no" title="statement not covered" >import '../js/script';<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+&nbsp;
+const composeEnhancers <span class="cstat-no" title="statement not covered" >= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;</span>
+&nbsp;
+&nbsp;
+const getUserData <span class="cstat-no" title="statement not covered" >= JSON.parse(localStorage.getItem('userData')) || {</span>};
+&nbsp;
+let userData = <span class="cstat-no" title="statement not covered" >{};</span>
+<span class="cstat-no" title="statement not covered" >if (getUserData.user !== undefined &amp;&amp; getUserData.token !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >  userData = {</span>
+    user: getUserData.user,
+    token: getUserData.token
+  };
+}
+&nbsp;
+const createStoreWithMiddleware <span class="cstat-no" title="statement not covered" >= createStore(</span>
+  allReducers, { userData },
+  composeEnhancers(applyMiddleware(ReduxPromise))
+);
+&nbsp;
+&nbsp;
+const Root <span class="cstat-no" title="statement not covered" >= () =&gt; (<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ></span></span></span>
+  &lt;Router&gt;
+    &lt;div&gt;
+      &lt;Switch&gt;
+        &lt;Route exact path="/" component={HomePage} /&gt;
+        &lt;Route path="/catalogue" component={CataloguePage} /&gt;
+        &lt;Route path="/details/:id" component={DetailsPage} /&gt;
+        &lt;Route path="/signin" component={SigninPage} /&gt;
+        &lt;Route path="/signup" component={SignupPage} /&gt;
+        &lt;Route path="/signoutPage" component={signoutPage} /&gt;
+        &lt;Route exact path="/dashboard" component={DashboardPage} /&gt;
+        &lt;Route exact path="/add_recipe" component={AddRecipePage} /&gt;
+        &lt;Route exact path="/view_recipes" component={ViewRecipePage} /&gt;
+        &lt;Route exact path="/edit_recipes/:id" component={EditRecipePage} /&gt;
+        &lt;Route exact path="/edit_user/:id" component={EditUserProfilePage} /&gt;
+        &lt;Route exact path="/edit_password/:id" component={EditUserPasswordPage} /&gt;
+        &lt;Route exact path="/favourites" component={FavouritePage} /&gt;
+        &lt;Route exact path="/user_profile" component={UserProfilePage} /&gt;
+&nbsp;
+        &lt;Route render={NotFound} /&gt;
+      &lt;/Switch&gt;
+    &lt;/div&gt;
+  &lt;/Router&gt;
+);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >render(&lt;Provider store={createStoreWithMiddleware}&gt;&lt;Root /&gt;&lt;/Provider&gt;,</span>
+  document.querySelector('#mainContainer'));
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Mar 15 2018 17:06:20 GMT+0100 (WAT)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
