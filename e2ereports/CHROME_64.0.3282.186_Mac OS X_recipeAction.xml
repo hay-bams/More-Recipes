@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
             failures="0"
-            tests="15">
+            tests="19">
 
   <testsuite name="recipeAction"
     errors="0" failures="0" hostname="" id="" package="recipeAction" skipped="0"
-    tests="15" time="199.3" timestamp="Thu, 15 Mar 2018 06:58:39 GMT">
+    tests="19" time="167.5" timestamp="Thu, 15 Mar 2018 15:58:12 GMT">
   
-    <testcase name="Sign up a new user" classname="recipeAction" time="33.77" assertions="3">
+    <testcase name="Sign up a new user" classname="recipeAction" time="18.24" assertions="3">
 
     
 
@@ -16,59 +16,36 @@
     
     </testcase>
   
-    <testcase name="sign in" classname="recipeAction" time="10.56" assertions="2">
+    <testcase name="sign in" classname="recipeAction" time="5.512" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="View all recipes" classname="recipeAction" time="6.168" assertions="2">
+    <testcase name="View all recipes" classname="recipeAction" time="3.173" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Search recipes" classname="recipeAction" time="14.86" assertions="2">
+    <testcase name="Search recipes" classname="recipeAction" time="13.04" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Sort Recipe" classname="recipeAction" time="4.421" assertions="0">
-    </testcase>
-  
-    <testcase name="Order Recipe" classname="recipeAction" time="4.392" assertions="0">
-    </testcase>
-  
-    <testcase name="View single recipe" classname="recipeAction" time="8.203" assertions="3">
-
-    
-
-    
+    <testcase name="Sort Recipe" classname="recipeAction" time="3.446" assertions="1">
 
     
     </testcase>
   
-    <testcase name="upvote recipe" classname="recipeAction" time="6.122" assertions="2">
-
-    
-
-    
+    <testcase name="Order Recipe" classname="recipeAction" time="2.394" assertions="0">
     </testcase>
   
-    <testcase name="downvote recipe" classname="recipeAction" time="4.123" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="favourite a recipe" classname="recipeAction" time="4.152" assertions="4">
-
-    
+    <testcase name="View single recipe" classname="recipeAction" time="4.220" assertions="3">
 
     
 
@@ -77,14 +54,23 @@
     
     </testcase>
   
-    <testcase name="Add Recipe Action" classname="recipeAction" time="28.60" assertions="2">
+    <testcase name="upvote recipe" classname="recipeAction" time="3.112" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Favourite Recipe Action" classname="recipeAction" time="17.53" assertions="3">
+    <testcase name="downvote recipe" classname="recipeAction" time="3.122" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="favourite a recipe" classname="recipeAction" time="2.181" assertions="4">
+
+    
 
     
 
@@ -93,21 +79,69 @@
     
     </testcase>
   
-    <testcase name="Edit Recipe Action" classname="recipeAction" time="22.55" assertions="2">
+    <testcase name="Add review" classname="recipeAction" time="4.450" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Edit User Profile Action" classname="recipeAction" time="11.12" assertions="2">
+    <testcase name="Add Recipe Action" classname="recipeAction" time="23.26" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Edit Password" classname="recipeAction" time="22.74" assertions="2">
+    <testcase name="Favourite Recipe Action" classname="recipeAction" time="12.06" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit Recipe Action" classname="recipeAction" time="12.68" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit User Profile Action" classname="recipeAction" time="8.520" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit Password" classname="recipeAction" time="11.72" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="redirect unauthenticated user to signin page" classname="recipeAction" time="6.449" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="validate user input on sign up" classname="recipeAction" time="20.14" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="validate user input on sign in" classname="recipeAction" time="9.782" assertions="2">
 
     
 

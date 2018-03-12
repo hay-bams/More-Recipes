@@ -18,7 +18,7 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "test:client": "jest client/__tests__/**/** --watch",
+    "test:client": "jest client/__tests__/**/** --coverage --watch",
     "e2e": "./node_modules/.bin/nightwatch"
   },
   "engines": {
@@ -82,7 +82,7 @@
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
     "nyc": "^11.2.1",
-    "pg": "^7.3.0",
+    "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",

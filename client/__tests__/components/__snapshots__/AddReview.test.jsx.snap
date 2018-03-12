@@ -21,6 +21,7 @@ exports[`Add Review Component it should render AddReviewForm correctly 1`] = `
         >
           <textarea
             className="form-control"
+            id="review"
             name="review"
             onChange={[Function]}
             value=""
@@ -31,6 +32,7 @@ exports[`Add Review Component it should render AddReviewForm correctly 1`] = `
         >
           <input
             className="btn btn-success"
+            id="addReview"
             type="submit"
           />
         </div>
