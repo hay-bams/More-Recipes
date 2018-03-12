@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moxios from 'moxios';
+import sinon from 'sinon';
 import { EditRecipeForm } from '../../containers/EditRecipeForm';
 
-describe('', () => {
+describe('Edit Recipe Component', () => {
   beforeEach(() => {
     moxios.install();
   });
@@ -12,7 +13,7 @@ describe('', () => {
   });
 
   const props = {
-    editRecipe: jest.fn(() => Promise.resolve()),
+    editRecipe: jest.fn(() => Promise.resolve()), 
     getSingleRecipe: jest.fn(),
     recipe: {
       id: 1,
@@ -112,44 +113,76 @@ describe('', () => {
     expect(wrapper.state('instruction')).toBe(value);
   });
 
-  test('should check that componentWillMount is defined', () => {
-    const wrapper = shallow(<EditRecipeForm {...props} />);
-    expect(wrapper.instance().componentWillMount).toBeTruthy();
+  test('should set uploaded files to state', () => {
+    const files = [
+      {
+        name: 'file1',
+        url: 'url'
+      }
+    ];
+    const wrapper = shallow(<EditRecipeForm
+      {...props}
+    />);
+    wrapper.instance().handleDrop(files);
+    expect(wrapper.instance().state.image).toEqual({
+        name: 'file1', url: 'url'
+    });
   });
 
-  // test('should call editRecipe prop for valid form submission', () => {
-  //   const response = {
-  //     secure_url: 'image_url'
-  //   };
+  test('should call editRecipe for valid form submission', () => {
+    const response = {
+      secure_url: 'image_url'
+    };
 
-  //   moxios.stubRequest(
-  //     'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload',
-  //     {
-  //       status: 200,
-  //       response
-  //     }
-  //   );
+    moxios.stubRequest(
+      'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload',
+      {
+        status: 200,
+        response
+      }
+    ); 
+    const spy = sinon.spy(EditRecipeForm.prototype, 'editRecipe');
+    const wrapper = shallow(<EditRecipeForm {...props} />);
+    wrapper.instance().setState({
+      title: 'title',
+      ingredients: 'ingredients',
+      instructions: 'instructions'
+    });
+    wrapper.update();
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {}
+    });
 
-  //   const recipe = {
-  //     title: 'title',
-  //     ingredients: 'ingredients',
-  //     instructions: 'instructions',
-  //     image: 'image_url'
-  //   };
+    expect(spy.called).toBeTruthy();
+    EditRecipeForm.prototype.editRecipe.restore()
+  });
 
-  //   const wrapper = shallow(<EditRecipeForm {...props} />);
-  //   wrapper.instance().setState({
-  //     title: 'title',
-  //     ingredients: 'ingredients',
-  //     instructions: 'instructions'
-  //   });
-  //   wrapper.update();
-  //   wrapper.find('form').simulate('submit', {
-  //     preventDefault: () => {}
-  //   });
+  test('should call editRecipe when image is not changed', () => {
+    const response = {
+      secure_url: 'image_url'
+    };
 
-  //  expect(props.editRecipe).toHaveBeenLastCalledWith(recipe);
-  // //  expect(props.addRecipe).toHaveBeenLastCalledWith(recipe)
-  // });
+    moxios.stubRequest(
+      'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload',
+      {
+        status: 200,
+        response
+      }
+    ); 
+    const spy = sinon.spy(EditRecipeForm.prototype, 'editRecipe');
+    const wrapper = shallow(<EditRecipeForm {...props} />);
+    wrapper.instance().setState({
+      image: 'image', 
+      title: 'title',
+      ingredients: 'ingredients',
+      instructions: 'instructions'
+    });
+    wrapper.update();
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {}
+    });
+
+    expect(spy.called).toBeTruthy();
+  });
 });
 

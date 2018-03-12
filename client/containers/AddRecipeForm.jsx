@@ -18,15 +18,6 @@ const dropZoneStyles = {
  *
  */
 export class AddRecipeForm extends React.Component {
-  /**
-   * @param {obj} event
-   * @returns {void} clearForm
-   */
-  static clearForm(event) {
-    event.target.title.value = '';
-    event.target.ingredients.value = '';
-    event.target.instructions.value = '';
-  }
 
   /**
    * @param {obj} props
@@ -123,11 +114,11 @@ export class AddRecipeForm extends React.Component {
         instructions: this.state.instructions,
         image: imageURI
       };
+  
       await this.props.addRecipe(recipe);
-     
+
       this.props.history.push('/view_recipes');
-      errors = {};
-      this.setState({ errors });
+      
     } catch (err) {
       if (err.response.data.error.message) {
         this.setState({ loaded: true, uploadError: 'image is required' });

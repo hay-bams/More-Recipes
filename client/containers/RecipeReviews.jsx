@@ -9,7 +9,7 @@ import { getRecipeReviews } from '../actions/review';
 /**
  * @class RecipeReviews
  */
-class RecipeReviews extends React.Component {
+export class RecipeReviews extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -19,9 +19,6 @@ class RecipeReviews extends React.Component {
     this.userReviews = [];
     this.renderReviews = this.renderReviews.bind(this);
     this.findUser = this.findUser.bind(this);
-    this.state = {
-      userInfo: null
-    };
   }
 
   /**
@@ -41,12 +38,11 @@ class RecipeReviews extends React.Component {
    */
   findUser(allUsers, theReview, filterUser) {
     let firstName;
-    let userInfo;
     const user = allUsers.find(user => theReview.userId === user.id);
     if (filterUser === 'firstName' && user !== undefined) {
-      return user.firstName
+      return user.firstName;
     } else if (filterUser === 'email' && user !== undefined) {
-      return user.email
+      return user.email;
     }
   }
 
@@ -55,17 +51,16 @@ class RecipeReviews extends React.Component {
    */
   renderReviews() {
     const { allUsers } = this.props;
-    let user;
     return this.props.userReviews.map(theReview => (
       <div className="media mt-3" key={theReview.id}>
-         <Gravatar 
-         email={this.findUser(allUsers, theReview, 'email')} 
-         rating="pg" 
-         className="CustomAvatar-image"
-         /> 
+        <Gravatar
+          email={this.findUser(allUsers, theReview, 'email')}
+          rating="pg"
+          className="CustomAvatar-image"
+        />
         <div className="media-body ml-2">
           <h5>
-          {this.findUser(allUsers, theReview, 'firstName')}
+            {this.findUser(allUsers, theReview, 'firstName')}
           </h5>
           <p>{theReview.review}</p>
         </div>
@@ -122,5 +117,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ getRecipeReviews, getUsers }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeReviews);
+const ConnectedRecipeReviews =
+  connect(mapStateToProps, mapDispatchToProps)(RecipeReviews);
+
+export default ConnectedRecipeReviews;
 

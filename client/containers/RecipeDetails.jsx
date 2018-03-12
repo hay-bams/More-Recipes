@@ -7,7 +7,7 @@ import { upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe } from
 /**
  *@class ProductDetails
  */
-class RecipeDetails extends React.Component {
+export class RecipeDetails extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -38,8 +38,8 @@ class RecipeDetails extends React.Component {
     if (userData !== null) {
       this.props.upvoteRecipe(this.props.recipe.id);
     } else {
-      toastr.warning('you must be signed in')
-      this.props.history.push('/signin')
+      toastr.warning('you must be signed in');
+      this.props.history.push('/signin');
     }
   }
 
@@ -53,8 +53,8 @@ class RecipeDetails extends React.Component {
     if (userData !== null) {
       this.props.downvoteRecipe(this.props.recipe.id, this.props.userData.user.id);
     } else {
-      toastr.warning('you must be signed in')
-      this.props.history.push('/signin')
+      toastr.warning('you must be signed in');
+      this.props.history.push('/signin');
     }
   }
 
@@ -69,7 +69,7 @@ class RecipeDetails extends React.Component {
       const { recipe } = this.props;
       this.props.addFavoriteRecipe(recipe.id);
     } else {
-      toastr.warning('you must be signed in')
+      toastr.warning('you must be signed in');
       this.props.history.push('/signin');
     }
   }
@@ -159,4 +159,7 @@ const mapDispatchToProps = dispatch =>
   }, dispatch);
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeDetails);
+const ConnectedRecipeDetails =
+  connect(mapStateToProps, mapDispatchToProps)(RecipeDetails);
+
+export default ConnectedRecipeDetails;

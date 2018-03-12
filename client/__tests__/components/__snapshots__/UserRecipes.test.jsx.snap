@@ -1,0 +1,189 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favourite Recipe Component it should render Favourites correctly 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm"
+      >
+        <h2
+          className="text-center catalogue"
+        >
+          My Recipes
+        </h2>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-12 col-sm-6 col-md-6 col-lg-4 recipes"
+        key="1"
+      >
+        <div
+          className="card recipe-card"
+          style={
+            Object {
+              "border": "none",
+            }
+          }
+        >
+          <img
+            alt="Card  cap"
+            className="card-img-top img-fluid img-recipe"
+            src="image"
+            style={
+              Object {
+                "height": "200px",
+              }
+            }
+          />
+          <div
+            className="card-body mx-auto"
+          >
+            <h4
+              className="card-title text-center"
+            >
+              titlw
+            </h4>
+            <p
+              className="card-text"
+            >
+              <span
+                className="row"
+              >
+                <span
+                  className="text-success"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-thumbs-up col-4"
+                  />
+                  0
+                </span>
+                <span
+                  className="text-info"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-eye col-4"
+                  />
+                   
+                </span>
+                <span
+                  className="text-danger"
+                  href="#"
+                >
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-thumbs-down col-4"
+                  />
+                  0
+                </span>
+              </span>
+            </p>
+            <Link
+              className="btn btn-outline-info edit"
+              replace={false}
+              style={
+                Object {
+                  "marginLeft": "5px",
+                }
+              }
+              to="/edit_recipes/1"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-pencil-square-o"
+              />
+            </Link>
+            <button
+              className="btn btn-outline-info delete"
+              id={1}
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginLeft": "5px",
+                }
+              }
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-trash-o"
+                id={1}
+              />
+            </button>
+            <Link
+              className="btn btn-outline-info view"
+              replace={false}
+              style={
+                Object {
+                  "marginLeft": "5px",
+                }
+              }
+              to="/view_recipes/1"
+            >
+              <i
+                aria-hidden="true"
+                className="fa fa-eye"
+              />
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Favourite Recipe Component it should render correctly if there are no favourites 1`] = `
+<div
+  className="main"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-sm"
+      >
+        <h2
+          className="text-center catalogue"
+        >
+          My Recipes
+        </h2>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="mx-auto"
+      >
+        <p
+          className="text-center"
+        >
+          You do not have any recipe at the moment.
+          <Link
+            replace={false}
+            to="/add_recipe"
+          >
+             create recipe here
+          </Link>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -25,6 +25,11 @@ describe('Signin component', () => {
 
   test('it should render error for invalid email in form submission', () => {
     const wrapper = shallow(<SigninForm {...props} />);
+    wrapper.instance().setState({
+      email: '',
+      password: 'password'
+    });
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });
@@ -33,6 +38,11 @@ describe('Signin component', () => {
 
   test('it should render error for empty password in form submission', () => {
     const wrapper = shallow(<SigninForm {...props} />);
+    wrapper.instance().setState({
+      email: 'test@email.com',
+      password: ''
+    }); 
+    wrapper.update();
     wrapper.find('form').simulate('submit', {
       preventDefault: () => {}
     });

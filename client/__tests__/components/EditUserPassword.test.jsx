@@ -2,13 +2,13 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { EditUserPasswordForm } from '../../containers/EditUserPasswordForm';
 
-describe('', () => {
+describe('Edit User Password Component', () => {
   const props = {
     editUserPassword: jest.fn(),
     errorMsg: '',
     match: {
       params: {
-        id: '1'
+        id: '1' 
       }
     }
   };

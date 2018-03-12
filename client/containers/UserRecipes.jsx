@@ -3,7 +3,6 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getUserRecipes, deleteRecipe } from '../actions/recipe';
@@ -11,7 +10,7 @@ import { getUserRecipes, deleteRecipe } from '../actions/recipe';
 /**
  * @class Recipes
  */
-class Recipes extends React.Component {
+export class UserRecipes extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -136,7 +135,7 @@ class Recipes extends React.Component {
   }
 }
 
-Recipes.propTypes = {
+UserRecipes.propTypes = {
   getUserRecipes: PropTypes.func.isRequired,
   userRecipes: PropTypes.arrayOf(PropTypes.shape({
     upvotes: PropTypes.number,
@@ -162,5 +161,10 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   dispatch
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes);
+const ConnectedUserRecipes =
+  connect(mapStateToProps, mapDispatchToProps)(UserRecipes);
+
+export default ConnectedUserRecipes;
+
+
 

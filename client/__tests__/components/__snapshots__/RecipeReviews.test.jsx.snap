@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recipe Details Component it should render RecipeRevews correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm-6 reviews"
+    >
+      <h3>
+        Reviews
+      </h3>
+      <div
+        className="media mt-3"
+        key="1"
+      >
+        <Gravatar
+          className="CustomAvatar-image"
+          default="retro"
+          email="email@gmail.com"
+          protocol="//"
+          rating="pg"
+          size={50}
+        />
+        <div
+          className="media-body ml-2"
+        >
+          <h5>
+            Ayobami
+          </h5>
+          <p>
+            some review
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

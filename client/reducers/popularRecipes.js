@@ -1,6 +1,6 @@
 import APPCONSTANT from '../constant';
 
-const popularRecipes = (state = { rows: [] }, action) => {
+export const popularRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_POPULAR_RECIPES:
       return action.payload.data !== undefined ?

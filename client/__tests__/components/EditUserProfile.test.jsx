@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { EditUserProfileForm } from '../../containers/EditUserProfileForm';
 
-describe('', () => {
+describe('Edit User Profile Component', () => {
   const props = {
     editUserProfile: jest.fn(),
     userData: {
@@ -98,7 +98,7 @@ describe('', () => {
     wrapper.find('input').at(2).simulate('change', {
       target: { name, value },
       preventDefault: () => {}
-    });
+    }); 
     expect(wrapper.state('email')).toBe(value);
   });
 

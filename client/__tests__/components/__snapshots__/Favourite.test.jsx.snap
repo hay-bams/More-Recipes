@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`it should render Favourites correctly 1`] = `
+exports[`Favourite Recipe Component it should render Favourites correctly 1`] = `
 <div
   className="main"
 >
@@ -156,7 +156,7 @@ exports[`it should render Favourites correctly 1`] = `
 </div>
 `;
 
-exports[`it should render correctly if there are no favourites 1`] = `
+exports[`Favourite Recipe Component it should render correctly if there are no favourites 1`] = `
 <div
   className="main"
 >

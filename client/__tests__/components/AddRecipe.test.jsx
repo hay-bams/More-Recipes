@@ -1,9 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import moxios from 'moxios';
+import sinon from 'sinon';
 import { AddRecipeForm } from '../../containers/AddRecipeForm';
 
-describe('', () => {
+describe('Add Recipe Component', () => {
   beforeEach(() => {
     moxios.install();
   });
@@ -99,39 +100,47 @@ describe('', () => {
     expect(wrapper.state('instruction')).toBe(value);
   });
 
-  // test('should call addRecipe prop for valid form submission', () => {
-  //   const response = {
-  //     secure_url: 'image_url'
-  //   };
+  test('should set uploaded files to state', () => {
+    const files = [
+      {
+        name: 'file1',
+        url: 'url'
+      }
+    ];
+    const wrapper = shallow(<AddRecipeForm
+      {...props}
+    />);
+    wrapper.instance().handleDrop(files);
+    expect(wrapper.instance().state.image).toEqual({
+        name: 'file1', url: 'url'
+    });
+  });
 
-  //   moxios.stubRequest(
-  //     'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload',
-  //     {
-  //       status: 200,
-  //       response
-  //     }
-  //   );
+  test('should call addRecipe for valid form submission', () => {
+    const response = {
+      secure_url: 'image_url'
+    };
 
-  //   const recipe = {
-  //     title: 'title',
-  //     ingredients: 'ingredients',
-  //     instructions: 'instructions',
-  //     image: 'image_url'
-  //   };
+    moxios.stubRequest(
+      'https://api.cloudinary.com/v1_1/dsj9ygnq2/upload',
+      {
+        status: 200,
+        response
+      }
+    );
+    const spy = sinon.spy(AddRecipeForm.prototype, 'addRecipe');
+    const wrapper = shallow(<AddRecipeForm {...props} />);
+    wrapper.instance().setState({
+      title: 'title',
+      ingredients: 'ingredients',
+      instructions: 'instructions'
+    });
+    wrapper.update();
+    wrapper.find('form').simulate('submit', {
+      preventDefault: () => {}
+    });
 
-  //   const wrapper = shallow(<AddRecipeForm {...props} />);
-  //   wrapper.instance().setState({
-  //     title: 'title',
-  //     ingredients: 'ingredients',
-  //     instructions: 'instructions'
-  //   });
-  //   wrapper.update();
-  //   wrapper.find('form').simulate('submit', {
-  //     preventDefault: () => {}
-  //   });
-
-  //  expect(props.addRecipe).toHaveBeenLastCalledWith(recipe);
-  // //  expect(props.addRecipe).toHaveBeenLastCalledWith(recipe)
-  // });
+    expect(spy.called).toBeTruthy();
+  });
 });
 

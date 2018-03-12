@@ -15,3 +15,4 @@ describe('Sign in page', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+ 

@@ -22,7 +22,7 @@ export const addRecipe = async (recipeObject) => {
     });
   } catch ({ response }) {
     if (response.data.error !== undefined &&
-       response.data.error.name === 'TokenExpiredError') {
+      response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {

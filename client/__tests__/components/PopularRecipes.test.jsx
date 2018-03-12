@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { PopularRecipes } from '../../containers/PopularRecipes';
 
-describe('', () => {
+describe('Popular Recipe Component', () => {
   const props = {
     getPopularRecipes: jest.fn(),
     recipes: [
@@ -14,7 +14,7 @@ describe('', () => {
         image: 'image',
         instructions: 'instructions',
         ingredients: 'ingredients',
-        userId: 1,
+        userId: 1, 
         createdAt: 'created date',
         updatedAt: 'updated date'
       }

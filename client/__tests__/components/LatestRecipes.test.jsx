@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { LatestRecipes } from '../../containers/LatestRecipes';
 
-describe('', () => {
+describe('Latest Recipe Component', () => {
   const props = {
     getLatestRecipes: jest.fn(),
     recipes: [
@@ -26,5 +26,5 @@ describe('', () => {
     expect(wrapper.find('img').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
-});
+}); 
 

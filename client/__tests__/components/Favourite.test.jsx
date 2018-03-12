@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import { FavouriteRecipes } from '../../containers/Favourite';
 
-describe('', () => {
+describe('Favourite Recipe Component', () => {
   const props = {
     getFavouriteRecipes: jest.fn(),
     deleteFavoriteRecipe: jest.fn(),
@@ -43,11 +43,11 @@ describe('', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('it should call forshowModal on click', () => {
+  test('it should call showModal on click', () => {
     const spy = sinon.spy(FavouriteRecipes.prototype, 'showModal');
     const wrapper = shallow(<FavouriteRecipes {...props} />);
     wrapper.find('button').simulate('click', {
-      target: { id: 1 },
+      target: { id: 1 }, 
       preventDefault: () => {}
     });
     expect(spy.called).toBeTruthy();

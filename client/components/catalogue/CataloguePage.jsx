@@ -1,12 +1,12 @@
 import React from 'react';
 import Navigation from '../Navigation';
-import RecipesCatalogue from '../../containers/RecipesCatalogue';
+import ConnectedRecipeCatalogue from '../../containers/RecipesCatalogue';
 import Footer from '../Footer';
 
 const Catalogue = props => (
   <div>
     <Navigation {...props}/>
-    <RecipesCatalogue {...props} />
+    <ConnectedRecipeCatalogue {...props} />
     <Footer />
   </div>
 );

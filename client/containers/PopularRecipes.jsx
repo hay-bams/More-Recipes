@@ -109,5 +109,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 const ConnectedPopularRecipes =
   connect(mapStateToProps, mapDispatchToProps)(PopularRecipes);
 
-
 export default ConnectedPopularRecipes;

@@ -9,3 +9,4 @@ describe('Navigation', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });
+ 

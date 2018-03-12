@@ -6,12 +6,10 @@ import APPCONSTANT from '../../constant';
 import { addRecipe, getAllRecipes, searchRecipes, getLatestRecipes,
   getPopularRecipes, getSingleRecipe, getUserRecipes,
   deleteRecipe, editRecipe, upvoteRecipe, downvoteRecipe, getFavouriteRecipes,
-  addFavoriteRecipe, deleteFavoriteRecipe,
-  signout } from '../../actions/actions';
+  addFavoriteRecipe, deleteFavoriteRecipe } from '../../actions/recipe';
 
 import { recipeResponse, getRecipeResponse, singleRecipe,
   recipeUpdate, upvote, downvote } from '../__mocks__/response/response';
-
 
 const mockStore = configureMockStore([reduxPromise]);
 describe('All actions', () => {
@@ -45,6 +43,41 @@ describe('All actions', () => {
         expect(store.getActions()[0]).toEqual(expectedAction);
       }
     );
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(addRecipe({
+        title: 'title',
+        image: 'image',
+        instructions: 'instructiona',
+        ingredients: 'ingredeints'
+      }));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
   });
 
   describe('Get all recipes', () => {
@@ -65,8 +98,29 @@ describe('All actions', () => {
           pages: getRecipeResponse.pages
         }
       };
-      await store.dispatch(getAllRecipes(1));
-      expect(store.getActions()[0]).toEqual(expectedAction);
+      await store.dispatch(getAllRecipes('', '', 1));
+      expect(store.getActions()[0]).toEqual(expectedAction); 
+    });
+
+    test('Should dispatch getAllRecipes action and sort by upvotes', async () => {
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.respondWith({
+          status: 200,
+          response: getRecipeResponse
+        });
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.GET_ALL_RECIPES,
+        payload: {
+          recipes: getRecipeResponse,
+          pages: getRecipeResponse.pages
+        }
+      };
+      await store.dispatch(getAllRecipes('upvotes', 'asc', 1));
+      expect(store.getActions()[0]).toEqual(expectedAction); 
     });
   });
 
@@ -89,6 +143,27 @@ describe('All actions', () => {
         }
       };
       await store.dispatch(searchRecipes(1, 'stew'));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
+
+    test('Should dispatch searchRecipes action and and sort by upvotes', async () => {
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.respondWith({
+          status: 200,
+          response: getRecipeResponse
+        });
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.SEARCH_RECIPES,
+        payload: {
+          recipes: getRecipeResponse,
+          pages: getRecipeResponse.pages
+        }
+      };
+      await store.dispatch(searchRecipes(1, 'stew', 'upvotes', 'asc'));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
@@ -176,6 +251,36 @@ describe('All actions', () => {
       await store.dispatch(getUserRecipes());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(getUserRecipes());
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
   });
 
   describe('Delete a recipe', () => {
@@ -197,6 +302,36 @@ describe('All actions', () => {
       const expectedAction = {
         type: APPCONSTANT.DELETE_RECIPE,
         payload: recipeId
+      };
+      await store.dispatch(deleteRecipe(1));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
       };
       await store.dispatch(deleteRecipe(1));
       expect(store.getActions()[0]).toEqual(expectedAction);
@@ -231,6 +366,42 @@ describe('All actions', () => {
       await store.dispatch(editRecipe(newRecipe, 1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const newRecipe = {
+        title: 'title',
+        image: 'image',
+        instructions: 'instructiona',
+        ingredients: 'ingredeints'
+      };
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(editRecipe(newRecipe, 1));
+      expect(store.getActions()[0]).toEqual(expectedAction); 
+    });
   });
 
   describe('Upvote recipe', () => {
@@ -254,6 +425,42 @@ describe('All actions', () => {
         payload: recipeId
       };
 
+      await store.dispatch(upvoteRecipe(15, 1));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const newRecipe = {
+        title: 'title',
+        image: 'image',
+        instructions: 'instructiona',
+        ingredients: 'ingredeints'
+      };
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
       await store.dispatch(upvoteRecipe(15, 1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
@@ -281,6 +488,42 @@ describe('All actions', () => {
       };
 
       await store.dispatch(downvoteRecipe(15, 1));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const newRecipe = {
+        title: 'title',
+        image: 'image',
+        instructions: 'instructiona',
+        ingredients: 'ingredeints'
+      };
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(downvoteRecipe(15, 1)); 
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
@@ -311,6 +554,37 @@ describe('All actions', () => {
       await store.dispatch(getFavouriteRecipes(1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+     
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(getFavouriteRecipes(1));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
   });
 
   describe('add favourite recipes', () => {
@@ -335,6 +609,36 @@ describe('All actions', () => {
         payload: recipeId
       };
       await store.dispatch(addFavoriteRecipe(1));
+      expect(store.getActions()[0]).toEqual(expectedAction);
+    });
+
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
+      moxios.wait(() => {
+        const getRecipesRequest = moxios.requests.mostRecent();
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
+        });
+      });
+
+      localStorage.userData = JSON.stringify({
+        token: 'some_token',
+        user: { id: 1 }
+      });
+
+      const store = mockStore({});
+      const expectedAction = {
+        type: APPCONSTANT.SIGN_OUT,
+        payload: null
+      };
+      await store.dispatch(addFavoriteRecipe());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
@@ -363,15 +667,20 @@ describe('All actions', () => {
       await store.dispatch(deleteFavoriteRecipe(1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
-  });
 
-  describe('signout user', () => {
-    test('Should dispatch signOut action when signOut is called', async () => {
+    test('Should dispatch signout action when token expires', async () => {
+      const tokenExpireResponse = {
+        data: {
+          error: {
+            name: 'TokenExpiredError'
+          }
+        }
+      }
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
-        getRecipesRequest.respondWith({
-          status: 200,
-          response: {}
+        getRecipesRequest.reject({
+          status: 401,
+          response: tokenExpireResponse
         });
       });
 
@@ -385,9 +694,8 @@ describe('All actions', () => {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
       };
-      await store.dispatch(signout(1));
+      await store.dispatch(deleteFavoriteRecipe(1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 });
-

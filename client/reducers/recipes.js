@@ -1,6 +1,6 @@
 import APPCONSTANT from '../constant';
 
-const recipes = (state = { rows: [] }, action) => {
+export const recipes = (state = { rows: [] }, action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_RECIPE:
       return {

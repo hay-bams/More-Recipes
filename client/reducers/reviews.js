@@ -1,6 +1,6 @@
 import APPCONSTANT from '../constant';
 
-const reviews = (state = [], action) => {
+export const reviews = (state = [], action) => {
   switch (action.type) {
     case APPCONSTANT.ADD_REVIEW:
       return [
