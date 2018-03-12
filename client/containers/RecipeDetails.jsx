@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
-import { upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe } from '../actions/recipe';
+import {
+  upvoteRecipe, getSingleRecipe, downvoteRecipe, addFavoriteRecipe
+} from '../actions/recipe';
 
 /**
  *@class ProductDetails

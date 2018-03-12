@@ -1053,34 +1053,7 @@
           }
         }
       },
-      "Data": {
-        "title": "Data",
-        "required": [
-          "id",
-          "recipeId",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "recipeId": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "updatedAt": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          }
-        }
-      },
+      
       "Downvote Recipe": {
         "title": "Downvote Recipe",
         "required": [
@@ -1109,34 +1082,6 @@
             "userId": 2,
             "updatedAt": "2018-02-28T15:23:01.478Z",
             "createdAt": "2018-02-28T15:23:01.478Z"
-          }
-        }
-      },
-      "Data2": {
-        "title": "Data",
-        "required": [
-          "id",
-          "recipeId",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "recipeId": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "updatedAt": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
           }
         }
       },
@@ -1178,62 +1123,6 @@
           }
         }
       },
-      "Data3": {
-        "title": "Data",
-        "required": [
-            "upvotes",
-            "downvotes",
-            "views",
-            "userViews",
-            "id",
-            "title",
-            "image",
-            "instructions",
-            "ingredients",
-            "userId",
-            "updatedAt",
-            "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
-        }
-      },
       "Add Review": {
         "title": "Add Reviews",
         "required": [
@@ -1263,38 +1152,6 @@
             "recipeId": 2,
             "updatedAt": "2018-02-28T17:55:57.521Z",
             "createdAt": "2018-02-28T17:55:57.521Z"
-          }
-        }
-      },
-      "Data4": {
-        "title": "Data",
-        "required": [
-            "id",
-            "review",
-            "userId",
-            "recipeId",
-            "updatedAt",
-            "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "review": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "recipeId": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
           }
         }
       },
@@ -1445,34 +1302,6 @@
           }
         }
       },
-      "Data5": {
-        "title": "Data",
-        "required": [
-            "id",
-            "userId",
-            "recipeId",
-            "updatedAt",
-            "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "recipeId": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
-        }
-      },
       "Get All Recipes": {
         "title": "Get All Recipes",
         "required": [
@@ -1554,62 +1383,6 @@
               }
           ],
           "pages": 2
-        }
-      },
-      "Data6": {
-        "title": "Data",
-        "required": [
-          "upvotes",
-          "downvotes",
-          "views",
-          "userViews",
-          "id",
-          "title",
-          "image",
-          "instructions",
-          "ingredients",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
         }
       },
       "Get Latest Recipes": {
@@ -1694,62 +1467,6 @@
           ]
         }
       },
-      "Data7": {
-        "title": "Data",
-        "required": [
-          "upvotes",
-          "downvotes",
-          "views",
-          "userViews",
-          "id",
-          "title",
-          "image",
-          "instructions",
-          "ingredients",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
-        }
-      },
       "Get Popular Recipes": {
         "title": "Get Popular Recipes",
         "required": [
@@ -1832,62 +1549,6 @@
           ]
         }
       },
-      "Data8": {
-        "title": "Data",
-        "required": [
-          "upvotes",
-          "downvotes",
-          "views",
-          "userViews",
-          "id",
-          "title",
-          "image",
-          "instructions",
-          "ingredients",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
-        }
-      },
       "Update Recipes": {
         "title": "Update Recipes",
         "required": [
@@ -1923,62 +1584,6 @@
               "createdAt": "2018-02-28T10:48:41.060Z",
               "updatedAt": "2018-02-28T17:57:20.589Z",
               "userId": 2
-          }
-        }
-      },
-      "Data9": {
-        "title": "Data",
-        "required": [
-          "upvotes",
-          "downvotes",
-          "views",
-          "userViews",
-          "id",
-          "title",
-          "image",
-          "instructions",
-          "ingredients",
-          "userId",
-          "updatedAt",
-          "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
           }
         }
       },
@@ -2032,38 +1637,6 @@
           ]
         }
       },
-      "Data10": {
-        "title": "Data",
-        "required": [
-            "id",
-            "review",
-            "userId",
-            "recipeId",
-            "updatedAt",
-            "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "review": {
-            "type": "string"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "recipeId": {
-            "type": "integer"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
-          }
-        }
-      },
       "Update Recipe": {
         "title": "Update Recipe",
         "required": [
@@ -2099,62 +1672,6 @@
               "createdAt": "2018-02-28T10:48:41.060Z",
               "updatedAt": "2018-02-28T17:57:20.589Z",
               "userId": 2
-          }
-        }
-      },
-      "Data11": {
-        "title": "Data",
-        "required": [
-            "upvotes",
-            "downvotes",
-            "views",
-            "userViews",
-            "id",
-            "title",
-            "image",
-            "instructions",
-            "ingredients",
-            "userId",
-            "updatedAt",
-            "createdAt"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "userId": {
-            "type": "integer"
-          },
-          "upvotes": {
-            "type": "integer"
-          },
-          "downvotes": {
-            "type": "integer"
-          },
-          "views": {
-            "type": "integer"
-          },
-          "userViews": {
-            "type": "integer"
-          },
-          "title": {
-            "type": "string"
-          },
-          "image": {
-            "type": "string"
-          },
-          "instructions": {
-            "type": "string"
-          },
-          "ingredients": {
-            "type": "string"
-          },
-          "createdAt": {
-            "type": "string"
-          },
-          "updatedAt": {
-            "type": "string"
           }
         }
       },
