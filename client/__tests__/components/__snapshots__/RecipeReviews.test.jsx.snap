@@ -30,6 +30,17 @@ exports[`Recipe Details Component it should render RecipeRevews correctly 1`] = 
         >
           <h5>
             Ayobami
+            <br />
+            <small>
+              <small>
+                on 
+              Tuesday
+              March 
+              da  
+              crea 
+              
+              </small>
+            </small>
           </h5>
           <p>
             some review

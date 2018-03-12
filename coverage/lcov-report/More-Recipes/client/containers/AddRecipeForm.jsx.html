@@ -25,9 +25,9 @@
         <span class='fraction'>39/44</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">84.21% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>16/19</span>
+        <span class='fraction'>18/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">75% </span>
@@ -328,7 +328,9 @@
 283
 284
 285
-286</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+286
+287
+288</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -353,13 +355,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -449,7 +451,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -466,6 +467,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -633,7 +637,6 @@ const dropZoneStyles = {
  *
  */
 export class AddRecipeForm extends React.Component {
-&nbsp;
   /**
    * @param {obj} props
    * @returns {void} constructor
@@ -651,7 +654,8 @@ export class AddRecipeForm extends React.Component {
       uploadError: null,
       ingredientError: '',
       titleError: '',
-      instructionError: ''
+      instructionError: '',
+      addingRecipe: false
     };
   }
 &nbsp;
@@ -710,7 +714,7 @@ export class AddRecipeForm extends React.Component {
         instructions: this.state.instructions,
       };
 &nbsp;
-      let errors = Authenticate.validateAddRecipe(recipe);
+      const errors = Authenticate.validateAddRecipe(recipe);
 &nbsp;
       if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
@@ -720,20 +724,19 @@ export class AddRecipeForm extends React.Component {
           instructionError: errors.instructions
         });
       }
-      this.setState({ loaded: false });
+      this.setState({ loaded: false, addingRecipe: true });
       const imageURI = await this.uploadImageToCloudinary();
-      
+&nbsp;
       recipe = {
         title: this.state.title,
         ingredients: this.state.ingredients,
         instructions: this.state.instructions,
         image: imageURI
       };
-  
+&nbsp;
       await this.props.addRecipe(recipe);
 &nbsp;
       this.props.history.push('/view_recipes');
-      
     } catch (err) {
 <span class="cstat-no" title="statement not covered" >      if (err.response.data.error.message) {</span>
 <span class="cstat-no" title="statement not covered" >        this.setState({ loaded: true, uploadError: 'image is required' });</span>
@@ -857,11 +860,14 @@ export class AddRecipeForm extends React.Component {
                   scale={1.00}
                   loadedClassName="loadedContent"
                 /&gt;
+&nbsp;
                 &lt;div className="form-group"&gt;
                   &lt;input
                     type="submit"
                     className="btn btn-success"
-                    value="Add Recipe"
+                    disabled={this.state.addingRecipe}
+                    value={this.state.addingRecipe ? 'Adding Recipe...' :
+                     'Add Recipe'}
                   /&gt;
                 &lt;/div&gt;
               &lt;/form&gt;
@@ -904,7 +910,7 @@ export default ConnectedAddRecipeForm;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 09:02:35 GMT+0100 (WAT)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 14:50:33 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

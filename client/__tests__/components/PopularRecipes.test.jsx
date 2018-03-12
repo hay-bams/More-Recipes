@@ -23,7 +23,7 @@ describe('Popular Recipe Component', () => {
 
   test('it should render LatestRecipes correctly', () => {
     const wrapper = shallow(<PopularRecipes {...props} />);
-    expect(wrapper.find('img').exists()).toBeTruthy();
+    expect(wrapper.find('RecipeCard').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -25,10 +25,10 @@ describe('Latest Recipe Component', () => {
 
   test('it should render recipeCatalogue correctly', () => {
     const wrapper = shallow(<RecipeCatalogue {...props} />);
-    expect(wrapper.find('img').exists()).toBeTruthy();
+    expect(wrapper.find('RecipeCard').exists()).toBeTruthy();
     expect(wrapper).toMatchSnapshot();
   });
-
+ 
   test('should set recipeSearch state on input change', () => {
     const value = 'pepper';
     const name = 'recipeSearch';

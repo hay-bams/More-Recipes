@@ -1,22 +1,18 @@
 import axios from 'axios';
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
-const host = window.location.hostname === 'purpose-more-recipes.herokuapp.com' ?
-  'https://purpose-more-recipes.herokuapp.com' : 'http://localhost:8000';
-
-
-export const signup = async (userObject) => {
+export const signup = async (theUser) => {
   try {
     const response = await axios.post(
-      `${host}/api/v1/users/signup`,
-      userObject
+      'api/v1/users/signup',
+      theUser
     );
     const { token, user } = response.data;
     localStorage.setItem('userToken', token);
     localStorage.setItem('userData', JSON.stringify(response.data));
     toastr.success(response.data.message);
     return {
-      type: APPCONSTANT.SIGN_UP,
+      type: CONSTANT.SIGN_UP,
       payload: {
         user, token
       }
@@ -27,30 +23,30 @@ export const signup = async (userObject) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
     toastr.error(response.data.message);
     return {
-      type: APPCONSTANT.SIGN_UP_ERRORS,
+      type: CONSTANT.SIGN_UP_ERRORS,
       payload: response.data.message,
       name: 'signUpError'
     };
   }
 };
 
-export const signin = async (userObject) => {
+export const signin = async (theUser) => {
   try {
     const response = await axios.post(
-      `${host}/api/v1/users/signin`,
-      userObject
+      'api/v1/users/signin',
+      theUser
     );
     const { token, user } = response.data;
     localStorage.setItem('userData', JSON.stringify(response.data));
     toastr.success(response.data.message);
     return {
-      type: APPCONSTANT.SIGN_IN,
+      type: CONSTANT.SIGN_IN,
       payload: {
         user, token
       }
@@ -61,32 +57,32 @@ export const signin = async (userObject) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
     toastr.error(response.data.message);
     return {
-      type: APPCONSTANT.SIGN_IN_ERRORS,
+      type: CONSTANT.SIGN_IN_ERRORS,
       payload: response.data.message,
       name: 'signInError'
     };
   }
 };
 
-export const editUserProfile = async (userObject, userId) => {
+export const editUserProfile = async (theUser, userId) => {
   try {
     const userData = JSON.parse(localStorage.userData);
     const userToken = userData.token;
     const response = await axios({
       method: 'put',
-      url: `${host}/api/v1/user/${userId}`,
-      data: userObject,
+      url: `api/v1/user/${userId}`,
+      data: theUser,
       headers: { token: userToken }
     });
     toastr.success(response.data.message);
     return ({
-      type: APPCONSTANT.EDIT_USER_PROFILE,
+      type: CONSTANT.EDIT_USER_PROFILE,
       payload: response.data
     });
   } catch ({ response }) {
@@ -95,7 +91,7 @@ export const editUserProfile = async (userObject, userId) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
@@ -103,20 +99,20 @@ export const editUserProfile = async (userObject, userId) => {
 };
 
 
-export const editUserPassword = async (userObject, userId) => {
+export const editUserPassword = async (theUser, userId) => {
   try {
     const userData = JSON.parse(localStorage.userData);
     const userToken = userData.token;
     const response = await axios({
       method: 'put',
-      url: `${host}/api/v1/${userId}/user`,
-      data: userObject,
+      url: `api/v1/${userId}/user`,
+      data: theUser,
       headers: { token: userToken }
     });
 
     toastr.success(response.data.message);
     return ({
-      type: APPCONSTANT.EDIT_USER_PASSWORD,
+      type: CONSTANT.EDIT_USER_PASSWORD,
       payload: response.data
     });
   } catch ({ response }) {
@@ -125,7 +121,7 @@ export const editUserPassword = async (userObject, userId) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
@@ -136,10 +132,10 @@ export const getUsers = async () => {
   try {
     const response = await axios({
       method: 'get',
-      url: `${host}/api/v1/users`,
+      url: 'api/v1/users',
     });
     return {
-      type: APPCONSTANT.FIND_USERS,
+      type: CONSTANT.FIND_USERS,
       payload: response.data
     };
   } catch ({ response }) {
@@ -148,7 +144,7 @@ export const getUsers = async () => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
@@ -158,12 +154,12 @@ export const getUsers = async () => {
 export const signout = async () => {
   try {
     return {
-      type: APPCONSTANT.SIGN_OUT,
+      type: CONSTANT.SIGN_OUT,
       payload: null
     };
   } catch (err) {
     return {
-      type: APPCONSTANT.SIGN_OUT_ERRORS,
+      type: CONSTANT.SIGN_OUT_ERRORS,
       payload: null,
       name: 'signOutError'
     };

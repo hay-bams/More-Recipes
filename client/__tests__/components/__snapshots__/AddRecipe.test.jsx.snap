@@ -147,6 +147,7 @@ exports[`Add Recipe Component it should render AddRecipeForm correctly 1`] = `
           >
             <input
               className="btn btn-success"
+              disabled={false}
               type="submit"
               value="Add Recipe"
             />

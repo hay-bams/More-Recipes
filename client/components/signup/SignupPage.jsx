@@ -5,6 +5,9 @@ import Navigation from '../Navigation';
 
 const SignupPage = props => (
   <div>
+    {
+      localStorage.userData !== undefined ?  props.history.push('/') : ''
+      }
     <Navigation {...props}/>
     <ConnectedSignupForm redirectUser={props.history} />
   </div>
