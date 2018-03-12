@@ -1,10 +1,6 @@
 import axios from 'axios';
 import CONSTANT from '../constant';
 
-const host = window.location.hostname === 'purpose-more-recipes.herokuapp.com' ?
-  'https://purpose-more-recipes.herokuapp.com' : 'http://localhost:8000';
-
-
 export const addReview = async (userReview, recipeId) => {
   try {
     const userData = JSON.parse(localStorage.userData);

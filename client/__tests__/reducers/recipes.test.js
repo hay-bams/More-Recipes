@@ -1,8 +1,8 @@
 import { recipes } from '../../reducers/recipes';
-import APPCONSTANT from '../../constant';
+import CONSTANT from '../../constant';
 
 describe('Recipe', () => {
-  test('Should return unchanged state when no matching action is found', () => {
+  test('DEFAULT Should return unchanged state', () => {
     const state = { rows: [{ id: 2 }] };
     const newState = recipes(state, {
       type: 'UNKNOWN_ACTION'
@@ -10,42 +10,46 @@ describe('Recipe', () => {
 
     expect(newState).toEqual(state);
   });
-  test('Should add recipe to store when called with ADD_RECIPE action', () => {
+  test('CASE: ADD_RECIPE Should add recipe to store', () => {
     const state = { rows: [{ id: 2 }, { id: 3 }] };
 
     const newState = recipes(state, {
-      type: APPCONSTANT.ADD_RECIPE,
+      type: CONSTANT.ADD_RECIPE,
       payload: { data: { id: 4 } }
     });
 
     expect(newState).toEqual({ rows: [{ id: 2 }, { id: 3 }, { id: 4 }] });
   });
 
-  test('Should get all recipe to store when called with GET_ALL_RECIPE action', () => {
+  test('CASE: GET_ALL_RECIPE Should update recipes in store', () => {
     const state = {};
 
     const newState = recipes(state, {
-      type: APPCONSTANT.GET_ALL_RECIPES,
+      type: CONSTANT.GET_ALL_RECIPES,
       payload: {
         recipes: { data: [{ id: 2 }, { id: 3 }, { id: 4 }] },
         pages: 1
       }
     });
 
-    expect(newState).toEqual({ rows: [{ id: 2 }, { id: 3 }, { id: 4 }], pages: 1 });
+    expect(newState).toEqual({ 
+      rows: [{ id: 2 }, { id: 3 }, { id: 4 }], pages: 1 
+    });
   });
 
-  test('Should search recipe to store when called with SEARCH_RECIPES action', () => {
+  test('CASE: SEARCH_RECIPES Should update recipes in store', () => {
     const state = {};
 
     const newState = recipes(state, {
-      type: APPCONSTANT.SEARCH_RECIPES,
+      type: CONSTANT.SEARCH_RECIPES,
       payload: {
         recipes: { data: [{ id: 2 }, { id: 3 }, { id: 4 }] },
         pages: 1
       }
     });
 
-    expect(newState).toEqual({ rows: [{ id: 2 }, { id: 3 }, { id: 4 }], pages: 1 });
+    expect(newState).toEqual({ 
+      rows: [{ id: 2 }, { id: 3 }, { id: 4 }], pages: 1 
+    });
   });
 });

@@ -8,7 +8,10 @@ export const userRecipes = (state = { rows: [] }, action) => {
         state;
 
     case APPCONSTANT.DELETE_RECIPE:
-      return { ...state, rows: state.rows.filter(recipe => recipe.id !== action.payload) };
+      return {
+        ...state,
+        rows: state.rows.filter(recipe => recipe.id !== action.payload)
+      };
 
     default:
       return state;

@@ -49,6 +49,7 @@ exports[`Add Recipe Component it should render AddRecipeForm correctly 1`] = `
                 >
                   <p
                     className="text-center"
+                    id="addImage"
                   >
                     <span
                       className="h2"

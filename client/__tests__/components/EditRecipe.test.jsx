@@ -172,7 +172,7 @@ describe('Edit Recipe Component', () => {
     const spy = sinon.spy(EditRecipeForm.prototype, 'editRecipe');
     const wrapper = shallow(<EditRecipeForm {...props} />);
     wrapper.instance().setState({
-      image: 'image', 
+      image: 'image',
       title: 'title',
       ingredients: 'ingredients',
       instructions: 'instructions'

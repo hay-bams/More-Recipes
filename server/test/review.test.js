@@ -47,7 +47,8 @@ describe('Recipe Controller', () => {
           res.should.have.status(400);
           res.body.should.have.a('object');
           res.body.should.have.property('success').eql('false');
-          res.body.should.have.property('message').eql('The review field is required');
+          res.body.should.have.property('message').
+            eql('The review field is required');
           done();
         });
     });
@@ -91,9 +92,9 @@ describe('Recipe Controller', () => {
       where: {}
     });
 
-    // models.Favourite.destroy({
-    //   where: {}
-    // });
+    models.Favourite.destroy({
+      where: {}
+    });
   });
 });
 

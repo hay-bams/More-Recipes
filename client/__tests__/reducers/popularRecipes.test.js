@@ -1,8 +1,8 @@
 import { popularRecipes } from '../../reducers/popularRecipes';
-import APPCONSTANT from '../../constant';
+import CONSTANT from '../../constant';
 
 describe('popularRecipes', () => {
-  test('Should return unchanged state when no matching action is found', () => {
+  test('DEFAULT Should return unchanged state', () => {
     const state = {};
     const newState = popularRecipes(state, {
       type: 'UNKNOWN_ACTION'
@@ -11,13 +11,16 @@ describe('popularRecipes', () => {
     expect(newState).toEqual(state);
   });
 
-  test('Should popular recipe in  store when called with GET_POPULAR_RECIPE action', () => {
-    const state = {};
-    const newState = popularRecipes(state, {
-      type: APPCONSTANT.GET_POPULAR_RECIPES,
-      payload: { data: [{ id: 1 }, { id: 2 }] }
-    });
+  test(
+'CASE: GET_POPULAR_RECIPES Should update popularRecipes in store',
+    () => {
+      const state = {};
+      const newState = popularRecipes(state, {
+        type: CONSTANT.GET_POPULAR_RECIPES,
+        payload: { data: [{ id: 1 }, { id: 2 }] }
+      });
 
-    expect(newState).toEqual({ rows: [{ id: 1 }, { id: 2 }] });
-  });
+      expect(newState).toEqual({ rows: [{ id: 1 }, { id: 2 }] });
+    }
+);
 });

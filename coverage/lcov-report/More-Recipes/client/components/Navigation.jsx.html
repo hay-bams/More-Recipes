@@ -154,7 +154,65 @@
 109
 110
 111
-112</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,7 +303,57 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -254,6 +362,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -276,7 +392,12 @@ export const Navigation = props =&gt; (
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
     &gt;
       &lt;div className="container-fluid"&gt;
-        &lt;NavLink to="/" className="navbar-brand"&gt;More Recipes&lt;/NavLink&gt;
+        &lt;NavLink
+          to="/"
+          className="navbar-brand"
+          id="home"
+        &gt;More Recipes
+        &lt;/NavLink&gt;
         &lt;button
           className="navbar-toggler"
           type="button"
@@ -296,13 +417,19 @@ export const Navigation = props =&gt; (
           &lt;ul className="navbar-nav ml-auto"&gt;
             {props.location.pathname !== '/catalogue' ?
               &lt;li className="nav-item"&gt;
-                &lt;NavLink to="/catalogue" className="nav-link"&gt;Catalogue&lt;/NavLink&gt;
+                &lt;NavLink
+                  id="catalogue"
+                  to="/catalogue"
+                  className="nav-link"
+                &gt;Catalogue
+                &lt;/NavLink&gt;
               &lt;/li&gt; : <span class="branch-1 cbranch-no" title="branch not covered" >''</span>
           }
 &nbsp;
             &lt;li className="nav-item active"&gt;
               { !props.userData.token &amp;&amp; props.location.pathname !== '/signin' ?
                 &lt;NavLink
+                  id="signinLink"
                   to="/signin"
                   className="nav-link"
                   href="login.html"
@@ -315,6 +442,7 @@ export const Navigation = props =&gt; (
             &lt;li className="nav-item"&gt;
               { !props.userData.token &amp;&amp; props.location.pathname !== '/signup' ?
                 &lt;NavLink
+                  id="signupLink"
                   to="/signup"
                   className="nav-link"
                   href="register.html"
@@ -325,26 +453,68 @@ export const Navigation = props =&gt; (
 &nbsp;
             { props.userData.token ?
 <span class="branch-0 cbranch-no" title="branch not covered" >              &lt;li className="nav-item dropdown"&gt;</span>
-                &lt;Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
-                  &lt;i className="fa fa-user" /&gt; {props.userData.user.firstName} &lt;b className="caret" /&gt;
+                &lt;Link
+                  className="nav-link dropdown-toggle"
+                  to="/"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                &gt;
+                  &lt;i className="fa fa-user" /&gt;
+                  {props.userData.user.firstName}
+                  &lt;b className="caret" /&gt;
                 &lt;/Link&gt;
                 &lt;div className="dropdown-menu" aria-labelledby="navbarDropdown"&gt;
-                  &lt;Link className="dropdown-item" to="/add_recipe"&gt;Add Recipes&lt;/Link&gt;
-                  &lt;Link className="dropdown-item" to="/view_recipes"&gt;View Recipes&lt;/Link&gt;
+                  &lt;Link
+                    className="dropdown-item"
+                    to="/add_recipe"
+                    id="addRecipe"
+                  &gt;
+                  Add Recipes
+                  &lt;/Link&gt;
+                  &lt;Link
+                    className="dropdown-item"
+                    to="/view_recipes"
+                    id="viewRecipe"
+                  &gt;
+                  View Recipes
+                  &lt;/Link&gt;
                   &lt;div className="dropdown-divider" /&gt;
-                  &lt;Link className="dropdown-item" to="/favourites"&gt;Favourite Recipes&lt;/Link&gt;
+                  &lt;Link
+                    className="dropdown-item"
+                    to="/favourites"
+                    id="favouriteRecipe"
+                  &gt;
+                  Favourite Recipes
+                  &lt;/Link&gt;
                   { props.userData.token ?
-                    &lt;Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}&gt;
+                    &lt;Link
+                      className="dropdown-item"
+                      to={`/edit_user/${props.userData.user.id}`}
+                      id="editProfile"
+                    &gt;
                   Edit Profile
                     &lt;/Link&gt; : ''
                 }
                   &lt;div className="dropdown-divider" /&gt;
                   { props.userData.token ?
-                   &lt;Link className="dropdown-item" to={`/edit_password/${props.userData.user.id}`}&gt;
+                    &lt;Link
+                      className="dropdown-item"
+                      to={`/edit_password/${props.userData.user.id}`}
+                      id="editPassword"
+                    &gt;
                   Edit Password
                     &lt;/Link&gt; : ''
                 }
-                  &lt;Link className="dropdown-item" to="/signoutPage"&gt;Sign out&lt;/Link&gt;
+                  &lt;Link
+                    className="dropdown-item"
+                    to="/signoutPage"
+                    id="signoutLink"
+                  &gt;
+                     Sign out
+                  &lt;/Link&gt;
                 &lt;/div&gt;
               &lt;/li&gt; : ''
             }
@@ -371,8 +541,12 @@ Navigation.propTypes = {
       firstName: PropTypes.string,
       id: PropTypes.number,
       lastName: PropTypes.string
-    })
-  })
+    }),
+    token: PropTypes.string
+  }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired
 };
 &nbsp;
 export default connect(mapStateToProps, null)(Navigation);
@@ -382,7 +556,11 @@ export default connect(mapStateToProps, null)(Navigation);
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
+<<<<<<< HEAD
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 14:50:33 GMT+0100 (WAT)
+=======
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 21:20:30 GMT+0100 (WAT)
+>>>>>>> chore(test): client side test
 </div>
 </div>
 <script src="../../../prettify.js"></script>

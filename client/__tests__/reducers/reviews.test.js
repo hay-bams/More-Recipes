@@ -2,7 +2,7 @@ import { reviews } from '../../reducers/reviews';
 import APPCONSTANT from '../../constant';
 
 describe('reviews', () => {
-  test('Should return unchanged state when no matching action is found', () => {
+  test('DEFAULT Should return unchanged state', () => {
     const state = {};
     const newState = reviews(state, {
       type: 'UNKNOWN_ACTION'
@@ -11,7 +11,7 @@ describe('reviews', () => {
     expect(newState).toEqual(state);
   });
 
-  test('Should update review in store when called with ADD_REVIEW action', () => {
+  test('CASE: ADD_REVIEW Should update review in store', () => {
     const state = [];
     const newReview = { data: { id: 1 } };
     const newState = reviews(state, {
@@ -22,7 +22,7 @@ describe('reviews', () => {
     expect(newState).toEqual([{ id: 1 }]);
   });
 
-  test('Should update reviews in store when called with ADD_REVIEW action', () => {
+  test('CASE: GET_RECIPES_REVIEWS Should update reviews in store', () => {
     const state = [];
     const allReviews = [{ id: 1 }, { id: 2 }];
     const newState = reviews(state, {

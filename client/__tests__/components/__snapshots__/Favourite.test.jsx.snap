@@ -107,7 +107,7 @@ exports[`Favourite Recipe Component it should render Favourites correctly 1`] = 
               View
             </Link>
             <button
-              className="btn btn-outline-info ml-2"
+              className="btn btn-outline-info ml-2 removeFavourite"
               id={1}
               onClick={[Function]}
             >

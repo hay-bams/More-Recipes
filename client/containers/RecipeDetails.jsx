@@ -87,18 +87,39 @@ export class RecipeDetails extends React.Component {
           </div>
 
           <div className="col-lg-6 recipe-img">
-            <img className="recipe-details img-fluid" src={recipe.image} alt="Details" />
-            <a onClick={this.upvote} href="#" className="btn btn-outline-dark">
+            <img
+              className="recipe-details img-fluid"
+              src={recipe.image}
+              alt="Details"
+            />
+            <a
+              onClick={this.upvote}
+              href="#"
+              className="btn btn-outline-dark"
+              id="upvote"
+            >
               <i className="fa fa-thumbs-up" aria-hidden="true" />
               {recipe.upvotes}
             </a>
 
-            <a onClick={this.downvote} href="#" className="btn btn-outline-dark" style={{ marginLeft: `${5}px` }} >
+            <a
+              onClick={this.downvote}
+              href="#"
+              className="btn btn-outline-dark"
+              style={{ marginLeft: `${5}px` }}
+              id="downvote"
+            >
               <i className="fa fa-thumbs-down" aria-hidden="true" />
               {recipe.downvotes}
             </a>
 
-            <a onClick={this.addFavourite} href="#" className="btn btn-outline-dark" style={{ marginLeft: `${5}px` }} >
+            <a
+              onClick={this.addFavourite}
+              href="#"
+              className="btn btn-outline-dark"
+              style={{ marginLeft: `${5}px` }}
+              id="favourite"
+            >
               <i className="fa fa-heart" aria-hidden="true" />
             </a>
           </div>

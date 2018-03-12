@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="1"
+            tests="10">
+
+  <testsuite name="1recipeAction"
+    errors="0" failures="1" hostname="" id="" package="1recipeAction" skipped="3"
+    tests="10" time="19.29" timestamp="Wed, 14 Mar 2018 10:49:24 GMT">
+  
+    <testcase name="Sign up a new user" classname="1recipeAction" time="13.04" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="sign in" classname="1recipeAction" time="1.462" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="View all recipes" classname="1recipeAction" time="0.7760" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Search recipes" classname="1recipeAction" time="1.862" assertions="0">
+    </testcase>
+  
+    <testcase name="Sort Recipe" classname="1recipeAction" time="0.8150" assertions="0">
+    </testcase>
+  
+    <testcase name="Order Recipe" classname="1recipeAction" time="0.7670" assertions="0">
+    </testcase>
+  
+    <testcase name="View single recipe" classname="1recipeAction" time="0.5700" assertions="3">
+
+    
+
+      <failure message="Testing if element &lt;#viewRecipe&gt; is visible.">    at Object.View single recipe (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/1recipeAction.js:92:15)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)</failure>
+
+    
+    </testcase>
+  
+
+  
+
+  
+    
+    <testcase
+      name="upvote recipe" classname="1recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="downvote recipe" classname="1recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="favourite a recipe" classname="1recipeAction">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

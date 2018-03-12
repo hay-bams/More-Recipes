@@ -12,6 +12,7 @@ exports[`Navigation should render Navigation correctly 1`] = `
         activeClassName="active"
         ariaCurrent="true"
         className="navbar-brand"
+        id="home"
         to="/"
       >
         More Recipes
@@ -43,6 +44,7 @@ exports[`Navigation should render Navigation correctly 1`] = `
               activeClassName="active"
               ariaCurrent="true"
               className="nav-link"
+              id="catalogue"
               to="/catalogue"
             >
               Catalogue
@@ -56,6 +58,7 @@ exports[`Navigation should render Navigation correctly 1`] = `
               ariaCurrent="true"
               className="nav-link"
               href="login.html"
+              id="signinLink"
               to="/signin"
             >
               Sign in
@@ -74,6 +77,7 @@ exports[`Navigation should render Navigation correctly 1`] = `
               ariaCurrent="true"
               className="nav-link"
               href="register.html"
+              id="signupLink"
               to="/signup"
             >
               Sign up

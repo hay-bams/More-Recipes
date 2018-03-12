@@ -84,6 +84,7 @@ exports[`Signin component it should render SignupForm correctly 1`] = `
             >
               <input
                 className="btn btn-success btn-block"
+                id="registerbutton"
                 type="submit"
                 value="Register"
               />

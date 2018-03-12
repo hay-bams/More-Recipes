@@ -14,7 +14,7 @@ let userToken;
 
 chai.use(chaiHttp);
 
-describe('Recipe API', () => {
+describe('Recipe Controller', () => {
   describe('Add Recipe', () => {
     before((done) => {
       chai.request(app)
@@ -231,20 +231,23 @@ describe('Recipe API', () => {
   });
 
   describe('Update Recipe', () => {
-    it('should return 404 for updating a recipe that does not exist', (done) => {
-      chai.request(app)
-        .put('/api/v1/recipes/10000')
-        .set('token', userToken)
-        .send(recipe2)
-        .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.have.a('object');
-          res.body.should.have.property('success').eql('false');
-          res.body.should.have.property('message')
-            .eql('Recipe does not exist');
-          done();
-        });
-    });
+    it(
+      'should return 404 for updating a recipe that does not exist',
+      (done) => {
+        chai.request(app)
+          .put('/api/v1/recipes/10000')
+          .set('token', userToken)
+          .send(recipe2)
+          .end((err, res) => {
+            res.should.have.status(404);
+            res.body.should.have.a('object');
+            res.body.should.have.property('success').eql('false');
+            res.body.should.have.property('message')
+              .eql('Recipe does not exist');
+            done();
+          });
+      }
+    );
 
     it('should update a recipe and return 201', (done) => {
       chai.request(app)
@@ -277,19 +280,22 @@ describe('Recipe API', () => {
   });
 
   describe('Delete Recipe', () => {
-    it('should return 404 for deleting a recipe that does not exist', (done) => {
-      chai.request(app)
-        .delete('/api/v1/recipes/10')
-        .set('token', userToken)
-        .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.have.a('object');
-          res.body.should.have.property('success').eql('false');
-          res.body.should.have.property('message')
-            .eql('Recipe does not exist');
-          done();
-        });
-    });
+    it(
+      'should return 404 for deleting a recipe that does not exist',
+      (done) => {
+        chai.request(app)
+          .delete('/api/v1/recipes/10')
+          .set('token', userToken)
+          .end((err, res) => {
+            res.should.have.status(404);
+            res.body.should.have.a('object');
+            res.body.should.have.property('success').eql('false');
+            res.body.should.have.property('message')
+              .eql('Recipe does not exist');
+            done();
+          });
+      }
+    );
 
     it('should delete a recipes and return a status of 200', (done) => {
       chai.request(app)

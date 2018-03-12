@@ -13,7 +13,7 @@ let createdUserId;
 
 chai.use(chaiHttp);
 
-describe('User Controller test', () => {
+describe('User Controller', () => {
   describe('User Sign up', () => {
     before((done) => {
       chai.request(app)

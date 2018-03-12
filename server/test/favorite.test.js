@@ -83,7 +83,7 @@ describe('Favourites', () => {
       });
   });
 
-  it('should delete user favorite recipe and return a status of 200 if token is provided', (done) => {
+  it('should delete user favorite recipe', (done) => {
     chai.request(app)
       .delete(`/api/v1/${createdRecipeId}/recipes`)
       .set('token', userToken)

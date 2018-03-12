@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="9"
+            failures="0"
+            tests="15">
+
+  <testsuite name="recipeAction"
+    errors="9" failures="0" hostname="" id="" package="recipeAction" skipped="0"
+    tests="15" time="194.7" timestamp="Wed, 14 Mar 2018 20:16:31 GMT">
+  
+    <testcase name="Sign up a new user" classname="recipeAction" time="32.53" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="sign in" classname="recipeAction" time="10.41" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="View all recipes" classname="recipeAction" time="6.151" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Search recipes" classname="recipeAction" time="15.04" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Sort Recipe" classname="recipeAction" time="4.421" assertions="0">
+    </testcase>
+  
+    <testcase name="Order Recipe" classname="recipeAction" time="4.405" assertions="0">
+    </testcase>
+  
+    <testcase name="View single recipe" classname="recipeAction" time="8.178" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="upvote recipe" classname="recipeAction" time="6.128" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="downvote recipe" classname="recipeAction" time="4.118" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="favourite a recipe" classname="recipeAction" time="4.154" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Add Recipe Action" classname="recipeAction" time="27.19" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Favourite Recipe Action" classname="recipeAction" time="16.92" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit Recipe Action" classname="recipeAction" time="20.89" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit User Profile Action" classname="recipeAction" time="11.71" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Edit Password" classname="recipeAction" time="22.49" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+      ERROR: Unable to locate element: &#34;input[name=firstName]&#34; using: css selector
+    at Object.Edit User Profile Action (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:215:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=firstName]&#34; using: css selector
+    at Object.Edit User Profile Action (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:217:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=lastName]&#34; using: css selector
+    at Object.Edit User Profile Action (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:219:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[type=submit]&#34; using: css selector
+    at Object.Edit User Profile Action (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:221:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=password]&#34; using: css selector
+    at Object.Edit Password (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:234:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=confirmPassword]&#34; using: css selector
+    at Object.Edit Password (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:236:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=password]&#34; using: css selector
+    at Object.Edit Password (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:238:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=confirmPassword]&#34; using: css selector
+    at Object.Edit Password (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:240:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[type=submit]&#34; using: css selector
+    at Object.Edit Password (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:242:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    </system-err>
+  
+
+  
+  </testsuite>
+</testsuites>

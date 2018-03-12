@@ -171,6 +171,7 @@ export class SignupForm extends React.Component {
 
                   <div className="form-group">
                     <input
+                      id="registerbutton"
                       type="submit"
                       value="Register"
                       className="btn btn-success btn-block"

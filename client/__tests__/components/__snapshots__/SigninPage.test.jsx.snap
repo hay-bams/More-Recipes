@@ -8,6 +8,11 @@ exports[`Sign in page it should render correctly 1`] = `
         "push": [MockFunction],
       }
     }
+    location={
+      Object {
+        "pathname": "",
+      }
+    }
     userData={Object {}}
   />
   <Connect(SigninForm)

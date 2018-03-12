@@ -2,7 +2,7 @@ import { user } from '../../reducers/user';
 import APPCONSTANT from '../../constant';
 
 describe('users', () => {
-  test('Should return unchanged state when no matching action is found', () => {
+  test('DEFAULT Should return unchanged state', () => {
     const state = {};
     const newState = user(state, {
       type: 'UNKNOWN_ACTION'
@@ -11,7 +11,7 @@ describe('users', () => {
     expect(newState).toEqual(state);
   });
 
-  test('Should update userData in store when called with SIGN_UP: action', () => {
+  test('CASE: SIGN_UP Should update userData in store', () => {
     const state = { rows: [{ id: 1 }] };
     const newUser = { id: 1 };
     const token = 'some token';
@@ -25,7 +25,7 @@ describe('users', () => {
     expect(newState).toEqual({ newUser, token });
   });
 
-  test('Should update userData in store when called with SIGN_IN action', () => {
+  test('CASE: SIGN_IN Should update userData in store', () => {
     const state = { rows: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] };
     const newUser = { id: 1 };
     const token = 'some token';
@@ -39,7 +39,7 @@ describe('users', () => {
     expect(newState).toEqual({ newUser, token });
   });
 
-  test('Should update userData in store when called with SIGN_OUT action', () => {
+  test('CASE: SIGN_OUT Should update userData in store', () => {
     const state = {};
     const newState = user(state, {
       type: APPCONSTANT.SIGN_OUT,

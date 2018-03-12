@@ -4,7 +4,7 @@ import DashboardNav from './DashboardNav';
 import Footer from '../Footer';
 
 const AddRecipePage = props => (
-  <div>
+  <div id="favouritePage">
     <DashboardNav {...props} />
     <ConnectedFavouriteRecipe />
     <Footer />
