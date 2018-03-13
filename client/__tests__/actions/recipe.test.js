@@ -20,7 +20,7 @@ describe('All actions', () => {
     test(
       'Should dispatch addRecipe action when addRecipe is called',
       async () => {
-        moxios.stubRequest('http://localhost:8000/api/v1/recipes', {
+        moxios.stubRequest('api/v1/recipes', {
           status: 201,
           response: recipeResponse
         });

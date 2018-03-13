@@ -1,5 +1,5 @@
 import axios from 'axios';
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 const host = window.location.hostname === 'purpose-more-recipes.herokuapp.com' ?
   'https://purpose-more-recipes.herokuapp.com' : 'http://localhost:8000';
@@ -12,13 +12,13 @@ export const addReview = async (userReview, recipeId) => {
 
     const response = await axios({
       method: 'post',
-      url: `${host}/api/v1/recipes/${recipeId}/reviews`,
+      url: `api/v1/recipes/${recipeId}/reviews`,
       data: userReview,
       headers: { token: userToken }
     });
     toastr.success(response.data.message);
     return {
-      type: APPCONSTANT.ADD_REVIEW,
+      type: CONSTANT.ADD_REVIEW,
       payload: response.data
     };
   } catch ({ response }) {
@@ -27,12 +27,12 @@ export const addReview = async (userReview, recipeId) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
     return {
-      type: APPCONSTANT.ADD_REVIEW_ERRORS,
+      type: CONSTANT.ADD_REVIEW_ERRORS,
       payload: response,
       name: 'addReviewError'
     };
@@ -45,7 +45,7 @@ export const getRecipeReviews = async (recipeId) => {
 
     const recipeReviews = await axios({
       method: 'get',
-      url: `${host}/api/v1/reviews/${recipeId}`,
+      url: `api/v1/reviews/${recipeId}`,
     });
 
     if (recipeReviews.data.data !== undefined) {
@@ -55,7 +55,7 @@ export const getRecipeReviews = async (recipeId) => {
     }
 
     return {
-      type: APPCONSTANT.GET_RECIPES_REVIEWS,
+      type: CONSTANT.GET_RECIPES_REVIEWS,
       payload: payloadData
     };
   } catch ({ response }) {
@@ -64,12 +64,12 @@ export const getRecipeReviews = async (recipeId) => {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
       return {
-        type: APPCONSTANT.SIGN_OUT,
+        type: CONSTANT.SIGN_OUT,
         payload: null
       };
     }
     return {
-      type: APPCONSTANT.GET_REVIEW_ERRORS,
+      type: CONSTANT.GET_REVIEW_ERRORS,
       payload: response,
       name: 'getReviewError'
     };

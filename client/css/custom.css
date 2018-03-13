@@ -89,6 +89,18 @@ body {
   top: 200px;
 }
 
+.card-height {
+  max-height: 100%;
+  border: 2px solid red;
+}
+
+.truncate {
+  width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .carousel.fade {
   opacity: 1
 }

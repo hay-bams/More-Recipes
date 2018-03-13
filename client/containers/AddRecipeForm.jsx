@@ -18,7 +18,6 @@ const dropZoneStyles = {
  *
  */
 export class AddRecipeForm extends React.Component {
-
   /**
    * @param {obj} props
    * @returns {void} constructor
@@ -36,7 +35,8 @@ export class AddRecipeForm extends React.Component {
       uploadError: null,
       ingredientError: '',
       titleError: '',
-      instructionError: ''
+      instructionError: '',
+      addingRecipe: false
     };
   }
 
@@ -95,7 +95,7 @@ export class AddRecipeForm extends React.Component {
         instructions: this.state.instructions,
       };
 
-      let errors = Authenticate.validateAddRecipe(recipe);
+      const errors = Authenticate.validateAddRecipe(recipe);
 
       if (errors.title !== '' || errors.ingredients !== '' ||
      errors.instructions) {
@@ -105,20 +105,19 @@ export class AddRecipeForm extends React.Component {
           instructionError: errors.instructions
         });
       }
-      this.setState({ loaded: false });
+      this.setState({ loaded: false, addingRecipe: true });
       const imageURI = await this.uploadImageToCloudinary();
-      
+
       recipe = {
         title: this.state.title,
         ingredients: this.state.ingredients,
         instructions: this.state.instructions,
         image: imageURI
       };
-  
+
       await this.props.addRecipe(recipe);
 
       this.props.history.push('/view_recipes');
-      
     } catch (err) {
       if (err.response.data.error.message) {
         this.setState({ loaded: true, uploadError: 'image is required' });
@@ -242,11 +241,14 @@ export class AddRecipeForm extends React.Component {
                   scale={1.00}
                   loadedClassName="loadedContent"
                 />
+
                 <div className="form-group">
                   <input
                     type="submit"
                     className="btn btn-success"
-                    value="Add Recipe"
+                    disabled={this.state.addingRecipe}
+                    value={this.state.addingRecipe ? 'Adding Recipe...' :
+                     'Add Recipe'}
                   />
                 </div>
               </form>

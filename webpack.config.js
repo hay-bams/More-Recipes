@@ -12,6 +12,9 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'client'),
     historyApiFallback: true,
+    proxy: {
+      '/api': 'http://localhost:8000'
+    }
   },
   resolve: {
     extensions: ['.js', '.jsx']

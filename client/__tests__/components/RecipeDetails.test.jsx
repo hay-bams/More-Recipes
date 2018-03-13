@@ -69,32 +69,4 @@ describe('Recipe Details Component', () => {
     });
     expect(spy.called).toBeTruthy();
   });
-
-
-  // test('upvoteRecipe props has been called on click', () => {
-  //   const wrapper = shallow(<RecipeDetails {...props} />);
-  //   wrapper.find('a').at(0).simulate('click', {
-  //     preventDefault: () => {}
-  //   });
-
-  //   expect(props.upvoteRecipe).toHaveBeenCalled();
-  // });
-
-  // test('downVoteRecipe props has been called on click', () => {
-  //   const wrapper = shallow(<RecipeDetails {...props} />);
-  //   wrapper.find('a').at(1).simulate('click', {
-  //     preventDefault: () => {}
-  //   });
-
-  //   expect(props.downvoteRecipe).toHaveBeenCalled();
-  // });
-
-  // test('addFavourite props has been called on click', () => {
-  //   const wrapper = shallow(<RecipeDetails {...props} />);
-  //   wrapper.find('a').at(2).simulate('click', {
-  //     preventDefault: () => {}
-  //   });
-
-  //   expect(props.addFavoriteRecipe).toHaveBeenCalled();
-  // });
 });
