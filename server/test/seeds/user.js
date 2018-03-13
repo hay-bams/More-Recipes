@@ -14,6 +14,54 @@ export const validUser = {
   confirmPassword: 'password'
 };
 
+export const validUser2 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth2@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
+export const validUser3 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth3@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
+export const validUser4 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth4@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
+export const validUser5 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth5@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
+export const validUser6 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth6@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
+export const validUser7 = {
+  firstName: 'Ayobami',
+  lastName: 'Adelakun',
+  email: 'topwealth7@gmail.com',
+  password: 'password',
+  confirmPassword: 'password'
+};
+
 export const existingEmail = {
   firstName: 'Ayobami',
   lastName: 'Adelakun',
@@ -77,7 +125,29 @@ export const passwordUpdate = {
 export const signInuser1 = {
   email: 'topwealth@gmail.com',
   password: 'password',
- 
+};
+
+export const signInuser2 = {
+  password: 'password',
+};
+
+export const signInuser3 = {
+  email: 'topwealth@gmail.com',
+};
+
+export const signInuser4 = {
+  email: 'topwealth@gmail.com',
+  password: 'wrong password',
+};
+
+export const signInuser5 = {
+  email: 'topwealth.com',
+  password: 'jkamjkdie39',
+};
+
+export const signInuser6 = {
+  email: 'purpose@gmail.com',
+  password: 'jkamjkdie39',
 };
 
 

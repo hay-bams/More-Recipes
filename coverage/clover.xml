@@ -1,307 +1,800 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1520431875028" clover="3.2.0">
-  <project timestamp="1520431875028" name="All files">
-    <metrics statements="272" coveredstatements="188" conditionals="150" coveredconditionals="58" methods="36" coveredmethods="35" elements="458" coveredelements="281" complexity="0" loc="272" ncloc="272" packages="5" files="5" classes="5">
-      <package name="client">
+<coverage generated="1520928155699" clover="3.2.0">
+  <project timestamp="1520928155699" name="All files">
+    <metrics statements="681" coveredstatements="623" conditionals="305" coveredconditionals="238" methods="167" coveredmethods="122" elements="1153" coveredelements="983" complexity="0" loc="681" ncloc="681" packages="8" files="30" classes="30">
+      <package name="More-Recipes">
+        <metrics statements="12" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="5"/>
+        <file name="test-env.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/test-env.js">
+          <metrics statements="12" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="5"/>
+          <line num="1" count="27" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="12" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="5" count="20" type="stmt"/>
+          <line num="7" count="27" type="stmt"/>
+          <line num="8" count="4" type="stmt"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="16" type="stmt"/>
+          <line num="13" count="27" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="More-Recipes.client">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="constant.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/constant.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="1" count="6" type="stmt"/>
+          <line num="1" count="26" type="stmt"/>
         </file>
       </package>
-      <package name="client.__tests__">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <file name="setupTests.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/__tests__/setupTests.js">
-          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="7" type="stmt"/>
-        </file>
-      </package>
-      <package name="client.actions">
-        <metrics statements="208" coveredstatements="131" conditionals="74" coveredconditionals="5" methods="22" coveredmethods="22"/>
-        <file name="actions.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/actions/actions.js">
-          <metrics statements="208" coveredstatements="131" conditionals="74" coveredconditionals="5" methods="22" coveredmethods="22"/>
-          <line num="4" count="3" type="cond" truecount="1" falsecount="1"/>
-          <line num="8" count="3" type="stmt"/>
-          <line num="9" count="1" type="stmt"/>
-          <line num="10" count="1" type="stmt"/>
-          <line num="11" count="1" type="stmt"/>
-          <line num="12" count="1" type="stmt"/>
+      <package name="More-Recipes.client.actions">
+        <metrics statements="216" coveredstatements="203" conditionals="86" coveredconditionals="63" methods="22" coveredmethods="22"/>
+        <file name="recipe.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/actions/recipe.js">
+          <metrics statements="129" coveredstatements="124" conditionals="52" coveredconditionals="39" methods="14" coveredmethods="14"/>
+          <line num="4" count="9" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="9" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
           <line num="18" count="1" type="stmt"/>
           <line num="19" count="1" type="stmt"/>
-          <line num="24" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="26" count="0" type="stmt"/>
-          <line num="27" count="0" type="stmt"/>
-          <line num="28" count="0" type="stmt"/>
-          <line num="36" count="3" type="stmt"/>
-          <line num="37" count="1" type="stmt"/>
+          <line num="24" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="26" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="36" count="9" type="stmt"/>
+          <line num="38" count="2" type="cond" truecount="4" falsecount="0"/>
           <line num="39" count="1" type="stmt"/>
-          <line num="48" count="3" type="stmt"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
           <line num="49" count="1" type="stmt"/>
-          <line num="50" count="1" type="stmt"/>
-          <line num="59" count="3" type="stmt"/>
-          <line num="60" count="1" type="stmt"/>
+          <line num="58" count="9" type="stmt"/>
+          <line num="60" count="2" type="cond" truecount="4" falsecount="0"/>
           <line num="61" count="1" type="stmt"/>
-          <line num="67" count="3" type="stmt"/>
-          <line num="68" count="1" type="stmt"/>
-          <line num="69" count="1" type="stmt"/>
-          <line num="75" count="3" type="stmt"/>
-          <line num="76" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="79" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="81" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="80" count="9" type="stmt"/>
+          <line num="81" count="1" type="stmt"/>
           <line num="82" count="1" type="stmt"/>
-          <line num="88" count="0" type="stmt"/>
-          <line num="91" count="1" type="stmt"/>
-          <line num="97" count="3" type="stmt"/>
-          <line num="98" count="1" type="stmt"/>
-          <line num="99" count="1" type="stmt"/>
-          <line num="100" count="1" type="stmt"/>
-          <line num="101" count="1" type="stmt"/>
+          <line num="88" count="9" type="stmt"/>
+          <line num="89" count="1" type="stmt"/>
+          <line num="90" count="1" type="stmt"/>
+          <line num="96" count="9" type="stmt"/>
+          <line num="97" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="100" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="102" count="1" type="cond" truecount="1" falsecount="1"/>
           <line num="103" count="1" type="stmt"/>
-          <line num="109" count="1" type="stmt"/>
-          <line num="114" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="116" count="0" type="stmt"/>
-          <line num="117" count="0" type="stmt"/>
-          <line num="118" count="0" type="stmt"/>
-          <line num="127" count="3" type="stmt"/>
-          <line num="128" count="1" type="stmt"/>
-          <line num="129" count="1" type="stmt"/>
-          <line num="133" count="1" type="stmt"/>
-          <line num="134" count="1" type="stmt"/>
-          <line num="135" count="1" type="stmt"/>
-          <line num="136" count="1" type="stmt"/>
+          <line num="109" count="0" type="stmt"/>
+          <line num="112" count="1" type="stmt"/>
+          <line num="118" count="9" type="stmt"/>
+          <line num="119" count="2" type="stmt"/>
+          <line num="120" count="2" type="stmt"/>
+          <line num="121" count="2" type="stmt"/>
+          <line num="122" count="2" type="stmt"/>
+          <line num="124" count="2" type="stmt"/>
+          <line num="130" count="1" type="stmt"/>
+          <line num="135" count="1" type="cond" truecount="3" falsecount="1"/>
           <line num="137" count="1" type="stmt"/>
-          <line num="144" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="146" count="0" type="stmt"/>
-          <line num="147" count="0" type="stmt"/>
-          <line num="148" count="0" type="stmt"/>
-          <line num="153" count="0" type="stmt"/>
-          <line num="154" count="0" type="stmt"/>
-          <line num="162" count="3" type="stmt"/>
-          <line num="163" count="1" type="stmt"/>
-          <line num="164" count="1" type="stmt"/>
-          <line num="168" count="1" type="stmt"/>
-          <line num="169" count="1" type="stmt"/>
-          <line num="170" count="1" type="stmt"/>
-          <line num="171" count="1" type="stmt"/>
-          <line num="178" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="180" count="0" type="stmt"/>
-          <line num="181" count="0" type="stmt"/>
-          <line num="182" count="0" type="stmt"/>
-          <line num="187" count="0" type="stmt"/>
-          <line num="188" count="0" type="stmt"/>
-          <line num="196" count="3" type="stmt"/>
-          <line num="197" count="1" type="stmt"/>
-          <line num="198" count="1" type="stmt"/>
-          <line num="199" count="1" type="stmt"/>
-          <line num="201" count="1" type="stmt"/>
-          <line num="206" count="1" type="stmt"/>
-          <line num="207" count="1" type="stmt"/>
-          <line num="212" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="214" count="0" type="stmt"/>
-          <line num="215" count="0" type="stmt"/>
-          <line num="216" count="0" type="stmt"/>
-          <line num="224" count="3" type="stmt"/>
+          <line num="138" count="1" type="stmt"/>
+          <line num="139" count="1" type="stmt"/>
+          <line num="147" count="9" type="stmt"/>
+          <line num="148" count="2" type="stmt"/>
+          <line num="149" count="2" type="stmt"/>
+          <line num="150" count="2" type="stmt"/>
+          <line num="152" count="2" type="stmt"/>
+          <line num="157" count="1" type="stmt"/>
+          <line num="158" count="1" type="stmt"/>
+          <line num="163" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="165" count="1" type="stmt"/>
+          <line num="166" count="1" type="stmt"/>
+          <line num="167" count="1" type="stmt"/>
+          <line num="175" count="9" type="stmt"/>
+          <line num="176" count="2" type="stmt"/>
+          <line num="177" count="2" type="stmt"/>
+          <line num="178" count="2" type="stmt"/>
+          <line num="180" count="2" type="stmt"/>
+          <line num="186" count="1" type="stmt"/>
+          <line num="187" count="1" type="stmt"/>
+          <line num="192" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="194" count="1" type="stmt"/>
+          <line num="195" count="1" type="stmt"/>
+          <line num="196" count="1" type="stmt"/>
+          <line num="204" count="9" type="stmt"/>
+          <line num="205" count="2" type="stmt"/>
+          <line num="206" count="2" type="stmt"/>
+          <line num="207" count="2" type="stmt"/>
+          <line num="209" count="2" type="stmt"/>
+          <line num="215" count="1" type="stmt"/>
+          <line num="216" count="1" type="stmt"/>
+          <line num="221" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="223" count="1" type="stmt"/>
+          <line num="224" count="1" type="stmt"/>
           <line num="225" count="1" type="stmt"/>
-          <line num="226" count="1" type="stmt"/>
-          <line num="227" count="1" type="stmt"/>
-          <line num="229" count="1" type="stmt"/>
-          <line num="235" count="1" type="stmt"/>
-          <line num="236" count="1" type="stmt"/>
-          <line num="241" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="243" count="0" type="stmt"/>
-          <line num="244" count="0" type="stmt"/>
-          <line num="245" count="0" type="stmt"/>
-          <line num="253" count="3" type="stmt"/>
+          <line num="230" count="0" type="stmt"/>
+          <line num="234" count="9" type="stmt"/>
+          <line num="235" count="2" type="stmt"/>
+          <line num="236" count="2" type="stmt"/>
+          <line num="237" count="2" type="stmt"/>
+          <line num="239" count="2" type="stmt"/>
+          <line num="245" count="1" type="stmt"/>
+          <line num="246" count="1" type="stmt"/>
+          <line num="251" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="253" count="1" type="stmt"/>
           <line num="254" count="1" type="stmt"/>
           <line num="255" count="1" type="stmt"/>
-          <line num="256" count="1" type="stmt"/>
-          <line num="257" count="1" type="stmt"/>
-          <line num="263" count="1" type="stmt"/>
-          <line num="264" count="1" type="stmt"/>
-          <line num="269" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="271" count="0" type="stmt"/>
-          <line num="272" count="0" type="stmt"/>
-          <line num="273" count="0" type="stmt"/>
-          <line num="282" count="3" type="stmt"/>
-          <line num="283" count="1" type="stmt"/>
-          <line num="284" count="1" type="stmt"/>
-          <line num="285" count="1" type="stmt"/>
+          <line num="260" count="0" type="stmt"/>
+          <line num="264" count="9" type="stmt"/>
+          <line num="265" count="2" type="stmt"/>
+          <line num="266" count="2" type="stmt"/>
+          <line num="267" count="2" type="stmt"/>
+          <line num="268" count="2" type="stmt"/>
+          <line num="270" count="2" type="stmt"/>
+          <line num="276" count="1" type="stmt"/>
+          <line num="284" count="1" type="cond" truecount="3" falsecount="1"/>
           <line num="286" count="1" type="stmt"/>
-          <line num="293" count="1" type="stmt"/>
-          <line num="294" count="1" type="stmt"/>
-          <line num="299" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="301" count="0" type="stmt"/>
-          <line num="302" count="0" type="stmt"/>
-          <line num="303" count="0" type="stmt"/>
-          <line num="311" count="3" type="stmt"/>
-          <line num="312" count="1" type="stmt"/>
-          <line num="313" count="1" type="stmt"/>
+          <line num="287" count="1" type="stmt"/>
+          <line num="288" count="1" type="stmt"/>
+          <line num="296" count="9" type="stmt"/>
+          <line num="297" count="2" type="stmt"/>
+          <line num="298" count="2" type="stmt"/>
+          <line num="299" count="2" type="stmt"/>
+          <line num="301" count="2" type="stmt"/>
+          <line num="306" count="1" type="stmt"/>
+          <line num="307" count="1" type="stmt"/>
+          <line num="312" count="1" type="cond" truecount="3" falsecount="1"/>
           <line num="314" count="1" type="stmt"/>
+          <line num="315" count="1" type="stmt"/>
           <line num="316" count="1" type="stmt"/>
-          <line num="322" count="1" type="stmt"/>
-          <line num="323" count="1" type="stmt"/>
-          <line num="328" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="330" count="0" type="stmt"/>
-          <line num="331" count="0" type="stmt"/>
-          <line num="332" count="0" type="stmt"/>
-          <line num="337" count="0" type="stmt"/>
-          <line num="345" count="3" type="stmt"/>
-          <line num="346" count="1" type="stmt"/>
+          <line num="321" count="0" type="stmt"/>
+          <line num="322" count="0" type="stmt"/>
+          <line num="330" count="9" type="stmt"/>
+          <line num="331" count="2" type="stmt"/>
+          <line num="332" count="2" type="stmt"/>
+          <line num="333" count="2" type="stmt"/>
+          <line num="335" count="2" type="stmt"/>
+          <line num="340" count="1" type="stmt"/>
+          <line num="341" count="1" type="stmt"/>
+          <line num="346" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="348" count="1" type="stmt"/>
           <line num="349" count="1" type="stmt"/>
-          <line num="354" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="355" count="1" type="stmt"/>
-          <line num="357" count="0" type="stmt"/>
-          <line num="360" count="1" type="stmt"/>
-          <line num="365" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="367" count="0" type="stmt"/>
-          <line num="368" count="0" type="stmt"/>
-          <line num="369" count="0" type="stmt"/>
-          <line num="374" count="0" type="stmt"/>
-          <line num="382" count="3" type="stmt"/>
-          <line num="383" count="1" type="stmt"/>
-          <line num="384" count="1" type="stmt"/>
-          <line num="388" count="1" type="stmt"/>
-          <line num="393" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="395" count="0" type="stmt"/>
-          <line num="396" count="0" type="stmt"/>
-          <line num="397" count="0" type="stmt"/>
-          <line num="405" count="3" type="stmt"/>
-          <line num="406" count="1" type="stmt"/>
-          <line num="407" count="1" type="stmt"/>
-          <line num="408" count="1" type="stmt"/>
-          <line num="410" count="1" type="stmt"/>
-          <line num="416" count="1" type="stmt"/>
-          <line num="417" count="1" type="stmt"/>
-          <line num="422" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="424" count="0" type="stmt"/>
-          <line num="425" count="0" type="stmt"/>
-          <line num="426" count="0" type="stmt"/>
-          <line num="431" count="0" type="stmt"/>
-          <line num="435" count="3" type="stmt"/>
-          <line num="436" count="1" type="stmt"/>
-          <line num="437" count="1" type="stmt"/>
-          <line num="438" count="1" type="stmt"/>
-          <line num="440" count="1" type="stmt"/>
-          <line num="446" count="1" type="stmt"/>
-          <line num="447" count="1" type="stmt"/>
-          <line num="452" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="454" count="0" type="stmt"/>
-          <line num="455" count="0" type="stmt"/>
-          <line num="456" count="0" type="stmt"/>
-          <line num="461" count="0" type="stmt"/>
-          <line num="465" count="3" type="stmt"/>
-          <line num="466" count="1" type="stmt"/>
-          <line num="467" count="1" type="stmt"/>
-          <line num="468" count="1" type="stmt"/>
-          <line num="469" count="1" type="stmt"/>
-          <line num="471" count="1" type="stmt"/>
-          <line num="477" count="1" type="stmt"/>
-          <line num="485" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="487" count="0" type="stmt"/>
-          <line num="488" count="0" type="stmt"/>
-          <line num="489" count="0" type="stmt"/>
-          <line num="497" count="3" type="stmt"/>
-          <line num="498" count="1" type="stmt"/>
-          <line num="499" count="1" type="stmt"/>
-          <line num="500" count="1" type="stmt"/>
-          <line num="502" count="1" type="stmt"/>
-          <line num="507" count="1" type="stmt"/>
-          <line num="508" count="1" type="stmt"/>
-          <line num="513" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="515" count="0" type="stmt"/>
-          <line num="516" count="0" type="stmt"/>
-          <line num="517" count="0" type="stmt"/>
-          <line num="522" count="0" type="stmt"/>
-          <line num="523" count="0" type="stmt"/>
-          <line num="531" count="3" type="stmt"/>
-          <line num="532" count="1" type="stmt"/>
-          <line num="533" count="1" type="stmt"/>
-          <line num="534" count="1" type="stmt"/>
-          <line num="536" count="1" type="stmt"/>
-          <line num="541" count="1" type="stmt"/>
-          <line num="542" count="1" type="stmt"/>
-          <line num="547" count="0" type="cond" truecount="0" falsecount="4"/>
-          <line num="549" count="0" type="stmt"/>
-          <line num="550" count="0" type="stmt"/>
-          <line num="551" count="0" type="stmt"/>
-          <line num="559" count="3" type="stmt"/>
-          <line num="560" count="2" type="stmt"/>
-          <line num="561" count="2" type="stmt"/>
-          <line num="566" count="0" type="stmt"/>
+          <line num="350" count="1" type="stmt"/>
+        </file>
+        <file name="review.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/actions/review.js">
+          <metrics statements="25" coveredstatements="22" conditionals="12" coveredconditionals="8" methods="2" coveredmethods="2"/>
+          <line num="4" count="3" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="13" count="2" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="25" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="42" count="3" type="stmt"/>
+          <line num="43" count="2" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+          <line num="51" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="62" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="64" count="1" type="stmt"/>
+          <line num="65" count="1" type="stmt"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="71" count="0" type="stmt"/>
+        </file>
+        <file name="user.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/actions/user.js">
+          <metrics statements="62" coveredstatements="57" conditionals="22" coveredconditionals="16" methods="6" coveredmethods="6"/>
+          <line num="4" count="7" type="cond" truecount="1" falsecount="1"/>
+          <line num="8" count="7" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="25" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="34" count="0" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="43" count="7" type="stmt"/>
+          <line num="44" count="2" type="stmt"/>
+          <line num="45" count="2" type="stmt"/>
+          <line num="49" count="1" type="stmt"/>
+          <line num="50" count="1" type="stmt"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="59" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="61" count="1" type="stmt"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="63" count="1" type="stmt"/>
+          <line num="68" count="0" type="stmt"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="77" count="7" type="stmt"/>
+          <line num="78" count="2" type="stmt"/>
+          <line num="79" count="2" type="stmt"/>
+          <line num="80" count="2" type="stmt"/>
+          <line num="81" count="2" type="stmt"/>
+          <line num="87" count="1" type="stmt"/>
+          <line num="88" count="1" type="stmt"/>
+          <line num="93" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="95" count="1" type="stmt"/>
+          <line num="96" count="1" type="stmt"/>
+          <line num="97" count="1" type="stmt"/>
+          <line num="106" count="7" type="stmt"/>
+          <line num="107" count="2" type="stmt"/>
+          <line num="108" count="2" type="stmt"/>
+          <line num="109" count="2" type="stmt"/>
+          <line num="110" count="2" type="stmt"/>
+          <line num="117" count="1" type="stmt"/>
+          <line num="118" count="1" type="stmt"/>
+          <line num="123" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="125" count="1" type="stmt"/>
+          <line num="126" count="1" type="stmt"/>
+          <line num="127" count="1" type="stmt"/>
+          <line num="135" count="7" type="stmt"/>
+          <line num="136" count="2" type="stmt"/>
+          <line num="137" count="2" type="stmt"/>
+          <line num="141" count="1" type="stmt"/>
+          <line num="146" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="148" count="1" type="stmt"/>
+          <line num="149" count="1" type="stmt"/>
+          <line num="150" count="1" type="stmt"/>
+          <line num="158" count="7" type="stmt"/>
+          <line num="159" count="1" type="stmt"/>
+          <line num="160" count="1" type="stmt"/>
+          <line num="165" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="client.components">
+      <package name="More-Recipes.client.auth">
+        <metrics statements="48" coveredstatements="48" conditionals="34" coveredconditionals="34" methods="7" coveredmethods="7"/>
+        <file name="auth.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/auth/auth.js">
+          <metrics statements="48" coveredstatements="48" conditionals="34" coveredconditionals="34" methods="7" coveredmethods="7"/>
+          <line num="11" count="8" type="stmt"/>
+          <line num="19" count="5" type="stmt"/>
+          <line num="27" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="31" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="32" count="1" type="stmt"/>
+          <line num="35" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="39" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="40" count="1" type="stmt"/>
+          <line num="43" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="44" count="1" type="stmt"/>
+          <line num="46" count="5" type="stmt"/>
+          <line num="55" count="4" type="stmt"/>
+          <line num="61" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="62" count="1" type="stmt"/>
+          <line num="65" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="69" count="4" type="cond" truecount="2" falsecount="0"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="73" count="4" type="stmt"/>
+          <line num="83" count="3" type="stmt"/>
+          <line num="88" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="89" count="1" type="stmt"/>
+          <line num="92" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="93" count="2" type="stmt"/>
+          <line num="96" count="3" type="stmt"/>
+          <line num="105" count="3" type="stmt"/>
+          <line num="109" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="110" count="1" type="stmt"/>
+          <line num="113" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="114" count="1" type="stmt"/>
+          <line num="117" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="118" count="1" type="stmt"/>
+          <line num="120" count="3" type="stmt"/>
+          <line num="128" count="9" type="stmt"/>
+          <line num="133" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="134" count="2" type="stmt"/>
+          <line num="137" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="138" count="2" type="stmt"/>
+          <line num="141" count="9" type="cond" truecount="2" falsecount="0"/>
+          <line num="142" count="2" type="stmt"/>
+          <line num="145" count="9" type="stmt"/>
+          <line num="153" count="2" type="stmt"/>
+          <line num="157" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="158" count="1" type="stmt"/>
+          <line num="161" count="2" type="stmt"/>
+          <line num="165" count="8" type="stmt"/>
+        </file>
+      </package>
+      <package name="More-Recipes.client.components">
         <metrics statements="5" coveredstatements="5" conditionals="16" coveredconditionals="8" methods="2" coveredmethods="1"/>
         <file name="Navigation.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/components/Navigation.jsx">
           <metrics statements="5" coveredstatements="5" conditionals="16" coveredconditionals="8" methods="2" coveredmethods="1"/>
-          <line num="6" count="1" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
           <line num="7" count="1" type="stmt"/>
-          <line num="92" count="1" type="stmt"/>
-          <line num="96" count="1" type="stmt"/>
-          <line num="100" count="1" type="stmt"/>
+          <line num="92" count="2" type="stmt"/>
+          <line num="96" count="2" type="stmt"/>
+          <line num="100" count="2" type="stmt"/>
         </file>
       </package>
-      <package name="client.store">
-        <metrics statements="57" coveredstatements="50" conditionals="60" coveredconditionals="45" methods="12" coveredmethods="12"/>
-        <file name="reducers.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/store/reducers.js">
-          <metrics statements="57" coveredstatements="50" conditionals="60" coveredconditionals="45" methods="12" coveredmethods="12"/>
-          <line num="5" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="6" count="13" type="cond" truecount="4" falsecount="0"/>
+      <package name="More-Recipes.client.components.signin">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <file name="SigninPage.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/components/signin/SigninPage.jsx">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="7" count="1" type="stmt"/>
           <line num="8" count="1" type="stmt"/>
-          <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="28" count="10" type="stmt"/>
-          <line num="32" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="33" count="7" type="cond" truecount="2" falsecount="0"/>
-          <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="40" count="6" type="stmt"/>
-          <line num="44" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="45" count="7" type="cond" truecount="2" falsecount="0"/>
-          <line num="47" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="52" count="6" type="stmt"/>
-          <line num="57" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="58" count="9" type="cond" truecount="4" falsecount="0"/>
-          <line num="60" count="1" type="stmt"/>
-          <line num="63" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="14" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="More-Recipes.client.containers">
+        <metrics statements="352" coveredstatements="311" conditionals="120" coveredconditionals="100" methods="115" coveredmethods="76"/>
+        <file name="AddRecipeForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/AddRecipeForm.jsx">
+          <metrics statements="43" coveredstatements="39" conditionals="19" coveredconditionals="16" methods="8" coveredmethods="6"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="27" count="9" type="stmt"/>
+          <line num="28" count="9" type="stmt"/>
+          <line num="29" count="9" type="stmt"/>
+          <line num="30" count="9" type="stmt"/>
+          <line num="31" count="9" type="stmt"/>
+          <line num="32" count="9" type="stmt"/>
+          <line num="48" count="3" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
           <line num="66" count="1" type="stmt"/>
-          <line num="72" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="75" count="1" type="stmt"/>
-          <line num="81" count="6" type="stmt"/>
-          <line num="85" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="86" count="8" type="cond" truecount="3" falsecount="0"/>
-          <line num="88" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="93" count="4" type="stmt"/>
-          <line num="96" count="6" type="stmt"/>
-          <line num="100" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="101" count="8" type="cond" truecount="3" falsecount="0"/>
-          <line num="103" count="1" type="cond" truecount="1" falsecount="1"/>
-          <line num="108" count="4" type="stmt"/>
-          <line num="111" count="6" type="stmt"/>
-          <line num="115" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="116" count="9" type="cond" truecount="4" falsecount="0"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="68" count="1" type="stmt"/>
+          <line num="69" count="1" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="79" count="1" type="stmt"/>
+          <line num="81" count="0" type="stmt"/>
+          <line num="90" count="4" type="stmt"/>
+          <line num="91" count="4" type="stmt"/>
+          <line num="92" count="4" type="stmt"/>
+          <line num="98" count="4" type="stmt"/>
+          <line num="100" count="4" type="cond" truecount="5" falsecount="0"/>
+          <line num="102" count="3" type="stmt"/>
+          <line num="108" count="1" type="stmt"/>
+          <line num="109" count="1" type="stmt"/>
+          <line num="111" count="1" type="stmt"/>
           <line num="118" count="1" type="stmt"/>
-          <line num="123" count="1" type="stmt"/>
+          <line num="120" count="1" type="stmt"/>
+          <line num="123" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="124" count="0" type="stmt"/>
+          <line num="133" count="21" type="stmt"/>
+          <line num="134" count="21" type="cond" truecount="2" falsecount="0"/>
+          <line num="135" count="1" type="stmt"/>
+          <line num="137" count="21" type="stmt"/>
+          <line num="138" count="21" type="stmt"/>
+          <line num="262" count="1" type="stmt"/>
+          <line num="266" count="1" type="stmt"/>
+          <line num="274" count="1" type="stmt"/>
+          <line num="279" count="1" type="stmt"/>
+          <line num="280" count="0" type="stmt"/>
+          <line num="283" count="1" type="stmt"/>
+        </file>
+        <file name="AddReview.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/AddReview.jsx">
+          <metrics statements="26" coveredstatements="21" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="4"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="17" count="4" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="20" count="4" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="50" count="2" type="stmt"/>
+          <line num="51" count="2" type="stmt"/>
+          <line num="55" count="2" type="stmt"/>
+          <line num="57" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="58" count="1" type="stmt"/>
+          <line num="61" count="1" type="stmt"/>
+          <line num="63" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="65" count="0" type="stmt"/>
+          <line num="66" count="0" type="stmt"/>
+          <line num="68" count="1" type="stmt"/>
+          <line num="69" count="1" type="stmt"/>
+          <line num="77" count="8" type="stmt"/>
+          <line num="108" count="1" type="stmt"/>
+          <line num="112" count="1" type="stmt"/>
+          <line num="124" count="1" type="stmt"/>
           <line num="128" count="1" type="stmt"/>
-          <line num="129" count="1" type="stmt"/>
-          <line num="132" count="6" type="stmt"/>
-          <line num="136" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="137" count="8" type="cond" truecount="3" falsecount="0"/>
-          <line num="139" count="1" type="stmt"/>
-          <line num="145" count="1" type="stmt"/>
-          <line num="149" count="6" type="stmt"/>
-          <line num="153" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="154" count="6" type="cond" truecount="1" falsecount="1"/>
-          <line num="156" count="0" type="stmt"/>
-          <line num="160" count="6" type="stmt"/>
-          <line num="164" count="3" type="cond" truecount="1" falsecount="0"/>
-          <line num="165" count="6" type="cond" truecount="1" falsecount="6"/>
-          <line num="167" count="0" type="stmt"/>
-          <line num="173" count="0" type="stmt"/>
-          <line num="179" count="0" type="stmt"/>
-          <line num="185" count="0" type="stmt"/>
-          <line num="191" count="0" type="stmt"/>
-          <line num="197" count="0" type="stmt"/>
-          <line num="202" count="6" type="stmt"/>
+          <line num="129" count="0" type="stmt"/>
+          <line num="132" count="1" type="stmt"/>
+        </file>
+        <file name="EditRecipeForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/EditRecipeForm.jsx">
+          <metrics statements="52" coveredstatements="48" conditionals="19" coveredconditionals="16" methods="9" coveredmethods="7"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="25" count="10" type="stmt"/>
+          <line num="26" count="10" type="stmt"/>
+          <line num="27" count="10" type="stmt"/>
+          <line num="28" count="10" type="stmt"/>
+          <line num="29" count="10" type="stmt"/>
+          <line num="30" count="10" type="stmt"/>
+          <line num="48" count="10" type="stmt"/>
+          <line num="49" count="10" type="stmt"/>
+          <line num="50" count="10" type="stmt"/>
+          <line num="51" count="10" type="stmt"/>
+          <line num="52" count="10" type="stmt"/>
+          <line num="53" count="10" type="stmt"/>
+          <line num="54" count="10" type="stmt"/>
+          <line num="62" count="3" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="80" count="2" type="stmt"/>
+          <line num="81" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="82" count="1" type="stmt"/>
+          <line num="84" count="1" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+          <line num="86" count="1" type="stmt"/>
+          <line num="87" count="1" type="stmt"/>
+          <line num="88" count="1" type="stmt"/>
+          <line num="89" count="1" type="stmt"/>
+          <line num="90" count="1" type="stmt"/>
+          <line num="96" count="1" type="stmt"/>
+          <line num="97" count="1" type="stmt"/>
+          <line num="99" count="0" type="stmt"/>
+          <line num="108" count="5" type="stmt"/>
+          <line num="109" count="5" type="stmt"/>
+          <line num="110" count="5" type="stmt"/>
+          <line num="116" count="5" type="stmt"/>
+          <line num="118" count="5" type="cond" truecount="5" falsecount="0"/>
+          <line num="120" count="3" type="stmt"/>
+          <line num="127" count="2" type="stmt"/>
+          <line num="128" count="2" type="stmt"/>
+          <line num="129" count="2" type="stmt"/>
+          <line num="136" count="2" type="stmt"/>
+          <line num="137" count="2" type="stmt"/>
+          <line num="139" count="2" type="stmt"/>
+          <line num="140" count="2" type="stmt"/>
+          <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="143" count="0" type="stmt"/>
+          <line num="152" count="67" type="stmt"/>
+          <line num="153" count="67" type="stmt"/>
+          <line num="270" count="1" type="stmt"/>
+          <line num="274" count="1" type="stmt"/>
+          <line num="295" count="1" type="stmt"/>
+          <line num="299" count="1" type="stmt"/>
+          <line num="300" count="0" type="stmt"/>
+          <line num="304" count="1" type="stmt"/>
+        </file>
+        <file name="EditUserPasswordForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/EditUserPasswordForm.jsx">
+          <metrics statements="18" coveredstatements="17" conditionals="8" coveredconditionals="8" methods="5" coveredmethods="4"/>
+          <line num="17" count="5" type="stmt"/>
+          <line num="18" count="5" type="stmt"/>
+          <line num="19" count="5" type="stmt"/>
+          <line num="20" count="5" type="stmt"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="41" count="3" type="stmt"/>
+          <line num="42" count="3" type="stmt"/>
+          <line num="46" count="3" type="stmt"/>
+          <line num="48" count="3" type="cond" truecount="4" falsecount="0"/>
+          <line num="49" count="2" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="65" count="12" type="stmt"/>
+          <line num="127" count="1" type="stmt"/>
+          <line num="132" count="1" type="stmt"/>
+          <line num="143" count="1" type="stmt"/>
+          <line num="144" count="0" type="stmt"/>
+          <line num="147" count="1" type="stmt"/>
+        </file>
+        <file name="EditUserProfileForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/EditUserProfileForm.jsx">
+          <metrics statements="23" coveredstatements="22" conditionals="11" coveredconditionals="11" methods="7" coveredmethods="5"/>
+          <line num="18" count="8" type="stmt"/>
+          <line num="19" count="8" type="stmt"/>
+          <line num="20" count="8" type="stmt"/>
+          <line num="21" count="8" type="stmt"/>
+          <line num="35" count="8" type="stmt"/>
+          <line num="36" count="8" type="stmt"/>
+          <line num="37" count="8" type="stmt"/>
+          <line num="38" count="8" type="stmt"/>
+          <line num="46" count="3" type="stmt"/>
+          <line num="54" count="4" type="stmt"/>
+          <line num="55" count="4" type="stmt"/>
+          <line num="61" count="4" type="stmt"/>
+          <line num="63" count="4" type="cond" truecount="5" falsecount="0"/>
+          <line num="65" count="3" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="84" count="19" type="stmt"/>
+          <line num="161" count="1" type="stmt"/>
+          <line num="167" count="1" type="stmt"/>
+          <line num="186" count="1" type="stmt"/>
+          <line num="191" count="1" type="stmt"/>
+          <line num="192" count="0" type="stmt"/>
+          <line num="195" count="1" type="stmt"/>
+        </file>
+        <file name="Favourite.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/Favourite.jsx">
+          <metrics statements="22" coveredstatements="17" conditionals="4" coveredconditionals="4" methods="12" coveredmethods="6"/>
+          <line num="20" count="3" type="stmt"/>
+          <line num="21" count="3" type="stmt"/>
+          <line num="22" count="3" type="stmt"/>
+          <line num="23" count="3" type="stmt"/>
+          <line num="24" count="3" type="stmt"/>
+          <line num="30" count="3" type="stmt"/>
+          <line num="38" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="47" count="0" type="stmt"/>
+          <line num="56" count="1" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="63" count="0" type="stmt"/>
+          <line num="72" count="3" type="stmt"/>
+          <line num="73" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="80" count="2" type="stmt"/>
+          <line num="131" count="3" type="stmt"/>
+          <line num="175" count="1" type="stmt"/>
+          <line num="179" count="1" type="stmt"/>
+          <line num="197" count="1" type="stmt"/>
+          <line num="203" count="1" type="stmt"/>
+          <line num="209" count="1" type="stmt"/>
+        </file>
+        <file name="LatestRecipes.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/LatestRecipes.jsx">
+          <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="69" count="1" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+          <line num="101" count="1" type="stmt"/>
+          <line num="105" count="1" type="stmt"/>
+          <line num="111" count="1" type="stmt"/>
+        </file>
+        <file name="PopularRecipes.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/PopularRecipes.jsx">
+          <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="23" count="1" type="stmt"/>
+          <line num="24" count="1" type="stmt"/>
+          <line num="25" count="1" type="stmt"/>
+          <line num="69" count="1" type="stmt"/>
+          <line num="85" count="1" type="stmt"/>
+          <line num="101" count="1" type="stmt"/>
+          <line num="105" count="1" type="stmt"/>
+          <line num="110" count="1" type="stmt"/>
+        </file>
+        <file name="RecipeDetails.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/RecipeDetails.jsx">
+          <metrics statements="33" coveredstatements="28" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="6"/>
+          <line num="15" count="4" type="stmt"/>
+          <line num="16" count="4" type="stmt"/>
+          <line num="17" count="4" type="stmt"/>
+          <line num="18" count="4" type="stmt"/>
+          <line num="19" count="4" type="stmt"/>
+          <line num="26" count="4" type="stmt"/>
+          <line num="27" count="4" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="38" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="42" count="1" type="stmt"/>
+          <line num="51" count="1" type="stmt"/>
+          <line num="52" count="1" type="stmt"/>
+          <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="56" count="1" type="stmt"/>
+          <line num="57" count="1" type="stmt"/>
+          <line num="66" count="1" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="68" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="69" count="0" type="stmt"/>
+          <line num="70" count="0" type="stmt"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="81" count="4" type="stmt"/>
+          <line num="82" count="4" type="stmt"/>
+          <line num="119" count="1" type="stmt"/>
+          <line num="151" count="1" type="stmt"/>
+          <line num="156" count="1" type="stmt"/>
+          <line num="157" count="0" type="stmt"/>
+          <line num="163" count="1" type="stmt"/>
+        </file>
+        <file name="RecipeReviews.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/RecipeReviews.jsx">
+          <metrics statements="22" coveredstatements="21" conditionals="8" coveredconditionals="7" methods="9" coveredmethods="7"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="28" count="1" type="stmt"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="30" count="1" type="stmt"/>
+          <line num="41" count="2" type="stmt"/>
+          <line num="42" count="2" type="cond" truecount="4" falsecount="0"/>
+          <line num="43" count="1" type="stmt"/>
+          <line num="44" count="1" type="cond" truecount="3" falsecount="1"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="53" count="1" type="stmt"/>
+          <line num="54" count="1" type="stmt"/>
+          <line num="55" count="1" type="stmt"/>
+          <line num="75" count="1" type="stmt"/>
+          <line num="88" count="1" type="stmt"/>
+          <line num="112" count="1" type="stmt"/>
+          <line num="117" count="1" type="stmt"/>
+          <line num="118" count="0" type="stmt"/>
+          <line num="121" count="1" type="stmt"/>
+        </file>
+        <file name="RecipesCatalogue.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/RecipesCatalogue.jsx">
+          <metrics statements="35" coveredstatements="27" conditionals="8" coveredconditionals="3" methods="11" coveredmethods="8"/>
+          <line num="18" count="5" type="stmt"/>
+          <line num="19" count="5" type="stmt"/>
+          <line num="20" count="5" type="stmt"/>
+          <line num="21" count="5" type="stmt"/>
+          <line num="22" count="5" type="stmt"/>
+          <line num="23" count="5" type="stmt"/>
+          <line num="35" count="5" type="stmt"/>
+          <line num="36" count="5" type="stmt"/>
+          <line num="37" count="5" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="47" count="1" type="stmt"/>
+          <line num="48" count="1" type="stmt"/>
+          <line num="56" count="2" type="stmt"/>
+          <line num="57" count="2" type="stmt"/>
+          <line num="58" count="2" type="cond" truecount="1" falsecount="1"/>
+          <line num="59" count="0" type="stmt"/>
+          <line num="61" count="2" type="stmt"/>
+          <line num="63" count="2" type="stmt"/>
+          <line num="72" count="0" type="stmt"/>
+          <line num="73" count="0" type="stmt"/>
+          <line num="74" count="0" type="stmt"/>
+          <line num="75" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="76" count="0" type="stmt"/>
+          <line num="78" count="0" type="stmt"/>
+          <line num="80" count="0" type="stmt"/>
+          <line num="87" count="22" type="stmt"/>
+          <line num="88" count="22" type="cond" truecount="1" falsecount="1"/>
+          <line num="90" count="22" type="stmt"/>
+          <line num="137" count="22" type="stmt"/>
+          <line num="234" count="1" type="stmt"/>
+          <line num="238" count="1" type="stmt"/>
+          <line num="255" count="1" type="stmt"/>
+          <line num="260" count="1" type="stmt"/>
+          <line num="266" count="1" type="stmt"/>
+        </file>
+        <file name="SigninForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/SigninForm.jsx">
+          <metrics statements="20" coveredstatements="18" conditionals="10" coveredconditionals="8" methods="7" coveredmethods="4"/>
+          <line num="18" count="6" type="stmt"/>
+          <line num="19" count="6" type="stmt"/>
+          <line num="20" count="6" type="stmt"/>
+          <line num="21" count="6" type="stmt"/>
+          <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="45" count="2" type="stmt"/>
+          <line num="46" count="2" type="stmt"/>
+          <line num="55" count="3" type="stmt"/>
+          <line num="56" count="3" type="stmt"/>
+          <line num="60" count="3" type="stmt"/>
+          <line num="62" count="3" type="cond" truecount="4" falsecount="0"/>
+          <line num="63" count="2" type="stmt"/>
+          <line num="67" count="1" type="stmt"/>
+          <line num="74" count="13" type="stmt"/>
+          <line num="150" count="2" type="stmt"/>
+          <line num="155" count="2" type="stmt"/>
+          <line num="170" count="2" type="stmt"/>
+          <line num="175" count="2" type="stmt"/>
+          <line num="178" count="2" type="stmt"/>
+        </file>
+        <file name="SignupForm.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/SignupForm.jsx">
+          <metrics statements="22" coveredstatements="20" conditionals="19" coveredconditionals="17" methods="8" coveredmethods="5"/>
+          <line num="16" count="11" type="stmt"/>
+          <line num="17" count="11" type="stmt"/>
+          <line num="18" count="11" type="stmt"/>
+          <line num="19" count="11" type="stmt"/>
+          <line num="20" count="11" type="stmt"/>
+          <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="39" count="0" type="stmt"/>
+          <line num="49" count="5" type="stmt"/>
+          <line num="50" count="5" type="stmt"/>
+          <line num="58" count="5" type="stmt"/>
+          <line num="59" count="5" type="stmt"/>
+          <line num="66" count="5" type="stmt"/>
+          <line num="68" count="5" type="cond" truecount="7" falsecount="0"/>
+          <line num="71" count="4" type="stmt"/>
+          <line num="80" count="1" type="stmt"/>
+          <line num="87" count="25" type="stmt"/>
+          <line num="96" count="5" type="stmt"/>
+          <line num="189" count="1" type="stmt"/>
+          <line num="193" count="1" type="stmt"/>
+          <line num="198" count="1" type="stmt"/>
+          <line num="213" count="1" type="stmt"/>
+          <line num="216" count="1" type="stmt"/>
+        </file>
+        <file name="UserRecipes.jsx" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/containers/UserRecipes.jsx">
+          <metrics statements="18" coveredstatements="15" conditionals="2" coveredconditionals="2" methods="11" coveredmethods="6"/>
+          <line num="18" count="3" type="stmt"/>
+          <line num="19" count="3" type="stmt"/>
+          <line num="20" count="3" type="stmt"/>
+          <line num="21" count="3" type="stmt"/>
+          <line num="27" count="3" type="stmt"/>
+          <line num="35" count="0" type="stmt"/>
+          <line num="45" count="1" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+          <line num="51" count="0" type="stmt"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="61" count="3" type="stmt"/>
+          <line num="62" count="3" type="cond" truecount="2" falsecount="0"/>
+          <line num="69" count="2" type="stmt"/>
+          <line num="121" count="3" type="stmt"/>
+          <line num="138" count="1" type="stmt"/>
+          <line num="155" count="1" type="stmt"/>
+          <line num="159" count="1" type="stmt"/>
+          <line num="165" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="More-Recipes.client.reducers">
+        <metrics statements="44" coveredstatements="44" conditionals="49" coveredconditionals="33" methods="10" coveredmethods="10"/>
+        <file name="favouriteRecipes.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/favouriteRecipes.js">
+          <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="11" count="4" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+        </file>
+        <file name="latestRecipes.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/latestRecipes.js">
+          <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="11" count="1" type="stmt"/>
+        </file>
+        <file name="popularRecipes.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/popularRecipes.js">
+          <metrics statements="4" coveredstatements="4" conditionals="5" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="11" count="1" type="stmt"/>
+        </file>
+        <file name="recipes.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/recipes.js">
+          <metrics statements="6" coveredstatements="6" conditionals="9" coveredconditionals="6" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="26" count="1" type="stmt"/>
+        </file>
+        <file name="reviews.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/reviews.js">
+          <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+        </file>
+        <file name="singleRecipe.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/singleRecipe.js">
+          <metrics statements="8" coveredstatements="8" conditionals="9" coveredconditionals="6" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="9" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="18" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="21" count="1" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+        </file>
+        <file name="user.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/user.js">
+          <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="16" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="20" count="1" type="stmt"/>
+        </file>
+        <file name="userRecipes.js" path="/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/client/reducers/userRecipes.js">
+          <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+          <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+          <line num="4" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="6" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="11" count="4" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
         </file>
       </package>
     </metrics>

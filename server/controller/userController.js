@@ -84,7 +84,7 @@ class UserController {
       if (!userFound) {
         return res.status(403).send({
           success: 'false',
-          message: 'Incorrect email or password, user not found'
+          message: 'Incorrect email or password'
         });
       }
       const validPassword = bcrypt.compareSync(req.body.password, userFound.password);

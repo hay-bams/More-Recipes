@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit User Profile Component it should render EditUserProfile form correctly 1`] = `
+<div
+  className="container-fluid main-register-container"
+>
+  <div
+    className="row overlay"
+  >
+    <div
+      className="col-sm-8 col-md-5 mx-auto"
+    >
+      <div
+        className="card  mt-5 card-form"
+      >
+        <div
+          className="card-header text-center"
+        >
+          <h2
+            className="text-center"
+          >
+             Edit User Profile
+          </h2>
+        </div>
+        <span />
+        <div
+          className="card-body"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="firstName"
+                onChange={[Function]}
+                placeholder="Enter First name"
+                type="text"
+                value="Ayobami"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="lastName"
+                onChange={[Function]}
+                placeholder="Enter Last name"
+                type="text"
+                value="Adelakun"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter Email"
+                type="email"
+                value="testemail@gmail.com"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="btn btn-success btn-block"
+                type="submit"
+                value="Update Profile"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

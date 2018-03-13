@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Latest Recipe Component it should render LatestRecipes correctly 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="col-sm"
+    >
+      <h2
+        className="text-center catalogue"
+      >
+        Latest Recipes
+      </h2>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col-12 col-sm-6 col-md-4 col-lg-3 recipes"
+      key="1"
+    >
+      <div
+        className="card recipe-card recipe-trans"
+        style={
+          Object {
+            "border": "none",
+          }
+        }
+      >
+        <h4
+          className="card-header headerColor text-center"
+        >
+          titlw
+        </h4>
+        <img
+          alt="Card  cap"
+          className="card-img-top img-fluid img-recipe"
+          src="image"
+          style={
+            Object {
+              "height": "200px",
+            }
+          }
+        />
+        <div
+          className="card-body"
+        >
+          <p>
+            nstructions
+          </p>
+          <span
+            className="card-text"
+          >
+            <span
+              className="row ml-1"
+            >
+              <span
+                className="text-success"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-thumbs-up col-4"
+                />
+                0
+              </span>
+              <span
+                className="text-info"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-eye col-4"
+                />
+                 
+              </span>
+              <span
+                className="text-danger"
+              >
+                <i
+                  aria-hidden="true"
+                  className="fa fa-thumbs-down col-4"
+                />
+                0
+              </span>
+            </span>
+          </span>
+          <Link
+            className="btn btn-outline-info row ml-4"
+            replace={false}
+            to="/details/1"
+          >
+            view details
+          </Link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

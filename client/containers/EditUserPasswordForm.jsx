@@ -8,7 +8,7 @@ import Authenticate from '../auth/auth';
 /**
  * @class EditRecipeForm
  */
-class EditUserPasswordForm extends React.Component {
+export class EditUserPasswordForm extends React.Component {
   /**
    * @param {obj} props
    * @returns {void} constructor
@@ -18,10 +18,10 @@ class EditUserPasswordForm extends React.Component {
     this.editPassword = this.editPassword.bind(this);
     this.onChange = this.onChange.bind(this);
     this.state = {
-      errors: {},
-      user: {},
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      passwordError: '',
+      passwordMatchError: ''
     };
   }
 
@@ -40,24 +40,28 @@ class EditUserPasswordForm extends React.Component {
   editPassword(event) {
     event.preventDefault();
     const user = {
-      password: event.target.password.value
+      password: this.state.password
     };
 
-    let errors = Authenticate.validatePassword(user, this.state.confirmPassword);
+    const errors = Authenticate.validatePassword(user, this.state.confirmPassword);
 
     if (errors.password !== '' || errors.confirmPassword !== '') {
-      return this.setState({ errors });
+      return this.setState({
+        passwordError: errors.password,
+        passwordMatchError: errors.confirmPassword
+      });
     }
     this.props.editUserPassword(user, this.props.match.params.id);
-    errors = {};
-    this.setState({ errors });
+    this.setState({
+      passwordError: '',
+      passwordMatchError: ''
+    });
   }
 
   /**
    * @returns {obj} render
    */
   render() {
-    const { errors } = this.state;
     return (
       <div className="container-fluid main-register-container">
         <div className="row overlay">
@@ -79,9 +83,9 @@ class EditUserPasswordForm extends React.Component {
                       value={this.state.password}
                       onChange={this.onChange}
                     />
-                    { errors.password &&
+                    { this.state.passwordError &&
                     <span className="help-block error text-danger">
-                      {errors.password}
+                      {this.state.passwordError}
                     </span>
                       }
                   </div>
@@ -95,9 +99,9 @@ class EditUserPasswordForm extends React.Component {
                       value={this.state.confirmPassword}
                       onChange={this.onChange}
                     />
-                    { errors.confirmPassword &&
+                    { this.state.passwordMatchError &&
                     <span className="help-block error text-danger">
-                      {errors.confirmPassword}
+                      {this.state.passwordMatchError}
                     </span>
                       }
                   </div>
@@ -122,20 +126,11 @@ class EditUserPasswordForm extends React.Component {
 
 EditUserPasswordForm.defaultProps = {
   editUserPassword: {},
-  userData: {},
   errorMsg: ''
 };
 
 EditUserPasswordForm.propTypes = {
   editUserPassword: PropTypes.func,
-  userData: PropTypes.shape({
-    user: PropTypes.shape({
-      email: PropTypes.string,
-      firstName: PropTypes.string,
-      id: PropTypes.number,
-      lastName: PropTypes.string
-    })
-  }),
   errorMsg: PropTypes.string,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -148,4 +143,8 @@ EditUserPasswordForm.propTypes = {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ editUserPassword }, dispatch);
 
-export default connect(null, mapDispatchToProps)(EditUserPasswordForm);
+const ConnectedEditUserPasswordForm =
+  connect(null, mapDispatchToProps)(EditUserPasswordForm);
+
+export default ConnectedEditUserPasswordForm;
+

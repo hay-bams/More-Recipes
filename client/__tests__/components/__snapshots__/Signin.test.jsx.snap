@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin component it should render signinForm correctly 1`] = `
+<div
+  className="container-fluid main-login-container"
+>
+  <div
+    className="row main-login overlay"
+  >
+    <div
+      className="col-12 col-sm-8 col-md-5 mx-auto"
+    >
+      <div
+        className="card  mt-5 card-form"
+      >
+        <div
+          className="card-header text-center"
+        >
+          Login
+        </div>
+        <div
+          className="card-body "
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter Email"
+                type="email"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="password"
+                onChange={[Function]}
+                placeholder="Enter Password"
+                type="password"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                name="checkbox"
+                type="checkbox"
+              />
+              Remember me
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="btn btn-success btn-block"
+                type="submit"
+                value="Log in"
+              />
+            </div>
+            <div
+              className="text-center"
+            >
+              <Link
+                className="d-block small mt-3"
+                replace={false}
+                to="/signup"
+              >
+                Register an Account
+              </Link>
+              <Link
+                className="d-block small"
+                replace={false}
+                to="/signin"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

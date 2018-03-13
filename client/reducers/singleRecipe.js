@@ -1,6 +1,6 @@
 import APPCONSTANT from '../constant';
 
-const singleRecipe = (state = {}, action) => {
+export const singleRecipe = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.GET_SINGLE_RECIPE:
       return action.payload.data;

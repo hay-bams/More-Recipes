@@ -1,6 +1,6 @@
 import APPCONSTANT from '../constant';
 
-const user = (state = {}, action) => {
+export const user = (state = {}, action) => {
   switch (action.type) {
     case APPCONSTANT.SIGN_UP:
       return {

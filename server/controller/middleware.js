@@ -16,7 +16,7 @@ class Middleware {
     if (!req.body.title) {
       return res.status(400).send({
         success: 'false',
-        message: ' title is required'
+        message: 'title is required'
       });
     } else if (!req.body.instructions) {
       return res.status(400).send({
@@ -26,7 +26,7 @@ class Middleware {
     } else if (!req.body.ingredients) {
       return res.status(400).send({
         success: 'false',
-        message: 'ingredients are required'
+        message: 'ingredient is required'
       });
     } else if (!req.body.image) {
       return res.status(400).send({
@@ -86,7 +86,6 @@ class Middleware {
           error: err
         });
       }
-
       req.decoded = decoded;
       next();
     });

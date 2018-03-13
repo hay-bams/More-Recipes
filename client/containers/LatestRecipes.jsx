@@ -8,7 +8,7 @@ import { getLatestRecipes } from '../actions/recipe';
 /**
  * @class RecipeCatalogue
  */
-class LatestRecipes extends React.Component {
+export class LatestRecipes extends React.Component {
   /**
    * @return {void} componentDidMount
    */
@@ -106,4 +106,10 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   { getLatestRecipes },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(LatestRecipes);
+
+const ConnectedLatestRecipes =
+  connect(mapStateToProps, mapDispatchToProps)(LatestRecipes);
+
+
+export default ConnectedLatestRecipes;
+

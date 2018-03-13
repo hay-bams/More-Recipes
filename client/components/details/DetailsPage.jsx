@@ -1,18 +1,18 @@
 import React from 'react';
 import Navigation from '../Navigation';
 import Footer from '../Footer';
-import RecipeDetails from '../../containers/RecipeDetails';
-import RecipeReviews from '../../containers/RecipeReviews';
-import AddReview from '../../containers/AddReview';
+import ConnectedRecipeDetails from '../../containers/RecipeDetails';
+import ConnectedRecipeReviews from '../../containers/RecipeReviews';
+import ConnectedAddReview from '../../containers/AddReview';
 
 const Details = props =>
   (
     <div>
       <Navigation {...props}/>
-      <RecipeDetails {...props} />
+      <ConnectedRecipeDetails {...props} />
       <hr />
-      <RecipeReviews {...props} />
-      <AddReview {...props} />
+      <ConnectedRecipeReviews {...props} />
+      <ConnectedAddReview {...props} />
       <Footer />
     </div>
   );

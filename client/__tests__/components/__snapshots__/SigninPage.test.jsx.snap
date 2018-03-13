@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign in page it should render correctly 1`] = `
+<div>
+  <Navigation
+    history={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+    userData={Object {}}
+  />
+  <Connect(SigninForm)
+    redirectUser={
+      Object {
+        "push": [MockFunction],
+      }
+    }
+  />
+</div>
+`;

@@ -1,11 +1,11 @@
 import React from 'react';
-import EditRecipeForm from '../../containers/EditRecipeForm';
+import ConnectedEditRecipeForm from '../../containers/EditRecipeForm';
 import DashboardNav from './DashboardNav';
 
 const EditRecipePage = props => (
   <div>
     <DashboardNav {...props} />
-    <EditRecipeForm {...props} />
+    <ConnectedEditRecipeForm {...props} />
   </div>
 );
 

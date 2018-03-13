@@ -8,7 +8,7 @@ import Authenticate from '../auth/auth';
 /**
  * @class SignupForm
  */
-class SignupForm extends React.Component {
+export class SignupForm extends React.Component {
   /**
    * @returns{void} constructor
    */
@@ -16,8 +16,18 @@ class SignupForm extends React.Component {
     super();
     this.message = '';
     this.signup = this.signup.bind(this);
+    this.onChange = this.onChange.bind(this);
     this.state = {
-      errors: {}
+      firstName: null,
+      lastName: null,
+      email: '',
+      password: null,
+      confirmPassword: null,
+      firstNameError: '',
+      lastNameError: '',
+      emailError: '',
+      passwordError: '',
+      confirmPasswordError: ''
     };
   }
 
@@ -31,36 +41,49 @@ class SignupForm extends React.Component {
   }
 
   /**
+  *
+  * @param {obj} event
+  * @returns {void} onChange
+  */
+  onChange(event) {
+    event.preventDefault();
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  /**
    * @param {obj} event
    * @returns {void} signup
    */
   signup(event) {
     event.preventDefault();
     const user = {
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      email: event.target.email.value,
-      password: event.target.password.value,
-      confirmPassword: event.target.confirmPassword.value
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
     };
-    let errors = Authenticate.validateUserSignup(user);
+    const errors = Authenticate.validateUserSignup(user);
 
     if (errors.email !== '' || errors.password !== '' ||
        errors.firstName !== '' || errors.lastName !== '' ||
        errors.confirmPassword !== '') {
-      return this.setState({ errors });
+      return this.setState({
+        firstNameError: errors.firstName,
+        lastNameError: errors.lastName,
+        emailError: errors.email,
+        passwordError: errors.password,
+        confirmPasswordError: errors.confirmPassword
+      });
     }
 
     this.props.signup(user);
-    errors = {};
-    this.setState({ errors });
   }
 
   /**
    * @returns {void} render
    */
   render() {
-    const { errors } = this.state;
     return (
       <div className="container-fluid main-register-container">
         <div className="row overlay">
@@ -73,70 +96,75 @@ class SignupForm extends React.Component {
                 <form onSubmit={e => this.signup(e)}>
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
                       type="text"
                       name="firstName"
                       className="form-control"
                       placeholder="Enter First name"
                     />
-                    { errors.firstName &&
+                    { this.state.firstNameError &&
                     <span className="help-block error text-danger">
-                      {errors.firstName}
+                      {this.state.firstNameError}
                     </span>
                       }
                   </div>
 
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
                       type="text"
                       name="lastName"
                       className="form-control"
                       placeholder="Enter Last name"
                     />
-                    { errors.lastName &&
+                    { this.state.lastNameError &&
                     <span className="help-block error text-danger">
-                      {errors.lastName}
+                      {this.state.lastNameError}
                     </span>
                       }
                   </div>
 
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
                       type="email"
                       name="email"
                       className="form-control"
                       placeholder="Enter Email"
                     />
-                    { errors.email &&
+                    { this.state.emailError &&
                     <span className="help-block error text-danger">
-                      {errors.email}
+                      {this.state.emailError}
                     </span>
                       }
                   </div>
 
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
                       type="password"
                       name="password"
                       className="form-control"
                       placeholder="Enter Password"
                     />
-                    { errors.password &&
+                    { this.state.passwordError &&
                     <span className="help-block error text-danger">
-                      {errors.password}
+                      {this.state.passwordError}
                     </span>
                       }
                   </div>
 
                   <div className="form-group">
                     <input
+                      onChange={this.onChange}
                       type="password"
                       name="confirmPassword"
                       className="form-control"
                       placeholder="Confirm Password"
                     />
-                    { errors.confirmPassword &&
+                    { this.state.confirmPasswordError &&
                     <span className="help-block error text-danger">
-                      {errors.confirmPassword}
+                      {this.state.confirmPasswordError}
                     </span>
                       }
                   </div>
@@ -164,8 +192,7 @@ const mapStateToProps = state => ({
 
 SignupForm.defaultProps = {
   userData: {},
-  redirectUser: {},
-  errorMsg: ''
+  redirectUser: {}
 };
 
 SignupForm.propTypes = {
@@ -185,5 +212,8 @@ SignupForm.propTypes = {
 
 const mapDispatchToProps = dispatch => bindActionCreators({ signup }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+const ConnectedSignupForm =
+connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+
+export default ConnectedSignupForm;
 

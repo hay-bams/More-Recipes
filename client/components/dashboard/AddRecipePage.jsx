@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddRecipeForm from '../../containers/AddRecipeForm';
+import ConnectedAddRecipeForm from '../../containers/AddRecipeForm';
 import DashboardNav from './DashboardNav';
 
 const AddRecipePage = props => (
   <div>
     <DashboardNav {...props} />
-    <AddRecipeForm {...props}/>
+    <ConnectedAddRecipeForm {...props} />
   </div>
 );
 

@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signin component it should render SignupForm correctly 1`] = `
+<div
+  className="container-fluid main-register-container"
+>
+  <div
+    className="row overlay"
+  >
+    <div
+      className="col-sm-8 col-md-5 mx-auto"
+    >
+      <div
+        className="card  mt-5 card-form"
+      >
+        <div
+          className="card-header text-center"
+        >
+          Sign Up
+        </div>
+        <div
+          className="card-body"
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="firstName"
+                onChange={[Function]}
+                placeholder="Enter First name"
+                type="text"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="lastName"
+                onChange={[Function]}
+                placeholder="Enter Last name"
+                type="text"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="email"
+                onChange={[Function]}
+                placeholder="Enter Email"
+                type="email"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="password"
+                onChange={[Function]}
+                placeholder="Enter Password"
+                type="password"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="form-control"
+                name="confirmPassword"
+                onChange={[Function]}
+                placeholder="Confirm Password"
+                type="password"
+              />
+            </div>
+            <div
+              className="form-group"
+            >
+              <input
+                className="btn btn-success btn-block"
+                type="submit"
+                value="Register"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

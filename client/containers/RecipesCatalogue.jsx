@@ -10,7 +10,7 @@ import { getAllRecipes, searchRecipes } from '../actions/recipe';
 /**
  * @class RecipeCatalogue
  */
-class RecipeCatalogue extends React.Component {
+export class RecipeCatalogue extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -153,8 +153,8 @@ class RecipeCatalogue extends React.Component {
                   name="recipeSearch"
                   onChange={this.onSearch}
                 />
-               
-               <hr />
+
+                <hr />
 
                 <div className="row">
                   <div className="form-group col-sm-6" onChange={this.onSelect}>
@@ -173,7 +173,7 @@ class RecipeCatalogue extends React.Component {
                     </select>
                   </div>
                 </div>
-              
+
               </div>
             </form>
           </div>
@@ -261,4 +261,9 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   { getAllRecipes, searchRecipes },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeCatalogue);
+
+const ConnectedRecipeCatalogue =
+  connect(mapStateToProps, mapDispatchToProps)(RecipeCatalogue);
+
+export default ConnectedRecipeCatalogue;
+

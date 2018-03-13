@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+// import 'react-confirm-alert/src/react-confirm-alert.css';
 import ReactPaginate from 'react-paginate';
 import { bindActionCreators } from 'redux';
 import { getFavouriteRecipes, deleteFavoriteRecipe } from '../actions/recipe';
@@ -12,7 +12,7 @@ import { getFavouriteRecipes, deleteFavoriteRecipe } from '../actions/recipe';
 /**
  * @class FavouriteRecipes
  */
-class FavouriteRecipes extends React.Component {
+export class FavouriteRecipes extends React.Component {
   /**
    * @returns {void} constructor
    */
@@ -24,7 +24,7 @@ class FavouriteRecipes extends React.Component {
     this.showModal = this.showModal.bind(this);
   }
   /**
-   * @return {void} componentDidMount
+   * @return {void} componentWillMount
    */
   componentWillMount() {
     this.props.getFavouriteRecipes(1);
@@ -39,11 +39,11 @@ class FavouriteRecipes extends React.Component {
   }
 
   /**
-   * @param {obj} data
+   * @param {obj} page
    * @returns {void} handlePageClick
    */
-  handlePageClick(data) {
-    const selected = data.selected + 1;
+  handlePageClick(page) {
+    const selected = page.selected + 1;
     this.props.getFavouriteRecipes(selected);
   }
 
@@ -204,5 +204,10 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   { getFavouriteRecipes, deleteFavoriteRecipe },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(FavouriteRecipes);
+
+const ConnectedFavouriteRecipe =
+  connect(mapStateToProps, mapDispatchToProps)(FavouriteRecipes);
+
+
+export default ConnectedFavouriteRecipe;
 

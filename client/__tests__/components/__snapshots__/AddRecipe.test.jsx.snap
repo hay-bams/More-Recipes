@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Recipe Component it should render AddRecipeForm correctly 1`] = `
+<div
+  className="main-userboard-body add-recipe-body"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="mx-auto col-sm-12 col-md-8 col-lg-8 col-xs mt-5"
+      >
+        <h2
+          className="text-center"
+        >
+           Add Recipe
+        </h2>
+        <form
+          onSubmit={[Function]}
+        >
+          <t
+            accept="image/*"
+            disableClick={false}
+            disablePreview={false}
+            disabled={false}
+            maxSize={Infinity}
+            minSize={0}
+            multiple={true}
+            onDrop={[Function]}
+            preventDropOnDocument={true}
+            style={
+              Object {
+                "border": "none",
+                "cursor": "pointer",
+              }
+            }
+          >
+            <div
+              className="upload-recipe-img"
+            >
+              <div
+                className="row justify-content-center"
+              >
+                <div
+                  className="col-12"
+                >
+                  <p
+                    className="text-center"
+                  >
+                    <span
+                      className="h2"
+                    >
+                      <i
+                        className="ion ion-camera"
+                      />
+                    </span>
+                    <br />
+                    Click to upload image
+                  </p>
+                </div>
+              </div>
+            </div>
+          </t>
+          <div />
+          <img
+            alt=""
+            id="imagePreview"
+            src="null"
+          />
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="food"
+            >
+              Recipe Name
+            </label>
+            <input
+              className="form-control form-control-lg"
+              name="title"
+              onChange={[Function]}
+              placeholder="Enter Recipe name"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="ingredient"
+            >
+              Ingredients
+            </label>
+            <input
+              className="form-control form-control-lg"
+              id="ingredients"
+              name="ingredients"
+              onChange={[Function]}
+              placeholder="Enter Ingredients"
+              type="text"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="instruction"
+            >
+              Instructions
+            </label>
+            <textarea
+              className="form-control form-control-lg"
+              id="instructions"
+              name="instructions"
+              onChange={[Function]}
+              placeholder="Enter Instructions"
+            />
+          </div>
+          <Component
+            className="spinner"
+            color="#000"
+            component="div"
+            corners={1}
+            direction={1}
+            hwaccel={false}
+            left="50%"
+            length={30}
+            lines={13}
+            loaded={true}
+            loadedClassName="loadedContent"
+            parentClassName="loader"
+            radius={30}
+            rotate={0}
+            scale={1}
+            shadow={false}
+            speed={2}
+            top="70%"
+            trail={60}
+            width={10}
+            zIndex={2000000000}
+          />
+          <div
+            className="form-group"
+          >
+            <input
+              className="btn btn-success"
+              type="submit"
+              value="Add Recipe"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

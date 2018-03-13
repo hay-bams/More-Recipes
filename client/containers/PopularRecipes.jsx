@@ -8,7 +8,7 @@ import { getPopularRecipes } from '../actions/recipe';
 /**
  * @class RecipeCatalogue
  */
-class PopularRecipes extends React.Component {
+export class PopularRecipes extends React.Component {
   /**
    * @return {void} componentDidMount
    */
@@ -106,4 +106,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   { getPopularRecipes },
   dispatch
 );
-export default connect(mapStateToProps, mapDispatchToProps)(PopularRecipes);
+const ConnectedPopularRecipes =
+  connect(mapStateToProps, mapDispatchToProps)(PopularRecipes);
+
+export default ConnectedPopularRecipes;

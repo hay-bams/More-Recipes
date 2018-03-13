@@ -8,25 +8,40 @@ import { addReview } from '../actions/review';
 /**
  * @class AddReview
  */
-class AddReview extends React.Component {
-  /**
-   * @param {obj} event
-   * @returns {void} clearForm
-   */
-  static clearForm(event) {
-    event.target.review.value = '';
-  }
-
+export class AddReview extends React.Component {
   /**
    * @returns {void} constructor
    */
   constructor() {
     super();
     this.addReview = this.addReview.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.clearForm = this.clearForm.bind(this);
     this.state = {
-      errors: {}
+      review: '',
+      reviewError: ''
     };
   }
+
+
+  /**
+  *
+  * @param {obj} event
+  * @returns {void} onChange
+  */
+  onChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  /**
+   * @param {obj} event
+   * @returns {void} clearForm
+   */
+  clearForm() {
+    this.setState({ review: '' });
+  }
+
+
   /**
    * @param {obj} event
    * @returns {void} addReview
@@ -34,19 +49,21 @@ class AddReview extends React.Component {
   addReview(event) {
     event.preventDefault();
     const userReview = {
-      review: event.target.review.value
+      review: this.state.review
     };
 
     const errors = Authenticate.validateReview(userReview);
 
     if (errors.review !== '') {
-      return this.setState({ errors });
+      return this.setState({ reviewError: errors.review });
     }
+
     const userData = localStorage.getItem('userData');
+
     if (userData !== null) {
       const recipeId = parseInt(this.props.match.params.id, 10);
       this.props.addReview(userReview, recipeId);
-      AddReview.clearForm(event);
+      this.clearForm();
     } else {
       toastr.warning('you must be signed in');
       this.props.history.push('/signin');
@@ -57,7 +74,6 @@ class AddReview extends React.Component {
    * @returns {void} render
    */
   render() {
-    const { errors } = this.state;
     return (
       <div className="container">
         <div className="row review-form">
@@ -65,10 +81,15 @@ class AddReview extends React.Component {
             <h4>Add Review</h4>
             <form onSubmit={this.addReview}>
               <div className="form-group">
-                <textarea className="form-control" name="review" />
-                { errors.review &&
+                <textarea
+                  onChange={this.onChange}
+                  className="form-control"
+                  name="review"
+                  value={this.state.review}
+                />
+                { this.state.reviewError &&
                   <span className="help-block error text-danger">
-                    {errors.review}
+                    {this.state.reviewError}
                   </span>
                     }
               </div>
@@ -85,7 +106,7 @@ class AddReview extends React.Component {
 }
 
 AddReview.defaultProps = {
-  addReview: {},
+  addReview: () => {},
 };
 
 AddReview.propTypes = {
@@ -107,5 +128,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ addReview }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddReview);
+const ConnectedAddReview =
+  connect(mapStateToProps, mapDispatchToProps)(AddReview);
+
+export default ConnectedAddReview;
 

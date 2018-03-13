@@ -1,24 +1,24 @@
-const recipesPost = [
-  {
-    title: 'beans',
-    image: 'recipeImage',
-    instructions: 'how to make beans',
-    ingredients: 'water, oil'
-  },
+// const recipesPost = [
+//   {
+//     title: 'beans',
+//     image: 'recipeImage',
+//     instructions: 'how to make beans',
+//     ingredients: 'water, oil'
+//   },
 
-  {
-    title: 'rice',
-    image: 'recipeImage',
-    instructions: 'how to make rice',
-    ingredients: 'water, oil'
-  },
-  {
-    title: 'test title',
-    image: 'test image',
-    instructions: 'test instructions',
-    ingredients: 'test ingredients',
-  }
-];
+//   {
+//     title: 'rice',
+//     image: 'recipeImage',
+//     instructions: 'how to make rice',
+//     ingredients: 'water, oil'
+//   },
+//   {
+//     title: 'test title',
+//     image: 'test image',
+//     instructions: 'test instructions',
+//     ingredients: 'test ingredients',
+//   }
+// ];
 
 const editRecipe = [
   {
@@ -29,5 +29,43 @@ const editRecipe = [
   }
 ];
 
+export const recipeWithNotitle = {
+  image: 'recipeImage',
+  instructions: 'how to make beans',
+  ingredients: 'water, oil'
+};
 
-export default { recipesPost, editRecipe };
+export const recipeWithNoInstructions = {
+  title: 'title',
+  image: 'recipeImage',
+  ingredients: 'water, oil'
+};
+
+export const recipeWithNoIngredients = {
+  title: 'beans',
+  image: 'recipeImage',
+  instructions: 'how to make beans'
+};
+
+export const recipeWithNoImage = {
+  title: 'beans',
+  instructions: 'how to make beans',
+  ingredients: 'water, oil'
+};
+
+export const recipe = {
+  title: 'beans',
+  image: 'recipeImage',
+  instructions: 'how to make beans',
+  ingredients: 'water, oil'
+};
+
+export const recipe2 = {
+  title: 'beans',
+  image: 'recipeImage',
+  instructions: 'how to make beans',
+  ingredients: 'water, oil'
+};
+
+
+// export default { recipesPost, editRecipe };
