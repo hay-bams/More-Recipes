@@ -51,12 +51,6 @@ export class RecipeReviews extends React.Component {
    */
   renderReviews() {
     const { allUsers } = this.props;
-    const date = new Date();
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday',
-      'Friday', 'Saturday'];
-    const month = ['January', 'February', 'March', 'April', 'May', 'June',
-      'July',
-      'August', 'September', 'October', 'November', 'December'];
 
     return this.props.userReviews.map(theReview => (
       <div className="media mt-3" key={theReview.id}>
@@ -71,16 +65,11 @@ export class RecipeReviews extends React.Component {
             <br />
             <small><small>
               {`on 
-              ${days[date.getDay(theReview.createdAt.slice(0, 4))]}
-              ${month[date.getMonth(theReview.createdAt.slice(0, 4))]} 
-              ${theReview.createdAt.slice(8, 10)}  
-              ${theReview.createdAt.slice(0, 4)} 
+                 ${new Date(theReview.createdAt).toDateString()}
               `}
             </small>
             </small>
-
           </h5>
-
 
           <p>{theReview.review}</p>
         </div>

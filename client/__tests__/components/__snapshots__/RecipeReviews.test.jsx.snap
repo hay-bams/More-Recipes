@@ -34,10 +34,7 @@ exports[`Recipe Details Component it should render RecipeRevews correctly 1`] = 
             <small>
               <small>
                 on 
-              Thursday
-              March 
-              da  
-              crea 
+                 Invalid Date
               
               </small>
             </small>
