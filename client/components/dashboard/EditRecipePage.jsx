@@ -3,7 +3,7 @@ import ConnectedEditRecipeForm from '../../containers/EditRecipeForm';
 import DashboardNav from './DashboardNav';
 
 const EditRecipePage = props => (
-  <div>
+  <div id="editRecipePage">
     <DashboardNav {...props} />
     <ConnectedEditRecipeForm {...props} />
   </div>

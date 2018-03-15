@@ -89,7 +89,11 @@ export class UserRecipes extends React.Component {
                     />{recipe.upvotes}
                   </span>
                   <span href="#" className="text-info">
-                    <i className="fa fa-eye col-4" aria-hidden="true" /> {recipe.views}
+                    <i
+                      className="fa fa-eye col-4"
+                      aria-hidden="true"
+                    />
+                    {recipe.views}
                   </span>
                   <span href="#" className="text-danger">
                     <i
@@ -99,13 +103,31 @@ export class UserRecipes extends React.Component {
                   </span>
                 </span>
               </p>
-              <Link to={`/edit_recipes/${recipe.id}`} className="btn btn-outline-info edit" style={{ marginLeft: `${5}px` }}>
+              <Link
+                id="editRecipe"
+                to={`/edit_recipes/${recipe.id}`}
+                className="btn btn-outline-info edit"
+                style={{ marginLeft: `${5}px` }}
+              >
                 <i className="fa fa-pencil-square-o" aria-hidden="true" />
               </Link>
-              <button className="btn btn-outline-info delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}>
-                <i className="fa fa-trash-o" aria-hidden="true" id={recipe.id} />
+              <button
+                className="btn btn-outline-info delete"
+                id={recipe.id}
+                onClick={this.showModal}
+                style={{ marginLeft: `${5}px` }}
+              >
+                <i
+                  className="fa fa-trash-o"
+                  aria-hidden="true"
+                  id={recipe.id}
+                />
               </button>
-              <Link to={`/view_recipes/${recipe.id}`} className="btn btn-outline-info view" style={{ marginLeft: `${5}px` }}>
+              <Link
+                to={`/view_recipes/${recipe.id}`}
+                className="btn btn-outline-info view"
+                style={{ marginLeft: `${5}px` }}
+              >
                 <i className="fa fa-eye" aria-hidden="true" />
               </Link>
             </div>
@@ -165,6 +187,4 @@ const ConnectedUserRecipes =
   connect(mapStateToProps, mapDispatchToProps)(UserRecipes);
 
 export default ConnectedUserRecipes;
-
-
 

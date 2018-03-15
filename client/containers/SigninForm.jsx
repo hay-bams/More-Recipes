@@ -119,6 +119,7 @@ export class SigninForm extends React.Component {
 
                   <div className="form-group">
                     <input
+                      id="signinButton"
                       type="submit"
                       value="Log in"
                       className="btn btn-success btn-block"

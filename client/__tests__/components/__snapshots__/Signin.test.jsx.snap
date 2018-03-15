@@ -60,6 +60,7 @@ exports[`Signin component it should render signinForm correctly 1`] = `
             >
               <input
                 className="btn btn-success btn-block"
+                id="signinButton"
                 type="submit"
                 value="Log in"
               />

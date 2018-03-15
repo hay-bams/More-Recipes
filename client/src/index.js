@@ -19,6 +19,7 @@ import EditUserPasswordPage from '../components/dashboard/EditUserPasswordPage';
 import ViewRecipePage from '../components/dashboard/ViewRecipePage';
 import FavouritePage from '../components/dashboard/FavouritePage';
 import UserProfilePage from '../components/dashboard/UserProfilePage';
+import NotFound from '../components/NotFound';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import '../css/custom.css';
 import '../js/script';
@@ -61,10 +62,11 @@ const Root = () => (
         <Route exact path="/favourites" component={FavouritePage} />
         <Route exact path="/user_profile" component={UserProfilePage} />
 
-        <Route render={() => <p>404, not found. build a whole component for this</p>} />
+        <Route render={NotFound} />
       </Switch>
     </div>
   </Router>
 );
 
-render(<Provider store={createStoreWithMiddleware}><Root /></Provider>, document.querySelector('#mainContainer'));
+render(<Provider store={createStoreWithMiddleware}><Root /></Provider>,
+  document.querySelector('#mainContainer'));

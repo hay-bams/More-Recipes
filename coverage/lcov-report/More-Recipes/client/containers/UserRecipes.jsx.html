@@ -213,7 +213,27 @@
 168
 169
 170
-171</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -333,6 +353,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -378,8 +420,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -474,7 +514,11 @@ export class UserRecipes extends React.Component {
                     /&gt;{recipe.upvotes}
                   &lt;/span&gt;
                   &lt;span href="#" className="text-info"&gt;
-                    &lt;i className="fa fa-eye col-4" aria-hidden="true" /&gt; {recipe.views}
+                    &lt;i
+                      className="fa fa-eye col-4"
+                      aria-hidden="true"
+                    /&gt;
+                    {recipe.views}
                   &lt;/span&gt;
                   &lt;span href="#" className="text-danger"&gt;
                     &lt;i
@@ -484,13 +528,31 @@ export class UserRecipes extends React.Component {
                   &lt;/span&gt;
                 &lt;/span&gt;
               &lt;/p&gt;
-              &lt;Link to={`/edit_recipes/${recipe.id}`} className="btn btn-outline-info edit" style={{ marginLeft: `${5}px` }}&gt;
+              &lt;Link
+                id="editRecipe"
+                to={`/edit_recipes/${recipe.id}`}
+                className="btn btn-outline-info edit"
+                style={{ marginLeft: `${5}px` }}
+              &gt;
                 &lt;i className="fa fa-pencil-square-o" aria-hidden="true" /&gt;
               &lt;/Link&gt;
-              &lt;button className="btn btn-outline-info delete" id={recipe.id} onClick={this.showModal} style={{ marginLeft: `${5}px` }}&gt;
-                &lt;i className="fa fa-trash-o" aria-hidden="true" id={recipe.id} /&gt;
+              &lt;button
+                className="btn btn-outline-info delete"
+                id={recipe.id}
+                onClick={this.showModal}
+                style={{ marginLeft: `${5}px` }}
+              &gt;
+                &lt;i
+                  className="fa fa-trash-o"
+                  aria-hidden="true"
+                  id={recipe.id}
+                /&gt;
               &lt;/button&gt;
-              &lt;Link to={`/view_recipes/${recipe.id}`} className="btn btn-outline-info view" style={{ marginLeft: `${5}px` }}&gt;
+              &lt;Link
+                to={`/view_recipes/${recipe.id}`}
+                className="btn btn-outline-info view"
+                style={{ marginLeft: `${5}px` }}
+              &gt;
                 &lt;i className="fa fa-eye" aria-hidden="true" /&gt;
               &lt;/Link&gt;
             &lt;/div&gt;
@@ -551,15 +613,17 @@ const ConnectedUserRecipes =
 &nbsp;
 export default ConnectedUserRecipes;
 &nbsp;
-&nbsp;
-&nbsp;
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
+<<<<<<< HEAD
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 14:50:33 GMT+0100 (WAT)
+=======
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 21:20:30 GMT+0100 (WAT)
+>>>>>>> chore(test): client side test
 </div>
 </div>
 <script src="../../../prettify.js"></script>

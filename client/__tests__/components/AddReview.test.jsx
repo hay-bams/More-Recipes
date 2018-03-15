@@ -48,7 +48,7 @@ describe('Add Review Component', () => {
 
   test('should call addReview for valid form submission', () => {
     const spy = sinon.spy(AddReview.prototype, 'addReview');
-    localStorage.setItem('userData', {})
+    localStorage.setItem('userData', {});
     const wrapper = shallow(<AddReview {...props} />);
     wrapper.instance().setState({
       review: 'some reviews'
@@ -59,5 +59,5 @@ describe('Add Review Component', () => {
     });
     expect(spy.called).toBeTruthy();
   });
-});  
- 
+});
+

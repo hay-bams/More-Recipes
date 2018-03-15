@@ -44,6 +44,7 @@ exports[`Latest Recipe Component it should render recipeCatalogue correctly 1`] 
             >
               <select
                 className="form-control"
+                id="sortButton"
                 name="sort"
               >
                 <option
@@ -52,11 +53,13 @@ exports[`Latest Recipe Component it should render recipeCatalogue correctly 1`] 
                   Sort By
                 </option>
                 <option
+                  id="upvotes"
                   value="upvotes"
                 >
                   Upvotes
                 </option>
                 <option
+                  id="downvotes"
                   value="downvotes"
                 >
                   Downvotes
@@ -69,6 +72,7 @@ exports[`Latest Recipe Component it should render recipeCatalogue correctly 1`] 
             >
               <select
                 className="form-control"
+                id="orderButton"
                 name="order"
               >
                 <option
@@ -77,11 +81,13 @@ exports[`Latest Recipe Component it should render recipeCatalogue correctly 1`] 
                   Order By
                 </option>
                 <option
+                  id="asc"
                   value="asc"
                 >
                   Ascending
                 </option>
                 <option
+                  id="desc"
                   value="desc"
                 >
                   Descending

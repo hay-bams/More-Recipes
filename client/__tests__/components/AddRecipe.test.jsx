@@ -112,7 +112,7 @@ describe('Add Recipe Component', () => {
     />);
     wrapper.instance().handleDrop(files);
     expect(wrapper.instance().state.image).toEqual({
-        name: 'file1', url: 'url'
+      name: 'file1', url: 'url'
     });
   });
 

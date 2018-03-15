@@ -7,7 +7,7 @@ import ConnectedAddReview from '../../containers/AddReview';
 
 const Details = props =>
   (
-    <div>
+    <div id="recipeDetails">
       <Navigation {...props}/>
       <ConnectedRecipeDetails {...props} />
       <hr />

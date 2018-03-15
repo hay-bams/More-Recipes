@@ -3,7 +3,7 @@ import UserProfile from './UserProfile';
 import DashboardNav from './DashboardNav';
 
 const UserProfilePage = props => (
-  <div>
+  <div id="userRecipePage">
     <DashboardNav {...props} />
     <UserProfile />
   </div>

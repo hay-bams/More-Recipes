@@ -4,7 +4,7 @@ import ConnectedAddRecipeForm from '../../containers/AddRecipeForm';
 import DashboardNav from './DashboardNav';
 
 const AddRecipePage = props => (
-  <div>
+  <div id="addRecipePage">
     <DashboardNav {...props} />
     <ConnectedAddRecipeForm {...props} />
   </div>

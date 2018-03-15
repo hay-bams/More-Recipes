@@ -5,7 +5,7 @@ import Footer from '../Footer';
 
 
 const ViewRecipePage = props => (
-  <div>
+  <div id="userRecipePage">
     <DashboardNav {...props}/>
     <ConnectedUserRecipes {...props}/>
     <Footer />

@@ -9,7 +9,12 @@ export const Navigation = props => (
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
     >
       <div className="container-fluid">
-        <NavLink to="/" className="navbar-brand">More Recipes</NavLink>
+        <NavLink
+          to="/"
+          className="navbar-brand"
+          id="home"
+        >More Recipes
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -29,13 +34,19 @@ export const Navigation = props => (
           <ul className="navbar-nav ml-auto">
             {props.location.pathname !== '/catalogue' ?
               <li className="nav-item">
-                <NavLink to="/catalogue" className="nav-link">Catalogue</NavLink>
+                <NavLink
+                  id="catalogue"
+                  to="/catalogue"
+                  className="nav-link"
+                >Catalogue
+                </NavLink>
               </li> : ''
           }
 
             <li className="nav-item active">
               { !props.userData.token && props.location.pathname !== '/signin' ?
                 <NavLink
+                  id="signinLink"
                   to="/signin"
                   className="nav-link"
                   href="login.html"
@@ -48,6 +59,7 @@ export const Navigation = props => (
             <li className="nav-item">
               { !props.userData.token && props.location.pathname !== '/signup' ?
                 <NavLink
+                  id="signupLink"
                   to="/signup"
                   className="nav-link"
                   href="register.html"
@@ -58,26 +70,68 @@ export const Navigation = props => (
 
             { props.userData.token ?
               <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i className="fa fa-user" /> {props.userData.user.firstName} <b className="caret" />
+                <Link
+                  className="nav-link dropdown-toggle"
+                  to="/"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i className="fa fa-user" />
+                  {props.userData.user.firstName}
+                  <b className="caret" />
                 </Link>
                 <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <Link className="dropdown-item" to="/add_recipe">Add Recipes</Link>
-                  <Link className="dropdown-item" to="/view_recipes">View Recipes</Link>
+                  <Link
+                    className="dropdown-item"
+                    to="/add_recipe"
+                    id="addRecipe"
+                  >
+                  Add Recipes
+                  </Link>
+                  <Link
+                    className="dropdown-item"
+                    to="/view_recipes"
+                    id="viewRecipe"
+                  >
+                  View Recipes
+                  </Link>
                   <div className="dropdown-divider" />
-                  <Link className="dropdown-item" to="/favourites">Favourite Recipes</Link>
+                  <Link
+                    className="dropdown-item"
+                    to="/favourites"
+                    id="favouriteRecipe"
+                  >
+                  Favourite Recipes
+                  </Link>
                   { props.userData.token ?
-                    <Link className="dropdown-item" to={`/edit_user/${props.userData.user.id}`}>
+                    <Link
+                      className="dropdown-item"
+                      to={`/edit_user/${props.userData.user.id}`}
+                      id="editProfile"
+                    >
                   Edit Profile
                     </Link> : ''
                 }
                   <div className="dropdown-divider" />
                   { props.userData.token ?
-                   <Link className="dropdown-item" to={`/edit_password/${props.userData.user.id}`}>
+                    <Link
+                      className="dropdown-item"
+                      to={`/edit_password/${props.userData.user.id}`}
+                      id="editPassword"
+                    >
                   Edit Password
                     </Link> : ''
                 }
-                  <Link className="dropdown-item" to="/signoutPage">Sign out</Link>
+                  <Link
+                    className="dropdown-item"
+                    to="/signoutPage"
+                    id="signoutLink"
+                  >
+                     Sign out
+                  </Link>
                 </div>
               </li> : ''
             }
@@ -94,7 +148,10 @@ const mapStateToProps = state => ({
 });
 
 Navigation.defaultProps = {
-  userData: {}
+  userData: {},
+  location: {
+    pathname: ''
+  }
 };
 
 Navigation.propTypes = {
@@ -104,7 +161,11 @@ Navigation.propTypes = {
       firstName: PropTypes.string,
       id: PropTypes.number,
       lastName: PropTypes.string
-    })
+    }),
+    token: PropTypes.string
+  }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string
   })
 };
 

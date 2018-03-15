@@ -276,7 +276,35 @@
 231
 232
 233
+<<<<<<< HEAD
 234</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+=======
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> chore(test): client side test
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -312,6 +340,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -322,7 +351,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -333,11 +368,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -353,7 +394,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -405,6 +449,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
+=======
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+>>>>>>> chore(test): client side test
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -544,7 +599,8 @@ export class RecipeCatalogue extends React.Component {
    */
   async componentDidMount() {
     this.setState({ loaded: false });
-    await this.props.getAllRecipes(this.state.sort, this.state.order, this.state.page);
+    await this.props
+      .getAllRecipes(this.state.sort, this.state.order, this.state.page);
     this.setState({ loaded: true });
   }
 &nbsp;
@@ -554,8 +610,14 @@ export class RecipeCatalogue extends React.Component {
    */
   async onSearch(event) {
     event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value, search: true, loaded: false });
-    await this.props.searchRecipes(this.state.page, event.target.value, this.state.sort, this.state.order);
+    this.setState({
+      [event.target.name]: event.target.value, search: true, loaded: false
+    });
+    await this.props
+      .searchRecipes(
+        this.state.page,
+        event.target.value, this.state.sort, this.state.order
+      );
     this.setState({ loaded: true });
   }
 &nbsp;
@@ -565,11 +627,17 @@ export class RecipeCatalogue extends React.Component {
    */
   onSelect(event) {
     event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value, loaded: false }, async () =&gt; {
+    this.setState({
+      [event.target.name]: event.target.value, loaded: false
+    }, async () =&gt; {
       <span class="missing-if-branch" title="if path not taken" >I</span>if (this.state.search) {
-<span class="cstat-no" title="statement not covered" >        await this.props.searchRecipes(this.state.page, this.state.recipeSearch, this.state.sort, this.state.order);</span>
+<span class="cstat-no" title="statement not covered" >        await this.props.searchRecipes(</span>
+          this.state.page,
+          this.state.recipeSearch, this.state.sort, this.state.order
+        );
       } else {
-        await this.props.getAllRecipes(this.state.sort, this.state.order, this.state.page);
+        await this.props
+          .getAllRecipes(this.state.sort, this.state.order, this.state.page);
       }
       this.setState({ loaded: true });
     });
@@ -584,9 +652,12 @@ export class RecipeCatalogue extends React.Component {
 <span class="cstat-no" title="statement not covered" >    this.setState({ loaded: false });</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({ page: selected });</span>
 <span class="cstat-no" title="statement not covered" >    if (this.state.search) {</span>
-<span class="cstat-no" title="statement not covered" >      await this.props.searchRecipes(selected, this.state.recipeSearch, this.state.sort, this.state.order);</span>
+<span class="cstat-no" title="statement not covered" >      await this.props.searchRecipes(selected,</span>
+        this.state.recipeSearch, this.state.sort, this.state.order
+      );
     } else {
-<span class="cstat-no" title="statement not covered" >      await this.props.getAllRecipes(this.state.sort, this.state.order, selected);</span>
+<span class="cstat-no" title="statement not covered" >      await this.props</span>
+        .getAllRecipes(this.state.sort, this.state.order, selected);
     }
 <span class="cstat-no" title="statement not covered" >    this.setState({ loaded: true });</span>
   }
@@ -633,18 +704,26 @@ export class RecipeCatalogue extends React.Component {
 &nbsp;
                 &lt;div className="row"&gt;
                   &lt;div className="form-group col-sm-6" onChange={this.onSelect}&gt;
-                    &lt;select name="sort" className="form-control"&gt;
+                    &lt;select
+                      name="sort"
+                      className="form-control" 
+                      id="sortButton"
+                    &gt;
                       &lt;option value=""&gt;Sort By&lt;/option&gt;
-                      &lt;option value="upvotes"&gt;Upvotes&lt;/option&gt;
-                      &lt;option value="downvotes"&gt;Downvotes&lt;/option&gt;
+                      &lt;option value="upvotes" id="upvotes"&gt;Upvotes&lt;/option&gt;
+                      &lt;option value="downvotes" id="downvotes"&gt;Downvotes&lt;/option&gt;
                     &lt;/select&gt;
                   &lt;/div&gt;
 &nbsp;
                   &lt;div className="form-group col-sm-6" onChange={this.onSelect}&gt;
-                    &lt;select name="order" className="form-control"&gt;
+                    &lt;select
+                      name="order"
+                      className="form-control"
+                      id="orderButton"
+                    &gt;
                       &lt;option value=""&gt;Order By&lt;/option&gt;
-                      &lt;option value="asc"&gt;Ascending&lt;/option&gt;
-                      &lt;option value="desc"&gt;Descending&lt;/option&gt;
+                      &lt;option value="asc" id="asc"&gt;Ascending&lt;/option&gt;
+                      &lt;option value="desc" id="desc"&gt;Descending&lt;/option&gt;
                     &lt;/select&gt;
                   &lt;/div&gt;
                 &lt;/div&gt;
@@ -748,7 +827,11 @@ export default ConnectedRecipeCatalogue;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
+<<<<<<< HEAD
   generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 14:50:33 GMT+0100 (WAT)
+=======
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 21:20:30 GMT+0100 (WAT)
+>>>>>>> chore(test): client side test
 </div>
 </div>
 <script src="../../../prettify.js"></script>

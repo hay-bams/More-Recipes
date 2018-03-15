@@ -14,7 +14,9 @@ const RecipeCard = props =>
         className="card recipe-card recipe-trans card-height"
         style={{ border: 'none' }}
       >
-        <h4 className="card-header headerColor text-center truncate-header">{props.title}</h4>
+        <h4 className="card-header headerColor text-center truncate-header">
+          {props.title}
+        </h4>
         <img
           className="card-img-top img-fluid img-recipe"
           src={props.image}
@@ -32,7 +34,10 @@ const RecipeCard = props =>
                 />{props.upvotes}
               </span>
               <span className="text-info">
-                <i className="fa fa-eye col-4" aria-hidden="true" /> {props.views}
+                <i
+                  className="fa fa-eye col-4"
+                  aria-hidden="true"
+                /> {props.views}
               </span>
               <span className="text-danger">
                 <i
@@ -42,7 +47,12 @@ const RecipeCard = props =>
               </span>
             </span>
           </span>
-          <Link to={`/details/${props.id}`} className="btn btn-outline-info row ml-4">view details</Link>
+          <Link
+            id="viewDetails"
+            to={`/details/${props.id}`}
+            className="btn btn-outline-info row ml-4"
+          >view details
+          </Link>
         </div>
       </div>
     </div>

@@ -18,7 +18,8 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "coveralls": "nyc npm test&& nyc report --reporter=text-lcov | coveralls",
     "migrate": "./node_modules/.bin/sequelize db:migrate",
-    "test:client": "jest client/__tests__/**/** --coverage --watch"
+    "test:client": "jest client/__tests__/**/** --watch",
+    "e2e": "./node_modules/.bin/nightwatch"
   },
   "engines": {
     "node": "8.9.1",
@@ -36,12 +37,12 @@
   "homepage": "https://github.com/purpose50/More-Recipes#readme",
   "jest": {
     "setupFiles": [
-    "<rootDir>test-env.js",
-    "<rootDir>/client/__tests__/setupTests.js"
-  ],
-  "snapshotSerializers": [
-    "enzyme-to-json/serializer"
-  ]
+      "<rootDir>test-env.js",
+      "<rootDir>/client/__tests__/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -68,6 +69,7 @@
     "eslint-plugin-react": "^7.5.1",
     "express": "^4.16.2",
     "extract-text-webpack-plugin": "^3.0.2",
+    "faker": "^4.1.0",
     "file-loader": "^1.1.5",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
@@ -111,6 +113,8 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.1",
     "jest-localstorage-mock": "^2.2.0",
+    "nightwatch": "^0.9.20",
+    "selenium-standalone": "^6.13.0",
     "sinon": "^4.4.2"
   },
   "babel": {

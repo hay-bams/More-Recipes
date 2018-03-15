@@ -89,7 +89,10 @@ export class FavouriteRecipes extends React.Component {
               style={{ height: `${200}px` }}
             />
             <div className="card-body mx-auto">
-              <h4 className="card-title text-center">{favouriteRecipe.title}</h4>
+              <h4
+                className="card-title text-center"
+              >{favouriteRecipe.title}
+              </h4>
               <p className="card-text">
                 <span className="row">
                   <span href="#" className="text-success">
@@ -99,7 +102,10 @@ export class FavouriteRecipes extends React.Component {
                     />{favouriteRecipe.upvotes}
                   </span>
                   <span href="#" className="text-info">
-                    <i className="fa fa-eye text-info col-4" aria-hidden="true" /> {favouriteRecipe.views}
+                    <i
+                      className="fa fa-eye text-info col-4"
+                      aria-hidden="true"
+                    /> {favouriteRecipe.views}
                   </span>
                   <span href="#" className="text-danger">
                     <i
@@ -109,11 +115,19 @@ export class FavouriteRecipes extends React.Component {
                   </span>
                 </span>
               </p>
-              <Link to={`/details/${favouriteRecipe.id}`} className="btn btn-outline-info" style={{ marginLeft: `${5}px` }}>
+              <Link
+                to={`/details/${favouriteRecipe.id}`}
+                className="btn btn-outline-info"
+                style={{ marginLeft: `${5}px` }}
+              >
                View
               </Link>
 
-              <button className="btn btn-outline-info ml-2" id={favouriteRecipe.id} onClick={this.showModal}>
+              <button
+                className="btn btn-outline-info ml-2 removeFavourite"
+                id={favouriteRecipe.id}
+                onClick={this.showModal}
+              >
                 Remove
               </button>
             </div>

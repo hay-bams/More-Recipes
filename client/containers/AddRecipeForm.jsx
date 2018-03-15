@@ -120,7 +120,14 @@ export class AddRecipeForm extends React.Component {
       this.props.history.push('/view_recipes');
     } catch (err) {
       if (err.response.data.error.message) {
-        this.setState({ loaded: true, uploadError: 'image is required' });
+        this.setState({
+          loaded: true,
+          uploadError: 'image is required',
+          addingRecipe: false,
+          ingredientError: '',
+          titleError: '',
+          instructionError: ''
+        });
       }
     }
   }
@@ -153,7 +160,7 @@ export class AddRecipeForm extends React.Component {
                     <div className="upload-recipe-img">
                       <div className="row justify-content-center">
                         <div className="col-12">
-                          <p className="text-center">
+                          <p className="text-center" id="addImage">
                             <span className="h2"><i className="ion ion-camera" /></span>
                             <br />
                          Click to upload image

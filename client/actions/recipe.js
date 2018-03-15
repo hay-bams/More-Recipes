@@ -41,7 +41,8 @@ export const getAllRecipes = async (sort, order, page) => {
       },
     };
   }
-  response = await axios.get(`api/v1/recipes?sort=${sort}&order=${order}&page=${page}`);
+  response = await axios.get(`api/v1/recipes?sort=
+  ${sort}&order=${order}&page=${page}`);
   return {
     type: CONSTANT.GET_ALL_RECIPES,
     payload: {
@@ -54,7 +55,8 @@ export const getAllRecipes = async (sort, order, page) => {
 export const searchRecipes = async (page, search, sort, order) => {
   let response;
   if (!sort && !order) {
-    response = await axios.get(`api/v1/search/recipes?search=${search}&page=${page}`);
+    response = await axios.get(`api/v1/search/recipes?search=
+    ${search}&page=${page}`);
     return {
       type: CONSTANT.SEARCH_RECIPES,
       payload: {
@@ -63,7 +65,8 @@ export const searchRecipes = async (page, search, sort, order) => {
       },
     };
   }
-  response = await axios.get(`api/v1/search/recipes?sort=${sort}&order=${order}&search=${search}&page=${page}`);
+  response = await axios.get(`api/v1/search/recipes?sort=
+  ${sort}&order=${order}&search=${search}&page=${page}`);
   return {
     type: CONSTANT.SEARCH_RECIPES,
     payload: {

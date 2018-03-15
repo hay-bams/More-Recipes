@@ -77,7 +77,6 @@ exports[`Favourite Recipe Component it should render Favourites correctly 1`] = 
                     aria-hidden="true"
                     className="fa fa-eye col-4"
                   />
-                   
                 </span>
                 <span
                   className="text-danger"
@@ -93,6 +92,7 @@ exports[`Favourite Recipe Component it should render Favourites correctly 1`] = 
             </p>
             <Link
               className="btn btn-outline-info edit"
+              id="editRecipe"
               replace={false}
               style={
                 Object {
