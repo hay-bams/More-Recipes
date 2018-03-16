@@ -1,5 +1,7 @@
 import { user } from '../../reducers/user';
 import APPCONSTANT from '../../constant';
+import { user1, user2, user3, user4, user5 } from
+  '../__mocks__/response/mock_recipe_reducer';
 
 describe('users', () => {
   test('DEFAULT Should return unchanged state', () => {
@@ -12,8 +14,8 @@ describe('users', () => {
   });
 
   test('CASE: SIGN_UP Should update userData in store', () => {
-    const state = { rows: [{ id: 1 }] };
-    const newUser = { id: 1 };
+    const state = { rows: [user1] };
+    const newUser = user2;
     const token = 'some token';
     const newState = user(state, {
       type: APPCONSTANT.SIGN_UP,
@@ -26,8 +28,8 @@ describe('users', () => {
   });
 
   test('CASE: SIGN_IN Should update userData in store', () => {
-    const state = { rows: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }] };
-    const newUser = { id: 1 };
+    const state = { rows: [user1, user2, user3, user4] };
+    const newUser = user5;
     const token = 'some token';
     const newState = user(state, {
       type: APPCONSTANT.SIGN_IN,

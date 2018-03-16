@@ -1,8 +1,10 @@
 import { latestRecipes } from '../../reducers/latestRecipes';
 import CONSTANT from '../../constant';
+import { recipe1, recipe2 } from
+  '../__mocks__/response/mock_recipe_reducer';
 
 describe('latestRecipes', () => {
-  test('DEFAULT: Should return unchanged state', () => {
+  test('DEFAULT: Should return initial state', () => {
     const state = {};
     const newState = latestRecipes(state, {
       type: 'UNKNOWN_ACTION'
@@ -15,9 +17,9 @@ describe('latestRecipes', () => {
     const state = {};
     const newState = latestRecipes(state, {
       type: CONSTANT.GET_LATEST_RECIPES,
-      payload: { data: [{ id: 1 }, { id: 2 }] }
+      payload: { data: [recipe1, recipe2] }
     });
 
-    expect(newState).toEqual({ rows: [{ id: 1 }, { id: 2 }] });
+    expect(newState).toEqual({ rows: [recipe1, recipe2] });
   });
 });

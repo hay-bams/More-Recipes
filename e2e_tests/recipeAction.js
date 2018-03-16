@@ -136,7 +136,9 @@ module.exports = {
       .waitForElementVisible('#favourite', 7000)
       .pause(1000)
       .assert.visible('#favourite')
+      .pause(1000)
       .waitForElementPresent('#favourite', 5000)
+      .pause(1000)
       .assert.elementPresent('#favourite')
       .click('#favourite')
       .pause(1000),

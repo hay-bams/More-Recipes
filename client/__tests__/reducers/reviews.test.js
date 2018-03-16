@@ -1,5 +1,7 @@
 import { reviews } from '../../reducers/reviews';
 import APPCONSTANT from '../../constant';
+import { recipe1, recipe2 } from
+  '../__mocks__/response/mock_recipe_reducer';
 
 describe('reviews', () => {
   test('DEFAULT Should return unchanged state', () => {
@@ -13,23 +15,23 @@ describe('reviews', () => {
 
   test('CASE: ADD_REVIEW Should update review in store', () => {
     const state = [];
-    const newReview = { data: { id: 1 } };
+    const newReview = { data: recipe1 };
     const newState = reviews(state, {
       type: APPCONSTANT.ADD_REVIEW,
       payload: newReview
     });
 
-    expect(newState).toEqual([{ id: 1 }]);
+    expect(newState).toEqual([recipe1]);
   });
 
   test('CASE: GET_RECIPES_REVIEWS Should update reviews in store', () => {
     const state = [];
-    const allReviews = [{ id: 1 }, { id: 2 }];
+    const allReviews = [recipe1, recipe2];
     const newState = reviews(state, {
       type: APPCONSTANT.GET_RECIPES_REVIEWS,
       payload: allReviews
     });
 
-    expect(newState).toEqual([{ id: 1 }, { id: 2 }]);
+    expect(newState).toEqual([recipe1, recipe2]);
   });
 });
