@@ -85,6 +85,7 @@ export class AddReview extends React.Component {
                   onChange={this.onChange}
                   className="form-control"
                   name="review"
+                  id="review"
                   value={this.state.review}
                 />
                 { this.state.reviewError &&
@@ -95,7 +96,11 @@ export class AddReview extends React.Component {
               </div>
 
               <div className="form-group">
-                <input type="submit" className="btn btn-success" />
+                <input
+                  id="addReview"
+                  type="submit"
+                  className="btn btn-success"
+                />
               </div>
             </form>
           </div>

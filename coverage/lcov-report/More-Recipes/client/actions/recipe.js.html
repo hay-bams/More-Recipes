@@ -395,14 +395,8 @@
 350
 351
 352
-<<<<<<< HEAD
-353</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-=======
 353
-354
-355
-356</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
->>>>>>> chore(test): client side test
+354</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
@@ -460,7 +454,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -750,7 +743,6 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -800,12 +792,8 @@ export const getAllRecipes = async (sort, order, page) =&gt; {
       },
     };
   }
-<<<<<<< HEAD
-  response = await axios.get(`api/v1/recipes?sort=${sort}&amp;order=${order}&amp;page=${page}`);
-=======
   response = await axios.get(`api/v1/recipes?sort=
   ${sort}&amp;order=${order}&amp;page=${page}`);
->>>>>>> chore(test): client side test
   return {
     type: CONSTANT.GET_ALL_RECIPES,
     payload: {
@@ -818,12 +806,7 @@ export const getAllRecipes = async (sort, order, page) =&gt; {
 export const searchRecipes = async (page, search, sort, order) =&gt; {
   let response;
   if (!sort &amp;&amp; !order) {
-<<<<<<< HEAD
     response = await axios.get(`api/v1/search/recipes?search=${search}&amp;page=${page}`);
-=======
-    response = await axios.get(`api/v1/search/recipes?search=
-    ${search}&amp;page=${page}`);
->>>>>>> chore(test): client side test
     return {
       type: CONSTANT.SEARCH_RECIPES,
       payload: {
@@ -832,12 +815,7 @@ export const searchRecipes = async (page, search, sort, order) =&gt; {
       },
     };
   }
-<<<<<<< HEAD
   response = await axios.get(`api/v1/search/recipes?sort=${sort}&amp;order=${order}&amp;search=${search}&amp;page=${page}`);
-=======
-  response = await axios.get(`api/v1/search/recipes?sort=
-  ${sort}&amp;order=${order}&amp;search=${search}&amp;page=${page}`);
->>>>>>> chore(test): client side test
   return {
     type: CONSTANT.SEARCH_RECIPES,
     payload: {
@@ -864,24 +842,19 @@ export const getPopularRecipes = async () =&gt; {
 };
 &nbsp;
 export const getSingleRecipe = async (recipeId) =&gt; {
-  const userData = localStorage.userData<span class="branch-1 cbranch-no" title="branch not covered" > ?</span>
-    JSON.parse(localStorage.userData) : '';
-<span class="branch-1 cbranch-no" title="branch not covered" ></span>
-  const userToken = userData ? userData.token : '';
-  <span class="missing-if-branch" title="else path not taken" >E</span>let response;
-  if (userToken) {
+  const userData = localStorage.userData ?
+    JSON.parse(localStorage.userData) : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+&nbsp;
+  const userToken = userData ? userData.token : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+  let response;
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (userToken) {
     response = await axios({
       method: 'get',
       url: `api/v1/recipes/${recipeId}`,
       headers: { token: userToken }
     });
-<<<<<<< HEAD
   } else {
 <span class="cstat-no" title="statement not covered" >    response = await axios.get(`api/v1/recipes/${recipeId}`);</span>
-=======
-  } <span class="cstat-no" title="statement not covered" >else {</span>
-    response = await axios.get(`api/v1/recipes/${recipeId}`);
->>>>>>> chore(test): client side test
   }
 &nbsp;
   return {
@@ -906,8 +879,8 @@ export const getUserRecipes = async () =&gt; {
       type: CONSTANT.GET_USER_RECIPES,
       payload: userRecipes.data
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -934,8 +907,8 @@ export const deleteRecipe = async (recipeId) =&gt; {
       type: CONSTANT.DELETE_RECIPE,
       payload: recipeId
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -963,8 +936,8 @@ export const editRecipe = async (recipe, recipeId) =&gt; {
       type: CONSTANT.EDIT_RECIPE,
       payload: response.data
     });
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -992,8 +965,8 @@ export const upvoteRecipe = async (recipeId, userId) =&gt; {
       type: CONSTANT.UPVOTE_RECIPE,
       payload: recipeId
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -1001,8 +974,8 @@ export const upvoteRecipe = async (recipeId, userId) =&gt; {
         type: CONSTANT.SIGN_OUT,
         payload: null
       };
-<span class="cstat-no" title="statement not covered" >    }</span>
-    toastr.error(response.data.message);
+    }
+<span class="cstat-no" title="statement not covered" >    toastr.error(response.data.message);</span>
   }
 };
 &nbsp;
@@ -1022,8 +995,8 @@ export const downvoteRecipe = async (recipeId) =&gt; {
       type: CONSTANT.DOWNVOTE_RECIPE,
       payload: recipeId
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -1031,8 +1004,8 @@ export const downvoteRecipe = async (recipeId) =&gt; {
         type: CONSTANT.SIGN_OUT,
         payload: null
       };
-<span class="cstat-no" title="statement not covered" >    }</span>
-    toastr.error(response.data.message);
+    }
+<span class="cstat-no" title="statement not covered" >    toastr.error(response.data.message);</span>
   }
 };
 &nbsp;
@@ -1055,8 +1028,8 @@ export const getFavouriteRecipes = async (page) =&gt; {
         pages: response.data.pages
       },
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -1083,8 +1056,8 @@ export const addFavoriteRecipe = async (recipeId) =&gt; {
       type: CONSTANT.ADD_FAV_RECIPE,
       payload: recipeId
     });
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -1092,13 +1065,9 @@ export const addFavoriteRecipe = async (recipeId) =&gt; {
         type: CONSTANT.SIGN_OUT,
         payload: null
       };
-<span class="cstat-no" title="statement not covered" >    }</span>
+    }
 <span class="cstat-no" title="statement not covered" >    toastr.error(response.data.message);</span>
-<<<<<<< HEAD
 <span class="cstat-no" title="statement not covered" >    return {</span>
-=======
-    return {
->>>>>>> chore(test): client side test
       type: CONSTANT.ADD_FAVOURITE_ERRORS,
       payload: response,
       name: 'addFavoriteError'
@@ -1121,8 +1090,8 @@ export const deleteFavoriteRecipe = async (recipeId) =&gt; {
       type: CONSTANT.DELETE_FAVORITE_RECIPE,
       payload: recipeId
     };
-  } <span class="missing-if-branch" title="else path not taken" >E</span>catch ({ response }) {
-    if (response.data.error !== undefined &amp;&amp;
+  } catch ({ response }) {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (response.data.error !== undefined &amp;&amp;
       response.data.error.name === 'TokenExpiredError') {
       localStorage.removeItem('userData');
       toastr.warning('session has expired, please signin');
@@ -1139,11 +1108,7 @@ export const deleteFavoriteRecipe = async (recipeId) =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-<<<<<<< HEAD
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Mar 13 2018 14:50:33 GMT+0100 (WAT)
-=======
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Mar 14 2018 21:20:30 GMT+0100 (WAT)
->>>>>>> chore(test): client side test
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Mar 16 2018 12:17:58 GMT+0100 (WAT)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

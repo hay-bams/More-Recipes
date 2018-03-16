@@ -16,7 +16,7 @@ const DashboardNav = props => (
       className="navbar navbar-expand-md navbar-light fixed-top navigationBar"
     >
       <div className="container-fluid">
-        <Link to="/" className="navbar-brand">More Recipes</Link>
+        <Link to="/" className="navbar-brand" id="home">More Recipes</Link>
         <button
           className="navbar-toggler"
           type="button"
