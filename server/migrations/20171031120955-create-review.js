@@ -8,7 +8,7 @@ module.exports = {
         autoIncrement: true
       },
       review: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false
       },
       createdAt: {
