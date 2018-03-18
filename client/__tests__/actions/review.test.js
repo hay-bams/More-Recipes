@@ -13,7 +13,7 @@ describe('Review actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('Add revieww', () => {
-    test('Should dispatch addReview action when addReview action is called', async () => {
+    test('Should dispatch addReview action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -75,7 +75,7 @@ describe('Review actions', () => {
   });
 
   describe('Get recipe review', () => {
-    test('Should dispatch getRecipeReviews action when getRecipeReviews action is called', async () => {
+    test('Should dispatch getRecipeReviews action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({

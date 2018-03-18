@@ -16,7 +16,7 @@ describe('User actions', () => {
   afterEach(() => moxios.uninstall());
 
   describe('Sign up a user', () => {
-    test('Should dispatch signup action when signup action is called', async () => {
+    test('Should dispatch signup action', async () => {
       moxios.wait(() => {
         const getUserRequest = moxios.requests.mostRecent();
         getUserRequest.respondWith({
@@ -36,7 +36,7 @@ describe('User actions', () => {
       await store.dispatch(signup());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
-    
+
     test('Should dispatch signout action when token expires', async () => {
       const tokenExpireResponse = {
         data: {
@@ -44,7 +44,7 @@ describe('User actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -63,13 +63,13 @@ describe('User actions', () => {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
       };
-      await store.dispatch(signup()); 
+      await store.dispatch(signup());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Sign in a user', () => {
-    test('Should dispatch signin action when signin action is called', async () => {
+    test('Should dispatch signin action', async () => {
       moxios.wait(() => {
         const getUserRequest = moxios.requests.mostRecent();
         getUserRequest.respondWith({
@@ -97,7 +97,7 @@ describe('User actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -113,16 +113,16 @@ describe('User actions', () => {
 
       const store = mockStore({});
       const expectedAction = {
-        type: APPCONSTANT.SIGN_OUT, 
+        type: APPCONSTANT.SIGN_OUT,
         payload: null
       };
-      await store.dispatch(signin()); 
+      await store.dispatch(signin());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Edit user profile', () => {
-    test('Should dispatch editUserProfile action when editUserProfile action is called', async () => {
+    test('Should dispatch editUserProfile action', async () => {
       moxios.wait(() => {
         const getUserRequest = moxios.requests.mostRecent();
         getUserRequest.respondWith({
@@ -154,7 +154,7 @@ describe('User actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -176,13 +176,13 @@ describe('User actions', () => {
       const newUser = {
         firstName: 'Ayobami'
       };
-      await store.dispatch(editUserProfile(newUser, 1)); 
+      await store.dispatch(editUserProfile(newUser, 1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Edit user password', () => {
-    test('Should dispatch editUserPassword action when editUserPassword action is called', async () => {
+    test('Should dispatch editUserPassword action', async () => {
       moxios.wait(() => {
         const getUserRequest = moxios.requests.mostRecent();
         getUserRequest.respondWith({
@@ -214,7 +214,7 @@ describe('User actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -236,34 +236,37 @@ describe('User actions', () => {
       const newUser = {
         password: 'password'
       };
-      await store.dispatch(editUserPassword(newUser, 1)); 
+      await store.dispatch(editUserPassword(newUser, 1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Get all users', () => {
-    test('Should dispatch getUsers action when getUsers action is called', async () => {
-      moxios.wait(() => {
-        const getUserRequest = moxios.requests.mostRecent();
-        getUserRequest.respondWith({
-          status: 200,
-          response: allUsers
+    test(
+      'Should dispatch getUsers action when getUsers action is called',
+      async () => {
+        moxios.wait(() => {
+          const getUserRequest = moxios.requests.mostRecent();
+          getUserRequest.respondWith({
+            status: 200,
+            response: allUsers
+          });
         });
-      });
 
-      localStorage.userData = JSON.stringify({
-        token: 'some_token'
-      });
+        localStorage.userData = JSON.stringify({
+          token: 'some_token'
+        });
 
-      const store = mockStore({});
-      const expectedAction = {
-        type: APPCONSTANT.FIND_USERS,
-        payload: allUsers
-      };
+        const store = mockStore({});
+        const expectedAction = {
+          type: APPCONSTANT.FIND_USERS,
+          payload: allUsers
+        };
 
-      await store.dispatch(getUsers());
-      expect(store.getActions()[0]).toEqual(expectedAction);
-    });
+        await store.dispatch(getUsers());
+        expect(store.getActions()[0]).toEqual(expectedAction);
+      }
+    );
 
     test('Should dispatch signout action when token expires', async () => {
       const tokenExpireResponse = {
@@ -272,7 +275,7 @@ describe('User actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -291,10 +294,8 @@ describe('User actions', () => {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
       };
-      const newUser = {
-        firstName: 'Ayobami'
-      };
-      await store.dispatch(getUsers()); 
+
+      await store.dispatch(getUsers());
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });

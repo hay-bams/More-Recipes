@@ -1,8 +1,10 @@
 import { popularRecipes } from '../../reducers/popularRecipes';
 import CONSTANT from '../../constant';
+import { recipe1, recipe2, } from
+  '../__mocks__/response/mock_recipe_reducer';
 
 describe('popularRecipes', () => {
-  test('DEFAULT Should return unchanged state', () => {
+  test('DEFAULT Should return initial state', () => {
     const state = {};
     const newState = popularRecipes(state, {
       type: 'UNKNOWN_ACTION'
@@ -12,15 +14,15 @@ describe('popularRecipes', () => {
   });
 
   test(
-'CASE: GET_POPULAR_RECIPES Should update popularRecipes in store',
+    'CASE: GET_POPULAR_RECIPES Should update popularRecipes in store',
     () => {
       const state = {};
       const newState = popularRecipes(state, {
         type: CONSTANT.GET_POPULAR_RECIPES,
-        payload: { data: [{ id: 1 }, { id: 2 }] }
+        payload: { data: [recipe1, recipe2] }
       });
 
-      expect(newState).toEqual({ rows: [{ id: 1 }, { id: 2 }] });
+      expect(newState).toEqual({ rows: [recipe1, recipe2] });
     }
-);
+  );
 });

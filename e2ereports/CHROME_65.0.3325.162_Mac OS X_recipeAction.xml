@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="9"
+            failures="1"
+            tests="19">
+
+  <testsuite name="recipeAction"
+    errors="9" failures="1" hostname="" id="" package="recipeAction" skipped="18"
+    tests="19" time="14.47" timestamp="Sat, 17 Mar 2018 13:22:11 GMT">
+  
+    <testcase name="Sign up a new user" classname="recipeAction" time="14.47" assertions="3">
+
+    
+
+      <failure message="Timed out while waiting for element &lt;.container-fluid.main-login-container&gt; to be present for 1000 milliseconds.">    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:43:8)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)</failure>
+
+    
+    </testcase>
+  
+
+  
+    <system-err>
+      ERROR: Unable to locate element: &#34;#signupLink&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:25:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=firstName]&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:27:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=lastName]&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:29:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=email]&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:31:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=password]&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:33:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;input[name=confirmPassword]&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:35:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;#registerbutton&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:37:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;.nav-link.dropdown-toggle&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:39:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+ERROR: Unable to locate element: &#34;#signoutLink&#34; using: css selector
+    at Object.Sign up a new user (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/e2e_tests/recipeAction.js:41:8)
+    at Module.call (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/module.js:62:34)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/lib/runner/testcase.js:70:29
+    at _fulfilled (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:834:54)
+    at self.promiseDispatch.done (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:863:30)
+    at Promise.promise.promiseDispatch (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:796:13)
+    at /Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:556:49
+    at runSingle (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:137:13)
+    at flush (/Users/andeladeveloper/Desktop/more-recipes/More-Recipes/node_modules/nightwatch/node_modules/q/q.js:125:13)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    </system-err>
+  
+
+  
+    
+    <testcase
+      name="sign in" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="View all recipes" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Search recipes" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Sort Recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Order Recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="View single recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="upvote recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="downvote recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="favourite a recipe" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Add review" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Add Recipe Action" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Favourite Recipe Action" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Edit Recipe Action" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Edit User Profile Action" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Edit Password" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="redirect unauthenticated user to signin page" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="validate user input on sign up" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="validate user input on sign in" classname="recipeAction">
+      <skipped />
+    </testcase>
+    
+  
+  </testsuite>
+</testsuites>

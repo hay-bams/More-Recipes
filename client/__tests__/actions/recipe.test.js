@@ -26,7 +26,7 @@ describe('All actions', () => {
         });
         localStorage.userData = JSON.stringify({
           token: 'some_token'
-        }); 
+        });
         const store = mockStore({});
 
         const expectedAction = {
@@ -51,7 +51,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -81,51 +81,57 @@ describe('All actions', () => {
   });
 
   describe('Get all recipes', () => {
-    test('Should dispatch getAllRecipes action when getAllRecipe is called', async () => {
-      moxios.wait(() => {
-        const getRecipesRequest = moxios.requests.mostRecent();
-        getRecipesRequest.respondWith({
-          status: 200,
-          response: getRecipeResponse
+    test(
+      'Should dispatch getAllRecipes action when getAllRecipe is called',
+      async () => {
+        moxios.wait(() => {
+          const getRecipesRequest = moxios.requests.mostRecent();
+          getRecipesRequest.respondWith({
+            status: 200,
+            response: getRecipeResponse
+          });
         });
-      });
 
-      const store = mockStore({});
-      const expectedAction = {
-        type: APPCONSTANT.GET_ALL_RECIPES,
-        payload: {
-          recipes: getRecipeResponse,
-          pages: getRecipeResponse.pages
-        }
-      };
-      await store.dispatch(getAllRecipes('', '', 1));
-      expect(store.getActions()[0]).toEqual(expectedAction); 
-    });
+        const store = mockStore({});
+        const expectedAction = {
+          type: APPCONSTANT.GET_ALL_RECIPES,
+          payload: {
+            recipes: getRecipeResponse,
+            pages: getRecipeResponse.pages
+          }
+        };
+        await store.dispatch(getAllRecipes('', '', 1));
+        expect(store.getActions()[0]).toEqual(expectedAction);
+      }
+    );
 
-    test('Should dispatch getAllRecipes action and sort by upvotes', async () => {
-      moxios.wait(() => {
-        const getRecipesRequest = moxios.requests.mostRecent();
-        getRecipesRequest.respondWith({
-          status: 200,
-          response: getRecipeResponse
+    test(
+      'Should dispatch getAllRecipes action and sort by upvotes',
+      async () => {
+        moxios.wait(() => {
+          const getRecipesRequest = moxios.requests.mostRecent();
+          getRecipesRequest.respondWith({
+            status: 200,
+            response: getRecipeResponse
+          });
         });
-      });
 
-      const store = mockStore({});
-      const expectedAction = {
-        type: APPCONSTANT.GET_ALL_RECIPES,
-        payload: {
-          recipes: getRecipeResponse,
-          pages: getRecipeResponse.pages
-        }
-      };
-      await store.dispatch(getAllRecipes('upvotes', 'asc', 1));
-      expect(store.getActions()[0]).toEqual(expectedAction); 
-    });
+        const store = mockStore({});
+        const expectedAction = {
+          type: APPCONSTANT.GET_ALL_RECIPES,
+          payload: {
+            recipes: getRecipeResponse,
+            pages: getRecipeResponse.pages
+          }
+        };
+        await store.dispatch(getAllRecipes('upvotes', 'asc', 1));
+        expect(store.getActions()[0]).toEqual(expectedAction);
+      }
+    );
   });
 
   describe('Search recipes', () => {
-    test('Should dispatch searchRecipes action when searchRecipes action is called', async () => {
+    test('Should dispatch searchRecipes action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -146,30 +152,33 @@ describe('All actions', () => {
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
 
-    test('Should dispatch searchRecipes action and and sort by upvotes', async () => {
-      moxios.wait(() => {
-        const getRecipesRequest = moxios.requests.mostRecent();
-        getRecipesRequest.respondWith({
-          status: 200,
-          response: getRecipeResponse
+    test(
+      'Should dispatch searchRecipes action and and sort by upvotes',
+      async () => {
+        moxios.wait(() => {
+          const getRecipesRequest = moxios.requests.mostRecent();
+          getRecipesRequest.respondWith({
+            status: 200,
+            response: getRecipeResponse
+          });
         });
-      });
 
-      const store = mockStore({});
-      const expectedAction = {
-        type: APPCONSTANT.SEARCH_RECIPES,
-        payload: {
-          recipes: getRecipeResponse,
-          pages: getRecipeResponse.pages
-        }
-      };
-      await store.dispatch(searchRecipes(1, 'stew', 'upvotes', 'asc'));
-      expect(store.getActions()[0]).toEqual(expectedAction);
-    });
+        const store = mockStore({});
+        const expectedAction = {
+          type: APPCONSTANT.SEARCH_RECIPES,
+          payload: {
+            recipes: getRecipeResponse,
+            pages: getRecipeResponse.pages
+          }
+        };
+        await store.dispatch(searchRecipes(1, 'stew', 'upvotes', 'asc'));
+        expect(store.getActions()[0]).toEqual(expectedAction);
+      }
+    );
   });
 
   describe('Get latest recipes', () => {
-    test('Should dispatch getLatestRecipe action when getLatestRecipe action is called', async () => {
+    test('Should dispatch getLatestRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -189,7 +198,7 @@ describe('All actions', () => {
   });
 
   describe('Get popular recipes', () => {
-    test('Should dispatch getPopularRecipes action when getPopularRecipes is called', async () => {
+    test('Should dispatch getPopularRecipes action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -209,7 +218,7 @@ describe('All actions', () => {
   });
 
   describe('Get single recipe', () => {
-    test('Should dispatch getSingleRecipe action when getSingleAction is called', async () => {
+    test('Should dispatch getSingleRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -229,7 +238,7 @@ describe('All actions', () => {
   });
 
   describe('Get user recipes', () => {
-    test('Should dispatch getUserRecipe action when getUserRecipe action is dispatch', async () => {
+    test('Should dispatch getUserRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -259,7 +268,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -284,7 +293,7 @@ describe('All actions', () => {
   });
 
   describe('Delete a recipe', () => {
-    test('Should dispatch deleteRecipe action when deleteRecipe action is called', async () => {
+    test('Should dispatch deleteRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -314,7 +323,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -339,7 +348,7 @@ describe('All actions', () => {
   });
 
   describe('Edit a recipe', () => {
-    test('Should dispatch editRecipe action when editRecipe action is called', async () => {
+    test('Should dispatch editRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -374,7 +383,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -400,12 +409,12 @@ describe('All actions', () => {
         payload: null
       };
       await store.dispatch(editRecipe(newRecipe, 1));
-      expect(store.getActions()[0]).toEqual(expectedAction); 
+      expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Upvote recipe', () => {
-    test('Should dispatch upvoteRecipe action when upvoteRecipe action is called', async () => {
+    test('Should dispatch upvoteRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -436,7 +445,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -451,12 +460,6 @@ describe('All actions', () => {
       });
 
       const store = mockStore({});
-      const newRecipe = {
-        title: 'title',
-        image: 'image',
-        instructions: 'instructiona',
-        ingredients: 'ingredeints'
-      };
       const expectedAction = {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
@@ -467,7 +470,7 @@ describe('All actions', () => {
   });
 
   describe('Downvote recipe', () => {
-    test('Should dispatch downvoteRecipe action when downvoteRecipe action is called', async () => {
+    test('Should dispatch downvoteRecipe action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -498,7 +501,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -513,23 +516,17 @@ describe('All actions', () => {
       });
 
       const store = mockStore({});
-      const newRecipe = {
-        title: 'title',
-        image: 'image',
-        instructions: 'instructiona',
-        ingredients: 'ingredeints'
-      };
       const expectedAction = {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
       };
-      await store.dispatch(downvoteRecipe(15, 1)); 
+      await store.dispatch(downvoteRecipe(15, 1));
       expect(store.getActions()[0]).toEqual(expectedAction);
     });
   });
 
   describe('Get favourite recipes', () => {
-    test('Should dispatch getFavouriteRecipes action when getFavouriteRecipe is called', async () => {
+    test('Should dispatch getFavouriteRecipes action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -562,7 +559,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -577,7 +574,7 @@ describe('All actions', () => {
       });
 
       const store = mockStore({});
-     
+
       const expectedAction = {
         type: APPCONSTANT.SIGN_OUT,
         payload: null
@@ -588,7 +585,7 @@ describe('All actions', () => {
   });
 
   describe('add favourite recipes', () => {
-    test('Should dispatch addFavouriteRecipes action when addFavouriteRecipe is called', async () => {
+    test('Should dispatch addFavouriteRecipes action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -619,7 +616,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
@@ -644,7 +641,7 @@ describe('All actions', () => {
   });
 
   describe('delete favourite recipes', () => {
-    test('Should dispatch deleteFavouriteRecipes action when deleteFavouriteRecipe is called', async () => {
+    test('Should dispatch deleteFavouriteRecipes action', async () => {
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.respondWith({
@@ -675,7 +672,7 @@ describe('All actions', () => {
             name: 'TokenExpiredError'
           }
         }
-      }
+      };
       moxios.wait(() => {
         const getRecipesRequest = moxios.requests.mostRecent();
         getRecipesRequest.reject({
