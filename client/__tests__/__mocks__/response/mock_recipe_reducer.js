@@ -22,3 +22,9 @@ export const recipe4 = {
   image: 'xrflnmasbmhfw2rjlr8r.jpg',
   ingredients: 'water, oil'
 };
+export const recipe5 = {
+  id: 4,
+  title: 'semo',
+  image: 'xrflnmasbmhfw2rjlr8r.jpg',
+  ingredients: 'water, oil'
+};
