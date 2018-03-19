@@ -5,8 +5,10 @@ import { bindActionCreators } from 'redux';
 import { signout } from '../actions/user';
 
 const SignoutPage = (props) => {
+  const userData = JSON.parse(localStorage.userData);
+  const userToken = userData.token;
   localStorage.removeItem('userData');
-  props.signout();
+  props.signout(userToken);
   props.history.push('/signin');
   return <div />;
 };
