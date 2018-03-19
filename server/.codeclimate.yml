@@ -30,3 +30,4 @@ exclude_paths:
   - "server/migrations"
   - "server/swagger.json"
   - "server/public/"
+  
