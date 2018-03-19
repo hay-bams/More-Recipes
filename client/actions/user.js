@@ -151,8 +151,12 @@ export const getUsers = async () => {
   }
 };
 
-export const signout = async () => {
-  try {
+export const signout = async (token) => {
+  try {    
+    await axios({
+      method: 'post',
+      url: `/api/v1/users/signout/${token}`,
+    });
     return {
       type: CONSTANT.SIGN_OUT,
       payload: null

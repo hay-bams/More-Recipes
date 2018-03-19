@@ -19,6 +19,7 @@ router.delete('/api/v1/recipes/:recipeId', Middleware.verifyToken, RecipeControl
 router.post('/api/v1/recipes/:recipeId/reviews', Middleware.verifyToken, RecipeController.addReview);
 router.post('/api/v1/users/signup', Middleware.validateUserSignup, UserController.signup);
 router.post('/api/v1/users/signin', Middleware.validateUserSignin, UserController.signin);
+router.post('/api/v1/users/signout/:token', UserController.signout);
 router.get('/api/v1/users', UserController.findAllUsers);
 router.put('/api/v1/user/:userId', Middleware.verifyToken, UserController.updateProfile);
 router.put('/api/v1/:userId/user', Middleware.verifyToken, UserController.updatePassword);

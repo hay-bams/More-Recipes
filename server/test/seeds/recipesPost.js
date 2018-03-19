@@ -1,26 +1,4 @@
-// const recipesPost = [
-//   {
-//     title: 'beans',
-//     image: 'recipeImage',
-//     instructions: 'how to make beans',
-//     ingredients: 'water, oil'
-//   },
-
-//   {
-//     title: 'rice',
-//     image: 'recipeImage',
-//     instructions: 'how to make rice',
-//     ingredients: 'water, oil'
-//   },
-//   {
-//     title: 'test title',
-//     image: 'test image',
-//     instructions: 'test instructions',
-//     ingredients: 'test ingredients',
-//   }
-// ];
-
-const editRecipe = [
+export const editRecipe = [
   {
     recipeName: 'Kiwi Smoothie',
     category: 'smoothies',

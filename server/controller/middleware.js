@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import models from '../models';
 
 const secret = process.env.SECRET;
 
@@ -43,27 +44,51 @@ class Middleware {
    * @param {*} res
    * @param {*} next
    */
-  static verifyToken(req, res, next) {
-    const { token } = req.headers;
-    if (!token) {
-      return res.status(401).send({
-        success: 'false',
-        message: 'user not signed in'
-      });
-    }
+  static async verifyToken(req, res, next) {
+    try {
+      const { token } = req.headers;
 
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) {
+      if (!token) {
         return res.status(401).send({
           success: 'false',
-          message: 'Invalid username or password.',
-          error: err
+          message: 'user not signed in'
         });
       }
 
-      req.decoded = decoded;
-      next();
-    });
+      const foundToken = await models.blacklist.findOne({
+        where: {
+          token
+        }
+      });
+
+      if (foundToken) {
+        return res.status(401).send({
+          success: 'false',
+          message: 'Session has expired, please sign in',
+          error: {
+            name: 'TokenExpiredError'
+          }
+        });
+      }
+
+      jwt.verify(token, secret, (err, decoded) => {
+        if (err) {
+          return res.status(401).send({
+            success: 'false',
+            message: 'Invalid username or password.',
+            error: err
+          });
+        }
+
+        req.decoded = decoded;
+        next();
+      });
+    } catch (err) {
+      return res.status(500).send({
+        success: 'false',
+        message: 'Internal server error.'
+      });
+    }
   }
 
   /**

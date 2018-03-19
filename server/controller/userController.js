@@ -179,7 +179,7 @@ class UserController {
       const userPassword = {
         password: hashedPassword || userFound.password
       };
-    
+     
       await userFound.update(userPassword);
 
       res.status(201).send({
@@ -226,6 +226,22 @@ class UserController {
       success: 'true',
       message: 'All Users',
       data: publicUserData
+    });
+  }
+
+  /**
+   * @param {obj} req
+   * @param {obj} res
+   * @returns  {obj}signout
+   */
+  static async signout(req, res) {
+    const token = await models.blacklist.create({
+      token: req.params.token
+    });
+    res.status(200).send({
+      success: 'true',
+      message: 'Token Blacklisted',
+      token
     });
   }
 }
