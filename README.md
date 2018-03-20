@@ -12,6 +12,9 @@ More-Recipes​ and get feedback in form of reviews and votes from other users w
 recipe. Users can also keep a list of their favorite recipes on the application.
 
 ---
+
+## API Documentation
+The API documentation is [here](https://purpose-more-recipes.herokuapp.com/api-docs)
 ## Application Features
 * Users can create account by signing up
 * Users can login to access their own accounts
