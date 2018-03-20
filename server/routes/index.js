@@ -1,5 +1,4 @@
 import express from 'express';
-import HomePage from '../controller/homePage';
 import RecipeController from '../controller/recipeController';
 import UserController from '../controller/userController';
 import Middleware from '../controller/middleware';

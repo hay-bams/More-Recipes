@@ -1038,7 +1038,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1053,7 +1053,34 @@
           }
         }
       },
-      
+      "Data": {
+        "title": "Data",
+        "required": [
+          "id",
+          "recipeId",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          }
+        }
+      },
       "Downvote Recipe": {
         "title": "Downvote Recipe",
         "required": [
@@ -1070,7 +1097,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1082,6 +1109,34 @@
             "userId": 2,
             "updatedAt": "2018-02-28T15:23:01.478Z",
             "createdAt": "2018-02-28T15:23:01.478Z"
+          }
+        }
+      },
+      "Data2": {
+        "title": "Data",
+        "required": [
+          "id",
+          "recipeId",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "updatedAt": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
           }
         }
       },
@@ -1101,7 +1156,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1123,6 +1178,62 @@
           }
         }
       },
+      "Data3": {
+        "title": "Data",
+        "required": [
+            "upvotes",
+            "downvotes",
+            "views",
+            "userViews",
+            "id",
+            "title",
+            "image",
+            "instructions",
+            "ingredients",
+            "userId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Add Review": {
         "title": "Add Reviews",
         "required": [
@@ -1139,7 +1250,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1152,6 +1263,38 @@
             "recipeId": 2,
             "updatedAt": "2018-02-28T17:55:57.521Z",
             "createdAt": "2018-02-28T17:55:57.521Z"
+          }
+        }
+      },
+      "Data4": {
+        "title": "Data",
+        "required": [
+            "id",
+            "review",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "review": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
           }
         }
       },
@@ -1174,7 +1317,7 @@
             "type": "string"
           },
           "user": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1232,7 +1375,7 @@
             "type": "string"
           },
           "user": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1287,7 +1430,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1299,6 +1442,34 @@
               "userId": 2,
               "updatedAt": "2018-02-28T17:56:37.990Z",
               "createdAt": "2018-02-28T17:56:37.990Z"
+          }
+        }
+      },
+      "Data5": {
+        "title": "Data",
+        "required": [
+            "id",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
           }
         }
       },
@@ -1318,7 +1489,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1385,6 +1556,62 @@
           "pages": 2
         }
       },
+      "Data6": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Get Latest Recipes": {
         "title": "Get Latest Recipes",
         "required": [
@@ -1401,7 +1628,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1467,6 +1694,62 @@
           ]
         }
       },
+      "Data7": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Get Popular Recipes": {
         "title": "Get Popular Recipes",
         "required": [
@@ -1483,7 +1766,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1549,6 +1832,62 @@
           ]
         }
       },
+      "Data8": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Update Recipes": {
         "title": "Update Recipes",
         "required": [
@@ -1565,7 +1904,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1587,6 +1926,62 @@
           }
         }
       },
+      "Data9": {
+        "title": "Data",
+        "required": [
+          "upvotes",
+          "downvotes",
+          "views",
+          "userViews",
+          "id",
+          "title",
+          "image",
+          "instructions",
+          "ingredients",
+          "userId",
+          "updatedAt",
+          "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Get Review": {
         "title": "Get Reviews",
         "required": [
@@ -1603,7 +1998,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1637,6 +2032,38 @@
           ]
         }
       },
+      "Data10": {
+        "title": "Data",
+        "required": [
+            "id",
+            "review",
+            "userId",
+            "recipeId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "review": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "recipeId": {
+            "type": "integer"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        }
+      },
       "Update Recipe": {
         "title": "Update Recipe",
         "required": [
@@ -1653,7 +2080,7 @@
             "type": "string"
           },
           "data": {
-            "$ref": "#/components/schemas/Data"
+           "type": "object"
           }
         },
         "example": {
@@ -1672,6 +2099,62 @@
               "createdAt": "2018-02-28T10:48:41.060Z",
               "updatedAt": "2018-02-28T17:57:20.589Z",
               "userId": 2
+          }
+        }
+      },
+      "Data11": {
+        "title": "Data",
+        "required": [
+            "upvotes",
+            "downvotes",
+            "views",
+            "userViews",
+            "id",
+            "title",
+            "image",
+            "instructions",
+            "ingredients",
+            "userId",
+            "updatedAt",
+            "createdAt"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "userId": {
+            "type": "integer"
+          },
+          "upvotes": {
+            "type": "integer"
+          },
+          "downvotes": {
+            "type": "integer"
+          },
+          "views": {
+            "type": "integer"
+          },
+          "userViews": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "instructions": {
+            "type": "string"
+          },
+          "ingredients": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
           }
         }
       },
