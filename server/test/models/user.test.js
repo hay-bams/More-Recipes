@@ -1,5 +1,3 @@
-
-// import { expect } from 'chai';
 import chai from 'chai';
 import models from '../../models';
 import { validUser, noEmail, noFirstName, noLastName } from '../seeds/user';

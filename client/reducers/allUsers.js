@@ -1,8 +1,8 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 const allUsers = (state = [], action) => {
   switch (action.type) {
-    case APPCONSTANT.FIND_USERS:
+    case CONSTANT.FIND_USERS:
       return [
         ...action.payload.data
       ];

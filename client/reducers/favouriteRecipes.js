@@ -1,8 +1,8 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const favouriteRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
-    case APPCONSTANT.GET_FAV_RECIPES:
+    case CONSTANT.GET_FAV_RECIPES:
       return action.payload.recipes.data !== undefined ?
         {
           ...state,
@@ -11,7 +11,7 @@ export const favouriteRecipes = (state = { rows: [] }, action) => {
         } :
         state;
 
-    case APPCONSTANT.DELETE_FAVORITE_RECIPE:
+    case CONSTANT.DELETE_FAVORITE_RECIPE:
       return {
         ...state,
         rows: state.rows.filter(recipe => recipe.id !== action.payload)

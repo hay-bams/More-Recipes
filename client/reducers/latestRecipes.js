@@ -1,8 +1,8 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const latestRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
-    case APPCONSTANT.GET_LATEST_RECIPES:
+    case CONSTANT.GET_LATEST_RECIPES:
       return action.payload.data !== undefined ?
         { ...state, rows: action.payload.data } :
         state;

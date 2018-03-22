@@ -1,8 +1,6 @@
 
-// import { expect } from 'chai';
 import chai from 'chai';
 import models from '../../models';
-import { favourite } from '../seeds/favourite';
 import { recipe } from '../seeds/recipesPost';
 import { validUser } from '../seeds/user';
 

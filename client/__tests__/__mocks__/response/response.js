@@ -82,15 +82,12 @@ export const recipeUpdate = {
 export const updatedUserData = {
   success: 'true',
   message: 'User updated successfully',
-  data: {
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9yaAYEodUKZ1jr6gcaT14',
+  user: {
     id: 1,
-    firstName: 'Ayobami',
+    firstName: 'Ay',
     lastName: 'Ade',
-    image: null,
-    email: 'purposenigeria@gmail.com',
-    password: '$2a$08$XuyYmVqR7yX0xWcQnKr./erFBfGSi6biPYR7BNXbKA2SSyxQNuZny',
-    createdAt: '2018-02-27T22:25:07.684Z',
-    updatedAt: '2018-03-05T15:15:55.197Z'
+    email: 'purposenigeria@gmail.com'
   }
 };
 

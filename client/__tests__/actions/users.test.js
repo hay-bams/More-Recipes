@@ -138,7 +138,10 @@ describe('User actions', () => {
       const store = mockStore({});
       const expectedAction = {
         type: APPCONSTANT.EDIT_USER_PROFILE,
-        payload: updatedUserData
+        payload: {
+          user: updatedUserData.user,
+          token: updatedUserData.token
+        }
       };
       const newUser = {
         firstName: 'Ayobami'

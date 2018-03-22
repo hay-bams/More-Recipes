@@ -1,13 +1,13 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const userRecipes = (state = { rows: [] }, action) => {
   switch (action.type) {
-    case APPCONSTANT.GET_USER_RECIPES:
+    case CONSTANT.GET_USER_RECIPES:
       return action.payload.data !== undefined ?
         { ...state, rows: action.payload.data } :
         state;
 
-    case APPCONSTANT.DELETE_RECIPE:
+    case CONSTANT.DELETE_RECIPE:
       return {
         ...state,
         rows: state.rows.filter(recipe => recipe.id !== action.payload)
