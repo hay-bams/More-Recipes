@@ -1,38 +1,38 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 const errors = (state = {}, action) => {
   switch (action.type) {
-    case APPCONSTANT.ADD_REVIEW_ERRORS:
+    case CONSTANT.ADD_REVIEW_ERRORS:
       return {
         ...state,
         [action.name]: action.payload
       };
 
-    case APPCONSTANT.GET_REVIEW_ERRORS:
+    case CONSTANT.GET_REVIEW_ERRORS:
       return {
         ...state,
         [action.name]: action.payload
       };
 
-    case APPCONSTANT.SIGN_IN_ERRORS:
+    case CONSTANT.SIGN_IN_ERRORS:
       return {
         ...state,
         [action.name]: action.payload
       };
 
-    case APPCONSTANT.SIGN_UP_ERRORS:
+    case CONSTANT.SIGN_UP_ERRORS:
       return {
         ...state,
         [action.name]: action.payload
       };
 
-    case APPCONSTANT.ADD_FAVOURITE_ERRORS:
+    case CONSTANT.ADD_FAVOURITE_ERRORS:
       return {
         ...state,
         [action.name]: action.payload
       };
 
-    case APPCONSTANT.CLEAR_ERRORS:
+    case CONSTANT.CLEAR_ERRORS:
       return {
         errors: action.payload
       };

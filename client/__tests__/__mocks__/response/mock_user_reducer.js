@@ -30,3 +30,10 @@ export const user5 = {
   lastName: 'Adelakun',
   email: 'Aypbami@gmail.com'
 };
+
+export const user6 = {
+  id: 1,
+  firstName: 'Ayo',
+  lastName: 'Adelakun',
+  email: 'Aypbami@gmail.com'
+};

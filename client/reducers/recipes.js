@@ -1,8 +1,8 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const recipes = (state = { rows: [] }, action) => {
   switch (action.type) {
-    case APPCONSTANT.ADD_RECIPE:
+    case CONSTANT.ADD_RECIPE:
       return {
         ...state,
         rows: [
@@ -11,7 +11,7 @@ export const recipes = (state = { rows: [] }, action) => {
         ]
       };
 
-    case APPCONSTANT.GET_ALL_RECIPES:
+    case CONSTANT.GET_ALL_RECIPES:
       return action.payload.recipes.data !== undefined ?
         {
           ...state,
@@ -20,7 +20,7 @@ export const recipes = (state = { rows: [] }, action) => {
         } :
         { rows: null };
 
-    case APPCONSTANT.SEARCH_RECIPES:
+    case CONSTANT.SEARCH_RECIPES:
 
       return action.payload.recipes.data !== undefined ?
         {

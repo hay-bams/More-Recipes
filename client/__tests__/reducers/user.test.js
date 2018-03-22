@@ -1,7 +1,7 @@
 import { user } from '../../reducers/user';
 import APPCONSTANT from '../../constant';
-import { user1, user2, user3, user4, user5 } from
-  '../__mocks__/response/mock_recipe_reducer';
+import { user1, user2, user3, user4, user5, user6 } from
+  '../__mocks__/response/mock_user_reducer';
 
 describe('users', () => {
   test('DEFAULT Should return unchanged state', () => {
@@ -14,7 +14,7 @@ describe('users', () => {
   });
 
   test('CASE: SIGN_UP Should update userData in store', () => {
-    const state = { rows: [user1] };
+    const state = {};
     const newUser = user2;
     const token = 'some token';
     const newState = user(state, {
@@ -28,7 +28,7 @@ describe('users', () => {
   });
 
   test('CASE: SIGN_IN Should update userData in store', () => {
-    const state = { rows: [user1, user2, user3, user4] };
+    const state = {};
     const newUser = user5;
     const token = 'some token';
     const newState = user(state, {
@@ -39,6 +39,20 @@ describe('users', () => {
     });
 
     expect(newState).toEqual({ newUser, token });
+  });
+
+  test('CASE: EDIT_USER_PROFILE Should update userData in store', () => {
+    const newUser = user6;
+    const token = 'some token';
+    const state = { user: user5, token };
+    const newState = user(state, {
+      type: APPCONSTANT.EDIT_USER_PROFILE,
+      payload: {
+        user: newUser, token
+      }
+    });
+
+    expect(newState).toEqual({ user: newUser, token }); 
   });
 
   test('CASE: SIGN_OUT Should update userData in store', () => {

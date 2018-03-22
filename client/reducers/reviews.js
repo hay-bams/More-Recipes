@@ -1,14 +1,14 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const reviews = (state = [], action) => {
   switch (action.type) {
-    case APPCONSTANT.ADD_REVIEW:
+    case CONSTANT.ADD_REVIEW:
       return [
         ...state,
         action.payload.data
       ];
 
-    case APPCONSTANT.GET_RECIPES_REVIEWS:
+    case CONSTANT.GET_RECIPES_REVIEWS:
       return [
         ...action.payload
       ];

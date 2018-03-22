@@ -143,10 +143,20 @@ class UserController {
     
       const updatedProfile = await userFound.update(user);
 
+      const publicUserData = {
+        id: updatedProfile.id,
+        firstName: updatedProfile.firstName,
+        lastName: updatedProfile.lastName,
+        email: updatedProfile.email
+      };
+
+      const token = jwt.sign(publicUserData, secret, { expiresIn: 87640 });
+
       res.status(201).send({
         success: 'true',
         message: 'User updated successfully',
-        data: updatedProfile
+        token,
+        user: publicUserData
       });
     } catch (err) {
       res.status(500).send({

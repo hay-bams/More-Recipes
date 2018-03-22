@@ -1,21 +1,25 @@
-import APPCONSTANT from '../constant';
+import CONSTANT from '../constant';
 
 export const user = (state = {}, action) => {
   switch (action.type) {
-    case APPCONSTANT.SIGN_UP:
+    case CONSTANT.SIGN_UP:
       return {
-        ...action.payload
+        ...state, ...action.payload
       };
 
-    case APPCONSTANT.SIGN_IN:
+    case CONSTANT.SIGN_IN:
       return {
-        ...action.payload
+        ...state, ...action.payload
       };
 
-    case APPCONSTANT.SIGN_OUT:
+    case CONSTANT.EDIT_USER_PROFILE:
+      return {
+        ...state, user: action.payload.user, token: action.payload.token
+      };
+
+    case CONSTANT.SIGN_OUT:
       state = {};
       return state;
-
 
     default:
       return state;

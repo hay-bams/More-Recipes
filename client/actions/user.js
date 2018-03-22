@@ -8,7 +8,6 @@ export const signup = async (theUser) => {
       theUser
     );
     const { token, user } = response.data;
-    localStorage.setItem('userToken', token);
     localStorage.setItem('userData', JSON.stringify(response.data));
     toastr.success(response.data.message);
     return {
@@ -80,10 +79,14 @@ export const editUserProfile = async (theUser, userId) => {
       data: theUser,
       headers: { token: userToken }
     });
+    const { token, user } = response.data;
+    localStorage.setItem('userData', JSON.stringify(response.data));
     toastr.success(response.data.message);
     return ({
       type: CONSTANT.EDIT_USER_PROFILE,
-      payload: response.data
+      payload: {
+        user, token
+      }
     });
   } catch ({ response }) {
     if (response.data.error !== undefined &&
@@ -152,7 +155,7 @@ export const getUsers = async () => {
 };
 
 export const signout = async (token) => {
-  try {    
+  try {
     await axios({
       method: 'post',
       url: `/api/v1/users/signout/${token}`,
